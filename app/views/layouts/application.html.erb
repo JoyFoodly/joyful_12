@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Joyfoodly</title>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+<%= render 'layouts/jquery_with_cdn_fallback' %>
+<%= javascript_include_tag 'application' %>
+
+</body>
+</html>
