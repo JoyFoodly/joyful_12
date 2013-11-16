@@ -8,7 +8,26 @@
 </head>
 <body>
 
-<%= yield %>
+  <div class="container">
+
+    <header class="masthead">
+      <h1>JoyFoodly</h1>
+      <p>where we take you to pleasure town</p>
+    </header>
+
+    <section class='main-content'>
+      <%= yield %>
+    </section>
+
+    <hr />
+
+    <footer>
+      <p>&copy; JoyFoodly <%= Date.current.year %></p>
+    </footer>
+
+  </div>
+
+
 <%= render 'layouts/jquery_with_cdn_fallback' %>
 <%= javascript_include_tag 'application' %>
 
