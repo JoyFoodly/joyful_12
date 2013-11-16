@@ -9,4 +9,9 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Joyfoodly::Application.config.secret_key_base = '46c7d5a3a6fa9d96df6abeb45dbca00e32f2cdb9c910eb3aa157e3edcc7b4ad910cf9585f422d8f5ef892eacecb9c5742182273297dfc9f95b9e8c9c1b34cda2'
+if Rails.env.production?
+  secret_key_base = ENV['SECRET_KEY_BASE']
+else
+  secret_key_base = '46c7d5a3a6fa9d96df6abeb45dbca00e32f2cdb9c910eb3aa157e3edcc7b4ad910cf9585f422d8f5ef892eacecb9c5742182273297dfc9f95b9e8c9c1b34cda2'
+end
+Joyfoodly::Application.config.secret_key_base = secret_key_base
