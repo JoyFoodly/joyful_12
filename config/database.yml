@@ -20,7 +20,7 @@ test:
 
 production:
   adapter: postgresql
-    encoding: unicode
-    database: joyfoodly_production
-    pool: 5
-    password:
+  encoding: unicode
+  database: joyfoodly_production
+  pool: 5
+  password:
