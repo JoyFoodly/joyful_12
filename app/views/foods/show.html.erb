@@ -1,0 +1,38 @@
+<div class="food-page">
+  <nav>
+    <ul class="nav">
+      <% @foods.each do |food| %>
+          <%= link_to food.name, food_path(food) %>
+      <% end %>
+    </ul>
+  </nav>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Food: <%= @food.name %></h2>
+      <%= image_tag 'http://placekitten.com/400/600' %>
+    </div>
+
+    <aside class="col-md-6 fun-facts">
+      <p>Health: Coming soon...</p>
+      <p>Fun Facts: Coming soon...</p>
+    </aside>
+  </div>
+
+
+  <div class="row">
+    <% @food.cooking_methods.each do |cooking_method| %>
+      <div class="col-md-4">
+        <%= cooking_method.name %>
+      </div>
+    <% end %>
+  </div>
+
+  <% @food.cooking_methods.each do |cooking_method| %>
+    <div style='display:none;'>
+      <h4><%= cooking_method.name %></h4>
+      <p><%= cooking_method.description %></p>
+    </div>
+  <% end %>
+
+</div>
