@@ -15,6 +15,10 @@ class Yummly
 
 
   class SearchResult < Struct.new(:search_result_json)
+    def id
+      search_result_json['id']
+    end
+
     def image
       search_result_json['smallImageUrls'].try('first')
     end
@@ -28,7 +32,7 @@ class Yummly
     end
 
     def source_url
-      search_result_json['sourceRecipeUrl']
+      search_result_json['source']['sourceRecipeUrl']
     end
   end
 
@@ -36,6 +40,10 @@ class Yummly
   def initialize(term, options)
     @term = term
     @options = options
+  end
+
+  def self.find(yummly_id)
+    SearchResult.new(new(yummly_id, {}).send(:yummly_find_response))
   end
 
   def self.search(term, options = {})
@@ -49,12 +57,20 @@ class Yummly
 private
 
   def yummly_search_response
-    p "GETTING", _app_id: app_id, _app_key: app_key, q: term, allowedAllergy: Array(options[:allergy])
     res = Faraday.get('http://api.yummly.com/v1/api/recipes', _app_id: app_id, _app_key: app_key, q: term, allowedAllergy: Array(options[:allergy]))
     if res.success?
       JSON.parse(res.body)['matches']
     else
       []
+    end
+  end
+
+  def yummly_find_response
+    res = Faraday.get("http://api.yummly.com/v1/api/recipe/#{term}", _app_id: app_id, _app_key: app_key)
+    if res.success?
+      JSON.parse(res.body)
+    else
+      {}
     end
   end
 
