@@ -30,7 +30,7 @@ roast_instructions = %Q{
 <p>Ingredients: 1 head cauliflower / 2 tsp salt / 2 TBS olive oil / optional spices: cumin, curry powder, tumeric.</p>
 <div class='row bottom-buffer'>
   <div class='col-md-4'>
-    <img src='/assets/cooking-methods/cauliflower-roasted1-d175d730f8a92baa0bd40f5d6c323813.jpg' class='img-responsive' />
+    <img src='/assets/cooking-methods/cauliflower-roasted1-a4de0d5ed0925f28f481ef2fe7c193fc.jpg' class='img-responsive' />
   </div>
   <div class='col-md-8'>
     In a bowl, toss cauliflower florets with 2 tablespoons olive oil, and two teaspoons of salt. We also like
@@ -40,7 +40,7 @@ roast_instructions = %Q{
 
 <div class='row bottom-buffer'>
   <div class='col-md-4'>
-    <img src='/assets/cooking-methods/cauliflower-roasted2-c7bc1e29ea33ded2b05181b5f3e0c6ef.jpg' class='img-responsive' />
+    <img src='/assets/cooking-methods/cauliflower-roasted2-469bd569ce3fdb13127a891bcb577810.jpg' class='img-responsive' />
   </div>
   <div class='col-md-8'>
     Distribute evenly on a cookie sheet, allowing some space between the florets.
@@ -49,7 +49,7 @@ roast_instructions = %Q{
 
 <div class='row bottom-buffer'>
   <div class='col-md-4'>
-    <img src='/assets/cooking-methods/cauliflower-roasted3-6ba4a241305e805427994e48d693b54d.jpg' class='img-responsive' />
+    <img src='/assets/cooking-methods/cauliflower-roasted3-d5db82fb250a690983a7cbd0b81b3455.jpg' class='img-responsive' />
   </div>
   <div class='col-md-8'>
     Put in the oven. Check at 10 minutes. When the florets start to brown, flip cauliflower over.
@@ -68,7 +68,7 @@ mash_instructions = %Q{
   1 tablespoon butter / 1 teaspoon of salt and 1/4 teaspoon of black pepper / 1/4 cup milk / Optional: chives to garnish</p>
 <div class='row bottom-buffer'>
   <div class='col-md-4'>
-    <img src='/assets/cooking-methods/cauliflower-mashed1-d00ea8fb076893a27cea3dc364103588.jpg' class='img-responsive' />
+    <img src='/assets/cooking-methods/cauliflower-mashed1-9453a65b1abf449a1692dbe3ce419a03.jpg' class='img-responsive' />
   </div>
   <div class='col-md-8'>
     Bring water to a boil in the pot you use to steam vegetables.
@@ -77,7 +77,7 @@ mash_instructions = %Q{
 
 <div class='row bottom-buffer'>
   <div class='col-md-4'>
-    <img src='/assets/cooking-methods/cauliflower-mashed2-131101907390c47471586ff9691e464a.jpg' class='img-responsive' />
+    <img src='/assets/cooking-methods/cauliflower-mashed2-9d5cbb99ef504c247f8e72f44f5b5f96.jpg' class='img-responsive' />
   </div>
   <div class='col-md-8'>
     Place cauliflower florets into the steamer basket and place in the pot; lower temperature to medium-low,
@@ -87,7 +87,7 @@ mash_instructions = %Q{
 
 <div class='row bottom-buffer'>
   <div class='col-md-4'>
-    <img src='/assets/cooking-methods/cauliflower-mashed3-94517042f37f0efc1c014eec1a23a44f.jpg' class='img-responsive' />
+    <img src='/assets/cooking-methods/cauliflower-mashed3-22577398516d3cb4343b726ca03390b9.jpg' class='img-responsive' />
   </div>
   <div class='col-md-8'>
     Let cook 10-12 minutes. It’s done when you can easily insert a knife into the floret.
@@ -96,7 +96,7 @@ mash_instructions = %Q{
 
 <div class='row bottom-buffer'>
   <div class='col-md-4'>
-    <img src='/assets/cooking-methods/cauliflower-mashed4-814abfcfa90e9ae08c790e5c74055b82.jpg' class='img-responsive' />
+    <img src='/assets/cooking-methods/cauliflower-mashed4-cd6f488a229e6967eb9a2a9da2261ce3.jpg' class='img-responsive' />
   </div>
   <div class='col-md-8'>
     Transfer cauliflower to a food processor or blender.
@@ -115,7 +115,7 @@ soup_instructions = %Q{
   1 tablespoon curry powder / 1 white onion, diced / 1 quart vegetable broth / **Optional: ⅛ cup heavy cream to finish</p>
 <div class='row bottom-buffer'>
   <div class='col-md-4'>
-    <img src='/assets/cooking-methods/cauliflower-soup1-6ba4a241305e805427994e48d693b54d.jpg' class='img-responsive' />
+    <img src='/assets/cooking-methods/cauliflower-soup1-d5db82fb250a690983a7cbd0b81b3455.jpg' class='img-responsive' />
   </div>
   <div class='col-md-8'>
     Preheat oven to 400F. Cut cauliflower into florets. See our technique timeout on how to cut cauliflower here.
@@ -126,7 +126,7 @@ soup_instructions = %Q{
 
 <div class='row bottom-buffer'>
   <div class='col-md-4'>
-    <img src='/assets/cooking-methods/cauliflower-soup2-a327a6dfdde40695aecc719b177f606d.jpg' class='img-responsive' />
+    <img src='/assets/cooking-methods/cauliflower-soup2-d2c81c20ba4e23bb6a7f936559ca87f3.jpg' class='img-responsive' />
   </div>
   <div class='col-md-8'>
     In a tall soup pot, heat the curry powder and 2 tablespoons olive oil on medium-low. This will allow the curry
@@ -137,7 +137,7 @@ soup_instructions = %Q{
 
 <div class='row bottom-buffer'>
   <div class='col-md-4'>
-    <img src='/assets/cooking-methods/cauliflower-soup3-66273849f3d11e992a5d3bedf37bb97b.jpg' class='img-responsive' />
+    <img src='/assets/cooking-methods/cauliflower-soup3-f85700dc500040548ac840c719972b62.jpg' class='img-responsive' />
   </div>
   <div class='col-md-8'>
     Add roasted cauliflower florets, mix together with other ingredients in pot. Add vegetable broth;
@@ -148,7 +148,7 @@ soup_instructions = %Q{
 
 <div class='row bottom-buffer'>
   <div class='col-md-4'>
-    <img src='/assets/cooking-methods/cauliflower-soup4-39163760511df72b852754e6af4aeaf9.jpg' class='img-responsive' />
+    <img src='/assets/cooking-methods/cauliflower-soup4-1968324dd79d07c158e5727e1be0f4ba.jpg' class='img-responsive' />
   </div>
   <div class='col-md-8'>
     Bring to a boil; at the point the soup begins to boil, turn back down to a simmer, cover and let cook 10 minutes.
