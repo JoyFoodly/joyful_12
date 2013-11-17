@@ -130,16 +130,51 @@
   }
 
   .teal {
-    background-color: teal;
+    background-color: #278fd1;
     padding:  5px;
     color: white;
     text-align: center;
+  }
+
+  .fun-facts {
+    position: relative;
+    background-color: #278fd1;
+    color:  white;
+    padding: 20px;
+    border-radius: 5px;
+    min-height: 170px;
+
+    &:before {
+      content:"";
+      position:absolute;
+      left:  50px;
+      top:  -15px;
+      border-left: 15px solid transparent;
+      border-bottom: 15px solid #278fd1;
+      border-right: 15px solid transparent;
+    }
+
+    h4 {
+      font-size:  26px;
+    }
+
+    .fun-fact {
+      font-size: 16px;
+    }
+  }
+
+  .food-resource-links a {
+    font-size:  20px;
   }
 
   .boxed-content {
     border:  1px solid #dddddd;
     border-top: none;
     padding:  20px;
+  }
+
+  .food-videos {
+    margin:  60px 0;
   }
 }
 
