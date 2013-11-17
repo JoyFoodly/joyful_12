@@ -3,7 +3,7 @@
     <ul class="nav row">
       <% @foods.each do |food| %>
           <div class='col-md-1'>
-            <%= link_to (image_tag "nav-food-images/#{food.slug}.jpg"), food_path(food) %>
+            <%= link_to (image_tag "nav-food-images/#{food.slug}.png"), food_path(food) %>
           </div>
       <% end %>
     </ul>
