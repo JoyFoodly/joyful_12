@@ -6,8 +6,24 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-avocado = Food.find_or_create_by(name: 'Avocado', slug: 'avocado')
-cauliflower = Food.find_or_create_by(name: 'Cauliflower', slug: 'cauliflower')
-bake = cauliflower.cooking_methods.find_or_create_by(name: 'Bake', description: "Bake the #{avocado.name}")
-mash = cauliflower.cooking_methods.find_or_create_by(name: 'Mash', description: "Mash the #{avocado.name}")
-soup = cauliflower.cooking_methods.find_or_create_by(name: 'Soup', description: "Make the #{avocado.name} into soup.")
+foods = %w[
+Beets
+Cauliflower
+Pomegranate
+Tangerine
+Cabbage
+Carrots
+Fennel
+Sweet potato
+Apple
+Broccoli
+Winter Squash
+Mushrooms
+]
+
+foods.each do |food|
+  food = Food.find_or_create_by(name: food, slug: food.downcase.split(' ').join('-'))
+  food.cooking_methods.find_or_create_by(name: 'Bake', description: "Bake the #{food.name}")
+  food.cooking_methods.find_or_create_by(name: 'Mash', description: "Mash the #{food.name}")
+  food.cooking_methods.find_or_create_by(name: 'Soup', description: "Make the #{food.name} into soup.")
+end
