@@ -92,9 +92,20 @@
   }
 }
 
+@mixin transform($property) {
+  -webkit-transform: rotate($property);
+  -moz-transform: rotate($property);
+  -ms-transform: rotate($property);
+  -o-transform: rotate($property);
+  transform: rotate($property);
+}
 
 .food-page {
   nav {
     margin-bottom: 20px;
+
+    img:hover {
+      @include transform(30deg);
+    }
   }
 }

@@ -2,9 +2,11 @@
   <nav>
     <ul class="nav row">
       <% @foods.each do |food| %>
-          <div class='col-md-1'>
-            <%= link_to (image_tag "nav-food-images/#{food.slug}.png"), food_path(food) %>
-          </div>
+          <a href="<%= food_path(food) %>">
+          <li class='col-md-1'>
+            <%= image_tag "nav-food-images/#{food.slug}.png" %>
+          </li>
+          </a>
       <% end %>
     </ul>
   </nav>
