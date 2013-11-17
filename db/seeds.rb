@@ -23,7 +23,7 @@ foods = [
 
 foods.each do |food|
   food = Food.find_or_create_by(name: food, slug: food.downcase.split(' ').join('-'))
-  food.cooking_methods.find_or_create_by(name: 'Bake', description: "Bake the #{food.name}")
-  food.cooking_methods.find_or_create_by(name: 'Mash', description: "Mash the #{food.name}")
-  food.cooking_methods.find_or_create_by(name: 'Soup', description: "Make the #{food.name} into soup.")
+  food.cooking_methods.find_or_create_by(name: 'Bake', instructions: "Bake the #{food.name}")
+  food.cooking_methods.find_or_create_by(name: 'Mash', instructions: "Mash the #{food.name}")
+  food.cooking_methods.find_or_create_by(name: 'Soup', instructions: "Make the #{food.name} into soup.")
 end

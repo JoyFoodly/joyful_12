@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20131116230239) do
 
   create_table "cooking_methods", force: true do |t|
     t.string   "name"
-    t.text     "description"
+    t.text     "instructions"
     t.integer  "food_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -29,5 +29,7 @@ ActiveRecord::Schema.define(version: 20131116230239) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "foods", ["slug"], name: "index_foods_on_slug"
 
 end
