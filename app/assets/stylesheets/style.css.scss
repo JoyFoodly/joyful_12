@@ -112,8 +112,33 @@
   .main-food-image {
     max-width: 100%;
   }
+
+  .inline-header {
+    font-size: 20px;
+  }
+
+  .teal {
+    background-color: teal;
+    padding:  5px;
+    color: white;
+    text-align: center;
+  }
+
+  .boxed-content {
+    border:  1px solid #dddddd;
+    border-top: none;
+    padding:  20px;
+  }
+}
+
+.top-buffer {
+  margin-top: 20px;
+}
+
+.bottom-buffer {
+  margin-bottom: 20px;
 }
 
 .spacer {
-  margin-bottom: 40px;
+  margin-bottom: 80px;
 }

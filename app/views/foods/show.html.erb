@@ -13,12 +13,12 @@
 
   <div class="row">
 
-    <div class="col-md-6">
+    <div class="col-md-4">
       <h2>Food: <%= @food.name %></h2>
       <%= image_tag "food-images/#{@food.slug}.jpg", class: 'main-food-image' %>
     </div>
 
-    <aside class="col-md-6">
+    <aside class="col-md-7 col-md-offset-1">
 
       <h3>Joyful 12 Coooking methods:</h3>
       <ul class="nav nav-tabs cooking-method-nav">
@@ -28,11 +28,14 @@
         </li>
       <% end %>
       </ul>
-      <% @food.cooking_methods.each_with_index do |cooking_method, i| %>
-        <p class="cooking-method-instructions" data-cooking-method='<%= i + 1 %>' style="<%= 'display: none' unless i == 0 %>">
-          <%= cooking_method.instructions %><br /><br />
-        </p>
-      <% end %>
+      <div class='boxed-content'>
+        <% @food.cooking_methods.each_with_index do |cooking_method, i| %>
+          <div class="cooking-method-instructions" data-cooking-method='<%= i + 1 %>'
+               style="<%= 'display: none' unless i == 0 %>">
+            <%= cooking_method.instructions.html_safe %>
+          </div>
+        <% end %>
+      </div>
 
       <div class='spacer'></div>
 
@@ -45,15 +48,12 @@
       <% Yummly.search(@food.name, { allergy: params[:allergy] }).first(5).each do |search_result| %>
         <div class='row recipe'>
           <hr />
-          <div class='col-md-3'>
-            <%= link_to (image_tag search_result.image), recipe_redirect_path(search_result.id) %>
+          <div class='col-md-4'>
+            <%= link_to (image_tag search_result.image, width: 200), recipe_redirect_path(search_result.id) %>
           </div>
 
-          <div class='col-md-9'>
+          <div class='col-md-8'>
             <h4><%= search_result.recipe_name %></h4>
-          </div>
-
-          <div class='col-md-12'>
             <p>From: <%= link_to search_result.source_name, recipe_redirect_path(search_result.id) %></p>
           </div>
         </div>
