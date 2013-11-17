@@ -1,10 +1,22 @@
+.masthead {
+  h1 {
+    text-align: center;
+    margin: 40px;
+  }
+}
+
+.homepage-video {
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
 .home-food-links {
 
   li {
-    width: 320px;
     height: 200px;
     margin-bottom: 30px;
     list-style: none;
+    background-repeat: no-repeat;
   }
 
   .broccoli {
