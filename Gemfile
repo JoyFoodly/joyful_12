@@ -19,6 +19,12 @@ gem 'bootstrap-sass', '~> 3.0.2'
 # HTTP Requests
 gem 'faraday', '~> 0.8.8'
 
+# Caching images
+gem 'rack-cache', '~> 1.2'
+gem 'dalli', '~> 2.6.4'
+gem 'kgio', '~> 2.8.1'
+gem 'memcachier', '~> 0.0.2'
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
