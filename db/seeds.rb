@@ -6,19 +6,19 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-foods = %w[
-Beets
-Cauliflower
-Pomegranate
-Tangerine
-Cabbage
-Carrots
-Fennel
-Sweet potato
-Apple
-Broccoli
-Winter Squash
-Mushrooms
+foods = [
+'Beets',
+'Cauliflower',
+'Pomegranate',
+'Tangerine',
+'Cabbage',
+'Carrots',
+'Fennel',
+'Sweet potato',
+'Apple',
+'Broccoli',
+'Winter Squash',
+'Mushrooms',
 ]
 
 foods.each do |food|
