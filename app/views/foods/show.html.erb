@@ -3,7 +3,7 @@
     <ul class="nav row">
       <% @foods.each do |food| %>
           <a href="<%= food_path(food) %>">
-          <li class='col-md-1'>
+          <li class='col-lg-1 col-md-3 col-md-3 col-xs-6'>
             <%= image_tag "nav-food-images/#{food.slug}.png" %>
           </li>
           </a>
@@ -15,11 +15,12 @@
 
     <div class="col-md-6">
       <h2>Food: <%= @food.name %></h2>
-      <%= image_tag "food-images/#{@food.slug}.jpg" %>
+      <%= image_tag "food-images/#{@food.slug}.jpg", class: 'main-food-image' %>
     </div>
 
     <aside class="col-md-6">
 
+      <h3>Joyful 12 Coooking methods:</h3>
       <ul class="nav nav-tabs">
       <% @food.cooking_methods.each_with_index do |cooking_method, i| %>
         <li class='<%= 'active' if i == 0 %>'><a href="#"><%= cooking_method.name %></a></li>
@@ -31,7 +32,9 @@
         </p>
       <% end %>
 
-      <h3>Great recipes from around the web:</h3>
+      <div class='spacer'></div>
+
+      <h3>Other great recipes from around the web:</h3>
       Filter by Allergy
       <%= form_tag '',  method: :get do  %>
         <%= select_tag 'allergy', options_for_select(Yummly::ALLOWED_ALLERGIES), include_blank: true %>
@@ -40,11 +43,11 @@
       <% Yummly.search(@food.name, { allergy: params[:allergy] }).first(5).each do |search_result| %>
         <div class='row recipe'>
           <hr />
-          <div class='col-md-2'>
+          <div class='col-md-3'>
             <%= link_to (image_tag search_result.image), recipe_redirect_path(search_result.id) %>
           </div>
 
-          <div class='col-md-10'>
+          <div class='col-md-9'>
             <h4><%= search_result.recipe_name %></h4>
           </div>
 

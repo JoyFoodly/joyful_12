@@ -102,10 +102,18 @@
 
 .food-page {
   nav {
-    margin-bottom: 20px;
+    margin-bottom: 60px;
 
     img:hover {
       @include transform(30deg);
     }
   }
+
+  .main-food-image {
+    max-width: 100%;
+  }
+}
+
+.spacer {
+  margin-bottom: 40px;
 }
