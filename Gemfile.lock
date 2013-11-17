@@ -27,6 +27,9 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.1)
     atomic (1.1.14)
+    better_errors (1.0.1)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
     bootstrap-sass (3.0.2.1)
       sass (~> 3.2)
     builder (3.1.4)
@@ -46,6 +49,8 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.0.2)
+    faraday (0.8.8)
+      multipart-post (~> 1.2.0)
     ffi (1.9.3)
     formatador (0.2.4)
     guard (2.2.3)
@@ -74,6 +79,7 @@ GEM
     mime-types (1.25)
     minitest (4.7.5)
     multi_json (1.8.2)
+    multipart-post (1.2.0)
     pg (0.17.0)
     polyglot (0.3.3)
     pry (0.9.12.3)
@@ -138,8 +144,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  better_errors (~> 1.0.1)
   bootstrap-sass (~> 3.0.2)
   coffee-rails (~> 4.0.0)
+  faraday (~> 0.8.8)
   guard-livereload (~> 2.0.0)
   pg (~> 0.17.0)
   rails (= 4.0.1)

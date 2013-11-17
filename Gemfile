@@ -16,16 +16,24 @@ gem 'coffee-rails', '~> 4.0.0'
 # Bootstrap SCSS
 gem 'bootstrap-sass', '~> 3.0.2'
 
+# HTTP Requests
+gem 'faraday', '~> 0.8.8'
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 
   # Live reload page
   gem 'guard-livereload', '~> 2.0.0'
+
+  # Error REPL
+  gem 'better_errors', '~> 1.0.1'
 end
 
 group :production do
   # Use Postgresql as the database for Active Record
   gem 'pg', '~> 0.17.0'
+
+  # Heroku
   gem 'rails_12factor', '~> 0.0.2'
 end

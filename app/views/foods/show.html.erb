@@ -14,8 +14,18 @@
     </div>
 
     <aside class="col-md-6 fun-facts">
-      <p>Health: Coming soon...</p>
-      <p>Fun Facts: Coming soon...</p>
+      <h3>Other recipes:</h3>
+      Filter by Allergy
+      <%= form_tag '',  method: :get do  %>
+        <%= select_tag 'allergy', options_for_select(Yummly::ALLOWED_ALLERGIES), include_blank: true %>
+        <%= submit_tag 'Filter' %>
+      <% end %>
+      <% Yummly.search(@food.name, { allergy: params[:allergy] }).first(5).each do |search_result| %>
+        <hr />
+        <%= image_tag search_result.image %>
+        <h4><%= search_result.recipe_name %></h4>
+        <p>From: <%= link_to search_result.source_name, search_result.source_url %></p>
+      <% end %>
     </aside>
   </div>
 
