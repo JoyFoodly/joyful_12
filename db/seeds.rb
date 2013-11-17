@@ -61,7 +61,7 @@ roast_instructions = %Q{
 mash_instructions = %Q{
 <div class='row'>
   <div class="col-md-6"><p class='inline-header'>Mashed Cauliflower</p></div>
-  <div class="col-md-3"><p class='teal'>Prep: 10 min.</p></div>
+  <div class="col-md-3"><p class='teal'>Prep: 8 min.</p></div>
   <div class="col-md-3"><p class='teal'>Cook: 10 min.</p></div>
 </div>
 <p>Ingredients: 1 medium head cauliflower, trimmed and cut into small florets / 1 tablespoon extra virgin olive oil /
@@ -105,9 +105,62 @@ mash_instructions = %Q{
 </div>
 }
 
+soup_instructions = %Q{
+<div class='row'>
+  <div class="col-md-6"><p class='inline-header'>Mashed Cauliflower</p></div>
+  <div class="col-md-3"><p class='teal'>Prep: 9 min.</p></div>
+  <div class="col-md-3"><p class='teal'>Cook: 12 min.</p></div>
+</div>
+<p>Ingredients: 1 head cauliflower (cut into florets) / 4 tablespoons olive oil / 3 teaspoons salt /
+  1 tablespoon curry powder / 1 white onion, diced / 1 quart vegetable broth / **Optional: ⅛ cup heavy cream to finish</p>
+<div class='row bottom-buffer'>
+  <div class='col-md-4'>
+    <img src='/assets/cooking-methods/cauliflower-soup1-6ba4a241305e805427994e48d693b54d.jpg' class='img-responsive' />
+  </div>
+  <div class='col-md-8'>
+    Preheat oven to 400F. Cut cauliflower into florets. See our technique timeout on how to cut cauliflower here.
+    Toss cauliflower with 2 tablespoons of olive oil and 2 teaspoons salt. Roast on a parchment lined cookie
+    sheet for 15 minutes.
+  </div>
+</div>
+
+<div class='row bottom-buffer'>
+  <div class='col-md-4'>
+    <img src='/assets/cooking-methods/cauliflower-soup2-a327a6dfdde40695aecc719b177f606d.jpg' class='img-responsive' />
+  </div>
+  <div class='col-md-8'>
+    In a tall soup pot, heat the curry powder and 2 tablespoons olive oil on medium-low. This will allow the curry
+    powder to "bloom" or draw out its rich flavor. Add diced onion and 1 teaspoon of salt and saute
+    on medium-high heat for 2-3 minutes.
+  </div>
+</div>
+
+<div class='row bottom-buffer'>
+  <div class='col-md-4'>
+    <img src='/assets/cooking-methods/cauliflower-soup3-66273849f3d11e992a5d3bedf37bb97b.jpg' class='img-responsive' />
+  </div>
+  <div class='col-md-8'>
+    Add roasted cauliflower florets, mix together with other ingredients in pot. Add vegetable broth;
+    just enough to barely cover ingredients in pot. Note: you may not need the whole quart of broth,
+    depending on the size of the cauliflower you are using.
+  </div>
+</div>
+
+<div class='row bottom-buffer'>
+  <div class='col-md-4'>
+    <img src='/assets/cooking-methods/cauliflower-soup4-39163760511df72b852754e6af4aeaf9.jpg' class='img-responsive' />
+  </div>
+  <div class='col-md-8'>
+    Bring to a boil; at the point the soup begins to boil, turn back down to a simmer, cover and let cook 10 minutes.
+    Cool slightly before transferring all ingredients to your blender. Purée the soup in your blender. Taste for
+    seasoning (salt and pepper). Optional: add heavy cream and blend to incorporate.
+  </div>
+</div>
+}
+
 foods.each do |food|
   food = Food.find_or_create_by(name: food, slug: food.downcase.split(' ').join('-'))
   food.cooking_methods.find_or_create_by(name: 'Roast', instructions: roast_instructions)
   food.cooking_methods.find_or_create_by(name: 'Mash', instructions: mash_instructions)
-  food.cooking_methods.find_or_create_by(name: 'Soup', instructions: "Make the #{food.name} into soup.")
+  food.cooking_methods.find_or_create_by(name: 'Soup', instructions: soup_instructions)
 end
