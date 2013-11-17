@@ -83,7 +83,7 @@
 
       <%= image_tag 'food-images/cauliflower-videos.png', class: 'food-videos img-responsive bottom-buffer' %>
 
-      <h3>Other great recipes from around the web:</h3>
+      <h3>Other great <%= @food.name %> recipes from around the web:</h3>
       Filter by Allergy
       <%= form_tag '',  method: :get do  %>
         <%= select_tag 'allergy', options_for_select(Yummly::ALLOWED_ALLERGIES), include_blank: true %>
