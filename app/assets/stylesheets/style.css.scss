@@ -42,13 +42,6 @@
     }
   }
 
-  .mushroom {
-    background-image: image-url("homepage-images/mushroom1.jpg");
-    &:hover {
-      background-image: image-url("homepage-images/mushroom2.jpg");
-    }
-  }
-
   .beet {
     background-image: image-url("homepage-images/beet1.jpg");
     &:hover {
@@ -83,6 +76,13 @@
       background-image: image-url("homepage-images/wintersquash2.jpg");
     }
   }
+  
+  .collard {
+     background-image: image-url("homepage-images/collard1.jpg");
+     &:hover {
+       background-image: image-url("homepage-images/collard2.jpg");
+     }
+   }
 
   .apple {
     background-image: image-url("homepage-images/apple1.jpg");
