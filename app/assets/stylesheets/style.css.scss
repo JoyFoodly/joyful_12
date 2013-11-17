@@ -1,129 +1,100 @@
-.home-food-links li {
-  margin-bottom: 30px;
-  list-style: none;
-}
+.home-food-links {
 
-.home-food-links .broccoli {
-background-image: image-url("homepage-images/broccoli1.jpg");
-width: 320px;
-height: 200px;
-}
+  li {
+    width: 320px;
+    height: 200px;
+    margin-bottom: 30px;
+    list-style: none;
+  }
 
-.home-food-links .broccoli:hover {
-background-image: image-url("homepage-images/broccoli2.jpg");
-}
+  .broccoli {
+    background-image: image-url("homepage-images/broccoli1.jpg");
+    &:hover {
+      background-image: image-url("homepage-images/broccoli2.jpg");
+    }
+  }
 
-.home-food-links .cauliflower {
-background-image: image-url("homepage-images/cauliflower1.jpg");
-width: 320px;
-height: 200px;
-}
+  .cauliflower {
+    background-image: image-url("homepage-images/cauliflower1.jpg");
+    &:hover {
+      background-image: image-url("homepage-images/cauliflower2.jpg");
+    }
+  }
 
-.home-food-links .cauliflower:hover {
-background-image: image-url("homepage-images/cauliflower2.jpg");
-}
+  .carrot {
+    background-image: image-url("homepage-images/carrot1.jpg");
+    &:hover {
+      background-image: image-url("homepage-images/carrot2.jpg");
+    }
+  }
 
-.home-food-links .carrot {
-background-image: image-url("homepage-images/carrot1.jpg");
-width: 320px;
-height: 200px;
-}
+  .cabbage {
+    background-image: image-url("homepage-images/cabbage1.jpg");
+    &:hover {
+      background-image: image-url("homepage-images/cabbage2.jpg");
+    }
+  }
 
-.home-food-links .carrot:hover {
-background-image: image-url("homepage-images/carrot2.jpg");
-}
+  .fennel {
+    background-image: image-url("homepage-images/fennel1.jpg");
+    &:hover {
+      background-image: image-url("homepage-images/fennel2.png");
+    }
+  }
 
-.home-food-links .cabbage {
-background-image: image-url("homepage-images/cabbage1.jpg");
-width: 320px;
-height: 200px;
-}
+  .mushroom {
+    background-image: image-url("homepage-images/mushroom1.jpg");
+    &:hover {
+      background-image: image-url("homepage-images/mushroom2.jpg");
+    }
+  }
 
-.home-food-links .cabbage:hover {
-background-image: image-url("homepage-images/cabbage2.jpg");
-}
+  .beet {
+    background-image: image-url("homepage-images/beet1.jpg");
+    &:hover {
+      background-image: image-url("homepage-images/beet2.jpg");
+    }
+  }
 
-.home-food-links .fennel {
-background-image: image-url("homepage-images/fennel1.jpg");
-width: 320px;
-height: 200px;
-}
+  .pomegranate {
+    background-image: image-url("homepage-images/pomegranate1.jpg");
+    &:hover {
+      background-image: image-url("homepage-images/pomegranate2.jpg");
+    }
+  }
 
-.home-food-links .fennel:hover {
-background-image: image-url("homepage-images/fennel2.png");
-}
+  .sweetpotato {
+    background-image: image-url("homepage-images/sweetpotato1.jpg");
+    &:hover {
+      background-image: image-url("homepage-images/sweetpotato2.jpg");
+    }
+  }
 
-.home-food-links .mushroom {
-background-image: image-url("homepage-images/mushroom1.jpg");
-width: 320px;
-height: 200px;
-}
+  .tangerine {
+    background-image: image-url("homepage-images/tangerine1.jpg");
+    &:hover {
+      background-image: image-url("homepage-images/tangerine2.jpg");
+    }
+  }
 
-.home-food-links .mushroom:hover {
-background-image: image-url("homepage-images/mushroom2.jpg");
-}
+  .wintersquash {
+    background-image: image-url("homepage-images/wintersquash.jpg");
+    &:hover {
+      background-image: image-url("homepage-images/wintersquash2.jpg");
+    }
+  }
 
-.home-food-links .beet {
-background-image: image-url("homepage-images/beet1.jpg");
-width: 320px;
-height: 200px;
-}
-
-.home-food-links .beet:hover {
-background-image: image-url("homepage-images/beet2.jpg");
-}
-
-.home-food-links .pomegranate {
-background-image: image-url("homepage-images/pomegranate1.jpg");
-width: 320px;
-height: 200px;
-}
-
-.home-food-links .pomegranate:hover {
-background-image: image-url("homepage-images/pomegranate2.jpg");
-}
-
-.home-food-links .sweetpotato {
-background-image: image-url("homepage-images/sweetpotato1.jpg");
-width: 320px;
-height: 200px;
-}
-
-.home-food-links .sweetpotato:hover {
-background-image: image-url("homepage-images/sweetpotato2.jpg");
-}
-
-.home-food-links .tangerine {
-background-image: image-url("homepage-images/tangerine1.jpg");
-width: 320px;
-height: 200px;
-}
-
-.home-food-links .tangerine:hover {
-background-image: image-url("homepage-images/tangerine2.jpg");
-}
-
-.home-food-links .wintersquash {
-background-image: image-url("homepage-images/wintersquash.jpg");
-width: 320px;
-height: 200px;
-}
-
-.home-food-links .wintersquash:hover {
-background-image: image-url("homepage-images/wintersquash2.jpg");
-}
-
-.home-food-links .apple {
-background-image: image-url("homepage-images/apple1.jpg");
-width: 320px;
-height: 200px;
-}
-
-.home-food-links .apple:hover {
-background-image: image-url("homepage-images/apple2.jpg");
+  .apple {
+    background-image: image-url("homepage-images/apple1.jpg");
+    &:hover {
+      background-image: image-url("homepage-images/apple2.jpg");
+    }
+  }
 }
 
 
-
-
-
+.food-page {
+  nav {
+    margin-bottom: 20px;
+  }
+}

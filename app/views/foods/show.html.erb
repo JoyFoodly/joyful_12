@@ -10,13 +10,26 @@
   </nav>
 
   <div class="row">
+
     <div class="col-md-6">
       <h2>Food: <%= @food.name %></h2>
       <%= image_tag "food-images/#{@food.slug}.jpg" %>
     </div>
 
-    <aside class="col-md-6 fun-facts">
-      <h3>Other recipes:</h3>
+    <aside class="col-md-6">
+
+      <ul class="nav nav-tabs">
+      <% @food.cooking_methods.each_with_index do |cooking_method, i| %>
+        <li class='<%= 'active' if i == 0 %>'><a href="#"><%= cooking_method.name %></a></li>
+      <% end %>
+      </ul>
+      <% @food.cooking_methods.each_with_index do |cooking_method, i| %>
+        <p style="<%= 'display: none' unless i == 0 %>">
+          <%= cooking_method.description %><br /><br />
+        </p>
+      <% end %>
+
+      <h3>Great recipes from around the web:</h3>
       Filter by Allergy
       <%= form_tag '',  method: :get do  %>
         <%= select_tag 'allergy', options_for_select(Yummly::ALLOWED_ALLERGIES), include_blank: true %>
@@ -40,21 +53,5 @@
       <% end %>
     </aside>
   </div>
-
-
-  <div class="row">
-    <% @food.cooking_methods.each do |cooking_method| %>
-      <div class="col-md-4">
-        <%= cooking_method.name %>
-      </div>
-    <% end %>
-  </div>
-
-  <% @food.cooking_methods.each do |cooking_method| %>
-    <div style='display:none;'>
-      <h4><%= cooking_method.name %></h4>
-      <p><%= cooking_method.description %></p>
-    </div>
-  <% end %>
 
 </div>

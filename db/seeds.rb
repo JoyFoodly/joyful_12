@@ -7,18 +7,18 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 foods = [
-'Beets',
+'Beet',
 'Cauliflower',
 'Pomegranate',
 'Tangerine',
 'Cabbage',
-'Carrots',
+'Carrot',
 'Fennel',
 'Sweet potato',
 'Apple',
 'Broccoli',
 'Winter Squash',
-'Mushrooms',
+'Mushroom',
 ]
 
 foods.each do |food|
