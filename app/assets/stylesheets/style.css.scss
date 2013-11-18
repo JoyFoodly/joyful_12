@@ -5,18 +5,19 @@
   }
 }
 
-.homepage-video {
+.homepage-image {
   margin: 0 auto;
   margin-bottom: 40px;
 }
 
 .home-food-links {
 
-  li {
+  span {
     height: 200px;
     margin-bottom: 30px;
     list-style: none;
     background-repeat: no-repeat;
+    background-position: center;
   }
 
   .broccoli {
@@ -116,8 +117,12 @@
   nav {
     margin-bottom: 60px;
 
-    img:hover {
-      @include transform(7deg);
+    img {
+      margin:  0 auto;
+
+      &:hover {
+        @include transform(7deg);
+      }
     }
   }
 

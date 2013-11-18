@@ -107,7 +107,7 @@ mash_instructions = %Q{
 
 soup_instructions = %Q{
 <div class='row'>
-  <div class="col-md-6"><p class='inline-header'>Mashed Cauliflower</p></div>
+  <div class="col-md-6"><p class='inline-header'>Cauliflower Soup</p></div>
   <div class="col-md-3"><p class='teal'>Prep: 9 min.</p></div>
   <div class="col-md-3"><p class='teal'>Cook: 12 min.</p></div>
 </div>

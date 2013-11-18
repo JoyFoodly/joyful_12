@@ -4,7 +4,7 @@
       <% @foods.each do |food| %>
           <a href="<%= food_path(food) %>">
           <li class='col-lg-1 col-md-3 col-md-3 col-xs-6'>
-            <%= image_tag "nav-food-images/#{food.slug}.png" %>
+            <%= image_tag "nav-food-images/#{food.slug}.png", class: 'img-responsive' %>
           </li>
           </a>
       <% end %>
