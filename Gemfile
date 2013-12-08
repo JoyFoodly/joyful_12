@@ -28,6 +28,13 @@ gem 'memcachier', '~> 0.0.2'
 # Server monitoring
 gem 'newrelic_rpm', '~> 3.7.0'
 
+# Admin Interface
+gem 'rails_admin', '~> 0.6.0'
+gem 'paper_trail', '~> 3.0.0.rc2'
+
+# User authentication
+gem 'devise', '~> 3.2.2'
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
@@ -37,6 +44,9 @@ group :development, :test do
 
   # Error REPL
   gem 'better_errors', '~> 1.0.1'
+
+  # Environment variables for dev and test
+  gem 'dotenv-rails', '~> 0.9.0'
 end
 
 group :production do
