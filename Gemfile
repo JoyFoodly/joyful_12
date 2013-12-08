@@ -37,6 +37,8 @@ group :development, :test do
 end
 
 group :production do
+  gem 'unicorn', '~> 4.7.0'
+
   # Use Postgresql as the database for Active Record
   gem 'pg', '~> 0.17.0'
 
