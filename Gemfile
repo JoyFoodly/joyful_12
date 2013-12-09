@@ -47,6 +47,21 @@ group :development, :test do
 
   # Environment variables for dev and test
   gem 'dotenv-rails', '~> 0.9.0'
+
+  # Testing framework
+  gem 'rspec-rails', '~> 2.14.0'
+
+  # Test fixtures
+  gem 'factory_girl_rails', '~> 4.3.0'
+
+  # Request spec DSL
+  gem 'capybara', '~> 2.2.0'
+
+  # Disallow external requests in test env
+  gem 'webmock', '~> 1.16.0'
+
+  # Coverage stats
+  gem 'simplecov', '~> 0.8.2', require: false
 end
 
 group :production do
