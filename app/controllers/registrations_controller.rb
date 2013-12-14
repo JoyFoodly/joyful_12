@@ -3,10 +3,10 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     @user = UserRegistration.from_stripe_params(stripe_params)
 
-    if @user.save
+    if @user.persisted?
       set_flash_message :notice, :"signed_up_but_#{@user.inactive_message}" if is_flashing_format?
       expire_data_after_sign_in!
-      respond_with resource, location: after_inactive_sign_up_path_for(@user)
+      respond_with @user, location: edit_user_path(@user)
     else
       render :new
     end
@@ -15,7 +15,7 @@ class RegistrationsController < Devise::RegistrationsController
 private
 
   def stripe_params
-    params.permit("stripeToken", "stripeEmail", "stripeBillingName", "stripeBillingAddressLine1",
+    params.permit("plan_id", "stripeToken", "stripeEmail", "stripeBillingName", "stripeBillingAddressLine1",
                   "stripeBillingAddressZip", "stripeBillingAddressCity", "stripeBillingAddressState",
                   "stripeBillingAddressCountry")
   end

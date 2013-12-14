@@ -14,11 +14,11 @@
 ActiveRecord::Schema.define(version: 20131214084955) do
 
   create_table "addresses", force: true do |t|
-    t.string   "line_1"
-    t.string   "zip_code"
-    t.string   "city"
-    t.string   "state"
-    t.string   "country"
+    t.string   "line_1",     default: "", null: false
+    t.string   "zip_code",   default: "", null: false
+    t.string   "city",       default: "", null: false
+    t.string   "state",      default: "", null: false
+    t.string   "country",    default: "", null: false
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -77,7 +77,8 @@ ActiveRecord::Schema.define(version: 20131214084955) do
   add_index "rails_admin_histories", ["item", "table", "month", "year"], name: "index_rails_admin_histories"
 
   create_table "subscriptions", force: true do |t|
-    t.string   "payment_token"
+    t.string   "card_token", default: "", null: false
+    t.string   "plan_id",    default: "", null: false
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -100,8 +101,8 @@ ActiveRecord::Schema.define(version: 20131214084955) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "first_name",             default: "", null: false
+    t.string   "last_name",              default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

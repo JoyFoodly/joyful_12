@@ -1,5 +1,7 @@
 FactoryGirl.define do
   factory :subscription do
-    payment_token 'KUYGHT'
+    card_token 'KUYGHT'
+    plan_id 'seasonal'
+    user
   end
 end
