@@ -35,19 +35,10 @@ gem 'paper_trail', '~> 3.0.0.rc2'
 # User authentication
 gem 'devise', '~> 3.2.2'
 
-group :development, :test do
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
+# Accept Payments
+gem 'stripe', '~> 1.9.9'
 
-  # Live reload page
-  gem 'guard-livereload', '~> 2.1.0'
-
-  # Error REPL
-  gem 'better_errors', '~> 1.0.1'
-
-  # Environment variables for dev and test
-  gem 'dotenv-rails', '~> 0.9.0'
-
+group :test do
   # Testing framework
   gem 'rspec-rails', '~> 2.14.0'
 
@@ -62,6 +53,20 @@ group :development, :test do
 
   # Coverage stats
   gem 'simplecov', '~> 0.8.2', require: false
+end
+
+group :development, :test do
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
+
+  # Live reload page
+  gem 'guard-livereload', '~> 2.1.0'
+
+  # Error REPL
+  gem 'better_errors', '~> 1.0.1'
+
+  # Environment variables for dev and test
+  gem 'dotenv-rails', '~> 0.9.0'
 end
 
 group :production do

@@ -1,44 +1,109 @@
-<div class="row">
-  <div class='col-lg-4 col-md-4'>
-    <h2>Sign up</h2>
-
-    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { role: "form" }) do |f| %>
-        <%= devise_error_messages! %>
-
-        <div class="form-group">
-          <%= f.label :email %>
-          <%= f.email_field :email, class: 'form-control', autofocus: true, placeholder: 'Enter email' %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :first_name %>
-          <%= f.text_field :first_name, class: 'form-control', placeholder: 'First Name' %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :last_name %>
-          <%= f.text_field :last_name, class: 'form-control', placeholder: 'Last Name' %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :zip_code %>
-          <%= f.text_field :zip_code, class: 'form-control', placeholder: 'ZIP Code' %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :password %>
-          <%= f.password_field :password, class: 'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :password_confirmation %>
-          <%= f.password_field :password_confirmation, class: 'form-control' %>
-        </div>
-
-        <%= f.submit "Sign up", class: 'btn btn-primary' %>
-
-    <% end %>
+<div class='row'>
+  <div class='col-md-6'>
+    <p>
+      Synth Truffaut dolore disrupt 8-bit adipisicing. Consectetur food truck anim, fugiat High Life
+      minim kogi squid you probably haven't heard of them Pitchfork flannel freegan American Apparel cray yr. Chillwave
+      master cleanse incididunt, letterpress 8-bit mixtape mollit photo booth PBR Shoreditch literally selfies.
+      Quis chia retro, iPhone pug 3 wolf moon odio +1. Gastropub lo-fi YOLO pour-over deserunt aute. Gluten-free food
+      truck master cleanse slow-carb. Letterpress minim pork belly, roof party sed est Schlitz literally ethnic.
+    </p>
+    <p>Esse enim before they sold out, wayfarers gluten-free tempor delectus mixtape dolore qui tousled wolf.
+      Whatever stumptown cupidatat esse literally twee nihil. Slow-carb sed elit eiusmod, nihil duis craft beer
+      accusamus American Apparel ullamco pug fixie iPhone. Pug beard ennui ethnic nihil. Esse voluptate synth
+      Thundercats small batch ad meggings. 8-bit umami sed est vinyl, placeat gluten-free XOXO messenger bag
+      eiusmod distillery dolore wolf post-ironic. Small batch assumenda cliche try-hard XOXO, selfies.</p>
+  </div>
+  <div class='col-md-6'>
+    <%= image_tag 'http://placekitten.com/555/300', class: 'img-responsive' %>
   </div>
 </div>
-<br />
-<%= render "users/shared/links" %>
+
+<div class='row top-buffer'>
+  <div class='col-md-4'><%= image_tag 'http://placekitten.com/360/200', class: 'img-responsive' %></div>
+  <div class='col-md-4'><%= image_tag 'http://placekitten.com/360/200', class: 'img-responsive' %></div>
+  <div class='col-md-4'><%= image_tag 'http://placekitten.com/360/200', class: 'img-responsive' %></div>
+</div>
+
+<div class="row top-buffer">
+  <blockquote class='pull-right'>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+    <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+  </blockquote>
+</div>
+
+<div class='spacer'></div>
+
+<div class='row top-buffer subscription-options'>
+
+  <div class='col-md-4 first-subscription'>
+    <h4>Seasonal Subscription</h4>
+    <p>Get the full spring curriculum including:</p>
+    <ul>
+      <li>9 vegetable lessons. Each with 3 recipes to try.</li>
+    </ul>
+    <h5>$20 for the season.</h5>
+    <%= form_tag user_registration_path, method: :post, id: 'first-subscription' do %>
+      <script
+      src='https://checkout.stripe.com/checkout.js' class='stripe-button'
+      data-key='<%= ENV['STRIPE_PUBLIC_KEY'] %>'
+      data-image='<%= image_path('favicon.ico') %>'
+      data-label='Sign Up Now'
+      data-name='Joyful 12'
+      data-panel-label='Pay {{amount}}'
+      data-billing-address='true'
+      data-description='Seasonal Subscription ($20.00)'
+      data-amount='2000'>
+      </script>
+    <% end %>
+  </div>
+
+  <div class='col-md-4 second-subscription'>
+    <h4>Beta Subscription</h4>
+    <p>Get the full curriculum including:</p>
+    <ul>
+      <li>9 vegetable lessons. Each with 3 recipes to try.</li>
+      <li>3 fruit lessons. Each with a dessert recipe to try.</li>
+      <li>
+        Parent resources. Including a sample schedule, pantry essential lists, an interactive shopping list, and a game.
+      </li>
+      <li>If you agree to give us feedback, we'll give you 6 winter fruits and vegitables as well.</li>
+    </ul>
+    <h5>$20 for the season.</h5>
+    <%= form_tag user_registration_path, method: :post do %>
+      <script
+      src='https://checkout.stripe.com/checkout.js' class='stripe-button'
+      data-key='<%= ENV['STRIPE_PUBLIC_KEY'] %>'
+      data-image='<%= image_path('favicon.ico') %>'
+      data-label='Sign Up Now'
+      data-name='Joyful 12'
+      data-panel-label='Pay {{amount}}'
+      data-billing-address='true'
+      data-description='Beta Subscription ($20.00)'
+      data-amount='2000'>
+      </script>
+    <% end %>
+  </div>
+
+  <div class='col-md-4 first-subscription'>
+    <h4>Full Year Subscription (best value)</h4>
+    <p>Get the full spring curriculum including:</p>
+    <ul>
+      <li>9 vegetable lessons. Each with 3 recipes to try.</li>
+    </ul>
+    <h5>$20 for the season.</h5>
+    <%= form_tag user_registration_path, method: :post do %>
+        <script
+        src='https://checkout.stripe.com/checkout.js' class='stripe-button'
+        data-key='<%= ENV['STRIPE_PUBLIC_KEY'] %>'
+        data-image='<%= image_path('favicon.ico') %>'
+        data-label='Sign Up Now'
+        data-name='Joyful 12'
+        data-panel-label='Pay {{amount}}'
+        data-billing-address='true'
+        data-description='Full Year Subscription ($20.00)'
+        data-amount='2000'>
+        </script>
+    <% end %>
+  </div>
+
+</div>

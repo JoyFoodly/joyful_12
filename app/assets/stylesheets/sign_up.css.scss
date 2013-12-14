@@ -1,0 +1,15 @@
+.subscription-options {
+  color:  white;
+
+  .first-subscription, .third-subscription {
+    background-color: rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+  }
+
+  .second-subscription {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+}

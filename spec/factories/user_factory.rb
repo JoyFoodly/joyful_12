@@ -3,7 +3,7 @@ FactoryGirl.define do
     email 'jamesdeen@example.com'
     first_name 'James'
     last_name 'Deen'
-    zip_code '98125'
     password 'secretpass'
+    confirmed_at { 1.minute.ago }
   end
 end

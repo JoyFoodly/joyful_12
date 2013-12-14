@@ -13,12 +13,4 @@ protected
     user_path(resource_or_scope) if resource_or_scope.class == User
   end
 
-  def devise_parameter_sanitizer
-    if resource_class == User
-      UserParameterSanitizer.new(User, :user, params)
-    else
-      super # Use the default one
-    end
-  end
-
 end
