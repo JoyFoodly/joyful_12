@@ -164,3 +164,5 @@ foods.each do |food|
   food.cooking_methods.find_or_create_by(name: 'Mash', instructions: mash_instructions)
   food.cooking_methods.find_or_create_by(name: 'Soup', instructions: soup_instructions)
 end
+
+['Gluten Free', 'Dairy Free'].each { |allergy_name| Allergy.create!(name: allergy_name) }

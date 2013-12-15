@@ -27,7 +27,7 @@ describe RegistrationsController do
     it "Redirects to user profile if successful" do
       Subscription.any_instance.should_receive(:stripe_customer_created)
       post :create, stripe_params
-      expect(response).to redirect_to(edit_user_path(1))
+      expect(response).to redirect_to(root_url)
     end
 
     it "Redirects the user back if there are user creation errors" do

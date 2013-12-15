@@ -10,7 +10,7 @@ protected
   end
 
   def model_specific_path(resource_or_scope)
-    user_path(resource_or_scope) if resource_or_scope.class == User
+    edit_user_path(resource_or_scope) if resource_or_scope.class == User
   end
 
 end

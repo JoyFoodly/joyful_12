@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131214084955) do
+ActiveRecord::Schema.define(version: 20131215080614) do
 
   create_table "addresses", force: true do |t|
     t.string   "line_1",     default: "", null: false
@@ -44,6 +44,19 @@ ActiveRecord::Schema.define(version: 20131214084955) do
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
 
+  create_table "allergies", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "allergies_family_members", id: false, force: true do |t|
+    t.integer "allergy_id"
+    t.integer "family_member_id"
+  end
+
+  add_index "allergies_family_members", ["allergy_id", "family_member_id"], name: "index_allergies_family_members_allergy_id_and_family_member_id"
+
   create_table "cooking_methods", force: true do |t|
     t.string   "name"
     t.text     "instructions"
@@ -53,6 +66,16 @@ ActiveRecord::Schema.define(version: 20131214084955) do
   end
 
   add_index "cooking_methods", ["food_id"], name: "index_cooking_methods_on_food_id"
+
+  create_table "family_members", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.date     "birthday"
+    t.string   "other_allergies"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "foods", force: true do |t|
     t.string   "name"
@@ -103,6 +126,8 @@ ActiveRecord::Schema.define(version: 20131214084955) do
     t.string   "unconfirmed_email"
     t.string   "first_name",             default: "", null: false
     t.string   "last_name",              default: "", null: false
+    t.string   "family_description"
+    t.text     "family_struggles"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

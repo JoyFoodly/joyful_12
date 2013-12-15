@@ -1,0 +1,79 @@
+<h3>Thank you for signing up! Please fill out a profile.</h3>
+<p>All responses are optional. This will help us customize the experience to you.</p>
+
+<% if @user.errors.present? %>
+  <div class='alert alert-danger'>
+    <a class="close" data-dismiss="alert">×</a>
+    <%= @user.errors.full_messages.first  %>
+  </div>
+<% end %>
+
+<%= form_for @user, html: { role: "form" } do |f| %>
+  <div class='row'>
+    <div class='col-md-6'>
+      <div class="form-group">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class='col-md-6'>
+      <div class="form-group">
+        <%= f.label :family_description %>
+        <%= f.text_area :family_description, class: 'form-control', rows: 8 %>
+      </div>
+    </div>
+  </div>
+
+  <p>Family members participating in the course (include everyone who will be eating the food)</p>
+  <%= f.fields_for :family_members do |ff| %>
+    <div class='row'>
+      <div class='col-md-2'>
+        <div class="form-group">
+          <%= ff.label :first_name %>
+          <%= ff.text_field :first_name, class: 'form-control' %>
+        </div>
+      </div>
+      <div class='col-md-2'>
+        <div class="form-group">
+          <%= ff.label :last_name %>
+          <%= ff.text_field :last_name, class: 'form-control' %>
+        </div>
+      </div>
+      <div class='col-md-2'>
+        <div class="form-group">
+          <%= ff.label :birthday %>
+          <%= ff.date_field :birthday, class: 'form-control' %>
+        </div>
+      </div>
+      <div class='col-md-2'>
+        <div class="form-group">
+          <%= ff.label :allergy_ids, 'Allergies' %>
+          <%= ff.collection_select :allergy_ids, Allergy.all, :id, :name, {}, class: 'form-control', multiple: true %>
+        </div>
+      </div>
+      <div class='col-md-4'>
+        <div class="form-group">
+          <%= ff.label :other_allergies %>
+          <%= ff.text_field :other_allergies, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class='row'>
+    <div class='col-md-12'>
+      <div class="form-group">
+        <%= f.label :family_struggles %>
+        <%= f.text_area :family_struggles, class: 'form-control', rows: 8 %>
+      </div>
+    </div>
+  </div>
+
+  <%= f.submit 'Update Account', class: 'btn btn-primary' %>
+<% end %>

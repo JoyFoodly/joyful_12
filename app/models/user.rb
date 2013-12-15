@@ -1,8 +1,11 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
-  has_many :addresses, dependent: :destroy
-  has_many :subscriptions, dependent: :destroy
+  has_many :addresses,      dependent: :destroy
+  has_many :subscriptions,  dependent: :destroy
+  has_many :family_members, dependent: :destroy
 
   validates :first_name, presence: true
   validates :last_name, presence: true
+
+  accepts_nested_attributes_for :family_members
 end

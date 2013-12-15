@@ -5,7 +5,7 @@ Joyfoodly::Application.routes.draw do
 
   resources :recipe_redirects, only: :show
   resources :foods, only: :show
-  resources :users, only: [:show, :edit]
+  resources :users, only: [:edit, :update]
 
   root to: 'home#index'
 end
