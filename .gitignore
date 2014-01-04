@@ -15,5 +15,8 @@
 /log/*.log
 /tmp
 
+# Ignore test coverage
+/coverage
+
 # Ignore env files
 .env

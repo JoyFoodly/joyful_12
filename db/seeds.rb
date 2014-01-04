@@ -6,6 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+admin = Admin.find_or_create_by(email: 'michelle.ann.harvey@gmail.com')
+admin.password = 'password' unless admin.persisted?
+admin.save
+
 foods = [
 'Beet',
 'Cauliflower',
