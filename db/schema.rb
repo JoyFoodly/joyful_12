@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20131215080614) do
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
 
   create_table "allergies", force: true do |t|
-    t.string   "name"
+    t.string   "name",       default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -56,16 +56,6 @@ ActiveRecord::Schema.define(version: 20131215080614) do
   end
 
   add_index "allergies_family_members", ["allergy_id", "family_member_id"], name: "index_allergies_family_members_allergy_id_and_family_member_id"
-
-  create_table "cooking_methods", force: true do |t|
-    t.string   "name"
-    t.text     "instructions"
-    t.integer  "food_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "cooking_methods", ["food_id"], name: "index_cooking_methods_on_food_id"
 
   create_table "family_members", force: true do |t|
     t.string   "first_name"
@@ -78,8 +68,8 @@ ActiveRecord::Schema.define(version: 20131215080614) do
   end
 
   create_table "foods", force: true do |t|
-    t.string   "name"
-    t.string   "slug"
+    t.string   "name",       default: "", null: false
+    t.string   "slug",       default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -98,6 +88,21 @@ ActiveRecord::Schema.define(version: 20131215080614) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], name: "index_rails_admin_histories"
+
+  create_table "recipes", force: true do |t|
+    t.string   "title",        default: "", null: false
+    t.string   "subtitle",     default: "", null: false
+    t.string   "prep_time",    default: "", null: false
+    t.string   "cook_time",    default: "", null: false
+    t.string   "serving_size", default: "", null: false
+    t.string   "difficulty",   default: "", null: false
+    t.text     "instructions", default: "", null: false
+    t.integer  "food_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "recipes", ["food_id"], name: "index_recipes_on_food_id"
 
   create_table "subscriptions", force: true do |t|
     t.string   "card_token", default: "", null: false
@@ -137,9 +142,9 @@ ActiveRecord::Schema.define(version: 20131215080614) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "versions", force: true do |t|
-    t.string   "item_type",      null: false
-    t.integer  "item_id",        null: false
-    t.string   "event",          null: false
+    t.string   "item_type",      default: "", null: false
+    t.integer  "item_id",        default: 0,  null: false
+    t.string   "event",          default: "", null: false
     t.string   "whodunnit"
     t.text     "object"
     t.text     "object_changes"

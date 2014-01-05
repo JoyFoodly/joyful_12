@@ -5,7 +5,7 @@ class CreateFamilyMembers < ActiveRecord::Migration
       t.string :last_name
       t.date :birthday
       t.string :other_allergies
-      t.belongs_to :user
+      t.references :user
 
       t.timestamps
     end

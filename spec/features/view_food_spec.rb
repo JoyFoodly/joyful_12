@@ -8,6 +8,6 @@ feature 'View food' do
     foot = Food.create(name: 'Cauliflower', slug: 'cauliflower')
     visit root_url
     click_link 'cauliflower'
-    expect(page).to have_content('Joyful 12 Coooking methods:')
+    expect(page).to have_content('Joyful 12 Recipes:')
   end
 end

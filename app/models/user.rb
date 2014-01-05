@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :subscriptions,  dependent: :destroy
   has_many :family_members, dependent: :destroy
 
+  validates :email, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
 

@@ -155,7 +155,7 @@ RailsAdmin.config do |config|
 
   #   # Found associations:
 
-  #     configure :cooking_methods, :has_many_association
+  #     configure :recipes, :has_many_association
 
   #   # Found columns:
 

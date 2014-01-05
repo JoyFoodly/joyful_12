@@ -38,6 +38,9 @@ gem 'devise', '~> 3.2.2'
 # Accept Payments
 gem 'stripe', '~> 1.9.9'
 
+# Markdown parsing
+gem 'redcarpet', '~> 3.0.0'
+
 group :test do
   # Testing framework
   gem 'rspec-rails', '~> 2.14.0'

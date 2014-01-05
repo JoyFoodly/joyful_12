@@ -64,19 +64,35 @@
 
     <aside class="col-md-7 col-md-offset-1">
 
-      <h3>Joyful 12 Coooking methods:</h3>
-      <ul class="nav nav-tabs cooking-method-nav">
-      <% @food.cooking_methods.each_with_index do |cooking_method, i| %>
-        <li data-cooking-method='<%= i + 1 %>' class='<%= 'active' if i == 0 %>'>
-          <a href="#"><%= cooking_method.name %></a>
+      <h3>Joyful 12 Recipes:</h3>
+      <ul class="nav nav-tabs recipe-nav">
+      <% @food.recipes.each_with_index do |cooking_method, i| %>
+        <li data-recipe='<%= i + 1 %>' class='<%= 'active' if i == 0 %>'>
+          <a href="#"><%= cooking_method.difficulty.titleize %></a>
         </li>
       <% end %>
       </ul>
       <div class='boxed-content bottom-buffer'>
-        <% @food.cooking_methods.each_with_index do |cooking_method, i| %>
-          <div class="cooking-method-instructions" data-cooking-method='<%= i + 1 %>'
-               style="<%= 'display: none' unless i == 0 %>">
-            <%= cooking_method.instructions.html_safe %>
+        <% @food.recipes.each_with_index do |recipe, i| %>
+          <div class='row bottom-buffer'>
+            <div class='col-md-7'>
+              <%= image_tag 'http://placekitten.com/344/240', class: 'img-responsive' %>
+            </div>
+            <div class='col-md-5'>
+              <h4 class="media-heading"><%= recipe.title %></h4>
+              <h5><%= recipe.subtitle %></h5>
+              <p><%= link_to 'view sample class schedule >' %></p>
+              <p>Prep time: <%= recipe.prep_time %></p>
+              <p>Cooking time: <%= recipe.cook_time %></p>
+            </div>
+          </div>
+          <div class="row recipe-instructions" data-recipe='<%= i + 1 %>' style="<%= 'display: none' unless i == 0 %>">
+            <div class='col-md-6'><%= markdown recipe.instructions %></div>
+            <div class='col-md-6'>
+              <%= image_tag 'http://placekitten.com/290/240', class: 'img-responsive bottom-buffer' %>
+              <%= image_tag 'http://placekitten.com/290/240', class: 'img-responsive bottom-buffer' %>
+              <%= image_tag 'http://placekitten.com/290/240', class: 'img-responsive bottom-buffer' %>
+            </div>
           </div>
         <% end %>
       </div>

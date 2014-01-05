@@ -7,11 +7,11 @@ startMovingFunFacts = ->
   setInterval(cycleFunFact, 4000)
 
 jQuery ->
-  $('.cooking-method-nav li').click (e)->
+  $('.recipe-nav li').click (e)->
     e.preventDefault()
     $(this).siblings().removeClass('active')
     $(this).addClass('active')
-    $('.cooking-method-instructions').hide()
-    $(".cooking-method-instructions[data-cooking-method='#{$(this).data('cooking-method')}']").show()
+    $('.recipe-instructions').hide()
+    $(".recipe-instructions[data-recipe='#{$(this).data('recipe')}']").show()
 
   startMovingFunFacts()
