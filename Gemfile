@@ -63,7 +63,7 @@ group :development, :test do
   gem 'guard-livereload', '~> 2.1.0'
 
   # Error REPL
-  gem 'better_errors', '~> 1.0.1'
+  gem 'better_errors', '~> 1.1.0'
 
   # Environment variables for dev and test
   gem 'dotenv-rails', '~> 0.9.0'
