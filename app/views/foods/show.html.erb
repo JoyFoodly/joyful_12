@@ -86,6 +86,8 @@
               <p><%= link_to 'view sample class schedule >' %></p>
               <p>Prep time: <%= recipe.prep_time %></p>
               <p>Cooking time: <%= recipe.cook_time %></p>
+              <%= button_to 'Add to shopping list', { action: :create, controller: :shopping_lists, shopping_list: {
+                                                          recipe_ids: [recipe.id] }}, class: 'btn btn-primary' %>
             </div>
           </div>
           <div class="row recipe-instructions" data-recipe='<%= i + 1 %>' style="<%= 'display: none' unless i == 0 %>">

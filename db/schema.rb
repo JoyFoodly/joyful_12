@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140111231043) do
+ActiveRecord::Schema.define(version: 20140112042150) do
 
   create_table "addresses", force: true do |t|
     t.string   "line_1",     default: "", null: false
@@ -93,6 +93,23 @@ ActiveRecord::Schema.define(version: 20140111231043) do
 
   add_index "images", ["imageable_id", "imageable_type"], name: "index_images_on_imageable_id_and_imageable_type"
 
+  create_table "ingredient_list_items", force: true do |t|
+    t.string   "quantity",      default: "", null: false
+    t.integer  "ingredient_id",              null: false
+    t.integer  "recipe_id",                  null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "ingredient_list_items", ["ingredient_id", "recipe_id"], name: "index_ingredient_list_items_on_ingredient_id_and_recipe_id"
+
+  create_table "ingredients", force: true do |t|
+    t.string   "name",       default: "", null: false
+    t.string   "category",   default: "", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
   create_table "rails_admin_histories", force: true do |t|
     t.text     "message"
     t.string   "username"
@@ -120,6 +137,23 @@ ActiveRecord::Schema.define(version: 20140111231043) do
   end
 
   add_index "recipes", ["food_id"], name: "index_recipes_on_food_id"
+
+  create_table "recipes_shopping_lists", id: false, force: true do |t|
+    t.integer "recipe_id",        null: false
+    t.integer "shopping_list_id", null: false
+  end
+
+  add_index "recipes_shopping_lists", ["recipe_id", "shopping_list_id"], name: "index_recipes_shopping_lists_on_recipe_id_and_shopping_list_id"
+
+  create_table "shopping_lists", force: true do |t|
+    t.string   "name"
+    t.datetime "completed_at"
+    t.integer  "user_id",      null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "shopping_lists", ["user_id"], name: "index_shopping_lists_on_user_id"
 
   create_table "subscriptions", force: true do |t|
     t.string   "card_token", default: "", null: false

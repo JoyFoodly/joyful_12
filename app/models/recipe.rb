@@ -1,6 +1,9 @@
 class Recipe < ActiveRecord::Base
   has_paper_trail
   has_many :images, -> { order('sort_order ASC') }, as: :imageable, dependent: :destroy
+  has_many :ingredient_list_items
+  has_many :ingredients, through: :ingredient_list_items
+  has_and_belongs_to_many :recipes
   belongs_to :food
 
   validates :title,        presence: true

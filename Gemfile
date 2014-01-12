@@ -44,6 +44,9 @@ gem 'redcarpet', '~> 3.0.0'
 # Image uploading
 gem 'paperclip', '~> 3.5.2'
 
+# Form Builder
+gem 'simple_form', '~> 3.0.1'
+
 group :test do
   # Testing framework
   gem 'rspec-rails', '~> 2.14.0'

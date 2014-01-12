@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :addresses,      dependent: :destroy
   has_many :subscriptions,  dependent: :destroy
   has_many :family_members, dependent: :destroy
+  has_many :shopping_lists, dependent: :destroy
 
   validates :email, presence: true
   validates :first_name, presence: true

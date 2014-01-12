@@ -10,6 +10,10 @@ admin = Admin.find_or_create_by(email: 'michelle.ann.harvey@gmail.com')
 admin.password = 'password' unless admin.persisted?
 admin.save
 
+user_attributes = { first_name: 'Tester', last_name: 'Person', password: 'password', created_at: Time.current }
+user = User.create_with(user_attributes).find_or_create_by!(email: 'test@example.com')
+user.confirm!
+
 foods = [
 'Beet',
 'Cauliflower',
@@ -25,6 +29,8 @@ foods = [
 'Collard',
 ]
 
+ingredients = [['Cauliflower', 'Produce', '1 head'], ['Salt', 'Other', '2 tsp'], ['Olive Oil', 'Other', '2 tbs']]
+
 easy_recipe_attributes = {
   title: 'Roasted Cauliflower',
   subtitle: 'Cauliflower recipe 1 - easy',
@@ -33,13 +39,6 @@ easy_recipe_attributes = {
   serving_size: '4 - 6 people',
   difficulty: 'easy',
   instructions: %q{
-### Ingredients:
-
-* 1 head cauliflower
-* 2 tsp salt
-* 2 TBS olive oil
-* optional spices: cumin, curry powder, tumeric.
-
 ### Directions:
 
 1. In a bowl, toss cauliflower florets with 2 tablespoons olive oil, and two teaspoons of salt. We also like
@@ -54,7 +53,11 @@ easy_recipe_attributes = {
 
 foods.each do |food|
   food = Food.find_or_create_by(name: food, slug: food.downcase.split.join('-'))
-  food.recipes.find_or_create_by(easy_recipe_attributes)
+  recipe = food.recipes.find_or_create_by(easy_recipe_attributes.merge(title: "Roasted #{food.name}" ))
+  ingredients.each do |ingredient_name, category, quantity|
+    ingredient = Ingredient.find_or_create_by!(name: ingredient_name, category: category)
+    recipe.ingredient_list_items.find_or_create_by!(ingredient_id: ingredient.id, quantity: quantity)
+  end
 end
 
 ['Gluten Free', 'Dairy Free'].each { |allergy_name| Allergy.create!(name: allergy_name) }
