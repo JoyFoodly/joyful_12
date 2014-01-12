@@ -6,9 +6,9 @@ class CreateAddresses < ActiveRecord::Migration
       t.string :city,     null: false, default: ''
       t.string :state,    null: false, default: ''
       t.string :country,  null: false, default: ''
-      t.references :user, index: true
+      t.references :user, null: false, index: true
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

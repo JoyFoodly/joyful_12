@@ -7,7 +7,7 @@ class CreateVersions < ActiveRecord::Migration
       t.string   :whodunnit
       t.text     :object
       t.text     :object_changes
-      t.datetime :created_at
+      t.datetime :created_at, null: false
     end
     add_index :versions, [:item_type, :item_id]
   end

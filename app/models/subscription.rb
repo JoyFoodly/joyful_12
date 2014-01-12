@@ -3,8 +3,8 @@ class Subscription < ActiveRecord::Base
   delegate :email, to: :user, prefix: true
 
   validates :card_token, presence: true
-  validates :plan_id, inclusion: { in: %w[seasonal beta annual] }
-  validates :user, associated: true
+  validates :plan_id,    presence: true, inclusion: { in: %w[seasonal beta annual] }
+  validates :user,       presence: true
   validate :stripe_customer_created, on: :create
 
 private

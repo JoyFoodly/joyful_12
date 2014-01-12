@@ -4,8 +4,8 @@ class CreateFoods < ActiveRecord::Migration
       t.string :name, null: false, default: ''
       t.string :slug, null: false, default: ''
 
-      t.timestamps
+      t.timestamps    null: false
     end
-    add_index :foods, :slug
+    add_index :foods, :slug, unique: true
   end
 end

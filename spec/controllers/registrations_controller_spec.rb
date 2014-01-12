@@ -46,7 +46,7 @@ describe RegistrationsController do
 
     it "Redirects the user back if there are subscription creation errors" do
       post :create, stripe_params.merge(plan_id: '')
-      expect(assigns(:user).errors.full_messages).to eq(["Plan is not included in the list"])
+      expect(assigns(:user).errors.full_messages).to include('Plan is not included in the list')
       expect(response).to render_template(:new)
       expect(User.count + Address.count + Subscription.count).to eq(0)
     end

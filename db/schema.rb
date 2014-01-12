@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131215080614) do
+ActiveRecord::Schema.define(version: 20140111231043) do
 
   create_table "addresses", force: true do |t|
     t.string   "line_1",     default: "", null: false
@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(version: 20131215080614) do
     t.string   "city",       default: "", null: false
     t.string   "state",      default: "", null: false
     t.string   "country",    default: "", null: false
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "user_id",                 null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   add_index "addresses", ["user_id"], name: "index_addresses_on_user_id"
@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 20131215080614) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
@@ -46,13 +46,13 @@ ActiveRecord::Schema.define(version: 20131215080614) do
 
   create_table "allergies", force: true do |t|
     t.string   "name",       default: "", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "allergies_family_members", id: false, force: true do |t|
-    t.integer "allergy_id"
-    t.integer "family_member_id"
+    t.integer "allergy_id",       null: false
+    t.integer "family_member_id", null: false
   end
 
   add_index "allergies_family_members", ["allergy_id", "family_member_id"], name: "index_allergies_family_members_allergy_id_and_family_member_id"
@@ -62,19 +62,36 @@ ActiveRecord::Schema.define(version: 20131215080614) do
     t.string   "last_name"
     t.date     "birthday"
     t.string   "other_allergies"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "user_id",         null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
+
+  add_index "family_members", ["user_id"], name: "index_family_members_on_user_id"
 
   create_table "foods", force: true do |t|
     t.string   "name",       default: "", null: false
     t.string   "slug",       default: "", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
-  add_index "foods", ["slug"], name: "index_foods_on_slug"
+  add_index "foods", ["slug"], name: "index_foods_on_slug", unique: true
+
+  create_table "images", force: true do |t|
+    t.integer  "sort_order",        default: 0, null: false
+    t.string   "file_file_name",                null: false
+    t.string   "file_content_type",             null: false
+    t.integer  "file_file_size",                null: false
+    t.string   "file_fingerprint",              null: false
+    t.datetime "file_updated_at",               null: false
+    t.integer  "imageable_id",                  null: false
+    t.string   "imageable_type",                null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  add_index "images", ["imageable_id", "imageable_type"], name: "index_images_on_imageable_id_and_imageable_type"
 
   create_table "rails_admin_histories", force: true do |t|
     t.text     "message"
@@ -83,8 +100,8 @@ ActiveRecord::Schema.define(version: 20131215080614) do
     t.string   "table"
     t.integer  "month",      limit: 2
     t.integer  "year",       limit: 5
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], name: "index_rails_admin_histories"
@@ -97,9 +114,9 @@ ActiveRecord::Schema.define(version: 20131215080614) do
     t.string   "serving_size", default: "", null: false
     t.string   "difficulty",   default: "", null: false
     t.text     "instructions", default: "", null: false
-    t.integer  "food_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "food_id",                   null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   add_index "recipes", ["food_id"], name: "index_recipes_on_food_id"
@@ -107,9 +124,9 @@ ActiveRecord::Schema.define(version: 20131215080614) do
   create_table "subscriptions", force: true do |t|
     t.string   "card_token", default: "", null: false
     t.string   "plan_id",    default: "", null: false
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "user_id",                 null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id"
@@ -131,10 +148,10 @@ ActiveRecord::Schema.define(version: 20131215080614) do
     t.string   "unconfirmed_email"
     t.string   "first_name",             default: "", null: false
     t.string   "last_name",              default: "", null: false
-    t.string   "family_description"
+    t.text     "family_description"
     t.text     "family_struggles"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
@@ -148,7 +165,7 @@ ActiveRecord::Schema.define(version: 20131215080614) do
     t.string   "whodunnit"
     t.text     "object"
     t.text     "object_changes"
-    t.datetime "created_at"
+    t.datetime "created_at",                  null: false
   end
 
   add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"

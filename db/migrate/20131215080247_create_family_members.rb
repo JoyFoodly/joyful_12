@@ -5,9 +5,9 @@ class CreateFamilyMembers < ActiveRecord::Migration
       t.string :last_name
       t.date :birthday
       t.string :other_allergies
-      t.references :user
+      t.references :user, null: false, index: true
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

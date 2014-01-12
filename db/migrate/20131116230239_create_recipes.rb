@@ -8,9 +8,9 @@ class CreateRecipes < ActiveRecord::Migration
       t.string :serving_size, null: false, default: ''
       t.string :difficulty,   null: false, default: ''
       t.text :instructions,   null: false, default: ''
-      t.references :food, index: true
+      t.references :food,     null: false, index: true
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

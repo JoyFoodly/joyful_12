@@ -32,10 +32,10 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       t.string :first_name, null: false, default: ''
       t.string :last_name, null: false, default: ''
-      t.string :family_description
+      t.text :family_description
       t.text :family_struggles
 
-      t.timestamps
+      t.timestamps null: false
     end
 
     add_index :users, :email,                unique: true

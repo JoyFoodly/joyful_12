@@ -3,7 +3,7 @@ class CreateAllergies < ActiveRecord::Migration
     create_table :allergies do |t|
       t.string :name, null: false, default: ''
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

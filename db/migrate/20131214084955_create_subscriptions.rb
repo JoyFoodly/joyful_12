@@ -3,9 +3,9 @@ class CreateSubscriptions < ActiveRecord::Migration
     create_table :subscriptions do |t|
       t.string :card_token, null: false, default: ''
       t.string :plan_id,    null: false, default: ''
-      t.references :user, index: true
+      t.references :user,   null: false, index: true
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end
