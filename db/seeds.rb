@@ -29,7 +29,9 @@ foods = [
 'Collard',
 ]
 
-ingredients = [['Cauliflower', 'Produce', '1 head'], ['Salt', 'Other', '2 tsp'], ['Olive Oil', 'Other', '2 tbs']]
+ingredients = [['Cauliflower', 'Produce', '1 head', 0],
+               ['Salt', 'Other', '2 tsp', 2],
+               ['Olive Oil', 'Other', '2 tbs', 1]]
 
 easy_recipe_attributes = {
   title: 'Roasted Cauliflower',
@@ -54,9 +56,9 @@ easy_recipe_attributes = {
 foods.each do |food|
   food = Food.find_or_create_by(name: food, slug: food.downcase.split.join('-'))
   recipe = food.recipes.find_or_create_by(easy_recipe_attributes.merge(title: "Roasted #{food.name}" ))
-  ingredients.each do |ingredient_name, category, quantity|
+  ingredients.each do |ingredient_name, category, quantity, sort_order|
     ingredient = Ingredient.find_or_create_by!(name: ingredient_name, category: category)
-    recipe.ingredient_list_items.find_or_create_by!(ingredient_id: ingredient.id, quantity: quantity)
+    recipe.ingredient_list_items.find_or_create_by!(ingredient_id: ingredient.id, quantity: quantity, sort_order: sort_order)
   end
 end
 

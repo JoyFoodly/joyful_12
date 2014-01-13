@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 20140112042150) do
 
   create_table "ingredient_list_items", force: true do |t|
     t.string   "quantity",      default: "", null: false
+    t.integer  "sort_order",    default: 0,  null: false
     t.integer  "ingredient_id",              null: false
     t.integer  "recipe_id",                  null: false
     t.datetime "created_at",                 null: false

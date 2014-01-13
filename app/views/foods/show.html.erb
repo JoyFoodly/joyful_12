@@ -91,7 +91,15 @@
             </div>
           </div>
           <div class="row recipe-instructions" data-recipe='<%= i + 1 %>' style="<%= 'display: none' unless i == 0 %>">
-            <div class='col-md-5'><%= markdown recipe.instructions %></div>
+            <div class='col-md-5'>
+              <h3>Ingredients:</h3>
+              <ul>
+                <% recipe.ingredient_list_items.sort_by(&:sort_order).each do |ingredient_list_item| %>
+                    <li><%= ingredient_list_item.ingredient.name %> - <%= ingredient_list_item.quantity %></li>
+                <% end %>
+              </ul>
+              <%= markdown recipe.instructions %>
+            </div>
             <div class='col-md-7'>
               <% recipe.images.drop(1).each do |image| %>
                 <%= image_tag image.file.url(:thumbnail), class: 'img-responsive' %>

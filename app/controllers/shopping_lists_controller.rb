@@ -15,7 +15,7 @@ class ShoppingListsController < ApplicationController
 
   def edit
     @user = current_user
-    @shopping_list = current_user.shopping_lists.find(params[:id])
+    @shopping_list = current_user.shopping_lists.includes(ingredient_list_items: [:ingredient]).find(params[:id])
   end
 
   def update
