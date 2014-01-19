@@ -6,9 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-admin = Admin.find_or_create_by(email: 'michelle.ann.harvey@gmail.com')
-admin.password = 'password' unless admin.persisted?
-admin.save
+Admin.create_with(password: 'password').find_or_create_by!(email: 'michelle.ann.harvey@gmail.com')
 
 user_attributes = { first_name: 'Tester', last_name: 'Person', password: 'password', created_at: Time.current }
 user = User.create_with(user_attributes).find_or_create_by!(email: 'test@example.com')
