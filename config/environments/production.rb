@@ -89,12 +89,12 @@ Joyfoodly::Application.configure do
   config.action_mailer.default_url_options = { :host => 'joyfoodly.herokuapp.com' }
 
   ActionMailer::Base.smtp_settings = {
-      :user_name => ENV['SENDGRID_USER_NAME'],
-      :password => ENV['SENDGRID_PASSWORD'],
-      :domain => 'joyfoodly.com',
-      :address => 'smtp.sendgrid.net',
-      :port => 587,
+      :address        => 'smtp.sendgrid.net',
+      :port           => '587',
       :authentication => :plain,
+      :user_name      => ENV['SENDGRID_USERNAME'],
+      :password       => ENV['SENDGRID_PASSWORD'],
+      :domain         => 'heroku.com',
       :enable_starttls_auto => true
   }
 
