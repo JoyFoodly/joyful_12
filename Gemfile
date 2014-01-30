@@ -17,11 +17,11 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'bootstrap-sass', '~> 3.0.2'
 
 # HTTP Requests
-gem 'faraday', '~> 0.8.8'
+gem 'faraday', '~> 0.9.0'
 
 # Caching images
 gem 'rack-cache', '~> 1.2'
-gem 'dalli', '~> 2.6.4'
+gem 'dalli', '~> 2.7.0'
 gem 'kgio', '~> 2.8.1'
 gem 'memcachier', '~> 0.0.2'
 
@@ -36,7 +36,7 @@ gem 'paper_trail', '~> 3.0.0.rc2'
 gem 'devise', '~> 3.2.2'
 
 # Accept Payments
-gem 'stripe', '~> 1.9.9'
+gem 'stripe', '~> 1.10.0'
 
 # Markdown parsing
 gem 'redcarpet', '~> 3.0.0'
@@ -58,7 +58,7 @@ group :test do
   gem 'capybara', '~> 2.2.0'
 
   # Disallow external requests in test env
-  gem 'webmock', '~> 1.16.0'
+  gem 'webmock', '~> 1.17.1'
 
   # Coverage stats
   gem 'simplecov', '~> 0.8.2', require: false
@@ -79,7 +79,7 @@ group :development, :test do
 end
 
 group :production do
-  gem 'unicorn', '~> 4.7.0'
+  gem 'unicorn', '~> 4.8.1'
 
   # Use Postgresql as the database for Active Record
   gem 'pg', '~> 0.17.0'
