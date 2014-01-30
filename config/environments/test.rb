@@ -36,4 +36,9 @@ Joyfoodly::Application.configure do
 
   # Default mailer host
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  # Image uploads
+  config.paperclip_defaults = {
+      :url => '/:imageable_class/:class/:style/:hash.:extension',
+  }
 end

@@ -13,5 +13,6 @@ class Recipe < ActiveRecord::Base
   validates :serving_size, presence: true
   validates :difficulty,   presence: true, inclusion: { in: %w[easy medium advanced] }
   validates :instructions, presence: true
+  validates :sort_order,   presence: true
   validates :food,         presence: true
 end

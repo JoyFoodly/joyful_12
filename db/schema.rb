@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20140112042150) do
   create_table "foods", force: true do |t|
     t.string   "name",       default: "", null: false
     t.string   "slug",       default: "", null: false
+    t.integer  "sort_order", default: 0,  null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
@@ -79,16 +80,17 @@ ActiveRecord::Schema.define(version: 20140112042150) do
   add_index "foods", ["slug"], name: "index_foods_on_slug", unique: true
 
   create_table "images", force: true do |t|
-    t.integer  "sort_order",        default: 0, null: false
-    t.string   "file_file_name",                null: false
-    t.string   "file_content_type",             null: false
-    t.integer  "file_file_size",                null: false
-    t.string   "file_fingerprint",              null: false
-    t.datetime "file_updated_at",               null: false
-    t.integer  "imageable_id",                  null: false
-    t.string   "imageable_type",                null: false
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.string   "name",              default: "", null: false
+    t.integer  "sort_order",        default: 0,  null: false
+    t.string   "file_file_name",                 null: false
+    t.string   "file_content_type",              null: false
+    t.integer  "file_file_size",                 null: false
+    t.string   "file_fingerprint",               null: false
+    t.datetime "file_updated_at",                null: false
+    t.integer  "imageable_id",                   null: false
+    t.string   "imageable_type",                 null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   add_index "images", ["imageable_id", "imageable_type"], name: "index_images_on_imageable_id_and_imageable_type"
@@ -132,6 +134,7 @@ ActiveRecord::Schema.define(version: 20140112042150) do
     t.string   "serving_size", default: "", null: false
     t.string   "difficulty",   default: "", null: false
     t.text     "instructions", default: "", null: false
+    t.integer  "sort_order",   default: 0,  null: false
     t.integer  "food_id",                   null: false
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false

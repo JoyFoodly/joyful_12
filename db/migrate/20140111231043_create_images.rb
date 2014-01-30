@@ -1,6 +1,7 @@
 class CreateImages < ActiveRecord::Migration
   def change
     create_table :images do |t|
+      t.string :name,              null: false, default: ''
       t.integer :sort_order,       null: false, default: 0
       t.string :file_file_name,    null: false
       t.string :file_content_type, null: false
