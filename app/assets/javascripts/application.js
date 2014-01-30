@@ -11,4 +11,5 @@
 // about supported directives.
 //
 //= require bootstrap/alert
+//= require bootstrap/tab
 //= require_tree .

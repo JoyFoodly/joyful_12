@@ -65,50 +65,8 @@
     <aside class="col-md-7 col-md-offset-1">
 
       <h3>Joyful 12 Recipes:</h3>
-      <ul class="nav nav-tabs recipe-nav">
-      <% @food.recipes.each_with_index do |cooking_method, i| %>
-        <li data-recipe='<%= i + 1 %>' class='<%= 'active' if i == 0 %>'>
-          <a href="#"><%= cooking_method.difficulty.titleize %></a>
-        </li>
-      <% end %>
-      </ul>
-      <div class='boxed-content bottom-buffer'>
-        <% @food.recipes.each_with_index do |recipe, i| %>
-          <div class='row bottom-buffer'>
-            <div class='col-md-7'>
-              <% if recipe.images.first %>
-                <%= image_tag recipe.images.first.file.url(:thumbnail), class: 'img-responsive' %>
-              <% end %>
-            </div>
-            <div class='col-md-5'>
-              <h4 class="media-heading"><%= recipe.title %></h4>
-              <h5><%= recipe.subtitle %></h5>
-              <p><%= link_to 'view sample class schedule >' %></p>
-              <p>Prep time: <%= recipe.prep_time %></p>
-              <p>Cooking time: <%= recipe.cook_time %></p>
-              <%= button_to 'Add to shopping list', { action: :create, controller: :shopping_lists, shopping_list: {
-                                                          recipe_ids: [recipe.id] }}, class: 'btn btn-primary' %>
-            </div>
-          </div>
-          <div class="row recipe-instructions" data-recipe='<%= i + 1 %>' style="<%= 'display: none' unless i == 0 %>">
-            <div class='col-md-5'>
-              <h3>Ingredients:</h3>
-              <ul>
-                <% recipe.ingredient_list_items.sort_by(&:sort_order).each do |ingredient_list_item| %>
-                    <li><%= ingredient_list_item.ingredient.name %> - <%= ingredient_list_item.quantity %></li>
-                <% end %>
-              </ul>
-              <%= markdown recipe.instructions %>
-            </div>
-            <div class='col-md-7'>
-              <% recipe.images.drop(1).each do |image| %>
-                <%= image_tag image.file.url(:thumbnail), class: 'img-responsive' %>
-                <br />
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-      </div>
+
+      <%= render 'recipes' %>
 
       <%= image_tag 'food-images/cauliflower-videos.png', class: 'food-videos img-responsive bottom-buffer' %>
 

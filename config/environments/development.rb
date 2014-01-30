@@ -32,6 +32,6 @@ Joyfoodly::Application.configure do
 
   # Image uploads
   config.paperclip_defaults = {
-      :url => '/:imageable_class/:class/:style/:hash.:extension',
+      :url => '/assets/:imageable_class/:class/:style/:hash.:extension',
   }
 end

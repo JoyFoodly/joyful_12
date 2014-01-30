@@ -1,0 +1,51 @@
+<!-- Recipe tab nav -->
+<ul class="nav nav-tabs">
+  <% @food.recipes.each_with_index do |recipe, i| %>
+      <li class="<%= 'active' if i == 0 %>">
+        <a href="#<%= recipe.difficulty %>" data-toggle="tab"><%= recipe.difficulty.titleize %></a>
+      </li>
+  <% end %>
+</ul>
+
+<!-- Recipe tab panes -->
+<div class="tab-content panel panel-default panel-no-top">
+  <% @food.recipes.each_with_index do |recipe, i| %>
+    <div class="tab-pane <%= 'active' if i == 0 %>" id="<%= recipe.difficulty %>">
+      <div class='panel-body'>
+        <div class='row bottom-buffer'>
+          <div class='col-md-7'>
+            <% if recipe.images.first %>
+                <%= image_tag recipe.images.first.file.url(:thumbnail), class: 'img-responsive' %>
+            <% end %>
+          </div>
+          <div class='col-md-5'>
+            <h4 class="media-heading"><%= recipe.title %></h4>
+            <h5><%= recipe.subtitle %></h5>
+            <p><%= link_to 'view sample class schedule >' %></p>
+            <p>Prep time: <%= recipe.prep_time %></p>
+            <p>Cooking time: <%= recipe.cook_time %></p>
+            <%= button_to 'Add to shopping list', { action: :create, controller: :shopping_lists, shopping_list: {
+                    recipe_ids: [recipe.id] }}, class: 'btn btn-primary' %>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-md-5'>
+            <h3>Ingredients:</h3>
+            <ul>
+              <% recipe.ingredient_list_items.sort_by(&:sort_order).each do |ingredient_list_item| %>
+                  <li><%= ingredient_list_item.ingredient.name %> - <%= ingredient_list_item.quantity %></li>
+              <% end %>
+            </ul>
+            <%= markdown recipe.instructions %>
+          </div>
+          <div class='col-md-7'>
+            <% recipe.images.drop(1).each do |image| %>
+                <%= image_tag image.file.url(:thumbnail), class: 'img-responsive' %>
+                <br />
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
