@@ -153,30 +153,18 @@
     text-align: center;
   }
 
-  .fun-facts {
+  .food-description-box {
     position: relative;
     background-color: #278fd1;
     color:  white;
-    padding: 20px;
     border-radius: 5px;
-    min-height: 170px;
 
-    &:before {
-      content:"";
-      position:absolute;
-      left:  50px;
-      top:  -15px;
-      border-left: 15px solid transparent;
-      border-bottom: 15px solid #278fd1;
-      border-right: 15px solid transparent;
-    }
-
-    h4 {
-      font-size:  26px;
-    }
-
-    .fun-fact {
-      font-size: 16px;
+    h1 {
+      font-size: 40px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 12px;
+      margin-top: 0;
     }
   }
 
