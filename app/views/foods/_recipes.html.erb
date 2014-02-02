@@ -13,12 +13,12 @@
     <div class="tab-pane <%= 'active' if i == 0 %>" id="<%= recipe.difficulty %>">
       <div class='panel-body'>
         <div class='row bottom-buffer'>
-          <div class='col-md-7'>
+          <div class='col-md-8'>
             <% if recipe.images.first %>
                 <%= image_tag recipe.images.first.file.url(:thumbnail), class: 'img-responsive' %>
             <% end %>
           </div>
-          <div class='col-md-5'>
+          <div class='col-md-4'>
             <h4 class="media-heading"><%= recipe.title %></h4>
             <h5><%= recipe.subtitle %></h5>
             <p><%= link_to 'view sample class schedule >' %></p>
