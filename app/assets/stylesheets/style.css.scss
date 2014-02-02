@@ -4,11 +4,17 @@
   border-top: 0;
 }
 
-.masthead {
-  h1 {
-    text-align: center;
-    margin: 40px;
-  }
+.align-top {
+  vertical-align: top;
+}
+
+.nav-tight > li > a {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-ho-hover > li > a:hover {
+  background-color: transparent;
 }
 
 .homepage-image {
