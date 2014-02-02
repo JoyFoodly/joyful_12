@@ -10,6 +10,4 @@ class Image < ActiveRecord::Base
     content_type: %w[image/jpg image/jpeg image/gif image/png]
   }
 
-
-
 end

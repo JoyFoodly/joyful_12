@@ -14,7 +14,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 
 # Bootstrap SCSS
-gem 'bootstrap-sass', '~> 3.0.2'
+gem 'bootstrap-sass', '~> 3.1.0'
 
 # HTTP Requests
 gem 'faraday', '~> 0.9.0'
@@ -42,7 +42,7 @@ gem 'stripe', '~> 1.10.0'
 gem 'redcarpet', '~> 3.0.0'
 
 # Image uploading
-gem 'paperclip', '~> 3.5.2'
+gem 'paperclip', '~> 4.0.0'
 
 # Form Builder
 gem 'simple_form', '~> 3.0.1'
