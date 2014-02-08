@@ -1,6 +1,7 @@
 class Food < ActiveRecord::Base
   has_paper_trail
   has_many :recipes, dependent: :destroy
+  belongs_to :season
 
   validates :name,       presence: true
   validates :slug,       presence: true

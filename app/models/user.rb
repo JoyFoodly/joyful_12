@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :subscriptions,  dependent: :destroy
   has_many :family_members, dependent: :destroy
   has_many :shopping_lists, dependent: :destroy
+  belongs_to :season
 
   validates :email, presence: true
   validates :first_name, presence: true

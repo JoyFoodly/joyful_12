@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140112042150) do
+ActiveRecord::Schema.define(version: 20140208201418) do
 
   create_table "addresses", force: true do |t|
     t.string   "line_1",     default: "", null: false
@@ -75,8 +75,10 @@ ActiveRecord::Schema.define(version: 20140112042150) do
     t.integer  "sort_order", default: 0,  null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.integer  "season_id"
   end
 
+  add_index "foods", ["season_id"], name: "index_foods_on_season_id"
   add_index "foods", ["slug"], name: "index_foods_on_slug", unique: true
 
   create_table "images", force: true do |t|
@@ -149,6 +151,12 @@ ActiveRecord::Schema.define(version: 20140112042150) do
 
   add_index "recipes_shopping_lists", ["recipe_id", "shopping_list_id"], name: "index_recipes_shopping_lists_on_recipe_id_and_shopping_list_id"
 
+  create_table "seasons", force: true do |t|
+    t.string   "name",       default: "", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
   create_table "shopping_lists", force: true do |t|
     t.string   "name"
     t.datetime "completed_at"
@@ -190,11 +198,13 @@ ActiveRecord::Schema.define(version: 20140112042150) do
     t.text     "family_struggles"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "season_id"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["season_id"], name: "index_users_on_season_id"
 
   create_table "versions", force: true do |t|
     t.string   "item_type",      default: "", null: false

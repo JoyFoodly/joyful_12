@@ -76,6 +76,7 @@ group :development, :test do
 
   # Error REPL
   gem 'better_errors', '~> 1.1.0'
+  gem 'binding_of_caller', '~> 0.7.2'
 
   # Environment variables for dev and test
   gem 'dotenv-rails', '~> 0.9.0'

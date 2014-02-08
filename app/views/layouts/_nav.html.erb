@@ -1,13 +1,17 @@
 <ul class='nav nav-justified nav-tight nav-ho-hover'>
   <!-- Nav left -->
   <li class='dropdown align-top'>
-    <a href='#' class='dropdown-toggle' data-toggle='dropdown'>Change Season <b class='caret'></b></a>
-    <ul class='dropdown-menu'>
-      <li><a href='#'>Winter</a></li>
-      <li><a href='#'>Spring</a></li>
-      <li><a href='#'>Summer</a></li>
-      <li><a href='#'>Fall</a></li>
+    <a href='#' class='dropdown-toggle' data-toggle='dropdown'>
+      Current Season: <%= season_name %> <b class='caret'></b>
+    </a>
+    <ul class='dropdown-menu js-season-selector'>
+      <% Season.all.each_with_index do |season, i| %>
+      <li class="<%= 'active' if season.name == season_name %>"><%= link_to season.name, '#' %></li>
+      <% end %>
     </ul>
+    <%= form_tag season_path('selected_season'), method: :patch, class: 'js-season-form' do %>
+      <%= hidden_field_tag 'season[name]', nil, class: 'js-season-input' %>
+    <% end %>
   </li>
 
   <!-- Nav center -->
@@ -19,7 +23,7 @@
   <!-- Nav right -->
   <li class='align-top'>
     <ul class='nav nav-pills nav-justified nav-tight nav-ho-hover'>
-      <li><%= link_to 'Classroom', root_path %></li>
+      <li><%= link_to 'Classroom', foods_path %></li>
       <li><%= link_to 'Parent Resources', '#' %></li>
       <li><%= link_to 'My Profile', edit_user_path('me') %></li>
     </ul>

@@ -12,20 +12,8 @@ user_attributes = { first_name: 'Tester', last_name: 'Person', password: 'passwo
 user = User.create_with(user_attributes).find_or_create_by!(email: 'test@example.com')
 user.confirm!
 
-foods = [
-'Beet',
-'Cauliflower',
-'Pomegranate',
-'Tangerine',
-'Cabbage',
-'Carrot',
-'Fennel',
-'Sweet potato',
-'Apple',
-'Broccoli',
-'Winter Squash',
-'Collard',
-]
+foods = ["Fennel", "Avocado", "Potato", "Strawberry", "Spinach", "Artichoke", "Peas", "Asparagus", "Green Onions",
+         "Radish", "mystery", "mystery 2"]
 
 ingredients = [['Cauliflower', 'Produce', '1 head', 0],
                ['Salt', 'Other', '2 tsp', 2],
@@ -51,13 +39,16 @@ easy_recipe_attributes = {
   }
 }
 
-foods.each do |food|
-  food = Food.find_or_create_by(name: food, slug: food.downcase.split.join('-'))
-  recipe = food.recipes.find_or_create_by(easy_recipe_attributes.merge(title: "Roasted #{food.name}" ))
-  ingredients.each do |ingredient_name, category, quantity, sort_order|
-    ingredient = Ingredient.find_or_create_by!(name: ingredient_name, category: category)
-    recipe.ingredient_list_items.find_or_create_by!(ingredient_id: ingredient.id, quantity: quantity, sort_order: sort_order)
+seasons = %w[Spring Summer Fall Winter].map { |name| Season.find_or_create_by(name: name) }
+seasons.each do |season|
+  foods.each do |food|
+    food = Food.find_or_create_by(name: food, slug: season.name.downcase + '-' + food.downcase.split.join('-'), season: season)
+    recipe = food.recipes.find_or_create_by(easy_recipe_attributes.merge(title: "#{season.name} Roasted #{food.name}" ))
+    ingredients.each do |ingredient_name, category, quantity, sort_order|
+      ingredient = Ingredient.find_or_create_by!(name: ingredient_name, category: category)
+      recipe.ingredient_list_items.find_or_create_by!(ingredient_id: ingredient.id, quantity: quantity, sort_order: sort_order)
+    end
   end
 end
 
-['Gluten Free', 'Dairy Free'].each { |allergy_name| Allergy.create!(name: allergy_name) }
+['Gluten Free', 'Dairy Free'].each { |allergy_name| Allergy.find_or_create_by!(name: allergy_name) }
