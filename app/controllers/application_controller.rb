@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+  before_filter :under_construction
   protect_from_forgery with: :exception
 
 protected
@@ -11,6 +12,10 @@ protected
 
   def model_specific_path(resource_or_scope)
     edit_user_path(resource_or_scope) if resource_or_scope.class == User
+  end
+
+  def under_construction
+    render 'under_construction/show', layout: false and return if ENV['UNDER_CONSTRUCTION'] && !user_signed_in?
   end
 
 end
