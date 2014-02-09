@@ -21,7 +21,7 @@
           <div class='col-md-4'>
             <h4 class="media-heading"><%= recipe.title %></h4>
             <h5><%= recipe.subtitle %></h5>
-            <p><%= link_to 'view sample class schedule >' %></p>
+            <p><%= link_to 'view sample class schedule >', class_schedule_path %></p>
             <p>Prep time: <%= recipe.prep_time %></p>
             <p>Cooking time: <%= recipe.cook_time %></p>
             <%= button_to 'Add to shopping list', { action: :create, controller: :shopping_lists, shopping_list: {
