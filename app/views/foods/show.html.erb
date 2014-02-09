@@ -2,9 +2,11 @@
   <nav>
     <ul class="nav row">
       <% @foods.sort_by(&:sort_order).each do |food| %>
-          <li class='col-lg-1 col-md-3 col-md-3 col-xs-6'>
-            <%= image_tag "nav-food-images/#{food.slug}.png", class: 'img-responsive' %>
-          </li>
+        <li class='col-lg-1 col-md-3 col-md-3 col-xs-6'>
+          <%= link_to food_path(food) do %>
+            <%= image_tag "nav-food-images/#{food.slug}.png", width: 68, height: 101, class: 'img-responsive' %>
+          <% end %>
+        </li>
       <% end %>
     </ul>
   </nav>
