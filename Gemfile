@@ -22,7 +22,7 @@ gem 'faraday', '~> 0.9.0'
 # Caching images
 gem 'rack-cache', '~> 1.2'
 gem 'dalli', '~> 2.7.0'
-gem 'kgio', '~> 2.8.1'
+gem 'kgio', '~> 2.9.1'
 gem 'memcachier', '~> 0.0.2'
 
 # Server monitoring
@@ -42,7 +42,7 @@ gem 'stripe', '~> 1.10.0'
 gem 'redcarpet', '~> 3.0.0'
 
 # Image uploading
-gem 'paperclip', '~> 4.0.0'
+gem 'paperclip', '~> 4.1.0'
 
 # Form Builder
 gem 'simple_form', '~> 3.0.1'
