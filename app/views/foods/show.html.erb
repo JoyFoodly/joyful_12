@@ -2,7 +2,7 @@
   <nav>
     <ul class="nav row">
       <% @foods.sort_by(&:sort_order).each do |food| %>
-        <li class='col-lg-1 col-md-3 col-md-3 col-xs-6'>
+        <li class='col-md-1 col-xs-6'>
           <%= link_to food_path(food) do %>
             <%= image_tag "nav-food-images/#{food.slug}.png", width: 68, height: 101, class: 'img-responsive' %>
           <% end %>
@@ -14,7 +14,7 @@
   <div class="row">
 
     <div class="col-md-4">
-      <%= image_tag "food-images/#{@food.slug}-main.png", alt: @food.name %>
+      <%= image_tag "food-images/#{@food.slug}-main.png", alt: @food.name, class: 'img-responsive' %>
 
       <div class='food-description-box bottom-buffer'>
         <h1 class="text-center"><%= @food.name %></h1>
