@@ -32,4 +32,22 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+
+  config.model 'Media' do
+    list do
+      field :id
+      field :file do
+        label 'Original'
+      end
+      field :thumbnail do
+        formatted_value do
+          v = bindings[:view]
+          v.link_to(v.image_tag(bindings[:object].file.url(:thumbnail), class: 'img-polaroid'),
+                    bindings[:object].file.url(:thumbnail), target: 'blank')
+        end
+      end
+      field :created_at
+      field :updated_at
+    end
+  end
 end

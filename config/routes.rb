@@ -10,6 +10,7 @@ Joyfoodly::Application.routes.draw do
   resources :seasons, only: :update
   resource :parent_resources, only: :show
   resource :class_schedule
+  resources :pages, only: :show
 
   root to: 'home#index'
 end

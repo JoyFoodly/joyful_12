@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140208201418) do
+ActiveRecord::Schema.define(version: 20140221081417) do
 
   create_table "addresses", force: true do |t|
     t.string   "line_1",     default: "", null: false
@@ -114,6 +114,25 @@ ActiveRecord::Schema.define(version: 20140208201418) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
+
+  create_table "media", force: true do |t|
+    t.string   "file_file_name",    null: false
+    t.string   "file_content_type", null: false
+    t.integer  "file_file_size",    null: false
+    t.string   "file_fingerprint",  null: false
+    t.datetime "file_updated_at",   null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "pages", force: true do |t|
+    t.string   "slug",       default: "", null: false
+    t.text     "body",       default: "", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "pages", ["slug"], name: "index_pages_on_slug", unique: true
 
   create_table "rails_admin_histories", force: true do |t|
     t.text     "message"
