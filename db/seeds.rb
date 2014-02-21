@@ -12,21 +12,14 @@ user_attributes = { first_name: 'Tester', last_name: 'Person', password: 'passwo
 user = User.create_with(user_attributes).find_or_create_by!(email: 'test@example.com')
 user.confirm!
 
-foods = ["Fennel", "Avocado", "Potato", "Strawberry", "Spinach", "Artichoke", "Peas", "Asparagus", "Green Onions",
-         "Radish", "mystery", "mystery 2"]
-
-ingredients = [['Cauliflower', 'Produce', '1 head', 0],
-               ['Salt', 'Other', '2 tsp', 2],
-               ['Olive Oil', 'Other', '2 tbs', 1]]
-
 easy_recipe_attributes = {
-  title: 'Roasted Cauliflower',
-  subtitle: 'Cauliflower recipe 1 - easy',
-  prep_time: '10 min',
-  cook_time: '15 min',
-  serving_size: '4 - 6 people',
-  difficulty: 'easy',
-  instructions: %q{
+    title: 'Roasted Cauliflower',
+    subtitle: 'Cauliflower recipe 1 - easy',
+    prep_time: '10 min',
+    cook_time: '15 min',
+    serving_size: '4 - 6 people',
+    difficulty: 'easy',
+    instructions: %q{
 ### Directions:
 
 1. In a bowl, toss cauliflower florets with 2 tablespoons olive oil, and two teaspoons of salt. We also like
@@ -39,7 +32,49 @@ easy_recipe_attributes = {
   }
 }
 
-seasons = %w[Spring Summer Fall Winter].map { |name| Season.find_or_create_by(name: name) }
+
+spring_foods = [["Avocado", "spring-avocado"],
+                ["Potato", "spring-potato"],
+                ["Strawberry", "spring-strawberry"],
+                ["Artichoke", "spring-artichoke"],
+                ["Peas", "spring-peas"],
+                ["Asparagus", "spring-asparagus"],
+                ["Radishes", "spring-radish"],
+                ["Fennel", "spring-fennel"],
+                ["Green Onion", "spring-green-onion"],
+                ["Spinach", "spring-spinach"],
+                ["greens", "spring-greens"],
+                ["rhubarb", "spring-rhubarb"]]
+
+spring_season = Season.find_or_create_by(name: 'Spring')
+spring_foods.each do |name, slug|
+  food = Food.find_or_create_by(name: name, slug: slug, season: spring_season)
+  food.recipes.find_or_create_by(easy_recipe_attributes.merge(title: "#{spring_season.name} Roasted #{food.name}" ))
+end
+
+winter_foods = [["Sweet Potato", "winter-sweet-potato"],
+                ["Brussels Sprout", "winter-brussels-sprout"],
+                ["Winter Squash", "winter-winter-squash"],
+                ["Citrus", "winter-citrus"],
+                ["Greens", "winter-greens"],
+                ["Beet", "winter-beets"]]
+
+winter_season = Season.find_or_create_by(name: 'Winter')
+winter_foods.each do |name, slug|
+  food = Food.find_or_create_by(name: name, slug: slug, season: winter_season)
+  food.recipes.find_or_create_by(easy_recipe_attributes.merge(title: "#{winter_season.name} Roasted #{food.name}" ))
+end
+
+
+
+foods = ["Fennel", "Avocado", "Potato", "Strawberry", "Spinach", "Artichoke", "Peas", "Asparagus", "Green Onions",
+         "Radish", "mystery", "mystery 2"]
+
+ingredients = [['Cauliflower', 'Produce', '1 head', 0],
+               ['Salt', 'Other', '2 tsp', 2],
+               ['Olive Oil', 'Other', '2 tbs', 1]]
+
+seasons = %w[Summer Fall].map { |name| Season.find_or_create_by(name: name) }
 seasons.each do |season|
   foods.each do |food|
     food = Food.find_or_create_by(name: food, slug: season.name.downcase + '-' + food.downcase.split.join('-'), season: season)
