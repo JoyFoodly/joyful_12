@@ -1,36 +1,46 @@
-<div class='row'><h1>Your Weekly Shopping List</h1></div>
-
 <div class='row'>
-    <h3>Create Your Own List:</h3>
-    <%= form_tag shopping_lists_path, role: 'form' do %>
-        <div class='form-group'>
-            <%= content_tag :select, name: 'shopping_list[recipe_ids][]' do %>
-                <%= content_tag :option %>
-                <%= option_groups_from_collection_for_select(Food.includes(:recipes).load, :recipes, :name, :id, :title) %>
-            <% end %>
-        </div>
-        <%= submit_tag 'Add Recipe', class: 'btn btn-primary', name: nil %>
-    <% end %>
+  <div class="col-md-12"><h1>Your Weekly Shopping List</h1></div>
 </div>
 
+
 <div class='row'>
-  <%= simple_form_for @shopping_list, html: { role: 'form' } do |f| %>
+  <div class="col-md-4">
+    <h3>Create Your Own List:</h3>
+    <%= form_tag shopping_lists_path, role: 'form' do %>
       <div class='form-group'>
-          <h3>Selected Recipes for List:</h3>
-          <%= f.association :recipes, collection: @shopping_list.recipes, as: :check_boxes, label: false %>
+        <%= content_tag :select, name: 'shopping_list[recipe_ids][]' do %>
+            <%= content_tag :option %>
+            <%= option_groups_from_collection_for_select(Food.includes(:recipes).load, :recipes, :name, :id, :title) %>
+        <% end %>
+      </div>
+      <%= submit_tag 'Add Recipe', class: 'btn btn-primary', name: nil %>
+    <% end %>
+    <%= simple_form_for @shopping_list, html: { role: 'form' } do |f| %>
+      <div class='form-group'>
+        <h3>You've selected these recipes:</h3>
+        <%= f.association :recipes, collection: @shopping_list.recipes, as: :check_boxes, label: false %>
       </div>
       <%= f.button :submit, class: 'btn-primary' %>
-      <div class='form-group'>
-          <h3>Shopping List:</h3>
+    <% end %>
+  </div>
+
+  <div class="col-md-8">
+    <div class='form-group'>
+      <div class="panel panel-default bottom-buffer top-buffer">
+        <div class="panel-heading">
+          <h3 class="panel-title">Your Shopping List:</h3>
+        </div>
+        <div class="panel-body">
           <% @shopping_list.ingredient_list_items.group_by{|ili| ili.ingredient.category }.each do |category, ingredient_list_items| %>
-              <h4><%= category %></h4>
-              <ul class='list-unstyled'>
-                  <% ingredient_list_items.sort_by{|ili| ili.ingredient.name }.each do |ingredient_list_item| %>
-                      <li><%= ingredient_list_item.ingredient.name %> - <%= ingredient_list_item.quantity %></li>
-                  <% end %>
-              </ul>
+            <div class="col-md-4">
+              <h3><%= category %></h3>
+              <% ingredient_list_items.sort_by{|ili| ili.ingredient.name }.each do |ingredient_list_item| %>
+                <p><%= ingredient_list_item.ingredient.name %>, <%= ingredient_list_item.quantity %></p>
+              <% end %>
+            </div>
           <% end %>
+        </div>
       </div>
-      <%= f.button :submit, class: 'btn-primary' %>
-  <% end %>
+    </div>
+  </div>
 </div>

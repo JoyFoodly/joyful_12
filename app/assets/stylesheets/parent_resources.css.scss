@@ -1,0 +1,43 @@
+.thumbnail > img, .thumbnail a > img {
+  border: solid 1px #c5c5c5;
+}
+
+.btn-primary, .btn-primary:focus, .btn-primary:active, .btn-primary.active {
+  color: white;
+  background-color: #4196b4;
+  border-color: #4196b4;
+}
+
+.btn-primary:hover {
+  opacity:0.5;
+}
+
+td:first-child {
+  width:80px;
+}
+
+.table > thead > tr > th {
+  font-size: 20px;
+}
+
+.table > tbody > tr > th {
+  font-size: 16px;
+}
+
+.btn-warning {
+ background-color: #f3cd00;
+ border-color: #f3cd00;
+}
+
+.btn-warning:hover {
+  opacity:0.8;
+}
+
+h5 {
+  font-weight:400;
+}
+
+.food-page .food-description-box h1 {
+  letter-spacing: 2.5px;
+  font-weight: 600;
+}

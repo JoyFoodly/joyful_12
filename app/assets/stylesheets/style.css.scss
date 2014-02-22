@@ -125,6 +125,10 @@
   transform: rotate($property);
 }
 
+.wiggle:hover {
+  @include transform(7deg);
+}
+
 .food-page {
   nav {
     margin-bottom: 60px;
@@ -151,7 +155,7 @@
   }
 
   .teal {
-    background-color: #278fd1;
+    background-color: #4196b4;
     padding:  5px;
     color: white;
     text-align: center;
