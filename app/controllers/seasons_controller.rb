@@ -6,13 +6,21 @@ class SeasonsController < ApplicationController
       current_user.update_attributes(season: season)
     end
     session[:season_name] = season.name
-    redirect_to :back
+    redirect_back_unless_recipe_page
   end
 
 private
 
   def season_params
     params.require(:season).permit(:name)
+  end
+
+  def redirect_back_unless_recipe_page
+    if request.referrer =~ /foods\/\w+/
+      redirect_to foods_path
+    else
+      redirect_to :back
+    end
   end
 
 end
