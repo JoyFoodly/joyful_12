@@ -33,6 +33,7 @@ RailsAdmin.config do |config|
     # history_show
   end
 
+  # Media Config
   config.model 'Media' do
     list do
       field :id
@@ -48,6 +49,16 @@ RailsAdmin.config do |config|
       end
       field :created_at
       field :updated_at
+    end
+  end
+
+  # Video Link Config
+  config.model 'VideoLink' do
+    edit do
+      configure :provider_id do
+        label 'Provider id'
+        help 'Example: Youtube embed id'
+      end
     end
   end
 end

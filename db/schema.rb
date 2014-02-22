@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140221081417) do
+ActiveRecord::Schema.define(version: 20140222073223) do
 
   create_table "addresses", force: true do |t|
     t.string   "line_1",     default: "", null: false
@@ -80,6 +80,13 @@ ActiveRecord::Schema.define(version: 20140221081417) do
 
   add_index "foods", ["season_id"], name: "index_foods_on_season_id"
   add_index "foods", ["slug"], name: "index_foods_on_slug", unique: true
+
+  create_table "foods_video_links", id: false, force: true do |t|
+    t.integer "food_id",       null: false
+    t.integer "video_link_id", null: false
+  end
+
+  add_index "foods_video_links", ["food_id", "video_link_id"], name: "index_foods_video_links_on_food_id_and_video_link_id"
 
   create_table "images", force: true do |t|
     t.string   "name",              default: "", null: false
@@ -236,5 +243,14 @@ ActiveRecord::Schema.define(version: 20140221081417) do
   end
 
   add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
+
+  create_table "video_links", force: true do |t|
+    t.string   "name",        default: "", null: false
+    t.integer  "height",      default: 0,  null: false
+    t.integer  "width",       default: 0,  null: false
+    t.string   "provider_id", default: "", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
 end

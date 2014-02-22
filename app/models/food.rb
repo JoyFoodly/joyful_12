@@ -1,6 +1,7 @@
 class Food < ActiveRecord::Base
   has_paper_trail
   has_many :recipes, dependent: :destroy
+  has_and_belongs_to_many :video_links
   belongs_to :season
 
   validates :name,       presence: true

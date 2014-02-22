@@ -20,45 +20,18 @@
         <h1 class="text-center"><%= @food.name %></h1>
       </div>
 
-      <div class='food-resource-links top-buffer'>
-        <p><%= link_to 'How to Cook Cauliflower'%></p>
-        <hr />
-        <p><%= link_to 'Fun Facts About Cauliflower'%></p>
-        <hr />
-        <p><%= link_to 'Why Should I Eat Cauliflower?' %></p>
-        <hr />
-        <p><%= link_to 'Parent Resources' %></p>
-        <hr />
-        <p><%= link_to 'Community Page' %></p>
-        <hr />
-      </div>
+      <% @food.video_links.each do |video_link| %>
+          <div class="bottom-buffer">
+            <%= content_tag(:iframe, '', width: '100%', height: 250, frameborder: 0, allowfullscreen: true,
+                            src: "//www.youtube.com/embed/#{video_link.provider_id}?rel=0") %>
+          </div>
+      <% end %>
     </div>
 
     <aside class="col-md-8">
 
       <%= render 'recipes' %>
 
-      <%= image_tag 'food-images/cauliflower-videos.png', class: 'food-videos img-responsive bottom-buffer' %>
-
-      <h3>Other great <%= @food.name.downcase %> recipes from around the web:</h3>
-      Filter by Allergy
-      <%= form_tag '',  method: :get do  %>
-        <%= select_tag 'allergy', options_for_select(Yummly::ALLOWED_ALLERGIES), include_blank: true %>
-        <%= submit_tag 'Filter' %>
-      <% end %>
-      <% Yummly.search(@food.name, { allergy: params[:allergy] }).first(5).each do |search_result| %>
-        <div class='row recipe'>
-          <hr />
-          <div class='col-md-4'>
-            <%= link_to (image_tag search_result.image, width: 200), recipe_redirect_path(search_result.id) %>
-          </div>
-
-          <div class='col-md-8'>
-            <h4><%= search_result.recipe_name %></h4>
-            <p>From: <%= link_to search_result.source_name, recipe_redirect_path(search_result.id) %></p>
-          </div>
-        </div>
-      <% end %>
     </aside>
   </div>
 
