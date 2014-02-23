@@ -3,6 +3,12 @@
 </div>
 
 <div class="row">
+  <span class="dotted-right flip-horizontal"></span>
+  <h2>Fun Printables for the Family</h2>
+  <span class="dotted-right actual-right"></span>
+</div>
+
+<div class="row">
 
   <%
     downloadables = [
@@ -38,7 +44,7 @@
     ]
   %>
 
-  <% (downloadables * 2).each do |downloadable| %>
+  <% downloadables.each do |downloadable| %>
     <div class="col-sm-6 col-md-4 col-equal-height">
       <div class="panel panel-default">
         <div class="panel-body">
@@ -59,29 +65,46 @@
       </div>
     </div>
   <% end %>
+
 </div>
 
 <h2>Video Resources</h2>
-
-<h2>Quick Links</h2>
-<div class="col-md-6">
-<button type="button" class="btn btn-primary btn-lg btn-block">View the shopping list</button>
-<button type="button" class="btn btn-default btn-lg btn-block">View your profile</button>
-<button type="button" class="btn btn-warning btn-lg btn-block">Go back to the classroom</button>
-</div>
-
-
-
-<div class="row">
-  <% @video_links.each do |video_link| %>
-    <div class="col-md-4 bottom-buffer">
-      <div class="thumbnail">
-        <%= content_tag(:iframe, '', width: '100%', height: 250, frameborder: 0, allowfullscreen: true,
-                        src: "//www.youtube.com/embed/#{video_link.provider_id}?rel=0") %>
-        <div class="caption">
-          <h3><%= video_link.name %></h3>
+<div class="row bg-grey top-padding">
+  <div class="col-sm-12">
+    <% @video_links.each do |video_link| %>
+      <div class="col-md-4 bottom-buffer">
+        <div class="thumbnail">
+          <%= content_tag(:iframe, '', width: '100%', height: 250, frameborder: 0, allowfullscreen: true,
+                          src: "//www.youtube.com/embed/#{video_link.provider_id}?rel=0") %>
+          <div class="caption">
+            <h3><%= video_link.name %></h3>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
+
+<div class="row">
+  <div class="span4 collapse-group">
+    <p class="collapse" id="viewdetails">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+    <a class="btn-primary showdetails" data-toggle="collapse" data-target="#viewdetails"></a>
+  </div>
+</div>
+
+
+<h2>Quick Links</h2>
+<div class="col-md-12">
+  <div class="col-md-4">
+    <a href="/" class="btn btn-primary btn-lg btn-block">View the shopping list</a>
+  </div>
+  <div class="col-md-4">
+    <a href="/users/me/edit" class="btn btn-default btn-lg btn-block">View your profile</a>
+  </div>
+  <div class="col-md-4">
+    <a href="/foods" class="btn btn-warning btn-lg btn-block">Go back to the classroom</a>
+  </div>
+</div>
+<div class="spacer"></div>
+
+
