@@ -9,7 +9,8 @@
 }
 
 .btn-primary:hover {
-  opacity:0.5;
+  background-color: #5faec4;
+  border-color: #5faec4;
 }
 
 td:first-child {
@@ -40,4 +41,137 @@ h5 {
 .food-page .food-description-box h1 {
   letter-spacing: 2.5px;
   font-weight: 600;
+  font-size: 34px;
+}
+
+.food-page .food-description-box {
+  background-color: #4196b4 !important;
+}
+
+h2, .h2 {
+  font-size: 23px;
+  text-align: center;
+  margin-bottom: 30px;
+  display: inline-block;
+  color:#b2b2b2;
+}
+
+.dotted-right {
+  width: 147px;
+  height: 25px;
+  margin-top: 4px;
+  position: relative;
+  left: -38px;
+  background: url(http://localhost:3000/assets/pages/media/original/6c514f77a2eada4d92c75323177b44c0c7740136.png?1393102616) no-repeat;
+  display: inline-block;
+}
+
+.flip-horizontal.dotted-right {
+  -moz-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  transform: scaleX(-1);
+  -ms-filter: fliph; /*IE*/
+  filter: fliph; /*IE*/
+}
+
+.actual-right.dotted-right {
+  float:right;
+}
+
+section {
+  background: white;
+  padding: 30px;
+}
+
+h1, h3 {
+  margin-top: 0;
+}
+
+.alert-success {
+  background-color: #f3cd00;
+  border-color: #f3cd00;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  font-size: 18px;
+}
+
+.alert {
+  margin-bottom: 0;
+}
+
+.close {
+  float: right;
+  font-size: 27px;
+  font-weight: bold;
+  line-height: .9;
+  color: white;
+  text-shadow: 0 0px 0 white;
+  opacity: 1;
+  filter: alpha(opacity=20);
+}
+
+.close:hover {
+  color: white;
+}
+
+.in.collapse+a.btn-primary.showdetails:before {
+  content:'View Less Videos «';
+}
+
+.collapse+a.btn-primary.showdetails:before{
+  content:'View More Videos »';
+}
+
+
+.bg-blue {
+  color: #fff !important;
+  background-color: #4196b4 !important;
+}
+
+.bg-grey {
+  background-color: whitesmoke;
+}
+
+.top-padding {
+  padding-top: 30px;
+}
+
+.bottom-padding {
+  padding-bottom: 30px;
+}
+
+.shopping-list-title {
+  text-align: center;
+  font-size: 26px;
+}
+
+.general-padding {
+  padding: 30px;
+}
+
+.season-name {
+  font-size:21px;
+}
+
+.season-name:hover {
+  background-color: whitesmoke;
+}
+
+.padding-5 {
+  padding: 5px 0 !important;
+}
+
+a {
+  color: #4196b4;
+}
+
+a:hover, a:focus {
+  color: #5faec4;
+  text-decoration: none;
+}
+
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+  background-color: #4196b4;
 }
