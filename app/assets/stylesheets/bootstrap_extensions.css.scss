@@ -54,3 +54,40 @@
     width: 33%;
   }
 }
+
+// Page Subheaders
+.page-sub-header.page-sub-header-centered {
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .dotted {
+    display: inline-block;
+    &:before {
+      content: '';
+      position: relative;
+      top: 10px;
+      width: 140px;
+      height: 20px;
+      display: inline-block;
+      margin-right: 20px;
+      background: image_url('title-decorations/dotted-line-titles-right.png') no-repeat;
+
+      -moz-transform: scaleX(-1);
+      -o-transform: scaleX(-1);
+      -webkit-transform: scaleX(-1);
+      transform: scaleX(-1);
+      -ms-filter: "FlipH";
+      filter: FlipH;
+    }
+    &:after {
+      content: '';
+      position: relative;
+      top: 10px;
+      width: 140px;
+      height: 20px;
+      display: inline-block;
+      margin-left: 20px;
+      background: image_url('title-decorations/dotted-line-titles-right.png') no-repeat;
+    }
+  }
+}

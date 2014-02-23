@@ -52,29 +52,6 @@ h2, .h2 {
   color:#b2b2b2;
 }
 
-.dotted-right {
-  width: 147px;
-  height: 25px;
-  margin-top: 4px;
-  position: relative;
-  left: -38px;
-  background: image_url('title-decorations/dotted-line-titles-right.png') no-repeat;
-  display: inline-block;
-}
-
-.flip-horizontal.dotted-right {
-  -moz-transform: scaleX(-1);
-  -webkit-transform: scaleX(-1);
-  -o-transform: scaleX(-1);
-  transform: scaleX(-1);
-  -ms-filter: fliph; /*IE*/
-  filter: fliph; /*IE*/
-}
-
-.actual-right.dotted-right {
-  float:right;
-}
-
 section {
   background: white;
   padding: 30px;
