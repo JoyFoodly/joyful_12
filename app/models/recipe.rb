@@ -17,6 +17,7 @@ class Recipe < ActiveRecord::Base
   validates :food,         presence: true
 
   def slug(separator = '_')
-    title.downcase.gsub(' ', separator)
+    title.downcase.gsub(/\W/, separator)
   end
+
 end
