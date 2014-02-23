@@ -1,22 +1,2 @@
-// Font Config
-$font-family-base: 'Open Sans',"Helvetica Neue",Helvetica,Arial,sans-serif;
-
-// Button Config
-$btn-success-border: #4196b4;
-$btn-success-bg: #4196b4;
-$btn-warning-border: #f3cd00;
-$btn-warning-bg: #f3cd00;
-
-// Panel Config
-$panel-info-text: white;
-$panel-info-heading-bg: #4196b4;
-
-// Alert Config
-$alert-success-bg: #f3cd00;
-$alert-success-border: #f3cd00;
-$alert-success-text: white;
-
-// Link Config
-$link-color: #4196b4;
-
+@import "bootstrap_app_config";
 @import "bootstrap";

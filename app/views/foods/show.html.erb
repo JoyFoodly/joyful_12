@@ -3,13 +3,16 @@
     <ul class="nav row">
       <% @foods.sort_by(&:sort_order).each do |food| %>
         <li class='col-md-1 col-xs-6'>
-          <%= link_to food_path(food) do %>
-            <%= image_tag "nav-food-images/#{food.slug}.png", width: 68, height: 101, class: 'img-responsive' %>
+          <%= link_to food_path(food), class: 'image-text-link text-center' do %>
+            <%= image_tag "nav-food-images/#{food.slug}.png", width: 68, height: 101, class: 'img-responsive wiggle' %>
+            <span class="text"><%= food.name %></span>
           <% end %>
         </li>
       <% end %>
     </ul>
   </nav>
+
+  <div class="spacer"></div>
 
   <div class="row">
 

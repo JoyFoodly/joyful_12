@@ -1,3 +1,4 @@
+@import "bootstrap_app_config";
 /******************************************************
 UTILITY CLASSES
 
@@ -86,6 +87,24 @@ Specific colors, image backgrounds, customized widgets, etc.
   margin-bottom: 15px;
   font-size: 23px;
   color:#b2b2b2;
+}
+
+// Custom image and text nav.
+nav a.image-text-link {
+  padding: 0;
+
+  &:hover {
+    background-color: transparent;
+  }
+
+  .text {
+    visibility: hidden;
+    color: lighten($gray, 40%);
+  }
+
+  &.hover-active .text {
+    visibility: visible;
+  }
 }
 
 // Dots for before / after header
@@ -240,22 +259,6 @@ OTHER (TODO remove these if possible)
 }
 
 .food-page {
-  nav {
-    margin-bottom: 60px;
-
-    a:hover {
-      background-color: transparent;
-    }
-
-    img {
-      margin:  0 auto;
-
-      &:hover {
-        @include transform(7deg);
-      }
-    }
-  }
-
   .main-food-image {
     max-width: 100%;
   }
