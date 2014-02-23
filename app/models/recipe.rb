@@ -15,4 +15,8 @@ class Recipe < ActiveRecord::Base
   validates :instructions, presence: true
   validates :sort_order,   presence: true
   validates :food,         presence: true
+
+  def slug(separator = '_')
+    title.downcase.gsub(' ', separator)
+  end
 end

@@ -1,51 +1,64 @@
-<h1>Parent Resources</h1>
-
-<p>Extra resources for the program</p>
-
-
-
+<div class="page-header">
+  <h1>Parent Resources <small>Extra resources for the program</small></h1>
+</div>
 
 <div class="row">
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="https://s3-us-west-2.amazonaws.com/joyful12/parent-resources/spring-schedule-joyful12.png" alt="Spring Schedule">
-      <div class="caption">
-        <h3>Recommended Schedule for Spring</h3>
-        <p>View and print the recommended schedule for the spring Joyful 12!</p>
-        <p><a href="https://s3-us-west-2.amazonaws.com/joyful12/parent-resources/Joyful12-Spring-Schedule.pdf" class="btn btn-primary" role="button">printable</a> <a href="/class_schedule" class="btn btn-default" role="button">online version</a></p>
+
+  <%
+    downloadables = [
+      {
+        title: 'Recommended Schedule for Spring',
+        page: '/class_schedule',
+        image: 'https://s3-us-west-2.amazonaws.com/joyful12/parent-resources/spring-schedule-joyful12.png',
+        download_link: 'https://s3-us-west-2.amazonaws.com/joyful12/parent-resources/Joyful12-Spring-Schedule.pdf',
+        description: 'View and print the recommended schedule for the spring Joyful 12!',
+      },
+      {
+        title: 'Gluten Free Pantry Essentials',
+        page: nil,
+        image: 'https://s3-us-west-2.amazonaws.com/joyful12/parent-resources/pantry-essentials.png',
+        download_link: 'https://s3-us-west-2.amazonaws.com/joyful12/parent-resources/Pantry-Essentials-final.pdf',
+        description: "Not sure how to build up a convenient kitchen? Use this document as a guide to stocking your
+                      pantry, and you'll be ready for dinner any day of the week!",
+      },
+      {
+        title: 'Joyful 12 Spring Bingo',
+        page: nil,
+        image: 'https://s3-us-west-2.amazonaws.com/joyful12/parent-resources/spring-bingo.png',
+        download_link: 'https://s3-us-west-2.amazonaws.com/joyful12/parent-resources/Joyful12-Spring-bingo.pdf',
+        description: "Use these bingo boards to keep track of your progress and have some fun!",
+      },
+      {
+        title: 'Joyful 12 Coloring Pages',
+        page: nil,
+        image: 'https://s3-us-west-2.amazonaws.com/joyful12/parent-resources/coloring-pages-joyful12.png',
+        download_link: 'https://s3-us-west-2.amazonaws.com/joyful12/parent-resources/coloring-pages.pdf',
+        description: "Use a rainbow of colors and learn some fun facts about fruits and veggies!",
+      },
+    ]
+  %>
+
+  <% (downloadables * 2).each do |downloadable| %>
+    <div class="col-sm-6 col-md-4 col-equal-height">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <a  class="thumbnail thumbnail-border-sharp " href="<%= downloadable[:download_link] %>">
+            <img src="<%= downloadable[:image] %>" class='img-responsive'>
+          </a>
+          <div class="caption">
+            <h3><%= downloadable[:title] %></h3>
+            <p><%= downloadable[:description] %></p>
+            <p>
+              <a href="<%= downloadable[:download_link] %>" class="btn btn-primary" role="button">printable</a>
+              <% if downloadable[:page] %>
+                <a href="<%= downloadable[:page] %>" class="btn btn-default" role="button">online version</a>
+              <% end %>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail fixed-height">
-      <img src="https://s3-us-west-2.amazonaws.com/joyful12/parent-resources/pantry-essentials.png" alt="Gluten Free Pantry Essentials">
-      <div class="caption">
-        <h3>Gluten Free Pantry Essentials</h3>
-        <p>Not sure how to build up a convenient kitchen? Use this document as a guide to stocking your pantry, and you'll be ready for dinner any day of the week!</p>
-        <p><a href="https://s3-us-west-2.amazonaws.com/joyful12/parent-resources/Pantry-Essentials-final.pdf" class="btn btn-primary" role="button">printable</a> </p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="https://s3-us-west-2.amazonaws.com/joyful12/parent-resources/spring-bingo.png" alt="Spring Bingo">
-      <div class="caption">
-        <h3>Joyful 12 Spring Bingo</h3>
-        <p>Use these bingo boards to keep track of your progress and have some fun!</p>
-        <p><a href="https://s3-us-west-2.amazonaws.com/joyful12/parent-resources/Joyful12-Spring-bingo.pdf" class="btn btn-primary" role="button">printable</a></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="https://s3-us-west-2.amazonaws.com/joyful12/parent-resources/coloring-pages-joyful12.png" alt="Spring Bingo">
-      <div class="caption">
-        <h3>Joyful 12 Coloring Pages</h3>
-        <p>Use a rainbow of colors and learn some fun facts about fruits and veggies!</p>
-        <p><a href="https://s3-us-west-2.amazonaws.com/joyful12/parent-resources/coloring-pages.pdf" class="btn btn-primary" role="button">printable</a></p>
-      </div>
-    </div>
-  </div>
+  <% end %>
 </div>
 
 <h2>Video Resources</h2>

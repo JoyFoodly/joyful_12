@@ -1,0 +1,48 @@
+<!-- Button trigger modal -->
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-<%= recipe.slug('-') %>">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="modal-<%= recipe.slug('-') %>" tabindex="-1" role="dialog" aria-labelledby="<%= recipe.title.gsub(' ', '') %>Label" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="<%= recipe.title.gsub(' ', '') %>Label"><%= recipe.title %></h4>
+      </div>
+      <div class="modal-body modal-body-wall-to-wall">
+
+        <!-- Carousel Start -->
+        <div id='carousel-<%= recipe.slug('-') %>' class="carousel slide" data-ride="carousel" data-interval="false">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <% recipe.images.length.times do |i| %>
+                <% class_name = i == 0 ? 'active' : '' %>
+                <%= content_tag(:li, '', class: class_name, data: { target: "carousel-#{recipe.slug('-')}", slide_to: i }) %>
+            <% end %>
+          </ol>
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+            <% recipe.images.each_with_index do |image, index| %>
+                <div class="item <%= 'active' if index == 0 %>">
+                  <%= image_tag image.file.url(:gallery), alt: image.name %>
+                </div>
+            <% end %>
+          </div>
+
+          <!-- Controls -->
+          <a class="left carousel-control carousel-control-no-background" href='#carousel-<%= recipe.slug('-') %>' data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+          </a>
+          <a class="right carousel-control carousel-control-no-background" href='#carousel-<%= recipe.slug('-') %>' data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+        </div>
+        <!-- Carousel End -->
+
+      </div>
+    </div>
+  </div>
+</div>

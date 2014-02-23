@@ -1,6 +1,6 @@
 class Image < ActiveRecord::Base
   has_paper_trail
-  has_attached_file :file, styles: { thumbnail: '469x' }
+  has_attached_file :file, styles: { thumbnail: '469x', gallery: '898x' }
   belongs_to :imageable, polymorphic: true
 
   validates :name,       presence: true

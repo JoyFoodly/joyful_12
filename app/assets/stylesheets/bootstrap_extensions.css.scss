@@ -1,0 +1,56 @@
+// Panel without a top
+.panel-no-top {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top: 0;
+}
+
+// Full content modal body
+.modal-body-wall-to-wall {
+  margin: 0;
+  padding: 0;
+}
+
+// Carousel control without background
+.carousel-control-no-background.left, .carousel-control-no-background.right {
+  background: none;
+}
+
+// Navigation without padding and margin
+.nav-tight > li > a {
+  margin: 0;
+  padding: 0;
+}
+
+// Navigation without hover effects
+.nav-ho-hover > li > a:hover {
+  background-color: transparent;
+}
+
+// Sharp thumbnail without border radius and padding around images
+.thumbnail-border-sharp {
+  &>img, a > img {
+    border: none;
+  }
+
+  border-radius: 0;
+  padding: 0;
+}
+
+// Equal height column wrap
+// (Currently only filling in what is used ms-6 and md-4) update as necessary
+.col-equal-height {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+@media (min-width: 768px) {
+  .col-equal-height.col-sm-6 {
+    width: 49.5%;
+  }
+}
+@media (min-width: 992px) {
+  .col-equal-height.col-md-4 {
+    width: 33%;
+  }
+}
