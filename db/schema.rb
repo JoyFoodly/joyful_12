@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140222073223) do
+ActiveRecord::Schema.define(version: 20140223234604) do
 
   create_table "addresses", force: true do |t|
     t.string   "line_1",     default: "", null: false
@@ -156,7 +156,7 @@ ActiveRecord::Schema.define(version: 20140222073223) do
 
   create_table "recipes", force: true do |t|
     t.string   "title",        default: "", null: false
-    t.string   "subtitle",     default: "", null: false
+    t.string   "subtitle",     default: ""
     t.string   "prep_time",    default: "", null: false
     t.string   "cook_time",    default: "", null: false
     t.string   "serving_size", default: "", null: false
