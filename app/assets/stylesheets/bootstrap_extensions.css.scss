@@ -59,6 +59,13 @@
 .page-sub-header.page-sub-header-centered {
   text-align: center;
 }
+
+.page-sub-header h2 {
+  margin-bottom: 15px;
+  font-size: 23px;
+  color:#b2b2b2;
+}
+
 @media (min-width: 768px) {
   .dotted {
     display: inline-block;
