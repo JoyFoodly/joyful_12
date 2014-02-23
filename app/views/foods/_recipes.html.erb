@@ -37,7 +37,7 @@
             <h3>Ingredients:</h3>
             <ul>
               <% recipe.ingredient_list_items.sort_by(&:sort_order).each do |ingredient_list_item| %>
-                  <li><%= ingredient_list_item.ingredient.name %> - <%= ingredient_list_item.quantity %></li>
+                  <li><%= ingredient_list_item.ingredient.name %>, <%= ingredient_list_item.quantity %></li>
               <% end %>
             </ul>
             <%= markdown recipe.instructions %>
