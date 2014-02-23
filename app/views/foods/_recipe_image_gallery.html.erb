@@ -1,10 +1,6 @@
-<!-- Button trigger modal -->
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-<%= recipe.slug('-') %>">
-  Launch demo modal
-</button>
-
 <!-- Modal -->
-<div class="modal fade" id="modal-<%= recipe.slug('-') %>" tabindex="-1" role="dialog" aria-labelledby="<%= recipe.title.gsub(' ', '') %>Label" aria-hidden="true">
+<div class="modal fade" id="modal-<%= recipe.slug('-') %>" tabindex="-1" role="dialog"
+     aria-labelledby="<%= recipe.title.gsub(' ', '') %>Label" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
@@ -15,6 +11,7 @@
 
         <!-- Carousel Start -->
         <div id='carousel-<%= recipe.slug('-') %>' class="carousel slide" data-ride="carousel" data-interval="false">
+
           <!-- Indicators -->
           <ol class="carousel-indicators">
             <% recipe.images.length.times do |i| %>
@@ -33,12 +30,15 @@
           </div>
 
           <!-- Controls -->
-          <a class="left carousel-control carousel-control-no-background" href='#carousel-<%= recipe.slug('-') %>' data-slide="prev">
+          <a class="left carousel-control carousel-control-no-background" href='#carousel-<%= recipe.slug('-') %>'
+             data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left"></span>
           </a>
-          <a class="right carousel-control carousel-control-no-background" href='#carousel-<%= recipe.slug('-') %>' data-slide="next">
+          <a class="right carousel-control carousel-control-no-background" href='#carousel-<%= recipe.slug('-') %>'
+             data-slide="next">
             <span class="glyphicon glyphicon-chevron-right"></span>
           </a>
+
         </div>
         <!-- Carousel End -->
 
@@ -46,3 +46,4 @@
     </div>
   </div>
 </div>
+<!-- Modal End -->

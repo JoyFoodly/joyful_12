@@ -1,3 +1,4 @@
+@import "bootstrap_app_config";
 /***************************************************************************************
 BOOTSTRAP EXTENSIONS
 
@@ -10,6 +11,12 @@ These classes are not app-specific and could (should?) be provided by bootstrap 
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   border-top: 0;
+}
+
+// Thumbnail help blocks
+.thumbnail-help-block {
+  position: relative;
+  bottom: $line-height-computed;
 }
 
 // Full-content modal bodies.
