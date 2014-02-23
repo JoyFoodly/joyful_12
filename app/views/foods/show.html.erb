@@ -16,9 +16,7 @@
     <div class="col-md-4">
       <%= image_tag "food-images/#{@food.slug}-main.png", alt: @food.name, class: 'img-responsive' %>
 
-      <div class='food-description-box bottom-buffer'>
-        <h1 class="text-center"><%= @food.name %></h1>
-      </div>
+      <h1 class="text-center header-blue"><%= @food.name %></h1>
 
       <% @food.video_links.each do |video_link| %>
           <div class="bottom-buffer">

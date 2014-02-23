@@ -1,6 +1,131 @@
-.align-top {
+/******************************************************
+UTILITY CLASSES
+
+Helpful styles that are not app or bootstrap specific.
+******************************************************/
+
+.text-align-top {
   vertical-align: top;
 }
+
+.top-buffer {
+  margin-top: 20px;
+}
+
+.bottom-buffer {
+  margin-bottom: 20px;
+}
+
+.top-padding {
+  padding-top: 30px;
+}
+
+.bottom-padding {
+  padding-bottom: 30px;
+}
+
+.general-padding {
+  padding: 30px;
+}
+
+.general-padding-small {
+  padding: 5px;
+}
+
+.spacer {
+  margin-bottom: 80px;
+}
+
+
+/************************************************************
+APP SPECIFIC SETTINGS
+
+Specific colors, image backgrounds, customized widgets, etc.
+************************************************************/
+
+// BG colors
+.bg-grey {
+  background-color: whitesmoke;
+}
+
+// Blue headers
+.header-blue {
+  text-transform: uppercase;
+  padding: 12px;
+  margin-top: 0;
+  letter-spacing: 2.5px;
+  font-weight: 600;
+  font-size: 40px;
+  background-color: #4196b4;
+  color: white;
+  border-radius: 5px;
+}
+
+// Alert customizations
+.alert {
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  font-size: 18px;
+
+  .close {
+    font-size: 27px;
+    line-height: .9;
+    color: white;
+    text-shadow: none;
+    opacity: 1;
+  }
+}
+
+// Panel customizations
+.panel-title {
+  font-size: 26px;
+}
+
+// Page sub-header customizations
+.page-sub-header h2 {
+  margin-bottom: 15px;
+  font-size: 23px;
+  color:#b2b2b2;
+}
+
+// Dots for before / after header
+@media (min-width: 768px) {
+  .dotted {
+    display: inline-block;
+    &:before {
+      content: '';
+      position: relative;
+      top: 10px;
+      width: 140px;
+      height: 20px;
+      display: inline-block;
+      margin-right: 20px;
+      background: image_url('title-decorations/dotted-line-titles-right.png') no-repeat;
+
+      -moz-transform: scaleX(-1);
+      -o-transform: scaleX(-1);
+      -webkit-transform: scaleX(-1);
+      transform: scaleX(-1);
+      -ms-filter: "FlipH";
+      filter: FlipH;
+    }
+    &:after {
+      content: '';
+      position: relative;
+      top: 10px;
+      width: 140px;
+      height: 20px;
+      display: inline-block;
+      margin-left: 20px;
+      background: image_url('title-decorations/dotted-line-titles-right.png') no-repeat;
+    }
+  }
+}
+
+
+/*************************************
+OTHER (TODO remove these if possible)
+*************************************/
 
 .homepage-image {
   margin: 0 auto;
@@ -146,21 +271,6 @@
     text-align: center;
   }
 
-  .food-description-box {
-    position: relative;
-    background-color: #278fd1;
-    color:  white;
-    border-radius: 5px;
-
-    h1 {
-      font-size: 40px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      padding: 12px;
-      margin-top: 0;
-    }
-  }
-
   .food-resource-links a {
     font-size:  20px;
   }
@@ -174,16 +284,4 @@
   .food-videos {
     margin:  60px 0;
   }
-}
-
-.top-buffer {
-  margin-top: 20px;
-}
-
-.bottom-buffer {
-  margin-bottom: 20px;
-}
-
-.spacer {
-  margin-bottom: 80px;
 }

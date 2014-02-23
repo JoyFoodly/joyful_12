@@ -26,9 +26,9 @@
 
   <div class="col-md-8">
     <div class='form-group'>
-      <div class="panel panel-default bottom-buffer top-buffer">
-        <div class="panel-heading bg-blue">
-          <h3 class="panel-title shopping-list-title">Your Shopping List</h3>
+      <div class="panel panel-info bottom-buffer top-buffer">
+        <div class="panel-heading">
+          <h2 class="panel-title text-center">Your Shopping List</h2>
         </div>
         <div class="panel-body">
           <% @shopping_list.ingredient_list_items.group_by{|ili| ili.ingredient.category }.each do |category, ingredient_list_items| %>

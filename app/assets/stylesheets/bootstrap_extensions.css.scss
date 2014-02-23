@@ -1,33 +1,40 @@
-// Panel without a top
+/***************************************************************************************
+BOOTSTRAP EXTENSIONS
+
+These classes are not app-specific and could (should?) be provided by bootstrap itself.
+***************************************************************************************/
+
+
+// Panel without a tops.s
 .panel-no-top {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   border-top: 0;
 }
 
-// Full content modal body
+// Full-content modal bodies.
 .modal-body-wall-to-wall {
   margin: 0;
   padding: 0;
 }
 
-// Carousel control without background
+// Carousel controls without backgrounds.
 .carousel-control-no-background.left, .carousel-control-no-background.right {
   background: none;
 }
 
-// Navigation without padding and margin
+// Navigation without padding and margin.
 .nav-tight > li > a {
   margin: 0;
   padding: 0;
 }
 
-// Navigation without hover effects
+// Navigation without hover effects.
 .nav-ho-hover > li > a:hover {
   background-color: transparent;
 }
 
-// Sharp thumbnail without border radius and padding around images
+// Sharp thumbnail without border radius or padding around images.
 .thumbnail-border-sharp {
   &>img, a > img {
     border: none;
@@ -52,49 +59,5 @@
 @media (min-width: 992px) {
   .col-equal-height.col-md-4 {
     width: 33%;
-  }
-}
-
-// Page Subheaders
-.page-sub-header.page-sub-header-centered {
-  text-align: center;
-}
-
-.page-sub-header h2 {
-  margin-bottom: 15px;
-  font-size: 23px;
-  color:#b2b2b2;
-}
-
-@media (min-width: 768px) {
-  .dotted {
-    display: inline-block;
-    &:before {
-      content: '';
-      position: relative;
-      top: 10px;
-      width: 140px;
-      height: 20px;
-      display: inline-block;
-      margin-right: 20px;
-      background: image_url('title-decorations/dotted-line-titles-right.png') no-repeat;
-
-      -moz-transform: scaleX(-1);
-      -o-transform: scaleX(-1);
-      -webkit-transform: scaleX(-1);
-      transform: scaleX(-1);
-      -ms-filter: "FlipH";
-      filter: FlipH;
-    }
-    &:after {
-      content: '';
-      position: relative;
-      top: 10px;
-      width: 140px;
-      height: 20px;
-      display: inline-block;
-      margin-left: 20px;
-      background: image_url('title-decorations/dotted-line-titles-right.png') no-repeat;
-    }
   }
 }

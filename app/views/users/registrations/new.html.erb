@@ -35,7 +35,7 @@
     <ul>
       <li>9 vegetable lessons. Each with 3 recipes to try.</li>
     </ul>
-    <h5>$20 for the season.</h5>
+    <p><strong>$20 for the season. </strong></p>
     <%= form_tag user_registration_path, method: :post, id: 'first-subscription' do |f| %>
         <%= hidden_field_tag :plan_id, 'seasonal' %>
         <script
@@ -63,7 +63,7 @@
       </li>
       <li>If you agree to give us feedback, we'll give you 6 winter fruits and vegitables as well.</li>
     </ul>
-    <h5>$20 for the season.</h5>
+    <p><strong>$20 for the season. </strong></p>
     <%= form_tag user_registration_path, method: :post do %>
         <%= hidden_field_tag :plan_id, 'beta' %>
         <script
@@ -86,7 +86,7 @@
     <ul>
       <li>9 vegetable lessons. Each with 3 recipes to try.</li>
     </ul>
-    <h5>$20 for the season.</h5>
+    <p><strong>$20 for the season. </strong></p>
     <%= form_tag user_registration_path, method: :post do %>
         <%= hidden_field_tag :plan_id, 'annual' %>
         <script
