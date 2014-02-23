@@ -37,6 +37,11 @@ Helpful styles that are not app or bootstrap specific.
   margin-bottom: 80px;
 }
 
+.centered {
+  display: block;
+  margin: 0 auto;
+}
+
 
 /************************************************************
 APP SPECIFIC SETTINGS
@@ -151,101 +156,6 @@ OTHER (TODO remove these if possible)
   margin-bottom: 40px;
 }
 
-.home-food-links {
-
-  span {
-    height: 200px;
-    margin-bottom: 30px;
-    list-style: none;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-
-  .broccoli {
-    background-image: image-url("homepage-images/broccoli1.jpg");
-    &:hover {
-      background-image: image-url("homepage-images/broccoli2.jpg");
-    }
-  }
-
-  .cauliflower {
-    background-image: image-url("homepage-images/cauliflower1.jpg");
-    &:hover {
-      background-image: image-url("homepage-images/cauliflower2.jpg");
-    }
-  }
-
-  .carrot {
-    background-image: image-url("homepage-images/carrot1.jpg");
-    &:hover {
-      background-image: image-url("homepage-images/carrot2.jpg");
-    }
-  }
-
-  .cabbage {
-    background-image: image-url("homepage-images/cabbage1.jpg");
-    &:hover {
-      background-image: image-url("homepage-images/cabbage2.jpg");
-    }
-  }
-
-  .fennel {
-    background-image: image-url("homepage-images/fennel1.jpg");
-    &:hover {
-      background-image: image-url("homepage-images/fennel2.png");
-    }
-  }
-
-  .beet {
-    background-image: image-url("homepage-images/beet1.jpg");
-    &:hover {
-      background-image: image-url("homepage-images/beet2.jpg");
-    }
-  }
-
-  .pomegranate {
-    background-image: image-url("homepage-images/pomegranate1.jpg");
-    &:hover {
-      background-image: image-url("homepage-images/pomegranate2.jpg");
-    }
-  }
-
-  .sweetpotato {
-    background-image: image-url("homepage-images/sweetpotato1.jpg");
-    &:hover {
-      background-image: image-url("homepage-images/sweetpotato2.jpg");
-    }
-  }
-
-  .tangerine {
-    background-image: image-url("homepage-images/tangerine1.jpg");
-    &:hover {
-      background-image: image-url("homepage-images/tangerine2.jpg");
-    }
-  }
-
-  .wintersquash {
-    background-image: image-url("homepage-images/wintersquash.jpg");
-    &:hover {
-      background-image: image-url("homepage-images/wintersquash2.jpg");
-    }
-  }
-  
-  .collard {
-     background-image: image-url("homepage-images/collard1.jpg");
-     &:hover {
-       background-image: image-url("homepage-images/collard2.jpg");
-     }
-   }
-
-  .apple {
-    background-image: image-url("homepage-images/apple1.jpg");
-    &:hover {
-      background-image: image-url("homepage-images/apple2.jpg");
-    }
-  }
-}
-
 @mixin transform($property) {
   -webkit-transform: rotate($property);
   -moz-transform: rotate($property);
@@ -287,4 +197,9 @@ OTHER (TODO remove these if possible)
   .food-videos {
     margin:  60px 0;
   }
+}
+
+.disclaimer {
+  font-size: 9px;
+  color:grey;
 }
