@@ -1,6 +1,9 @@
 <div class="food-page">
   <nav>
     <ul class="nav row">
+      <% ((12 - @foods.length) / 2).times do %>
+          <li class="col-md-1"></li>
+      <% end %>
       <% @foods.sort_by(&:sort_order).each do |food| %>
         <li class='col-md-1 col-xs-6'>
           <%= link_to food_path(food), class: 'image-text-link text-center' do %>
