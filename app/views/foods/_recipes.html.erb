@@ -28,6 +28,11 @@
             <p><%= link_to 'view sample class schedule >', class_schedule_path %></p>
             <p>Prep time: <%= recipe.prep_time %></p>
             <p>Cooking time: <%= recipe.cook_time %></p>
+            <p>
+              <% recipe.dietary_categories.each do |dietary_category| %>
+                <%= image_tag dietary_category.icon.url, alt: dietary_category.name, title: dietary_category.name %>
+              <% end %>
+            </p>
             <%= button_to 'Add to shopping list', { action: :create, controller: :shopping_lists, shopping_list: {
                     recipe_ids: [recipe.id] }}, class: 'btn btn-primary' %>
           </div>

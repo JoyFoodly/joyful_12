@@ -1,4 +1,5 @@
 class Subscription < ActiveRecord::Base
+  has_paper_trail
   belongs_to :user
   delegate :email, to: :user, prefix: true
 

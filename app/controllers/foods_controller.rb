@@ -4,12 +4,12 @@ class FoodsController < ApplicationController
 
   def index
     first_food = @foods.to_a.min {|food| food.sort_order }
-    @food = Food.includes(:video_links, recipes: [:images, ingredient_list_items: [:ingredient]]).find(first_food.id)
+    @food = Food.includes(:video_links, recipes: [:images, :dietary_categories, ingredient_list_items: [:ingredient]]).find(first_food.id)
     render :show
   end
 
   def show
-    @food = Food.includes(:video_links, recipes: [:images, ingredient_list_items: [:ingredient]]).find_by!(slug: params[:id])
+    @food = Food.includes(:video_links, recipes: [:images, :dietary_categories, ingredient_list_items: [:ingredient]]).find_by!(slug: params[:id])
   end
 
 private

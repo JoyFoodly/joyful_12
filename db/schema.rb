@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140223234604) do
+ActiveRecord::Schema.define(version: 20140225045905) do
 
   create_table "addresses", force: true do |t|
     t.string   "line_1",     default: "", null: false
@@ -56,6 +56,24 @@ ActiveRecord::Schema.define(version: 20140223234604) do
   end
 
   add_index "allergies_family_members", ["allergy_id", "family_member_id"], name: "index_allergies_family_members_allergy_id_and_family_member_id"
+
+  create_table "dietary_categories", force: true do |t|
+    t.string   "name",              default: "", null: false
+    t.string   "icon_file_name",                 null: false
+    t.string   "icon_content_type",              null: false
+    t.integer  "icon_file_size",                 null: false
+    t.string   "icon_fingerprint",               null: false
+    t.datetime "icon_updated_at",                null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
+  create_table "dietary_categories_recipes", id: false, force: true do |t|
+    t.integer "dietary_category_id", null: false
+    t.integer "recipe_id",           null: false
+  end
+
+  add_index "dietary_categories_recipes", ["dietary_category_id", "recipe_id"], name: "index_dietary_categories_recipes_on_category_and_recipe"
 
   create_table "family_members", force: true do |t|
     t.string   "first_name"

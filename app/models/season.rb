@@ -1,4 +1,5 @@
 class Season < ActiveRecord::Base
+  has_paper_trail
   has_many :foods
   has_many :users
   validates :name, presence: true, inclusion: { in: %w[Winter Spring Summer Fall] }
