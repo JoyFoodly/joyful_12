@@ -25,7 +25,6 @@
           <div class='col-md-4'>
             <h4 class="media-heading"><%= recipe.title %></h4>
             <h5><%= recipe.subtitle %></h5>
-            <p><%= link_to 'view sample class schedule >', class_schedule_path %></p>
             <p>Prep time: <%= recipe.prep_time %></p>
             <p>Cooking time: <%= recipe.cook_time %></p>
             <p>
@@ -33,8 +32,11 @@
                 <%= image_tag dietary_category.icon.url, alt: dietary_category.name, title: dietary_category.name, class: 'right-padding-small bottom-padding-small' %>
               <% end %>
             </p>
-            <%= button_to 'Add to shopping list', { action: :create, controller: :shopping_lists, shopping_list: {
-                    recipe_ids: [recipe.id] }}, class: 'btn btn-primary' %>
+            <p>
+              <%= button_to 'Add to shopping list', { action: :create, controller: :shopping_lists, shopping_list: {
+                      recipe_ids: [recipe.id] }}, class: 'btn btn-primary' %>
+            </p>
+            <p class=""><%= link_to 'view sample class schedule >', class_schedule_path %></p>
           </div>
         </div>
         <div class='row'>
