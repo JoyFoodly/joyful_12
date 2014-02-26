@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140225045905) do
+ActiveRecord::Schema.define(version: 20140226075101) do
 
   create_table "addresses", force: true do |t|
     t.string   "line_1",     default: "", null: false
@@ -243,12 +243,14 @@ ActiveRecord::Schema.define(version: 20140225045905) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "season_id"
+    t.string   "username",               default: "", null: false
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   add_index "users", ["season_id"], name: "index_users_on_season_id"
+  add_index "users", ["username"], name: "index_users_on_username", unique: true
 
   create_table "versions", force: true do |t|
     t.string   "item_type",      default: "", null: false
