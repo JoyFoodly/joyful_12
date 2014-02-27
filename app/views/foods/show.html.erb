@@ -31,6 +31,8 @@
                             src: "///player.vimeo.com/video/#{video_link.provider_id}?title=0&amp;byline=0&amp;portrait=0") %>
           </div>
       <% end %>
+
+      <%= @food.tips.try(:html_safe) %>
     </div>
 
     <aside class="col-md-8">
