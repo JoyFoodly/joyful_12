@@ -2,7 +2,7 @@
 <ul class="nav nav-tabs">
   <% @food.recipes.sort_by(&:sort_order).each_with_index do |recipe, i| %>
       <li class="<%= 'active' if i == 0 %>">
-        <a href="#<%= recipe.difficulty %>" data-toggle="tab"><%= recipe.difficulty.titleize %></a>
+        <a href="#<%= recipe.difficulty %>-<%= recipe.id %>" data-toggle="tab"><%= recipe.difficulty.titleize %></a>
       </li>
   <% end %>
 </ul>
@@ -10,7 +10,7 @@
 <!-- Recipe tab panes -->
 <div class="tab-content panel panel-default panel-no-top">
   <% @food.recipes.sort_by(&:sort_order).each_with_index do |recipe, i| %>
-    <div class="tab-pane <%= 'active' if i == 0 %>" id="<%= recipe.difficulty %>">
+    <div class="tab-pane <%= 'active' if i == 0 %>" id="<%= recipe.difficulty %>-<%= recipe.id %>">
       <div class='panel-body'>
         <div class='row'>
           <div class='col-md-8'>
