@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140226075101) do
+ActiveRecord::Schema.define(version: 20140227082310) do
 
   create_table "addresses", force: true do |t|
     t.string   "line_1",     default: "", null: false
@@ -210,6 +210,15 @@ ActiveRecord::Schema.define(version: 20140226075101) do
   end
 
   add_index "shopping_lists", ["user_id"], name: "index_shopping_lists_on_user_id"
+
+  create_table "sub_recipes", force: true do |t|
+    t.integer  "recipe_id",       null: false
+    t.integer  "child_recipe_id", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "sub_recipes", ["recipe_id", "child_recipe_id"], name: "index_sub_recipes_on_recipe_id_and_child_recipe_id"
 
   create_table "subscriptions", force: true do |t|
     t.string   "card_token", default: "", null: false
