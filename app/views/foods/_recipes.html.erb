@@ -41,7 +41,7 @@
         </div>
         <div class='row'>
           <div class='col-md-5'>
-            <h3>Ingredients:</h3>
+            <h3>Ingredients</h3>
             <ul>
               <% recipe.ingredient_list_items.sort_by(&:sort_order).each do |ingredient_list_item| %>
                   <li><%= ingredient_list_item.ingredient.name %>, <%= ingredient_list_item.quantity %></li>
@@ -57,7 +57,7 @@
                 </ul>
               <% end %>
             <% end %>
-
+            <h3>Directions</h3>
             <%= markdown recipe.instructions %>
           </div>
           <div class='col-md-7'>
@@ -72,6 +72,7 @@
         <div class="row">
           <div class="col-md-12">
             <hr/>
+            <h3 class="text-center">Get your kids to love <%= recipe.title %></h3>
             <%= recipe.tips.try(:html_safe) %>
           </div>
         </div>
