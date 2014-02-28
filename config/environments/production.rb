@@ -100,7 +100,7 @@ Joyfoodly::Application.configure do
 
   # Image uploads
   config.paperclip_defaults = {
-      :url => ':s3_domain_url',
+      :url => ':s3_alias_url',
       :s3_host_alias => ENV['CDN_HOST'],
       :path => '/:imageable_class/:class/:style/:hash.:extension',
       :storage => :s3,

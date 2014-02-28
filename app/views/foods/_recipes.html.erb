@@ -9,7 +9,7 @@
 
 <!-- Recipe tab panes -->
 <div class="tab-content panel panel-default panel-no-top">
-  <% @food.recipes.sort_by(&:sort_order).each_with_index do |recipe, i| %>
+  <% @food.recipes.reject{ |recipe| @child_recipes.include?(recipe) }.sort_by(&:sort_order).each_with_index do |recipe, i| %>
     <div class="tab-pane <%= 'active' if i == 0 %>" id="<%= recipe.difficulty %>-<%= recipe.id %>">
       <div class='panel-body'>
         <div class='row'>
