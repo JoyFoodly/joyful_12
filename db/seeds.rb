@@ -20,8 +20,6 @@ easy_recipe_attributes = {
     serving_size: '4 - 6 people',
     difficulty: 'easy',
     instructions: %q{
-### Directions:
-
 1. In a bowl, toss cauliflower florets with 2 tablespoons olive oil, and two teaspoons of salt. We also like
    to add a teaspoon of a spice, like cumin or curry powder at this point. Toss well.
 

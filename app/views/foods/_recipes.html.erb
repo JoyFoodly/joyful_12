@@ -1,6 +1,6 @@
 <!-- Recipe tab nav -->
 <ul class="nav nav-tabs">
-  <% @food.recipes.sort_by(&:sort_order).each_with_index do |recipe, i| %>
+  <% @food.recipes.reject{ |recipe| @child_recipes.include?(recipe) }.sort_by(&:sort_order).each_with_index do |recipe, i| %>
       <li class="<%= 'active' if i == 0 %>">
         <a href="#<%= recipe.difficulty %>-<%= recipe.id %>" data-toggle="tab"><%= recipe.difficulty.titleize %></a>
       </li>
