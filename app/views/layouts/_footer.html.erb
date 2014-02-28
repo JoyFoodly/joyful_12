@@ -2,12 +2,14 @@
 <!-- footer right -->
 
 
-<div class="col-md-2 col-md-offset-4">
+<div class="col-md-2 col-md-offset-2">
   <ul class="list-unstyled">
     <li><h4>More Joy</h4></li>
     <li><%= link_to 'CLASSROOM', foods_path %></li>
     <li><%= link_to 'PARENT RESOURCES', parent_resources_path %></li>
     <li><%= link_to 'MY PROFILE', edit_user_path('me') %></li>
+    <li><%= link_to 'SHOPPING LIST', page_path('/') %></li>
+    <li><%= link_to 'ORIENTATION', page_path('orientation') %></li>
     <li><%= link_to 'FAQs', page_path('faqs') %></li>
     <li><%= link_to 'CONTACT US', edit_user_path('me') %></li>
   </ul>
@@ -15,12 +17,23 @@
 
 <div class="col-md-2 col-md-offset-1">
   <ul class="list-unstyled">
+    <li><h4 class="text-center">Give us Feedback</h4></li>
+    <li><div class="text-center"><a href="/pages/general-feedback">Feedback</a></div></li>
+  </ul>
+  <ul class="list-unstyled">
+    <li><h4 class="text-center">JoyFoodly Blog</h4></li>
+    <li><div class="text-center"><a href="http://www.joyfoodly.com/blog" target="_blanks">Recipes & Family Tips</a></div></li>
+  </ul>
+</div>
+
+<div class="col-md-2 col-md-offset-1">
+  <ul class="list-unstyled">
     <li><h4>Follow JoyFoodly</h4></li>
-    <li><%= link_to 'FACEBOOK', "http://www.facebook.com/joyfoodly" %></li>
-    <li><%= link_to 'TWITTER', "http://www.twitter.com/joyfoodly" %></li>
-    <li><%= link_to 'PINTEREST', "http://www.pinterest.com/joyfoodly" %></li>
-    <li><%= link_to 'INSTAGRAM', "http://www.instagram.com/joyfoodly" %></li>
-    <li><%= link_to 'GOOGLE+', "https://plus.google.com/+Joyfoodly" %></li>
+    <li><img src="http://joyful12.s3.amazonaws.com/pages/media/original/fa5216333dcd839a9c645f4d97c69ad2fde6327b.png?1393200233" /> <%= link_to 'FACEBOOK', "http://www.facebook.com/joyfoodly" %></li>
+    <li><img src="http://joyful12.s3.amazonaws.com/pages/media/original/b4421948d50e9684c75bcccc88d860adea9ab314.png?1393200209" /> <%= link_to 'TWITTER', "http://www.twitter.com/joyfoodly" %></li>
+    <li><img src="http://joyful12.s3.amazonaws.com/pages/media/original/419751873707ba7608a789c4c4920d6ef24a67c1.png?1393200215" /> <%= link_to 'PINTEREST', "http://www.pinterest.com/joyfoodly" %></li>
+    <li><img src="http://joyful12.s3.amazonaws.com/pages/media/original/f4cabb616268463e83f50993257195d188f2e0e4.png?1393200221" /> <%= link_to 'INSTAGRAM', "http://www.instagram.com/joyfoodly" %></li>
+    <li><img src="http://joyful12.s3.amazonaws.com/pages/media/original/c16d5d398c4912cfbc343027ec4398e7eced7d4a.png?1393200227" /> <%= link_to 'GOOGLE+', "https://plus.google.com/+Joyfoodly" %></li>
   </ul>
 </div>
 
@@ -38,3 +51,4 @@ treat any health problems or illnesses. Always seek the advice of a physician or
 problem.</em></p>
   </div>
 </div>
+
