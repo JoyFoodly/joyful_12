@@ -39,7 +39,7 @@ gem 'devise', '~> 3.2.2'
 gem 'stripe', '~> 1.10.0'
 
 # Markdown parsing
-gem 'redcarpet', '~> 3.0.0'
+gem 'redcarpet', '~> 3.1.1'
 
 # Image uploading
 gem 'paperclip', '~> 4.1.0'
@@ -48,14 +48,14 @@ gem 'paperclip', '~> 4.1.0'
 gem 'simple_form', '~> 3.0.1'
 
 # Image storage
-gem 'aws-sdk', '~> 1.33.0'
+gem 'aws-sdk', '~> 1.35.0'
 
 group :test do
   # Testing framework
   gem 'rspec-rails', '~> 2.14.0'
 
   # Test fixtures
-  gem 'factory_girl_rails', '~> 4.3.0'
+  gem 'factory_girl_rails', '~> 4.4.1'
 
   # Request spec DSL
   gem 'capybara', '~> 2.2.0'
@@ -79,7 +79,7 @@ group :development, :test do
   gem 'binding_of_caller', '~> 0.7.2'
 
   # Environment variables for dev and test
-  gem 'dotenv-rails', '~> 0.9.0'
+  gem 'dotenv-rails', '~> 0.10.0'
 end
 
 group :production do
