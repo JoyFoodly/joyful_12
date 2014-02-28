@@ -16,10 +16,6 @@ class FoodsController < ApplicationController
 
 private
 
-  def set_season
-    @season = Season.current_season(current_user, session[:season_name])
-  end
-
   def set_foods
     @foods = @season.foods
   end

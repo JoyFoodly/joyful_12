@@ -1,5 +1,6 @@
 class ShoppingListsController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :set_season, only: :edit
 
   def create
     @user = current_user
@@ -15,7 +16,11 @@ class ShoppingListsController < ApplicationController
 
   def edit
     @user = current_user
-    @shopping_list = current_user.shopping_lists.includes(ingredient_list_items: [:ingredient]).find(params[:id])
+    if params[:id] == 'current'
+      @shopping_list = current_user.shopping_lists.includes(ingredient_list_items: [:ingredient]).where(completed_at: nil).first
+    else
+      @shopping_list = current_user.shopping_lists.includes(ingredient_list_items: [:ingredient]).find(params[:id])
+    end
   end
 
   def update

@@ -10,7 +10,7 @@
       <div class='form-group'>
         <%= content_tag :select, name: 'shopping_list[recipe_ids][]' do %>
             <%= content_tag :option %>
-            <%= option_groups_from_collection_for_select(Food.includes(:recipes).load, :recipes, :name, :id, :title) %>
+            <%= option_groups_from_collection_for_select(@season.foods.includes(:recipes), :recipes, :name, :id, :title) %>
         <% end %>
       </div>
       <%= submit_tag 'Add Recipe', class: 'btn btn-primary', name: nil %>

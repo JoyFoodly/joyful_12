@@ -29,12 +29,18 @@
             <p>Cooking time: <%= recipe.cook_time %></p>
             <p>
               <% recipe.dietary_categories.each do |dietary_category| %>
-                <%= image_tag dietary_category.icon.url, alt: dietary_category.name, title: dietary_category.name, class: 'right-padding-small bottom-padding-small' %>
+                <%= image_tag dietary_category.icon.url, alt: dietary_category.name, title: dietary_category.name,
+                              class: 'right-padding-small bottom-padding-small' %>
               <% end %>
             </p>
             <p>
-              <%= button_to 'Add to shopping list', { action: :create, controller: :shopping_lists, shopping_list: {
-                      recipe_ids: [recipe.id] }}, class: 'btn btn-primary' %>
+              <%= content_tag :div, data: { shopping_list_submit: true } do %>
+                <p>
+                  <%= button_to 'Add to shopping list', { action: :create, controller: :shopping_lists, shopping_list: {
+                                                          recipe_ids: [recipe.id] }}, remote: true,
+                                                          data: { disable_with: 'Adding...'}, class: 'btn btn-primary' %>
+                </p>
+              <% end %>
             </p>
             <p class=""><%= link_to 'view sample class schedule >', class_schedule_path %></p>
           </div>
