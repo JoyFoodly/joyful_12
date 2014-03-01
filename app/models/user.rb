@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :family_members
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
 private
 
   def set_default_username

@@ -1,0 +1,90 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h1>Feedback on the Joyful 12!</h1>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <h5>We'd love any feedback you have that can help us make this course better for you!</h5>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+    <div class="panel bg-grey">
+      <div class="panel-body">
+        <%= form_for @form, html: { role: 'form' } do |f| %>
+          <div class="form-group">
+            <%= f.label :user_name, 'Your Name' %>
+            <%= f.text_field :user_name, class: 'form-control', placeholder: 'Your Name' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :response_type, 'What are you responding to?' %>
+            <%= f.select :response_type, options_for_select(
+                    [["I have some positive feedback", "positive_feedback"],
+                     ["I'm having a specific problem with a feature of this course", "problem"],
+                     ["I'd like to make a suggestion about the course", "suggestion"],
+                     ["I'd like to send you a photo of my family's kitchen adventures!", "photo"],
+                     ["Other", "other"],
+                    ]), {}, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :browser_type, 'Is this issue technical?
+                                  If so, please select the browser or device you use so we can troubleshoot' %>
+            <%= f.select :response_type, options_for_select(
+                    [["Firefox", "firefox"],
+                     ["Chrome", "chrome"],
+                     ["Safari", "safari"],
+                     ["Internet Explorer", "ie"],
+                     ["iPhone", "iphone"],
+                     ["iPad", "ipad"],
+                     ["Android Browser", "android"],
+                     ["Other", "other"],
+                    ]), { include_blank: true }, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :message, 'Your Message' %>
+            <%= f.text_area :message, class: 'form-control', placeholder: 'Your message', rows: 3 %>
+          </div>
+
+          <h4>And just because we're curious...</h4>
+          <h5>Are you finding the course useful?</h5>
+
+          <div class="radio">
+            <%= f.label :course_useful_yes, 'Yes' %>
+            <%= f.radio_button :course_useful, 'yes', checked: true %>
+          </div>
+          <div class="radio">
+            <%= f.label :course_useful_no, 'No' %>
+            <%= f.radio_button :course_useful, 'no' %>
+          </div>
+          <div class="radio">
+            <%= f.label :course_useful_not_sure, 'Not Sure' %>
+            <%= f.radio_button :course_useful, 'not_sure' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :course_useful_explanation, 'Why or why not?' %>
+            <%= f.text_area :course_useful_explanation, class: 'form-control', rows: 3 %>
+          </div>
+
+          <h5>Would you like to include a photo?</h5>
+          <div class="form-group">
+            <p class="help-block">We love to see your kitchen adventures!</p>
+            <%= f.file_field :photo %>
+          </div>
+
+          <%= f.submit 'Submit', class: 'btn btn-default btn-lg' %>
+
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>

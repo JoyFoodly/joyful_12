@@ -1,4 +1,5 @@
 class SeasonsController < ApplicationController
+  before_filter :authenticate_user!
 
   def update
     season = Season.find_by!(name: season_params[:name])

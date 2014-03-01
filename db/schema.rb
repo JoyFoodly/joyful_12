@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140227090340) do
+ActiveRecord::Schema.define(version: 20140301063639) do
 
   create_table "addresses", force: true do |t|
     t.string   "line_1",     default: "", null: false
@@ -106,6 +106,22 @@ ActiveRecord::Schema.define(version: 20140227090340) do
   end
 
   add_index "foods_video_links", ["food_id", "video_link_id"], name: "index_foods_video_links_on_food_id_and_video_link_id"
+
+  create_table "forms", force: true do |t|
+    t.string   "user_name"
+    t.string   "response_type"
+    t.string   "browser_type"
+    t.text     "message"
+    t.string   "course_useful"
+    t.string   "course_useful_explanation"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.string   "photo_fingerprint"
+    t.datetime "photo_updated_at"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
 
   create_table "images", force: true do |t|
     t.string   "name",              default: "", null: false
