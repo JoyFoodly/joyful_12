@@ -28,7 +28,8 @@ module ApplicationHelper
       this.page.api_key = '#{ENV['DISQUS_PUBLIC_KEY']}';
       this.sso = {
           name:   'Joyful 12',
-          icon:   'http://joyful12.com/#{image_url('favicon.ico')}',
+          button: '#{image_url('comments/sso-button.png')}',
+          icon:   '#{image_url('favicon.ico')}',
           url:    'http://joyful12.com/users/sign_in/',
           logout: 'http://joyful12.com/users/sign_out/',
     };
