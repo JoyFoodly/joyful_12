@@ -1,10 +1,12 @@
 class User < ActiveRecord::Base
   has_paper_trail
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
-  has_many :addresses,      dependent: :destroy
-  has_many :subscriptions,  dependent: :destroy
-  has_many :family_members, dependent: :destroy
-  has_many :shopping_lists, dependent: :destroy
+  has_many :shipping_addresses, dependent: :destroy
+  has_many :billing_addresses,  dependent: :destroy
+  has_many :subscriptions,      dependent: :destroy
+  has_many :family_members,     dependent: :destroy
+  has_many :shopping_lists,     dependent: :destroy
+  has_many :payments,           dependent: :destroy
   belongs_to :season
 
   before_validation :set_default_username, on: :create

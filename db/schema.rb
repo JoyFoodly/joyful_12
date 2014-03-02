@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140301224604) do
+ActiveRecord::Schema.define(version: 20140302030056) do
 
   create_table "addresses", force: true do |t|
     t.string   "line_1",     default: "", null: false
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20140301224604) do
     t.integer  "user_id",                 null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.text     "name"
+    t.text     "type"
   end
 
   add_index "addresses", ["user_id"], name: "index_addresses_on_user_id"
@@ -176,6 +178,19 @@ ActiveRecord::Schema.define(version: 20140301224604) do
 
   add_index "pages", ["slug"], name: "index_pages_on_slug", unique: true
 
+  create_table "payments", force: true do |t|
+    t.integer  "amount",      default: 0,  null: false
+    t.string   "card_token",  default: "", null: false
+    t.string   "product_id",  default: "", null: false
+    t.string   "customer_id", default: "", null: false
+    t.string   "charge_id",   default: "", null: false
+    t.integer  "user_id",                  null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "payments", ["user_id"], name: "index_payments_on_user_id"
+
   create_table "pdfs", force: true do |t|
     t.string   "file_file_name",    null: false
     t.string   "file_content_type", null: false
@@ -259,12 +274,12 @@ ActiveRecord::Schema.define(version: 20140301224604) do
   add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id"
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                       default: "", null: false
+    t.string   "encrypted_password",          default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",               default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -273,14 +288,15 @@ ActiveRecord::Schema.define(version: 20140301224604) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.string   "first_name",             default: "", null: false
-    t.string   "last_name",              default: "", null: false
+    t.string   "first_name",                  default: "", null: false
+    t.string   "last_name",                   default: "", null: false
     t.text     "family_description"
     t.text     "family_struggles"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.integer  "season_id"
-    t.string   "username",               default: "", null: false
+    t.string   "username",                    default: "", null: false
+    t.string   "payment_gateway_customer_id"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
