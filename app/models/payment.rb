@@ -15,7 +15,7 @@ class Payment < ActiveRecord::Base
 private
 
   def set_amount
-    self.amount = 1000 if product_id == 'beta'
+    self.amount = ENV['BETA_PRICE'].to_i if product_id == 'beta'
   end
 
   def create_stripe_customer
