@@ -41,6 +41,11 @@ These classes are not app-specific and could (should?) be provided by bootstrap 
   background-color: transparent;
 }
 
+// Centered modal dialog.
+.modal-dialog-centered {
+  margin-top: 150px;
+}
+
 // Sharp thumbnail without border radius or padding around images.
 .thumbnail-border-sharp {
   &>img, a > img {
