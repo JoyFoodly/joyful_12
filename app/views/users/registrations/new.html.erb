@@ -19,50 +19,29 @@
   </div>
 </div>
 
-<div class="row top-buffer">
-  <div class="col-md-12">
-    <h1>Join Us Now!</h1>
+<div class="page-sub-header text-center top-buffer top-padding">
+  <h1 class="dotted">Join Us Now!</h2>
     <h3>Not sure yet? Scroll down for more features.</h3>
-  </div>
 </div>
 
-<div class='row top-buffer subscription-options'>
+<div class='row top-buffer bottom-buffer'>
 
-  <div class='col-md-4 first-subscription'>
-    <h4>Seasonal Subscription</h4>
-    <p>Get the full spring curriculum including:</p>
-    <ul>
-      <li>9 vegetable lessons. Each with 3 recipes to try.</li>
-    </ul>
-    <p><strong>$20 for the season. </strong></p>
-    <%= form_tag user_registration_path, method: :post, id: 'first-subscription' do |f| %>
-        <%= hidden_field_tag :plan_id, 'seasonal' %>
-        <script
-        src='https://checkout.stripe.com/checkout.js' class='stripe-button'
-        data-key='<%= ENV['STRIPE_PUBLIC_KEY'] %>'
-        data-image='<%= image_path('favicon.ico') %>'
-        data-label='Sign Up Now'
-        data-name='Joyful 12'
-        data-panel-label='Pay {{amount}}'
-        data-billing-address='true'
-        data-description='Seasonal Subscription ($20.00)'
-        data-amount='2000'>
-        </script>
-    <% end %>
-  </div>
 
-  <div class='col-md-4 second-subscription'>
-    <h4>Beta Subscription</h4>
-    <p>Get the full curriculum including:</p>
+
+  <div class='col-md-5 bg-grey right-padding left-padding bottom-padding'>
+    <h2>Beta Member Discount | $10</h2>
+    <p>Benefits include:</p>
     <ul>
-      <li>9 vegetable lessons. Each with 3 recipes to try.</li>
-      <li>3 fruit lessons. Each with a dessert recipe to try.</li>
-      <li>
-        Parent resources. Including a sample schedule, pantry essential lists, an interactive shopping list, and a game.
-      </li>
-      <li>If you agree to give us feedback, we'll give you 6 winter fruits and vegitables as well.</li>
+      <li>Access to our entire Spring classroom, with parent resources, recipes, videos and tips for cooking with kids</li>
+      <li>A guide to buying, cooking and eating 12 fruits and vegetables growing in that season</li>
+      <li>36 kid and family friendly visual recipes that have been tested gluten free</li>
+      <li>Quick videos to learn kitchen techniques to make cooking easier</li>
+      <li>A weekly game plan, from easiest to more challenging recipes for your family’s busy schedule</li>
+      <li>50% off the normal cost of a subscription</li>
     </ul>
-    <p><strong>$20 for the season. </strong></p>
+    <p><strong>BONUS! You'll also have access to 6 winter fruits and vegetables, with 18 recipes, and a free canvas "living
+      veggie love" shopping bag with goodies!</strong></p>
+    <p><strong>Only $10 for access to the beta! </strong></p>
     <%= form_tag user_registration_path, method: :post do %>
         <%= hidden_field_tag :product_id, 'beta' %>
         <script
@@ -79,130 +58,130 @@
         </script>
     <% end %>
   </div>
-
-  <div class='col-md-4 first-subscription'>
-    <h4>Full Year Subscription (best value)</h4>
-    <p>Get the full spring curriculum including:</p>
-    <ul>
-      <li>9 vegetable lessons. Each with 3 recipes to try.</li>
-    </ul>
-    <p><strong>$20 for the season. </strong></p>
-    <%= form_tag user_registration_path, method: :post do %>
-        <%= hidden_field_tag :plan_id, 'annual' %>
-        <script
-        src='https://checkout.stripe.com/checkout.js' class='stripe-button'
-        data-key='<%= ENV['STRIPE_PUBLIC_KEY'] %>'
-        data-image='<%= image_path('favicon.ico') %>'
-        data-label='Sign Up Now'
-        data-name='Joyful 12'
-        data-panel-label='Pay {{amount}}'
-        data-billing-address='true'
-        data-shipping-address='true'
-        data-description='Full Year Subscription ($20.00)'
-        data-amount='2000'>
-        </script>
-    <% end %>
-  </div>
-
+<div class="col-md-6 col-md-offset-1">
+  <h2 class="text-center">Beta Member Bonuses</h2>
+  <h4 class="centered top-buffer bottom-padding">Bonus! Since we're so excited about our first beta users, each member will receive a free canvas "living
+    veggie love" shopping
+    bag with goodies and access to an additional 18 winter recipes! You'll also receive 40% off additional seasons.</h4>
+  <img class="centered" src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/b1ccfa17ec1ab55686e582f9791cd315f5a45800.png?1393744432" />
+</div>
 </div>
 
 
 
 
 
-
-
-<div class='row top-buffer'>
+<div class='row top-buffer top-padding'>
 
   <div class="col-lg-2 col-md-6 col-xs-12 bottom-padding">
-    <a href="/foods/spring-spinach">
       <img class='wiggle centered' alt="Spinach" src="http://www.joyfoodly.com/wp-content/uploads/2014/02/1veg.png"/>
-    </a>
   </div>
 
   <div class="col-lg-2 col-md-6 col-xs-12 bottom-padding">
-    <a href="/foods/spring-potato">
       <img class='wiggle centered' alt="Potato" src="http://www.joyfoodly.com/wp-content/uploads/2014/02/2veg.png"/>
-    </a>
   </div>
 
   <div class="col-lg-2 col-md-6 col-xs-12 bottom-padding">
-    <a href="/foods/spring-fennel">
       <img class='wiggle centered' alt="Fennel" src="http://www.joyfoodly.com/wp-content/uploads/2014/02/3veg.png"/>
-    </a>
   </div>
 
   <div class="col-lg-2 col-md-6 col-xs-12 bottom-padding">
-    <a href="/foods/spring-avocado">
       <img class='wiggle centered' alt="Avocado" src="http://www.joyfoodly.com/wp-content/uploads/2014/02/4veg.png"/>
-    </a>
   </div>
 
   <div class="col-lg-2 col-md-6 col-xs-12 bottom-padding">
-    <a href="/foods/spring-asparagus">
       <img class='wiggle centered' alt="Asparagus" src="http://www.joyfoodly.com/wp-content/uploads/2014/02/5veg.png"/>
-    </a>
   </div>
 
   <div class="col-lg-2 col-md-6 col-xs-12 bottom-padding">
-    <a href="/foods/spring-radish">
       <img class='wiggle centered' alt="Radish" src="http://www.joyfoodly.com/wp-content/uploads/2014/02/12veg.png"/>
-    </a>
   </div>
 
   <div class="col-lg-2 col-md-6 col-xs-12 bottom-padding">
-    <a href="/foods/spring-green-onion">
       <img class='wiggle centered' alt="Green Onion" src="http://www.joyfoodly.com/wp-content/uploads/2014/02/6veg.png"/>
-    </a>
   </div>
 
   <div class="col-lg-2 col-md-6 col-xs-12 bottom-padding">
-    <a href="/foods/spring-rhubarb">
       <img class='wiggle centered' alt="Rhubarb" src="http://www.joyfoodly.com/wp-content/uploads/2014/02/7veg.png"/>
-    </a>
   </div>
 
   <div class="col-lg-2 col-md-6 col-xs-12 bottom-padding">
-    <a href="/foods/spring-peas">
       <img class='wiggle centered' alt="Peas" src="http://www.joyfoodly.com/wp-content/uploads/2014/02/8veg.png"/>
-    </a>
   </div>
 
   <div class="col-lg-2 col-md-6 col-xs-12 bottom-padding">
-    <a href="/foods/spring-artichoke">
       <img class='wiggle centered' alt="Artichoke" src="http://www.joyfoodly.com/wp-content/uploads/2014/02/9veg.png"/>
-    </a>
   </div>
 
   <div class="col-lg-2 col-md-6 col-xs-12 bottom-padding">
-    <a href="/foods/spring-greens">
       <img class='wiggle centered' alt="Greens" src="http://www.joyfoodly.com/wp-content/uploads/2014/02/10veg.png"/>
-    </a>
   </div>
 
   <div class="col-lg-2 col-md-6 col-xs-12 bottom-padding">
-    <a href="/foods/spring-strawberry">
       <img class='wiggle centered' alt="Strawberry" src="http://www.joyfoodly.com/wp-content/uploads/2014/02/11veg.png"/>
-    </a>
   </div>
 
 
 </div>
-
 
 
 <div class="row top-buffer">
-  <div class="col-md-12">
+  <div class="col-md-2 col-md-offset-2">
+    <img class="top-buffer top-padding bottom-padding" src="http://www.joyfoodly.com/wp-content/uploads/2014/01/hollie-round.png" />
+  </div>
+  <div class="col-md-6">
+    <h1>Meet Chef Hollie</h1>
+    <p>
+    After teaching 2,000 kids across the country, from the East Coast to California, I discovered that kids naturally
+    love exploring and eating fruits and vegetables. Let me help your family get more fruits and veggies into your diet
+    each season with JOY.
+    </p>
+  </div>
+</div>
+
+<div class="page-sub-header text-center top-buffer top-padding">
+  <h1 class="dotted">What's Included in the Joyful 12</h2>
+</div>
+<img src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/db695bd833b57cc4897171419da17eb2cfd2e761.png?1393751241" />
+
+
+<div class="page-sub-header text-center top-buffer top-padding">
+  <h1 class="dotted">We’re here for you season after season</h2>
+</div>
+
+<p>All your recipe favorites, family notes, and shopping lists are stored in your family’s Joyful 12 profile so next
+  winter you won’t have to begin all over again. This is a complete curriculum that you can adjust to your own tastes
+  and schedule.</p>
+<img class="centered top-padding" src="http://www.joyfoodly.com/wp-content/uploads/2014/01/spinach-threeways.png" />
+
+<div class="page-sub-header text-center top-buffer top-padding">
+  <h1 class="dotted">Why our course is right for you</h2>
+</div>
+<div class="col-md-10 col-md-offset-1 bg-grey general-padding">
+  <h4 class="text-center bottom-buffer">I know you are time pressed, so I make deciding what’s for dinner easier.
+  </h4>
+  <h4 class="text-center bottom-buffer">I test all of my recipes with your child in mind. Believe me, they’ll like it!
+  </h4>
+    <h4 class="text-center bottom-buffer">I don’t judge! I will help your family eat more veggies along with their favorite foods.
+  </h4>
+      <h4 class="text-center bottom-buffer">I’ll share with you all my kitchen tricks to help make cooking fun again!
+  </h4>
+</ul>
+  </div>
+
+
+<div class="row top-buffer">
+  <div class="col-md-12 top-padding">
     <h1>What Parents Are Saying...</h1>
   </div>
 </div>
 <div class="row top-buffer">
   <div class="col-md-12">
     <blockquote>
-      <p>"We made the dreamy greenie quesadillas tonight. They were fabulous! Even my son loved them and I thought the
+      <p><em>"We made the dreamy greenie quesadillas tonight. They were fabulous! Even my son loved them and I thought the
         greens would be a hard sell. They were really filling so I have leftovers for lunch. And I love that avocado
         sauce…I could eat that everyday. We’re having fun trying the Joyful 12 recipes. The kids are always willing to
-        try something new if I tell them it’s your recipe."</p>
+        try something new if I tell them it’s your recipe."</em></p>
       <small class="pull-right">
         <img class="right-padding-small" src="http://www.joyfoodly.com/wp-content/uploads/2014/02/augusta-testimonial.png" />
         Augusta, <cite title="Source Title">South Carolina, Mom of 2</cite>
@@ -211,21 +190,72 @@
   </div>
 </div>
 
-<div class="row top-buffer">
-    <div class="col-md-2 col-md-offset-2">
-      <img src="http://www.joyfoodly.com/wp-content/uploads/2014/02/listitem1.png" />
-    </div>
-    <div class="col-md-6 col-md-offset-1 bg-grey">
-      <p>My proven methods to get your kids to fall in love with exploring each of the 12 fruits and vegetables</p>
-    </div>
 
+<div class="page-sub-header text-center top-buffer top-padding">
+  <h1 class="dotted">Are you excited to join us?</h1>
 </div>
-
+<div class='col-md-10 col-md-offset-1 bg-grey right-padding left-padding bottom-padding'>
+  <h2 class="text-center">Beta Member Discount | $10</h2>
+  </div>
+<div class="col-md-7 col-md-offset-1 bg-grey left-padding bottom-padding">
+  <p><strong>Full access to our Spring Joyful 12 course, with recipes, tutorials, videos, tips, and resources!</strong></p>
+  <p><strong>BONUS! You'll also have access to 6 winter fruits and vegetables, with 18 recipes, and a free canvas "living
+    veggie love" shopping bag with goodies!</strong></p>
+  <p><strong>Only $10 for access to the beta! </strong></p>
+  <%= form_tag user_registration_path, method: :post do %>
+      <%= hidden_field_tag :product_id, 'beta' %>
+      <script
+      src='https://checkout.stripe.com/checkout.js' class='stripe-button'
+      data-key='<%= ENV['STRIPE_PUBLIC_KEY'] %>'
+      data-image='<%= image_path('favicon.ico') %>'
+      data-label='Sign Up Now'
+      data-name='Joyful 12'
+      data-panel-label='Pay {{amount}}'
+      data-billing-address='true'
+      data-shipping-address='true'
+      data-description='Beta Subscription ($20.00)'
+      data-amount='2000'>
+      </script>
+  <% end %>
+</div>
+<div class="col-md-3 bg-grey bottom-padding">
+  <img src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/94e2314e710a34bce79edb1c29aafb6772fbcfe8.png?1393752100" />
+</div>
 <div class='spacer'></div>
 
-<p class="italic">
+<div class='row'>
+  <div class='col-md-12 top-buffer'>
+    <h1>About JoyFoodly</h1>
+<p>
   The Joyful 12 was created and developed by the same JoyFoodly™ team that produces highly acclaimed visual
   recipes and technique timeouts. <a href="http://joyfoodly.com">Visit the JoyFoodly website to learn more.</a>
 </p>
+  </div>
+</div>
+
+<div class='row'>
+  <div class='col-md-12'>
+    <h1>About Chef Hollie</h1>
+    <p>
+      Chef Hollie is a vegetable enthusiast and food educator with a mission to transform kids’ relationship with food.
+      Hollie founded JoyFoodly™, a San Francisco mission based company, to create a new food culture where kids and
+      families celebrate the JOY of good food together. Hollie is passionate about helping parents feel good about the
+      food they feed their kids.
+    </p>
+    <p>
+      Chef Hollie has taught over 2,000 children in New York and California through her work with non-profit programs
+      partnering with Rachael Ray’s Yum-O!, Mayor Bloomberg, and Mary J. Blige. She is a Professional Expert for the
+      State of California’s Healthy CA Kids Initiative and has worked as an Education Director for The Sylvia Center and
+      Chef in Residence in NYC Schools through Wellness in the Schools to improve School Food. Prior to attending the
+      French Culinary Institute in New York City,Hollie spent ten years creating global leadership development programs.
+      This experience infuses her fun and positive approach to helping families gain confidence in the kitchen.
+    </p>
+  </div>
+</div>
+
+
+
+
+</div>
 
 
