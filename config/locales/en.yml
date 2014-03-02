@@ -20,4 +20,5 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  beta:
+    user_limit_hit: "The beta is at capacity, click <a href='/forms/feedback'>here</a> to join the wait-list."

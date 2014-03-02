@@ -21,7 +21,7 @@
       <% if msg.present? %>
         <div class='alert alert-<%= name == :notice ? 'success' : 'danger' %>'>
           <a class='close' data-dismiss='alert'>×</a>
-          <%= msg  %>
+          <%= msg.html_safe %>
         </div>
       <% end %>
     <% end %>

@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
+  validate :beta_user_limit, on: :create
 
   accepts_nested_attributes_for :family_members
 
@@ -45,6 +46,10 @@ private
       username = username_from_names + "_#{rand(1000)}"
       break username unless User.where(username: username).exists?
     end
+  end
+
+  def beta_user_limit
+    errors.add(:base, I18n.t('beta.user_limit_hit')) if User.count >= 50
   end
 
 end
