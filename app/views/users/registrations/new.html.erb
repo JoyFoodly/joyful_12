@@ -67,7 +67,7 @@
     </ul>
     <p><strong>$20 for the season. </strong></p>
     <%= form_tag user_registration_path, method: :post do %>
-        <%= hidden_field_tag :plan_id, 'beta' %>
+        <%= hidden_field_tag :product_id, 'beta' %>
         <script
         src='https://checkout.stripe.com/checkout.js' class='stripe-button'
         data-key='<%= ENV['STRIPE_PUBLIC_KEY'] %>'
@@ -76,6 +76,7 @@
         data-name='Joyful 12'
         data-panel-label='Pay {{amount}}'
         data-billing-address='true'
+        data-shipping-address='true'
         data-description='Beta Subscription ($20.00)'
         data-amount='2000'>
         </script>
@@ -99,6 +100,7 @@
         data-name='Joyful 12'
         data-panel-label='Pay {{amount}}'
         data-billing-address='true'
+        data-shipping-address='true'
         data-description='Full Year Subscription ($20.00)'
         data-amount='2000'>
         </script>

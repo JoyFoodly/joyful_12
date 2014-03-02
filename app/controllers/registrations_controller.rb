@@ -8,6 +8,7 @@ class RegistrationsController < Devise::RegistrationsController
       expire_data_after_sign_in!
       respond_with @user, location: root_url
     else
+      flash.now[:error] = @user.errors.full_messages.first
       render :new
     end
   end
@@ -15,9 +16,29 @@ class RegistrationsController < Devise::RegistrationsController
 private
 
   def stripe_params
-    params.permit("plan_id", "stripeToken", "stripeEmail", "stripeBillingName", "stripeBillingAddressLine1",
-                  "stripeBillingAddressZip", "stripeBillingAddressCity", "stripeBillingAddressState",
-                  "stripeBillingAddressCountry")
+    params.permit("plan_id", "product_id", "stripeToken", "stripeEmail", *billing_params, *shipping_params)
+  end
+
+  def billing_params
+    %w[
+      stripeBillingName
+      stripeBillingAddressLine1
+      stripeBillingAddressZip
+      stripeBillingAddressState
+      stripeBillingAddressCity
+      stripeBillingAddressCountry
+    ]
+  end
+
+  def shipping_params
+    %w[
+      stripeShippingName
+      stripeShippingAddressLine1
+      stripeShippingAddressZip
+      stripeShippingAddressState
+      stripeShippingAddressCity
+      stripeShippingAddressCountry
+    ]
   end
 
 end

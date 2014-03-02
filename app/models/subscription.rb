@@ -11,7 +11,7 @@ class Subscription < ActiveRecord::Base
 private
 
   def stripe_customer_created
-    return if errors.present?
+    return if errors.present? || user.payment_gateway_customer_id.present?
     Stripe::Customer.create(
       card: card_token,
       plan: plan_id,
