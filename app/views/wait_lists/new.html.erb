@@ -10,13 +10,18 @@
     <div class="modal-content">
       <div class="modal-header">
 
-        <h4 class="modal-title" id="myModalLabel">
-          Add your information here to join the wait list!
+        <h4 class="modal-title text-center" id="myModalLabel">
+          Darn! Our Beta is at capacity. Add your information below to join the waitlist and be the first to hear when we officially launch!
         </h4>
+
 
       </div>
       <div class="modal-body">
-
+        <div class="centered">
+          <img src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/0a7fa9d1e3db6ad2f886b876f3f496c43cc77ea5.png?1393748893" />
+          <img src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/ef61e49e3664a76e158d6629992366b1047e9145.png?1393748422" />
+        </div>
+        <h2 class="text-center">Yes, add me to the Joyful 12 waitlist!</h2>
         <%= form_for @wait_list, html: { role: 'form' } do |f| %>
             <div class='form-group'>
               <%= f.label :first_name %>
@@ -34,8 +39,9 @@
             </div>
 
             <div class='checkbox'>
-              <%= f.label :newsletter, 'Receive updates from JoyFoodly' %>
               <%= f.check_box :newsletter %>
+              <%= f.label :newsletter, "Yes! I'd like to be added to JoyFoodly's e-letter to receive recipes, tips for
+              families, and updates on the Joyful 12!" %>
             </div>
 
             <%= submit_tag 'Add to wait list', class: 'btn btn-primary' %>
