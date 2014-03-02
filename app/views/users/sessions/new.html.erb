@@ -1,30 +1,62 @@
+
+
 <div class="row">
-  <div class='col-md-4'>
-    <h2>Sign in</h2>
-
-    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { role: "form" }) do |f| %>
-
-        <div class="form-group">
-          <%= f.label :email %>
-          <%= f.email_field :email, class: 'form-control', autofocus: true, placeholder: 'Enter email' %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :password %>
-          <%= f.password_field :password, class: 'form-control' %>
-        </div>
-
-        <% if devise_mapping.rememberable? -%>
-            <div class="checkbox">
-              <%= f.check_box :remember_me %>
-              <%= f.label :remember_me %>
-            </div>
-        <% end -%>
-
-        <%= f.submit "Sign in", class: 'btn btn-primary' %>
-
-    <% end %>
+  <div class='col-md-12 bottom-padding'>
+    <img src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/d4079534f8a4659424e86c5ef0a12556d2580ee1.png?1393734220" />
   </div>
 </div>
-<br />
-<%= render "users/shared/links" %>
+
+
+
+<!-- Button trigger modal -->
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">
+          You don't have access to this - but we'd love for you to join us!</h4>
+      </div>
+      <div class="modal-body">
+        <img src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/e3b0eab2cf90fe39fd2e1d1abdaf5a4a51dc2b60.png?1393737573" />
+        <div class="top-buffer"></div>
+        <%= link_to 'learn more and join now!', new_user_registration_path, class: 'btn btn-primary centered' %>
+        <h2>Existing Users Sign In</h2>
+        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { role: "form" }) do |f| %>
+
+            <div class="form-group">
+              <%= f.label :email %>
+              <%= f.email_field :email, class: 'form-control', autofocus: true, placeholder: 'Enter email' %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :password %>
+              <%= f.password_field :password, class: 'form-control' %>
+            </div>
+
+            <% if devise_mapping.rememberable? -%>
+                <div class="checkbox">
+                  <%= f.check_box :remember_me %>
+                  <%= f.label :remember_me %>
+                </div>
+            <% end -%>
+
+            <%= f.submit "Sign in", class: 'btn btn-primary' %>
+            <%= render "users/shared/links" %>
+
+
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="spacer"></div>

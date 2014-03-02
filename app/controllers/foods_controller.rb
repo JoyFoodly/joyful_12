@@ -1,4 +1,5 @@
 class FoodsController < ApplicationController
+  before_filter :authenticate_user!
   before_filter :set_season
   before_filter :set_foods
 

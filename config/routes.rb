@@ -15,5 +15,5 @@ Joyfoodly::Application.routes.draw do
     get 'submitted', on: :member
   end
 
-  root to: 'home#index'
+  root to: 'foods#index'
 end
