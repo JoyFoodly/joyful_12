@@ -1,5 +1,4 @@
 class RegistrationsController < Devise::RegistrationsController
-  skip_before_filter :under_construction
   
   def create
     @user = UserRegistration.from_stripe_params(stripe_params)
