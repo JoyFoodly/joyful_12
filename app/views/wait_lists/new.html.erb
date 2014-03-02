@@ -1,0 +1,47 @@
+<div class="row">
+  <div class='col-md-12 bottom-padding'>
+    <img src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/d4079534f8a4659424e86c5ef0a12556d2580ee1.png?1393734220" />
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade modal-auto-open" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <h4 class="modal-title" id="myModalLabel">
+          Add your information here to join the wait list!
+        </h4>
+
+      </div>
+      <div class="modal-body">
+
+        <%= form_for @wait_list, html: { role: 'form' } do |f| %>
+            <div class='form-group'>
+              <%= f.label :first_name %>
+              <%= f.text_field :first_name, class: 'form-control', autofocus: true, placeholder: 'First Name' %>
+            </div>
+
+            <div class='form-group'>
+              <%= f.label :last_name %>
+              <%= f.text_field :last_name, class: 'form-control', placeholder: 'Last Name' %>
+            </div>
+
+            <div class='form-group'>
+              <%= f.label :email %>
+              <%= f.email_field :email, class: 'form-control', placeholder: 'Email Address' %>
+            </div>
+
+            <div class='checkbox'>
+              <%= f.label :newsletter, 'Receive updates from JoyFoodly' %>
+              <%= f.check_box :newsletter %>
+            </div>
+
+            <%= submit_tag 'Add to wait list', class: 'btn btn-primary' %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -11,6 +11,7 @@ Joyfoodly::Application.routes.draw do
   resource :parent_resources, only: :show
   resource :class_schedule
   resources :pages, only: :show
+  resources :wait_lists, only: [:new, :create, :show]
   resources :forms, only: [:create, :show] do
     get 'submitted', on: :member
   end

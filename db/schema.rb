@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140302030056) do
+ActiveRecord::Schema.define(version: 20140302213215) do
 
   create_table "addresses", force: true do |t|
     t.string   "line_1",     default: "", null: false
@@ -324,6 +324,15 @@ ActiveRecord::Schema.define(version: 20140302030056) do
     t.string   "provider_id", default: "", null: false
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+  end
+
+  create_table "wait_lists", force: true do |t|
+    t.string   "first_name", default: "",   null: false
+    t.string   "last_name",  default: "",   null: false
+    t.string   "email",      default: "",   null: false
+    t.boolean  "newsletter", default: true, null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
 end

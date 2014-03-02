@@ -21,4 +21,6 @@
 
 en:
   beta:
-    user_limit_hit: "The beta is at capacity, click <a href='/forms/feedback'>here</a> to join the wait-list."
+    user_limit_hit: "The beta is at capacity, click <a href='/wait_lists/new'>here</a> to join the wait-list."
+  wait_list:
+    added: "Great! We'll let you know when we're ready to accept more people into the program."
