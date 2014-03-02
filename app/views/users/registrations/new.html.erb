@@ -7,7 +7,7 @@
 <div class='row'>
   <div class='col-md-5'>
     <h4>
-      The Joyful 12™ is an online crash course for families to eating the season!
+      The Joyful 12 is a crash course in helping your family eat more fruits and veggies from Chef Hollie Greene.
     </h4>
     <p class="bottom-padding">Watch the video to the right or scroll down to learn more!</p>
     <img src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/2ba673432eaa163325512a8150f1680b501c9f18.png?1393741295" />
@@ -21,21 +21,21 @@
 
 <div class="page-sub-header text-center top-buffer top-padding">
   <h2 class="dotted">Join Us Now!</h2>
-  <h3>Not sure yet? Scroll down for more features.</h3>
+  <h3>We only have room for 50 people in our Beta.</h3> <p>Not sure yet? Scroll down for more features.</p>
 </div>
 
 <div class='row top-buffer bottom-buffer'>
 
   <div class='col-md-5 bg-grey right-padding left-padding bottom-padding'>
     <h2>Beta Member Discount | <%= number_to_currency(ENV['BETA_PRICE'].to_i / 100) %></h2>
-    <p>Benefits include:</p>
+    <h4>The first 50 people to sign up receive:</h4>
     <ul>
       <li>Access to our entire Spring classroom, with parent resources, recipes, videos and tips for cooking with kids</li>
       <li>A guide to buying, cooking and eating 12 fruits and vegetables growing in that season</li>
       <li>36 kid and family friendly visual recipes that have been tested gluten free</li>
       <li>Quick videos to learn kitchen techniques to make cooking easier</li>
       <li>A weekly game plan, from easiest to more challenging recipes for your family’s busy schedule</li>
-      <li>50% off the normal cost of a subscription</li>
+      <li>50% off the normal cost of a a subscription, plus 20% off Summer/Fall 2014</li>
     </ul>
     <p><strong>BONUS! You'll also have access to 6 winter fruits and vegetables, with 18 recipes, and a free canvas "living
       veggie love" shopping bag with goodies!</strong></p>
@@ -58,9 +58,9 @@
   </div>
   <div class="col-md-6 col-md-offset-1">
     <h2 class="text-center">Beta Member Bonuses</h2>
-    <h4 class="centered top-buffer bottom-padding">Bonus! Since we're so excited about our first beta users, each member will receive a free canvas "living
-      veggie love" shopping
-      bag with goodies and access to an additional 18 winter recipes! You'll also receive 40% off additional seasons.</h4>
+    <h4 class="centered top-buffer bottom-padding">Bonus! Since we're so excited about our new class, the 50 Beta users will
+      receive a free canvas "living veggie love" shopping bag with goodies and access to an additional 18 winter
+      recipes! You'll also receive 20% off Summer/Fall 2014 seasons.</h4>
     <img class="centered" src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/b1ccfa17ec1ab55686e582f9791cd315f5a45800.png?1393744432" />
   </div>
 </div>
@@ -195,7 +195,7 @@
 <div class="col-md-7 col-md-offset-1 bg-grey left-padding bottom-padding">
   <p><strong>Full access to our Spring Joyful 12 course, with recipes, tutorials, videos, tips, and resources!</strong></p>
   <p><strong>BONUS! You'll also have access to 6 winter fruits and vegetables, with 18 recipes, and a free canvas "living
-    veggie love" shopping bag with goodies!</strong></p>
+    veggie love" shopping bag with goodies! Beta members will receive 20% off Fall/Winter 2014 classes.</strong></p>
   <p><strong>Only <%= number_to_currency(ENV['BETA_PRICE'].to_i / 100) %> for access to the beta! </strong></p>
   <%= form_tag user_registration_path, method: :post do %>
       <%= hidden_field_tag :product_id, 'beta' %>
