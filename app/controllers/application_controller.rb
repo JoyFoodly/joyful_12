@@ -13,6 +13,14 @@ protected
     stored_location_for(resource_or_scope) || model_specific_path(resource_or_scope) || signed_in_root_path(resource_or_scope)
   end
 
+  def after_resetting_password_path_for(resource_or_scope)
+    if resource.class.to_s == 'User'
+      edit_user_path('me')
+    else
+      after_sign_in_path_for(resource_or_scope)
+    end
+  end
+
   def model_specific_path(resource_or_scope)
     edit_user_path(resource_or_scope) if resource_or_scope.class == User
   end
