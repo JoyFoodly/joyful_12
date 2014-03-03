@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 protected
 
   def set_season
-    session[:season_name] ||= Season.current_season_name
+    session[:season_name] ||= current_user.try(:season).try(:name) || Season.current_season_name
     @season = Season.current_season(current_user, session[:season_name])
   end
 
