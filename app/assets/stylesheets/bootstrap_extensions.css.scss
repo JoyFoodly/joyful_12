@@ -5,8 +5,31 @@ BOOTSTRAP EXTENSIONS
 These classes are not app-specific and could (should?) be provided by bootstrap itself.
 ***************************************************************************************/
 
+// Centered Navigation Bar Header (Parent must be text-center)
+.navbar-header-centered-image {
+  float: none;
+  display: inline-block;
+  margin: 0 auto;
+  max-width: 50%;
+}
 
-// Panel without a tops.s
+
+
+@media (min-width: 768px) {
+  .navbar-left-small {
+    width: 25%;
+  }
+
+  .navbar-right-small {
+    width: 25%;
+
+    .navbar-nav > li {
+      float: none;
+    }
+  }
+}
+
+// Panel without a top.
 .panel-no-top {
   border-top-left-radius: 0;
   border-top-right-radius: 0;

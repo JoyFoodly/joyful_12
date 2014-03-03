@@ -1,4 +1,12 @@
-@import "bootstrap/_variables";
+// Body Config
+$body-bg: white;
+
+// Navigation Bar Config
+$navbar-height: auto;
+$navbar-padding-horizontal: 0;
+$navbar-padding-vertical: 0;
+$navbar-default-bg: $body-bg;
+
 
 // Font Config
 $font-family-base: 'Open Sans',"Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -26,3 +34,5 @@ $alert-danger-text: white;
 
 // Link Config
 $link-color: #4196b4;
+
+@import "bootstrap/_variables";
