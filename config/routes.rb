@@ -1,6 +1,6 @@
 Joyfoodly::Application.routes.draw do
   devise_for :admins
-  devise_for :users, controllers: { registrations: :registrations, sessions: :sessions, confirmations: :confirmations }
+  devise_for :users, controllers: { registrations: :registrations, passwords: :passwords, confirmations: :confirmations }
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   resources :recipe_redirects, only: :show
