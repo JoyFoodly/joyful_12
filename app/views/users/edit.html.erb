@@ -44,44 +44,11 @@
     </div>
 
     <h4 class="top-buffer">Family members participating in the course</h4>
-    <%= f.fields_for :family_members do |ff| %>
-      <div class='row'>
-        <div class='col-md-2'>
-          <div class="form-group">
-            <%= ff.label :first_name %>
-            <%= ff.text_field :first_name, class: 'form-control' %>
-          </div>
-        </div>
-        <div class='col-md-2'>
-          <div class="form-group">
-            <%= ff.label :last_name %>
-            <%= ff.text_field :last_name, class: 'form-control' %>
-          </div>
-        </div>
-        <div class='col-md-2'>
-          <div class="form-group">
-            <%= ff.label :birthday, 'Birthday (optional)' %>
-            <%= ff.date_field :birthday, class: 'form-control' %>
-          </div>
-        </div>
-        <div class='col-md-2'>
-          <div class="form-group">
-            <%= ff.label :allergy_ids, 'Allergies / Conditions' %>
-            <%= ff.collection_select :allergy_ids, Allergy.all, :id, :name, {}, class: 'form-control', multiple: true %>
-          </div>
-        </div>
-        <div class='col-md-4'>
-          <div class="form-group">
-            <%= ff.label :other_allergies %>
-            <%= ff.text_field :other_allergies, class: 'form-control' %>
-          </div>
-        </div>
-      </div>
+    <%= f.fields_for :family_members do |builder| %>
+      <%= render 'family_member_fields', f: builder %>
     <% end %>
-
-    <div class="row">
-      <p><%= button_to 'Add Family Member', {}, class: 'btn btn-primary pull-right' %></p>
-    </div>
+    <%= link_to_add_fields "Add A Family Member", f, :family_members, class: 'js-add-fields btn btn-primary pull-right' %>
+    <p>&nbsp;</p>
 
 
     <hr>

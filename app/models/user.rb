@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   validates :last_name, presence: true
   validate :beta_user_limit, on: :create
 
-  accepts_nested_attributes_for :family_members
+  accepts_nested_attributes_for :family_members, allow_destroy: true
 
   def full_name
     "#{first_name} #{last_name}"
