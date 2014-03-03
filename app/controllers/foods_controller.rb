@@ -4,7 +4,7 @@ class FoodsController < ApplicationController
   before_filter :set_foods
 
   def index
-    first_food = @foods.to_a.min {|food| food.sort_order }
+    first_food = @foods.to_a.min { |a, b| a.sort_order <=> b.sort_order }
     @food = Food.includes(:video_links, recipes: [:images, :dietary_categories, :child_recipes, ingredient_list_items: [:ingredient]]).find(first_food.id)
     @child_recipes = @food.recipes.map(&:child_recipes).flatten
     render :show
