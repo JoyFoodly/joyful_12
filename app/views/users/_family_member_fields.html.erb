@@ -1,16 +1,11 @@
 <div class='row'>
   <div class='col-md-2'>
     <div class="form-group">
-      <%= f.label :first_name %>
+      <%= f.label :name %>
       <%= f.text_field :first_name, class: 'form-control' %>
     </div>
   </div>
-  <div class='col-md-2'>
-    <div class="form-group">
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name, class: 'form-control' %>
-    </div>
-  </div>
+
   <div class='col-md-2'>
     <div class="form-group">
       <%= f.label :birthday, 'Birthday (optional)' %>
@@ -19,7 +14,7 @@
   </div>
   <div class='col-md-2'>
     <div class="form-group">
-      <%= f.label :allergy_ids, 'Allergies / Conditions' %>
+      <%= f.label :allergy_ids, 'Allergies/Conditions' %>
       <%= f.collection_select :allergy_ids, Allergy.all, :id, :name, {}, class: 'form-control', multiple: true %>
     </div>
   </div>
@@ -29,8 +24,9 @@
       <%= f.text_field :other_allergies, class: 'form-control' %>
     </div>
   </div>
+
   <div class="col-md-1">
-    <%= label_tag 'Remove' %>
+    <%= label_tag '' %>
     <%= f.hidden_field :_destroy %>
     <%= link_to "remove", '#', class: "js-remove-fields btn btn-default" %>
   </div>

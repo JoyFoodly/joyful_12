@@ -2,11 +2,12 @@
   <div class="row">
     <div class='col-md-8'>
       <h3 class="no-buffer">Your Joyful 12 profile</h3>
-      <p>All responses are optional. This will help us customize the experience to you.</p>
+      <p>All responses are optional and private. Use this profile to help you track your family's eating habits.</p>
     </div>
     <div class='col-md-4'>
       <p>
         <%= link_to 'Go directly to orientation', page_path('orientation'), class: 'btn btn-primary btn-lg' %>
+        <img src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/1af5186ee32c93a86c7c20c6634fb256bceba7e6.png?1393877240" />
       </p>
     </div>
   </div>
@@ -52,6 +53,15 @@
       <p>
         <%= link_to_add_fields "Add A Family Member", f, :family_members, class: 'js-add-fields btn btn-primary pull-right' %>
       </p>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 bg-white general-padding top-buffer">
+        <h3 class="top-buffer text-center no-buffer">Beta Members - keep on the lookout!</h3>
+        <p>We'll be adding new features to help you track your family's progress and preferences. What type of information
+          would you find useful here? Give us feedback:</p>
+        <a class="btn btn-primary centered" href="/pages/general-feedback">Give Feedback</a>
+      </div>
     </div>
 
     <hr>
