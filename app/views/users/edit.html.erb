@@ -47,9 +47,12 @@
     <%= f.fields_for :family_members do |builder| %>
       <%= render 'family_member_fields', f: builder %>
     <% end %>
-    <%= link_to_add_fields "Add A Family Member", f, :family_members, class: 'js-add-fields btn btn-primary pull-right' %>
-    <p>&nbsp;</p>
 
+    <div class='row'>
+      <p>
+        <%= link_to_add_fields "Add A Family Member", f, :family_members, class: 'js-add-fields btn btn-primary pull-right' %>
+      </p>
+    </div>
 
     <hr>
 
@@ -63,9 +66,12 @@
 </div>
 
 <ul class='list-group'>
-  <% current_user.shopping_lists.order(created_at: :desc).each do |shopping_list| %>
+  <li class='list-group-item'>
+    <%= link_to 'Current list', edit_shopping_list_path('current') %>
+  </li>
+  <% current_user.shopping_lists.order(created_at: :desc).where.not(completed_at: nil).each do |shopping_list| %>
     <li class='list-group-item'>
-      <%= link_to shopping_list.completed_at.nil? ? 'Current list' : shopping_list.name, edit_shopping_list_path(shopping_list) %>
+      <%= link_to shopping_list.name, edit_shopping_list_path(shopping_list) %>
       - created on <%= shopping_list.created_at.strftime('%B %e, %Y') %>
     </li>
   <% end %>
