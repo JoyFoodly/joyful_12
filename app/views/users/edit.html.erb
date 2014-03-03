@@ -84,3 +84,12 @@
   <%= f.submit 'Update Profile', class: 'btn btn-primary' %>
 <% end %>
 </div>
+
+<h3>Saved Shopping Lists</h3>
+<ul class='list-group'>
+  <% current_user.shopping_lists.where.not(completed_at: nil).each do |shopping_list| %>
+    <li class='list-group-item'>
+      <%= link_to shopping_list.name, edit_shopping_list_path(shopping_list) %> - created on <%= shopping_list.created_at.strftime('%D') %>
+    </li>
+  <% end %>
+</ul>

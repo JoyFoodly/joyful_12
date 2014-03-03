@@ -7,21 +7,29 @@
   <div class="col-md-4">
     <h3>Create Your Own List:</h3>
     <%= form_tag shopping_lists_path, role: 'form' do %>
-      <div class='form-group'>
-        <%= content_tag :select, name: 'shopping_list[recipe_ids][]' do %>
+        <div class='form-group'>
+        <%= content_tag :select, name: 'shopping_list[recipe_ids][]', class: 'form-control' do %>
             <%= content_tag :option %>
             <%= option_groups_from_collection_for_select(@season.foods.includes(:recipes), :recipes, :name, :id, :title) %>
         <% end %>
       </div>
       <%= submit_tag 'Add Recipe', class: 'btn btn-primary', name: nil %>
     <% end %>
-    <%= simple_form_for @shopping_list, html: { role: 'form' } do |f| %>
-      <div class='form-group'>
-        <h3>You've selected these recipes:</h3>
-        <%= f.association :recipes, collection: @shopping_list.recipes, as: :check_boxes, label: false %>
-      </div>
-      <%= f.button :submit, class: 'btn-primary' %>
-    <% end %>
+
+    <div class='top-buffer'>
+      <%= simple_form_for @shopping_list, html: { role: 'form' } do |f| %>
+          <div class='form-group'>
+            <%= f.label :name, 'Shopping list name' %>
+            <%= f.text_field :name, class: 'form-control' %>
+          </div>
+          <div class='form-group'>
+            <h3>You've selected these recipes:</h3>
+            <%= f.association :recipes, collection: @shopping_list.recipes, as: :check_boxes, label: false %>
+          </div>
+          <%= f.button :submit, 'Save and continue editing', class: 'btn-default' %>
+          <%= f.button :submit, 'Save and archive', name: 'archive', class: 'btn-primary' %>
+      <% end %>
+    </div>
   </div>
 
   <div class="col-md-8">
