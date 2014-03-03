@@ -1,4 +1,4 @@
-<% if user_signed_in? %>
+<% unless content_for?(:hide_nav) %>
   <nav class="navbar navbar-default text-center" role="navigation">
     <!-- Nav left -->
     <ul class="nav navbar-nav navbar-left navbar-left-small">
