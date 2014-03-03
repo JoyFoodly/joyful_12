@@ -1,95 +1,105 @@
 <div class="bg-grey general-padding">
-<h3>Thank you for signing up! Please fill out a profile.</h3>
-<p>All responses are optional. This will help us customize the experience to you.</p>
-
-<% if @user.errors.present? %>
-  <div class='alert alert-danger'>
-    <a class="close" data-dismiss="alert">×</a>
-    <%= @user.errors.full_messages.first  %>
-  </div>
-<% end %>
-
-<%= form_for @user, html: { role: "form" } do |f| %>
-  <div class='row'>
-    <div class='col-md-6'>
-      <div class="form-group">
-        <%= f.label :username %>
-        <%= f.text_field :username, class: 'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :first_name %>
-        <%= f.text_field :first_name, class: 'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :last_name %>
-        <%= f.text_field :last_name, class: 'form-control' %>
-      </div>
+  <div class="row">
+    <div class='col-md-8'>
+      <h3 class="no-buffer">Your Joyful 12 profile</h3>
+      <p>All responses are optional. This will help us customize the experience to you.</p>
     </div>
-
-    <div class='col-md-6'>
-      <div class="form-group">
-        <%= f.label :family_description %>
-        <%= f.text_area :family_description, class: 'form-control', rows: 8 %>
-      </div>
+    <div class='col-md-4'>
+      <p>
+        <%= link_to 'Go directly to orientation', page_path('orientation'), class: 'btn btn-primary btn-lg' %>
+      </p>
     </div>
   </div>
 
-  <p>Family members participating in the course (include everyone who will be eating the food)</p>
-  <%= f.fields_for :family_members do |ff| %>
-    <div class='row'>
-      <div class='col-md-2'>
-        <div class="form-group">
-          <%= ff.label :first_name %>
-          <%= ff.text_field :first_name, class: 'form-control' %>
-        </div>
-      </div>
-      <div class='col-md-2'>
-        <div class="form-group">
-          <%= ff.label :last_name %>
-          <%= ff.text_field :last_name, class: 'form-control' %>
-        </div>
-      </div>
-      <div class='col-md-2'>
-        <div class="form-group">
-          <%= ff.label :birthday %>
-          <%= ff.date_field :birthday, class: 'form-control' %>
-        </div>
-      </div>
-      <div class='col-md-2'>
-        <div class="form-group">
-          <%= ff.label :allergy_ids, 'Allergies' %>
-          <%= ff.collection_select :allergy_ids, Allergy.all, :id, :name, {}, class: 'form-control', multiple: true %>
-        </div>
-      </div>
-      <div class='col-md-4'>
-        <div class="form-group">
-          <%= ff.label :other_allergies %>
-          <%= ff.text_field :other_allergies, class: 'form-control' %>
-        </div>
-      </div>
+  <% if @user.errors.present? %>
+    <div class='alert alert-danger'>
+      <a class="close" data-dismiss="alert">×</a>
+      <%= @user.errors.full_messages.first  %>
     </div>
   <% end %>
 
-  <div class='row'>
-    <div class='col-md-12'>
-      <div class="form-group">
-        <%= f.label :family_struggles %>
-        <%= f.text_area :family_struggles, class: 'form-control', rows: 8 %>
+  <%= form_for @user, html: { role: "form" } do |f| %>
+    <div class='row'>
+      <div class='col-md-12'>
+        <div class="form-group">
+          <%= f.label :username %>
+          <%= f.text_field :username, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.text_field :email, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name, class: 'form-control' %>
+        </div>
       </div>
     </div>
-  </div>
 
-  <%= f.submit 'Update Profile', class: 'btn btn-primary' %>
-<% end %>
+    <h4 class="top-buffer">Family members participating in the course</h4>
+    <%= f.fields_for :family_members do |ff| %>
+      <div class='row'>
+        <div class='col-md-2'>
+          <div class="form-group">
+            <%= ff.label :first_name %>
+            <%= ff.text_field :first_name, class: 'form-control' %>
+          </div>
+        </div>
+        <div class='col-md-2'>
+          <div class="form-group">
+            <%= ff.label :last_name %>
+            <%= ff.text_field :last_name, class: 'form-control' %>
+          </div>
+        </div>
+        <div class='col-md-2'>
+          <div class="form-group">
+            <%= ff.label :birthday, 'Birthday (optional)' %>
+            <%= ff.date_field :birthday, class: 'form-control' %>
+          </div>
+        </div>
+        <div class='col-md-2'>
+          <div class="form-group">
+            <%= ff.label :allergy_ids, 'Allergies / Conditions' %>
+            <%= ff.collection_select :allergy_ids, Allergy.all, :id, :name, {}, class: 'form-control', multiple: true %>
+          </div>
+        </div>
+        <div class='col-md-4'>
+          <div class="form-group">
+            <%= ff.label :other_allergies %>
+            <%= ff.text_field :other_allergies, class: 'form-control' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="row">
+      <p><%= button_to 'Add Family Member', {}, class: 'btn btn-primary pull-right' %></p>
+    </div>
+
+
+    <hr>
+
+    <%= f.submit 'Update Profile', class: 'btn btn-primary' %>
+    <%= link_to 'change password' %>
+  <% end %>
 </div>
 
-<h3>Saved Shopping Lists</h3>
+<div class="page-header">
+  <h3>Saved Shopping Lists</h3>
+</div>
+
 <ul class='list-group'>
-  <% current_user.shopping_lists.where.not(completed_at: nil).each do |shopping_list| %>
+  <% current_user.shopping_lists.order(created_at: :desc).each do |shopping_list| %>
     <li class='list-group-item'>
-      <%= link_to shopping_list.name, edit_shopping_list_path(shopping_list) %> - created on <%= shopping_list.created_at.strftime('%D') %>
+      <%= link_to shopping_list.completed_at.nil? ? 'Current list' : shopping_list.name, edit_shopping_list_path(shopping_list) %>
+      - created on <%= shopping_list.created_at.strftime('%B %e, %Y') %>
     </li>
   <% end %>
 </ul>
