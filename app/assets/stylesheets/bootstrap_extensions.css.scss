@@ -11,9 +11,11 @@ These classes are not app-specific and could (should?) be provided by bootstrap 
   display: inline-block;
   margin: 0 auto;
   max-width: 50%;
+
+  img {
+    width: 100%;
+  }
 }
-
-
 
 @media (min-width: 768px) {
   .navbar-left-small {
