@@ -99,6 +99,11 @@ Specific colors, image backgrounds, customized widgets, etc.
   }
 }
 
+// Nav customizations
+.navbar-raised {
+  margin-top: -$navbar-margin-bottom * 2;
+}
+
 // Panel customizations
 .panel-title {
   font-size: 26px;

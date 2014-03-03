@@ -1,11 +1,25 @@
 <div class="food-page">
-  <nav>
+  <nav class="navbar navbar-default navbar-raised text-center hidden-lg hidden-md" role="navigation">
+    <ul class="nav navbar-nav">
+      <li class="dropdown">
+        <a href='#' class='dropdown-toggle general-padding-small' data-toggle='dropdown'>
+          Current Food: <%= @food.name %> <b class='caret'></b>
+        </a>
+        <ul class="dropdown-menu">
+          <% @foods.sort_by(&:sort_order).each do |food| %>
+            <li class="<%= 'active' if food == @food %>"><%= link_to food.name, food_path(food) %></li>
+          <% end %>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <nav class="hidden-sm hidden-xs">
     <ul class="nav row">
       <% ((12 - @foods.length) / 2).times do %>
           <li class="col-md-1"></li>
       <% end %>
       <% @foods.sort_by(&:sort_order).each do |food| %>
-        <li class='col-md-1 col-xs-6'>
+        <li class='col-md-1'>
           <%= link_to food_path(food), class: 'image-text-link text-center' do %>
             <%= image_tag "nav-food-images/#{food.slug}.png", width: 68, height: 101, class: 'img-responsive wiggle' %>
             <span class="text"><%= food.name %></span>
