@@ -86,7 +86,7 @@ Joyfoodly::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # Default mailer host
-  config.action_mailer.default_url_options = { :host => 'joyfoodly.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'joyful12.com' }
 
   ActionMailer::Base.smtp_settings = {
       :address        => 'smtp.sendgrid.net',
