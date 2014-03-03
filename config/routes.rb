@@ -5,7 +5,9 @@ Joyfoodly::Application.routes.draw do
 
   resources :recipe_redirects, only: :show
   resources :foods, only: [:index, :show]
-  resources :users, only: [:edit, :update]
+  resources :users, only: [:edit, :update] do
+    get 'change_password', on: :member
+  end
   resources :shopping_lists, only: [:create, :edit, :update]
   resources :seasons, only: :update
   resource :parent_resources, only: :show

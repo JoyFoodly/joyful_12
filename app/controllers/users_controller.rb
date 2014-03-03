@@ -6,6 +6,10 @@ class UsersController < ApplicationController
     @user.family_members.build if @user.family_members.blank?
   end
 
+  def change_password
+    @user = current_user
+  end
+
   def update
     @user = current_user
 
@@ -19,9 +23,12 @@ class UsersController < ApplicationController
 private
 
   def user_params
-    params.require(:user).permit(:username, :first_name, :last_name, :password, :family_description, :family_struggles,
-                                 family_members_attributes: [:id, :first_name, :last_name, :birthday, :other_allergies,
-                                 :_destroy, allergy_ids: []])
+    params.require(:user).permit(:username, :first_name, :last_name, :password, :password_confirmation,
+                                 :family_description, :family_struggles, *family_member_params)
+  end
+
+  def family_member_params
+    { family_members_attributes: [:id, :first_name, :last_name, :birthday, :other_allergies, :_destroy, allergy_ids: []] }
   end
 
 end
