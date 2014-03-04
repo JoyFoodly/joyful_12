@@ -1,0 +1,40 @@
+<% content_for :hide_nav, true %>
+<% content_for :hide_footer, true %>
+
+<div class="page-header">
+  <h1><%= @shopping_list.name %></h1>
+</div>
+<div class="panel-body">
+  <div class="row">
+    <% @shopping_list.ingredient_list_items.group_by{|ili| ili.ingredient.category }.each do |category, ingredient_list_items| %>
+        <div class="col-md-4">
+          <h3><%= category %></h3>
+          <% ingredient_list_items.sort_by{|ili| ili.ingredient.name }.each do |ingredient_list_item| %>
+              <p><%= ingredient_list_item.ingredient.name %>, <%= ingredient_list_item.quantity %></p>
+          <% end %>
+        </div>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <hr>
+
+      <h3>Additional Groceries</h3>
+      <% if @shopping_list.extra_list_items.present? %>
+        <p><%= @shopping_list.extra_list_items %></p>
+      <% else %>
+        <p>No additional groceries</p>
+      <% end %>
+
+      <h3>Family Notes</h3>
+      <% if @shopping_list.notes.present? %>
+        <p><%= @shopping_list.notes %></p>
+      <% else %>
+        <p>No notes</p>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+<%= link_to 'Go back and edit shopping list', edit_shopping_list_path(@shopping_list), class: 'btn btn-primary top-buffer' %>

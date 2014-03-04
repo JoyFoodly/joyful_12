@@ -8,7 +8,7 @@ Joyfoodly::Application.routes.draw do
   resources :users, only: [:edit, :update] do
     get 'change_password', on: :member
   end
-  resources :shopping_lists, only: [:create, :edit, :update, :destroy]
+  resources :shopping_lists, only: [:create, :edit, :update, :show, :destroy]
   resources :seasons, only: :update
   resource :parent_resources, only: :show
   resource :class_schedule
