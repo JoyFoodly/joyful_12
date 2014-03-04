@@ -9,6 +9,19 @@ Helpful styles that are not app or bootstrap specific.
   vertical-align: top;
 }
 
+table.table-text-middle {
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
 .top-buffer {
   margin-top: 20px;
 }

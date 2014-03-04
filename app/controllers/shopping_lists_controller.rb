@@ -4,7 +4,7 @@ class ShoppingListsController < ApplicationController
 
   def create
     @user = current_user
-    recipe = Recipe.where(id: shopping_list_params[:recipe_ids]).first
+    recipe = Recipe.includes(:child_recipes).where(id: shopping_list_params[:recipe_ids]).first
     @shopping_list = ShoppingList::ListBuilder.call(@user, recipe)
 
     if @shopping_list.save
@@ -36,6 +36,13 @@ class ShoppingListsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @shopping_list = ShoppingList.find(params[:id])
+    @shopping_list.destroy
+    flash[:notice] = 'Shopping list removed'
+    redirect_to :back
   end
 
 private

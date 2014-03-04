@@ -14,7 +14,12 @@ class ShoppingList::ListBuilder
     list = user.shopping_lists.includes(ingredient_list_items: [:ingredient])
                               .create_with(name: default_name)
                               .find_or_create_by!(completed_at: nil)
-    list.recipes << recipe if recipe.present? && !list.recipes.include?(recipe)
+    if recipe.present? && !list.recipes.include?(recipe)
+      list.recipes << recipe
+      recipe.child_recipes.each do |child_recipe|
+        list.recipes << child_recipe
+      end
+    end
     list
   end
 
