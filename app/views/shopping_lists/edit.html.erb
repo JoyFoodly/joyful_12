@@ -24,7 +24,16 @@
           </div>
           <div class='form-group'>
             <h3>You've selected these recipes:</h3>
-            <%= f.association :recipes, collection: @shopping_list.recipes, as: :check_boxes, label: false %>
+            <% @shopping_list.recipes.each do |recipe| %>
+              <%= f.label :recipe_ids, value: recipe.id, class: "checkbox #{'text-blue' if recipe.optional?}" do %>
+                <%= check_box_tag 'shopping_list[recipe_ids][]', recipe.id, true, id: "shopping_list_recipe_ids_#{recipe.id}" %>
+                <%= '(OPTIONAL) ' if recipe.optional? %><%= recipe.title %>
+              <% end %>
+              <%= f.hidden_field :recipe_ids, name: 'shopping_list[recipe_ids][]', value: nil %>
+            <% end %>
+
+            <%#= f.association :recipes, collection: @shopping_list.recipes, as: :check_boxes, label: false %>
+
           </div>
           <%= f.button :submit, 'Save and continue editing', class: 'btn-default' %>
           <%= f.button :submit, 'Save and archive', name: 'archive', class: 'btn-primary' %>

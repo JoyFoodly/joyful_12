@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140302213215) do
+ActiveRecord::Schema.define(version: 20140304071743) do
 
   create_table "addresses", force: true do |t|
     t.string   "line_1",     default: "", null: false
@@ -215,18 +215,19 @@ ActiveRecord::Schema.define(version: 20140302213215) do
   add_index "rails_admin_histories", ["item", "table", "month", "year"], name: "index_rails_admin_histories"
 
   create_table "recipes", force: true do |t|
-    t.string   "title",        default: "", null: false
+    t.string   "title",        default: "",    null: false
     t.string   "subtitle",     default: ""
-    t.string   "prep_time",    default: "", null: false
-    t.string   "cook_time",    default: "", null: false
-    t.string   "serving_size", default: "", null: false
-    t.string   "difficulty",   default: "", null: false
-    t.text     "instructions", default: "", null: false
-    t.integer  "sort_order",   default: 0,  null: false
-    t.integer  "food_id",                   null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "prep_time",    default: "",    null: false
+    t.string   "cook_time",    default: "",    null: false
+    t.string   "serving_size", default: "",    null: false
+    t.string   "difficulty",   default: "",    null: false
+    t.text     "instructions", default: "",    null: false
+    t.integer  "sort_order",   default: 0,     null: false
+    t.integer  "food_id",                      null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.text     "tips"
+    t.boolean  "optional",     default: false, null: false
   end
 
   add_index "recipes", ["food_id"], name: "index_recipes_on_food_id"
