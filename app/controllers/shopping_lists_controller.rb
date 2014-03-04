@@ -29,7 +29,7 @@ class ShoppingListsController < ApplicationController
 
     if @shopping_list.update(shopping_list_params)
       if params[:archive].present?
-        redirect_to edit_user_path(@shopping_list), notice: 'Shopping list saved!'
+        redirect_to "#{edit_user_path('me')}#shopping-lists", notice: 'Shopping list saved!'
       else
         redirect_to edit_shopping_list_path(@shopping_list), notice: 'Shopping list updated!'
       end
@@ -48,7 +48,7 @@ class ShoppingListsController < ApplicationController
 private
 
   def shopping_list_params
-    params.require(:shopping_list).permit(:name, recipe_ids: [])
+    params.require(:shopping_list).permit(:name, :notes, :extra_list_items, recipe_ids: [])
   end
 
 end

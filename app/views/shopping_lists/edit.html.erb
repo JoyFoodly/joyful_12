@@ -5,7 +5,7 @@
 
 <div class='row bg-grey bottom-padding top-padding top-buffer'>
   <div class="col-md-4">
-    <h3>Create Your Own List:</h3>
+    <h3>Select Recipes To Add:</h3>
     <%= form_tag shopping_lists_path, role: 'form' do %>
         <div class='form-group'>
         <%= content_tag :select, name: 'shopping_list[recipe_ids][]', class: 'form-control' do %>
@@ -19,7 +19,7 @@
     <div class='top-buffer'>
       <%= simple_form_for @shopping_list, html: { role: 'form' } do |f| %>
           <div class='form-group'>
-            <%= f.label :name, 'Shopping list name' %>
+            <%= f.label :name, 'Shopping list name (edit)' %>
             <%= f.text_field :name, class: 'form-control' %>
           </div>
           <div class='form-group'>
@@ -32,8 +32,6 @@
               <%= f.hidden_field :recipe_ids, name: 'shopping_list[recipe_ids][]', value: nil %>
             <% end %>
 
-            <%#= f.association :recipes, collection: @shopping_list.recipes, as: :check_boxes, label: false %>
-
           </div>
           <%= f.button :submit, 'Save and continue editing', class: 'btn-default' %>
           <%= f.button :submit, 'Save and archive', name: 'archive', class: 'btn-primary' %>
@@ -45,9 +43,10 @@
     <div class='form-group'>
       <div class="panel panel-info bottom-buffer top-buffer">
         <div class="panel-heading">
-          <h2 class="panel-title text-center">Your Shopping List</h2>
+          <h2 class="panel-title text-center">Current Shopping List: <%= @shopping_list.name %></h2>
         </div>
         <div class="panel-body">
+          <div class="row">
           <% @shopping_list.ingredient_list_items.group_by{|ili| ili.ingredient.category }.each do |category, ingredient_list_items| %>
             <div class="col-md-4">
               <h3><%= category %></h3>
@@ -56,6 +55,27 @@
               <% end %>
             </div>
           <% end %>
+          </div>
+        <div class="row">
+          <div class="col-md-12">
+            <hr>
+            <%= simple_form_for @shopping_list, html: { role: 'form' } do |f| %>
+              <div class="form-group">
+                <%= f.label :extra_list_items, 'Additional Groceries' %>
+                <%= f.text_area :extra_list_items, class: 'form-control',
+                                placeholder: 'Milk, cereal, bread, juice, fruit snacks, popsicles...', rows: 3 %>
+              </div>
+              <div class="form-group">
+                <%= f.label :notes, 'Family Notes' %>
+                <%= f.text_area :notes, class: 'form-control',
+                                placeholder: "Look for sushi rolling mats, remember to get something for Michelle's lunchbox" ,
+                                rows: 3 %>
+              </div>
+              <%= f.button :submit, 'Update', class: 'btn-default' %>
+
+            <% end %>
+          </div>
+        </div>
         </div>
       </div>
     </div>

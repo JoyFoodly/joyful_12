@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140304071743) do
+ActiveRecord::Schema.define(version: 20140304080339) do
 
   create_table "addresses", force: true do |t|
     t.string   "line_1",     default: "", null: false
@@ -248,9 +248,11 @@ ActiveRecord::Schema.define(version: 20140304071743) do
   create_table "shopping_lists", force: true do |t|
     t.string   "name"
     t.datetime "completed_at"
-    t.integer  "user_id",      null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "user_id",          null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.text     "extra_list_items"
+    t.text     "notes"
   end
 
   add_index "shopping_lists", ["user_id"], name: "index_shopping_lists_on_user_id"
