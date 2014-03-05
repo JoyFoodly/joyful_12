@@ -36,4 +36,11 @@ $alert-danger-text: white;
 // Link Config
 $link-color: #4196b4;
 
+// Caption Config
+.caption-video {
+margin-top: 10px;
+margin-bottom: 0;
+text-align: center;
+}
+
 @import "bootstrap/_variables";

@@ -82,11 +82,11 @@
     <% @video_links.each do |video_link| %>
       <div class="col-md-4 bottom-buffer">
         <div class="thumbnail">
-          <%= content_tag(:iframe, '', width: '100%', height: 202, frameborder: 0, webkitallowfullscreen: true,
+          <%= content_tag(:iframe, '', width: '100%', height: 192, frameborder: 0, webkitallowfullscreen: true,
                           mozallowfullscreen: true, allowfullscreen: true,
                           src: "///player.vimeo.com/video/#{video_link.provider_id}?title=0&amp;byline=0&amp;portrait=0") %>
-          <div class="caption">
-            <h3><%= video_link.name %></h3>
+          <div class="caption-video">
+            <h4 class="no-buffer"><%= video_link.name %></h4>
           </div>
         </div>
       </div>
@@ -117,7 +117,7 @@
 </div>
 <div class='row'>
   <div class='col-md-12'>
-    <iframe class="centered" width="998" height="749" src="//www.youtube.com/embed/--9dU-MdmC4" frameborder="0" allowfullscreen></iframe>
+    <iframe class="centered" src="//player.vimeo.com/video/88203681?portrait=0&amp;color=4196b4" width="998" height="561" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
   </div>
 </div>
 <div class="page-sub-header text-center">

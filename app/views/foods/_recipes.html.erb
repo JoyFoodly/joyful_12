@@ -56,7 +56,7 @@
             </ul>
             <% if recipe.child_recipes.present? %>
               <% recipe.child_recipes.each do |child_recipe| %>
-                <h5><%= child_recipe.title %> (optional)</h5>
+                <h5><%= child_recipe.title %></h5>
                 <ul>
                 <% child_recipe.ingredient_list_items.sort_by(&:sort_order).each do |child_ingredient_list_item| %>
                   <li><%= child_ingredient_list_item.ingredient.name %>, <%= child_ingredient_list_item.quantity %></li>
