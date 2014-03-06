@@ -1,5 +1,11 @@
-<p>Welcome <%= @email %>!</p>
+<p>Welcome to the Joyful 12, <%= @user.first_name %>!</p>
 
-<p>You can confirm your account email through the link below:</p>
+<p>We are so excited to have you in our Beta of the Joyful 12! All you have to do is confirm your email in the
+  link below, and then you're in! (easy, right?)</p>
+
+<p>Confirm your account email by clicking on the link:</p>
 
 <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+<p>Living veggie love, </p>
+<p>Chef Hollie</p>
