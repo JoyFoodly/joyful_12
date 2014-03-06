@@ -1,10 +1,8 @@
-<% content_for :hide_nav, true %>
-<% content_for :hide_footer, true %>
+<h1>Hi <%= @user.first_name %></h1>
 
-<img class="centered" src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/0c74857a851f50cedb8c209ec99de9408d7a2737.png?1394066343" />
-<div class="page-header">
-  <h1><%= @shopping_list.name %></h1>
-</div>
+<h2><%= @shopping_list.name %></h2>
+
+
 <div class="panel-body">
   <div class="row">
     <% @shopping_list.ingredient_list_items.group_by{|ili| ili.ingredient.category }.each do |category, ingredient_list_items| %>
@@ -22,22 +20,18 @@
 
       <h3>Additional Groceries</h3>
       <% if @shopping_list.extra_list_items.present? %>
-        <p><%= @shopping_list.extra_list_items %></p>
+          <p><%= @shopping_list.extra_list_items %></p>
       <% else %>
-        <p>No additional groceries</p>
+          <p>No additional groceries</p>
       <% end %>
 
       <h3>Family Notes</h3>
       <% if @shopping_list.notes.present? %>
-        <p><%= @shopping_list.notes %></p>
+          <p><%= @shopping_list.notes %></p>
       <% else %>
-        <p>No notes</p>
+          <p>No notes</p>
       <% end %>
 
     </div>
   </div>
 </div>
-
-<%= link_to 'Go back and edit shopping list', edit_shopping_list_path(@shopping_list), class: 'btn btn-primary top-buffer' %>
-
-<div class="pull-right">print this list | joyful12.com</div>

@@ -9,6 +9,7 @@ Joyfoodly::Application.routes.draw do
     get 'change_password', on: :member
   end
   resources :shopping_lists, only: [:create, :edit, :update, :show, :destroy]
+  resources :shopping_list_emails, only: :create
   resources :seasons, only: :update
   resource :parent_resources, only: :show
   resource :class_schedule

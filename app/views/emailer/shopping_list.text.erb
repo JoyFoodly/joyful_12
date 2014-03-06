@@ -1,0 +1,25 @@
+Hi <%= @user.first_name %>
+-------------------------------
+
+<%= @shopping_list.name %>
+
+
+
+<% @shopping_list.ingredient_list_items.group_by{|ili| ili.ingredient.category }.each do |category, ingredient_list_items| %>
+  <% ingredient_list_items.sort_by{|ili| ili.ingredient.name }.each do |ingredient_list_item| %>
+    <%= ingredient_list_item.ingredient.name %>, <%= ingredient_list_item.quantity %>
+  <% end %>
+<% end %>
+Additional Groceries
+<% if @shopping_list.extra_list_items.present? %>
+  <%= @shopping_list.extra_list_items %>
+<% else %>
+  No additional groceries
+<% end %>
+
+Family Notes
+<% if @shopping_list.notes.present? %>
+  <%= @shopping_list.notes %>
+<% else %>
+ No notes
+<% end %>

@@ -25,11 +25,14 @@ class ShoppingListsController < ApplicationController
 
   def update
     @shopping_list = ShoppingList.find(params[:id])
-    @shopping_list.completed_at = Time.current if params[:archive].present?
+    @shopping_list.completed_at = Time.current if params[:archive].present? || params[:email].present?
 
     if @shopping_list.update(shopping_list_params)
       if params[:archive].present?
         redirect_to "#{edit_user_path('me')}#shopping-lists", notice: 'Shopping list saved!'
+      elsif params[:email].present?
+        Emailer.shopping_list(current_user, @shopping_list).deliver
+        redirect_to edit_shopping_list_path(@shopping_list), notice: 'Shopping list emailed!'
       else
         redirect_to edit_shopping_list_path(@shopping_list), notice: 'Shopping list updated!'
       end
