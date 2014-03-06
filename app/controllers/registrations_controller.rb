@@ -6,7 +6,7 @@ class RegistrationsController < Devise::RegistrationsController
     if @user.persisted?
       set_flash_message :notice, :"signed_up_but_#{@user.inactive_message}" if is_flashing_format?
       expire_data_after_sign_in!
-      respond_with @user, location: root_url
+      respond_with @user, location: new_user_session_path
     else
       flash.now[:error] = @user.errors.full_messages.first
       render :new
