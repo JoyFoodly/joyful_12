@@ -7,6 +7,14 @@ $navbar-padding-horizontal: 0;
 $navbar-padding-vertical: 0;
 $navbar-default-bg: $body-bg;
 $navbar-default-border: $body-bg;
+.nav-fixed-right {
+  position: fixed;
+  top: 301px;
+  right: 10px;
+  display: block;
+  width: 15%;
+  background: transparent;
+}
 
 
 // Font Config
