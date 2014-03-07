@@ -142,10 +142,14 @@ Specific colors, image backgrounds, customized widgets, etc.
   top: 301px;
   right: 10px;
   display: block;
-  width: 17%;
+  width: 12%;
   background: #f3cd00;
   padding: 10px 0;
   border: none;
+
+  li {
+    width: 100%;
+  }
 }
 
 // Caption customizations
