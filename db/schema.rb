@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140305083015) do
+ActiveRecord::Schema.define(version: 20140307072057) do
 
   create_table "addresses", force: true do |t|
     t.string   "line_1",     default: "", null: false
@@ -123,6 +123,7 @@ ActiveRecord::Schema.define(version: 20140305083015) do
     t.datetime "photo_updated_at"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.boolean  "approved_for_marketing"
   end
 
   create_table "images", force: true do |t|

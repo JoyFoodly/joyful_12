@@ -12,6 +12,10 @@
       <%= f.date_field :birthday, class: 'form-control' %>
     </div>
   </div>
+  <button type="button" class="tooltip btn btn-default" data-container="body" data-toggle="tooltip" data-placement="top"
+          data-content="command+click to select multiple options">
+    ?
+  </button>
   <div class='col-md-2'>
     <div class="form-group">
       <%= f.label :allergy_ids, 'Allergies/Conditions' %>
@@ -31,3 +35,7 @@
     <%= link_to "remove", '#', class: "js-remove-fields btn btn-default" %>
   </div>
 </div>
+
+<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Tooltip on top" data-content=""testing this!>Tooltip on top</button>
+
+<a href="#" class="tooltip" data-toggle="tooltip" title="Some tooltip text!">Hover over me</a>

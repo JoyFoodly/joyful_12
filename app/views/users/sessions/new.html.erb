@@ -53,6 +53,14 @@
     <div class="modal-content">
 
       <div class="modal-body">
+        <% flash.each do |name, msg| %>
+            <% if msg.present? %>
+                <div class='alert alert-<%= name == :notice ? 'success' : 'danger' %>'>
+                  <a class='close' data-dismiss='alert'>×</a>
+                  <%= msg.html_safe %>
+                </div>
+            <% end %>
+        <% end %>
         <div class="centered">
         <img src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/0a7fa9d1e3db6ad2f886b876f3f496c43cc77ea5.png?1393748893" />
         <img src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/ef61e49e3664a76e158d6629992366b1047e9145.png?1393748422" />
