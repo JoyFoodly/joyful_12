@@ -24,7 +24,7 @@ private
 
   def form_params
     params.require(:form).permit(:user_name, :response_type, :browser_type, :message, :course_useful,
-                                 :course_useful_explanation, :photo)
+                                 :course_useful_explanation, :photo, :testimonial, :approved_for_marketing)
   end
 
 end
