@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140307072057) do
+ActiveRecord::Schema.define(version: 20140307073433) do
 
   create_table "addresses", force: true do |t|
     t.string   "line_1",     default: "", null: false
@@ -124,6 +124,7 @@ ActiveRecord::Schema.define(version: 20140307072057) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.boolean  "approved_for_marketing"
+    t.boolean  "testimonial_approval"
   end
 
   create_table "images", force: true do |t|

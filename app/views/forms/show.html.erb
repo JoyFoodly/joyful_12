@@ -73,6 +73,12 @@
             <%= f.label :course_useful_explanation, 'Why or why not?' %>
             <%= f.text_area :course_useful_explanation, class: 'form-control', rows: 3 %>
           </div>
+            <div class="form-group">
+              <div class="checkbox">
+                <%= f.check_box :testimonial_approval %>
+                <%= f.label :testimonial_approval, "yes, you can use this as a testimonial! (Beta users, this really helps us out!)" %>
+              </div>
+            </div>
 
           <h5>Would you like to include a photo?</h5>
           <div class="form-group">
