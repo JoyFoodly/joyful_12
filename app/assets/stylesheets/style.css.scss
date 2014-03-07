@@ -172,7 +172,7 @@ Specific colors, image backgrounds, customized widgets, etc.
 }
 
 // Custom image and text nav.
-nav a.image-text-link {
+nav a.image-text-link, .image-text-link {
   padding: 0;
 
   &:hover {
@@ -182,6 +182,10 @@ nav a.image-text-link {
   .text {
     visibility: hidden;
     color: lighten($gray, 40%);
+  }
+
+  &:hover {
+    text-decoration: none;
   }
 
   &.hover-active .text {
