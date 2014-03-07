@@ -102,6 +102,19 @@ Specific colors, image backgrounds, customized widgets, etc.
   border-radius: 5px;
 }
 
+// Help tooltips
+.help-tooltip {
+  background-color: #f3cd00;
+  padding: 5px 12px;
+  border-radius: 30px;
+}
+
+.help-tooltip-right {
+  position: absolute;
+  right: 16px;
+  top: -7px;
+}
+
 // Alert customizations
 .alert {
   font-weight: 600;
@@ -117,9 +130,29 @@ Specific colors, image backgrounds, customized widgets, etc.
   }
 }
 
-// Nav customizations
+// Navbar customizations
 .navbar-raised {
   margin-top: -$navbar-margin-bottom * 2;
+}
+
+
+// Nav customizations
+.nav-fixed-right {
+  position: fixed;
+  top: 301px;
+  right: 10px;
+  display: block;
+  width: 17%;
+  background: #f3cd00;
+  padding: 10px 0;
+  border: none;
+}
+
+// Caption customizations
+.caption-video {
+  margin-top: 10px;
+  margin-bottom: 0;
+  text-align: center;
 }
 
 // Panel customizations

@@ -7,22 +7,8 @@ $navbar-padding-horizontal: 0;
 $navbar-padding-vertical: 0;
 $navbar-default-bg: $body-bg;
 $navbar-default-border: $body-bg;
-.nav-fixed-right {
-  position: fixed;
-  top: 301px;
-  right: 10px;
-  display: block;
-  width: 17%;
-  background: #f3cd00;
-  padding: 10px 0;
-  border: none;
-}
-
-.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
-  color: #77777C;
-  background-color: transparent;
-}
-
+$navbar-default-color: #77777C;
+$navbar-default-bg: white;
 
 // Font Config
 $font-family-base: 'Open Sans',"Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -35,6 +21,9 @@ $btn-warning-border: #f3cd00;
 $btn-warning-bg: #f3cd00;
 $btn-primary-border: #4196b4;
 $btn-primary-bg: #4196b4;
+
+// Tooltip Config
+$tooltip-bg: #4196b4;
 
 // Panel Config
 $panel-info-text: white;
@@ -50,12 +39,5 @@ $alert-danger-text: white;
 
 // Link Config
 $link-color: #4196b4;
-
-// Caption Config
-.caption-video {
-margin-top: 10px;
-margin-bottom: 0;
-text-align: center;
-}
 
 @import "bootstrap/_variables";

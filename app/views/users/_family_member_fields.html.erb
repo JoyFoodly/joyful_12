@@ -18,7 +18,11 @@
   </button>
   <div class='col-md-2'>
     <div class="form-group">
-      <%= f.label :allergy_ids, 'Allergies/Conditions' %>
+      <%= f.label :allergy_ids, 'Allergies/Conditions' do %>
+          Allergies
+          <span class='help-tooltip help-tooltip-right' data-toggle="tooltip"
+                title="Select multiple (Mac: cmd click, Windows: ctrl click)">?</span>
+      <% end %>
       <%= f.collection_select :allergy_ids, Allergy.all, :id, :name, {}, class: 'form-control', multiple: true %>
     </div>
   </div>
