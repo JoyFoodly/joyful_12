@@ -68,6 +68,16 @@ table.table-text-middle {
   margin: 0 auto;
 }
 
+.xs-text-center {
+  text-align: center;
+}
+
+@media (min-width: $screen-sm-min) {
+  .xs-text-center {
+    text-align: inherit;
+  }
+}
+
 
 /************************************************************
 APP SPECIFIC SETTINGS
