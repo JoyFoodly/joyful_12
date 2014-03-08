@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>Parent Resources <small>Extra resources for the program</small></h1>
+  <h1>Parent Resources <small class='hidden-xs'>Extra resources for the program</small></h1>
 </div>
 
 <div class="page-sub-header text-center">
@@ -87,11 +87,12 @@
 <div class="row bg-grey top-padding">
   <div class="col-sm-12">
     <% @video_links.each do |video_link| %>
-      <div class="col-md-4 bottom-buffer">
-        <div class="thumbnail">
-          <%= content_tag(:iframe, '', width: '100%', height: 192, frameborder: 0, webkitallowfullscreen: true,
-                          mozallowfullscreen: true, allowfullscreen: true,
-                          src: "///player.vimeo.com/video/#{video_link.provider_id}?title=0&amp;byline=0&amp;portrait=0") %>
+      <div class="col-md-4 col-sm-6">
+        <div class="thumbnail thumbnail-group">
+          <div class="video-embed">
+            <%= content_tag(:iframe, '', frameborder: 0, webkitallowfullscreen: true, mozallowfullscreen: true,
+                            allowfullscreen: true, src: "///player.vimeo.com/video/#{video_link.provider_id}?title=0&amp;byline=0&amp;portrait=0") %>
+          </div>
           <div class="caption-video">
             <h4 class="no-buffer"><%= video_link.name %></h4>
           </div>
@@ -124,7 +125,9 @@
 </div>
 <div class='row'>
   <div class='col-md-12'>
-    <iframe class="centered" src="//player.vimeo.com/video/88203681?portrait=0&amp;color=f3cd00" width="998" height="561" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    <div class="video-embed">
+      <iframe src="//player.vimeo.com/video/88203681?portrait=0&amp;color=f3cd00" frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    </div>
   </div>
 </div>
 <div class="page-sub-header text-center">

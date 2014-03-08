@@ -81,6 +81,11 @@ These classes are not app-specific and could (should?) be provided by bootstrap 
   padding: 0;
 }
 
+// Padding-bottom to make thumbnail groups line up properly
+.thumbnail-group {
+  margin-bottom: 30px;
+}
+
 // Equal height column wrap
 // (Currently only filling in what is used ms-6 and md-4) update as necessary
 .col-equal-height {
