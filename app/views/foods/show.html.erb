@@ -35,17 +35,7 @@
 
     <div class="col-md-4">
       <%= image_tag "food-images/#{@food.slug}-main.png", alt: @food.name, class: 'centered img-responsive' %>
-
       <h1 class="text-center header-blue"><%= @food.name %></h1>
-
-      <% @food.video_links.each do |video_link| %>
-          <div class="bottom-buffer">
-            <%= content_tag(:iframe, '', width: '100%', height: 202, frameborder: 0, webkitallowfullscreen: true,
-                            mozallowfullscreen: true, allowfullscreen: true,
-                            src: "///player.vimeo.com/video/#{video_link.provider_id}?title=0&amp;byline=0&amp;portrait=0") %>
-          </div>
-      <% end %>
-
     </div>
 
     <section class="col-md-8 pull-right-md">
@@ -55,6 +45,15 @@
     </section>
 
     <div class='col-md-4 pull-left-md'>
+
+      <% @food.video_links.each do |video_link| %>
+          <div class="bottom-buffer video-embed">
+            <%= content_tag(:iframe, '', frameborder: 0, webkitallowfullscreen: true,
+                            mozallowfullscreen: true, allowfullscreen: true,
+                            src: "///player.vimeo.com/video/#{video_link.provider_id}?title=0&amp;byline=0&amp;portrait=0") %>
+          </div>
+      <% end %>
+
       <%= @food.tips.try(:html_safe) %>
       <div class="panel panel-default col-md-6 col-md-offset-3">
         <table class="table">
