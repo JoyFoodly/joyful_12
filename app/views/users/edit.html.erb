@@ -1,77 +1,89 @@
-<div class="bg-grey general-padding">
-  <div class="row">
-    <div class='col-md-8'>
-      <h3 class="no-buffer">Your Joyful 12 profile</h3>
-      <p>All responses are optional and private. Use this profile to help you track your family's eating habits.</p>
-    </div>
-    <div class='col-md-4'>
-      <p>
-        <%= link_to 'Head on over to Orientation', page_path('orientation'), class: 'btn btn-primary btn-lg' %>
-      </p>
-    </div>
-  </div>
-
-  <% if @user.errors.present? %>
-    <div class='alert alert-danger'>
-      <a class="close" data-dismiss="alert">×</a>
-      <%= @user.errors.full_messages.first  %>
-    </div>
-  <% end %>
-
-  <%= form_for @user, html: { role: "form" } do |f| %>
-    <div class='row'>
-      <div class='col-md-12'>
-        <div class="form-group">
-          <%= f.label :username %>
-          <%= f.text_field :username, class: 'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :email %>
-          <%= f.text_field :email, class: 'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :first_name %>
-          <%= f.text_field :first_name, class: 'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :last_name %>
-          <%= f.text_field :last_name, class: 'form-control' %>
-        </div>
+<div class="panel panel-default bg-grey">
+  <div class="panel-body">
+    <div class="row">
+      <div class='col-md-8'>
+        <h3 class="no-buffer">Your Joyful 12 profile</h3>
+        <p>All responses are optional and private. Use this profile to help you track your family's eating habits.</p>
+      </div>
+      <div class='col-md-4'>
+        <p>
+          <%= link_to 'Head on over to Orientation', page_path('orientation'), class: 'btn btn-primary btn-lg' %>
+        </p>
       </div>
     </div>
 
-    <h4 class="top-buffer">Family members participating in the course</h4>
-    <%= f.fields_for :family_members do |builder| %>
-      <%= render 'family_member_fields', f: builder %>
+    <% if @user.errors.present? %>
+      <div class='alert alert-danger'>
+        <a class="close" data-dismiss="alert">×</a>
+        <%= @user.errors.full_messages.first %>
+      </div>
     <% end %>
 
-    <div class='row'>
-      <p>
-        <%= link_to_add_fields "Add A Family Member", f, :family_members, class: 'js-add-fields btn btn-primary pull-right' %>
-      </p>
-    </div>
+    <%= form_for @user, html: { role: "form" } do |f| %>
+      <div class='row'>
+        <div class='col-md-12'>
+          <div class="form-group">
+            <%= f.label :username %>
+            <%= f.text_field :username, class: 'form-control' %>
+          </div>
 
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2 bg-white general-padding top-buffer">
-        <h3 class="top-buffer text-center no-buffer">Beta Members - We Need Your Help!</h3>
-        <p>We'll be adding new features to help you track your family's progress and preferences. What type of information
-          would you find useful here? Give us feedback:</p>
-        <a class="btn btn-primary centered" href="/forms/feedback">Give Feedback</a>
+          <div class="form-group">
+            <%= f.label :email %>
+            <%= f.text_field :email, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :first_name %>
+            <%= f.text_field :first_name, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :last_name %>
+            <%= f.text_field :last_name, class: 'form-control' %>
+          </div>
+        </div>
       </div>
-    </div>
+
+      <h4 class="top-buffer">Family members participating in the course</h4>
+      <%= f.fields_for :family_members do |builder| %>
+        <%= render 'family_member_fields', f: builder %>
+      <% end %>
+
+      <div class='row'>
+        <div class="col-md-12">
+          <p>
+            <%= link_to_add_fields "Add A Family Member", f, :family_members, class: 'js-add-fields btn btn-default pull-right' %>
+          </p>
+        </div>
+      </div>
+
+      <hr>
+
+      <%= f.submit 'Update Profile', class: 'btn btn-primary btn-lg' %>
+      <p class="top-buffer">
+        <%= link_to 'change password', change_password_user_path('me') %>
+      </p>
+    <% end %>
 
     <hr>
 
-    <%= f.submit 'Update Profile', class: 'btn btn-primary' %>
-    <%= link_to 'change password', change_password_user_path('me') %>
-  <% end %>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 bg-white general-padding top-buffer bottom-buffer">
+        <h3 class="top-buffer text-center no-buffer">Beta Members - We Need Your Help!</h3>
+        <p>We'll be adding new features to help you track your family's progress and preferences. What type of information
+          would you find useful here? Give us feedback:</p>
+        <a class="btn btn-info centered" href="/forms/feedback">Give Feedback</a>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="page-header">
-  <h3 id="shopping-lists">Saved Shopping Lists</h3>
+<div class='row'>
+  <div class='col-md-12'>
+    <div class="page-header">
+      <h3 id="shopping-lists">Saved Shopping Lists</h3>
+    </div>
+  </div>
 </div>
 
 <table class='table table-bordered table-striped table-text-middle'>
@@ -124,11 +136,6 @@
           learn how the course will work.</p>
         <p class="top-buffer text-center">(We promise it's super fun!)</p>
         <div class="top-buffer"></div>
-
-
-
-
-
 
         <%= form_for @user do |f| %>
             <%= f.submit "Let's get started", class: 'btn btn-primary centered' %>
