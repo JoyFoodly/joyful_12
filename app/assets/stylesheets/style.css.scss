@@ -142,10 +142,14 @@ Specific colors, image backgrounds, customized widgets, etc.
   top: 301px;
   right: 10px;
   display: block;
-  width: 17%;
+  width: 12%;
   background: #f3cd00;
   padding: 10px 0;
   border: none;
+
+  li {
+    width: 100%;
+  }
 }
 
 // Caption customizations
@@ -168,7 +172,7 @@ Specific colors, image backgrounds, customized widgets, etc.
 }
 
 // Custom image and text nav.
-nav a.image-text-link {
+nav a.image-text-link, .image-text-link {
   padding: 0;
 
   &:hover {
@@ -178,6 +182,10 @@ nav a.image-text-link {
   .text {
     visibility: hidden;
     color: lighten($gray, 40%);
+  }
+
+  &:hover {
+    text-decoration: none;
   }
 
   &.hover-active .text {
