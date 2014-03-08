@@ -13,7 +13,7 @@
     <div class="tab-pane <%= 'active' if i == 0 %>" id="<%= recipe.difficulty %>-<%= recipe.id %>">
       <div class='panel-body'>
         <div class='row'>
-          <div class='col-md-8'>
+          <div class='col-md-8 col-sm-7'>
             <% if recipe.images.first %>
               <a href="#" class="thumbnail thumbnail-border-sharp" data-toggle="modal" data-target="#modal-<%= recipe.slug('-') %>"
                  data-gallery-index="0">
@@ -67,7 +67,7 @@
             <h3>Directions</h3>
             <%= markdown recipe.instructions %>
           </div>
-          <div class='col-md-7'>
+          <div class='col-md-7 col-sm-8 col-sm-offset-2'>
             <% recipe.images.drop(1).each_with_index do |image, gallery_index| %>
               <a href="#" class="thumbnail thumbnail-border-sharp" data-toggle="modal" data-target="#modal-<%= recipe.slug('-') %>"
                  data-gallery-index="<%= gallery_index + 1 %>">
