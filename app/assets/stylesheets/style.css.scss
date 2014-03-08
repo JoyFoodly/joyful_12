@@ -95,7 +95,15 @@ table.table-text-middle {
   }
 }
 
+@media (min-width: $screen-md-min) {
+  .pull-right-md {
+    float: right;
+  }
 
+  .pull-left-md {
+    float: left;
+  }
+}
 
 /************************************************************
 APP SPECIFIC SETTINGS
