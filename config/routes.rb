@@ -18,6 +18,7 @@ Joyfoodly::Application.routes.draw do
   resources :forms, only: [:create, :show] do
     get 'submitted', on: :member
   end
+  get 'almost_there' => 'home#confirmation_sent', as: :confirmation_sent
 
   root to: 'foods#index'
 end
