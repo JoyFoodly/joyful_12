@@ -2,6 +2,14 @@
 
 <h2><%= @shopping_list.name %></h2>
 
+<hr>
+<div class='form-group'>
+  <h3>You've selected these recipes:</h3>
+  <% @shopping_list.recipes.each do |recipe| %>
+      <p><%= recipe.title %></p>
+  <% end %>
+</div>
+<hr>
 
 <div class="panel-body">
   <div class="row">
@@ -34,11 +42,4 @@
 
     </div>
   </div>
-</div>
-
-<div class='form-group'>
-  <h3>You've selected these recipes:</h3>
-  <% @shopping_list.recipes.each do |recipe| %>
-        <%= recipe.title %>
-  <% end %>
 </div>
