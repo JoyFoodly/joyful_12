@@ -108,13 +108,13 @@
 
 <div class="row">
   <div class="col-md-4">
-    <a href="/" class="btn btn-primary btn-lg btn-block">View the shopping list</a>
+    <%= link_to 'View the shopping list', shopping_list_path('current'), class: 'btn btn-primary btn-lg btn-block' %>
   </div>
   <div class="col-md-4">
-    <a href="/users/me/edit" class="btn btn-default btn-lg btn-block">View your profile</a>
+    <%= link_to 'View your profile', edit_user_path('me'), class: 'btn btn-default btn-lg btn-block' %>
   </div>
   <div class="col-md-4">
-    <a href="/foods" class="btn btn-warning btn-lg btn-block">Go back to the classroom</a>
+    <%= link_to 'Go back to the classroom', foods_path, class: 'btn btn-warning btn-lg btn-block' %>
   </div>
 </div>
 <div class="spacer"></div>
@@ -135,14 +135,13 @@
 </div>
 <div class="row">
   <div class="col-md-4">
-    <a href="/pages/orientation" class="btn btn-primary btn-lg btn-block">Go Back to Orientation</a>
+    <%= link_to 'Go Back to Orientation', page_path('orientation'), class: 'btn btn-primary btn-lg btn-block' %>
   </div>
   <div class="col-md-4">
-    <a href="/pages/orientation-text" class="btn btn-default btn-lg btn-block">Written Orientation</a>
+    <%= link_to 'Written Orientation', page_path('orientation-text'), class: 'btn btn-default btn-lg btn-block' %>
   </div>
   <div class="col-md-4">
-    <a href="/pages/faqs" class="btn btn-warning btn-lg btn-block">Joyful 12 FAQs</a>
+    <%= link_to 'Joyful 12 FAQs', page_path('faqs'), class: 'btn btn-warning btn-lg btn-block' %>
   </div>
 </div>
 <div class="spacer"></div>
-

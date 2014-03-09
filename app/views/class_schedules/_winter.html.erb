@@ -5,27 +5,29 @@
   <div class="panel-heading">The Joyful 12 Winter Recommended Schedule: Bonus Half-Season for Beta Users!</div>
   <div class="panel-body">
     <p>Sometimes it takes a few tries to start liking a new vegetable. Our schedule has you trying each new fruit and veggie three different ways. Don't worry if you miss a week! This schedule is just a guide, and you know what's right for your family.</p>
-    <p><a href="/">Learn more about how to use the Joyful 12! Watch orientation video  ></a></p>
+    <p><%= link_to 'Learn more about how to use the Joyful 12! Watch orientation video  >', page_path('orientation') %></p>
   </div>
   <!-- Table -->
   <table class="table table-striped">
     <thead>
-    <th> </th>
-    <th> </th>
-    <th>Monday (easy)</th>
-    <th>Wednesday (medium)</th>
-    <th>Sunday (complex)</th>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>Monday (easy)</th>
+      <th>Wednesday (medium)</th>
+      <th>Sunday (complex)</th>
+    </tr>
     </thead>
     <tbody>
     <tr>
-      <td><a href="/foods/winter-winter-squash"><%= image_tag 'nav-food-images/winter-winter-squash.png', width: 80, class: 'wiggle' %></a></td>
+      <td><%= link_to image_tag('nav-food-images/winter-winter-squash.png', width: 80, class: 'wiggle'), food_path('winter-winter-squash') %></td>
       <th>Week 1: Spinach and Avocado</th>
       <td>Spinach, Strawberry and Banana, Pecan Salad Jars with Sweet Champagne Vinaigrette</td>
       <td>Spinach Pesto Pasta with Chick Peas</td>
       <td>Fast and Easy Spring Minestrone with Spinach Pesto. <br />Dessert: Avocado Strawberry Popsicles</td>
     </tr>
     <tr>
-      <td><a href="/foods/winter-beets"><%= image_tag 'nav-food-images/winter-beets.png', width: 80, class: 'wiggle' %></a></td>
+      <td><%= link_to image_tag('nav-food-images/winter-beets.png', width: 80, class: 'wiggle'), food_path('winter-beets') %></td>
       <th>Week 2: Potato and Rhubarb</th>
       <td>Purple Potato Salad</td>
       <td>Homemade BBQ Potato Chips </td>
@@ -33,7 +35,7 @@
         <br />Dessert: Rhubarb Strawberry Compote</td>
     </tr>
     <tr>
-      <td><a href="/foods/winter-brussels-sprout"><%= image_tag 'nav-food-images/winter-brussels-sprout.png', width: 80, class: 'wiggle' %></a></td>
+      <td><%= link_to image_tag('nav-food-images/winter-brussels-sprout.png', width: 80, class: 'wiggle'), food_path('winter-brussels-sprout') %></td>
       <th>Week 3: Fennel and Strawberry</th>
       <td>Fennel and Apple Ranch Dippers</td>
       <td>Sweet Roasted Fennel Two Ways</td>
@@ -41,14 +43,14 @@
         <br />Dessert: Strawberries Dipped in Chocolate</td>
     </tr>
     <tr>
-      <td><a href="/foods/winter-citrus"><%= image_tag 'nav-food-images/winter-citrus.png', width: 80, class: 'wiggle' %></a></td>
+      <td><%= link_to image_tag('nav-food-images/winter-citrus.png', width: 80, class: 'wiggle'), food_path('winter-citrus') %></td>
       <th>Week 4: Free Week - You Choose!</th>
       <td>Make your favorite recipe again!</td>
       <td>Make your favorite veggie again!</td>
       <td>Make your favorite dessert again!</td>
     </tr>
     <tr>
-      <td><a href="/foods/winter-greens"><%= image_tag 'nav-food-images/winter-greens.png', width: 80, class: 'wiggle' %></a></td>
+      <td><%= link_to image_tag('nav-food-images/winter-greens.png', width: 80, class: 'wiggle'), food_path('winter-greens') %></td>
       <th>Week 5: Asparagus and Avocado</th>
       <td>Curly Whirly Shaved Asparagus Salad</td>
       <td>Balsamic Maple Roasted Asparagus</td>
@@ -56,7 +58,7 @@
         <br />Dessert: Avocado and Mango Spring Rolls with Sweet Lime Yogurt Dipping Sauce</td>
     </tr>
     <tr>
-      <td><a href="/foods/winter-sweet-potato"><%= image_tag 'nav-food-images/winter-sweet-potato.png', width: 80, class: 'wiggle' %></a></td>
+      <td><%= link_to image_tag('nav-food-images/winter-sweet-potato.png', width: 80, class: 'wiggle'), food_path('winter-sweet-potato') %></td>
       <th>Week 6: Radish and Rhubarb</th>
       <td>A Rainbow of Radishes with two Creamy Radish Dips</td>
       <td>Savory Roasted Radishes Caprese Salad</td>

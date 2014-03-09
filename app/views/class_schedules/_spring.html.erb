@@ -5,27 +5,29 @@
   <div class="panel-heading">The Joyful 12 Spring Recommended Schedule</div>
   <div class="panel-body">
     <p>Sometimes it takes a few tries to start liking a new vegetable. Our schedule has you trying each new fruit and veggie three different ways. Don't worry if you miss a week! This schedule is just a guide, and you know what's right for your family.</p>
-    <p><a href="/pages/orientation">Learn more about how to use the Joyful 12! Watch orientation video  ></a></p>
+    <p><%= link_to 'Learn more about how to use the Joyful 12! Watch orientation video  >', page_path('orientation') %></p>
   </div>
   <!-- Table -->
   <table class="table table-striped">
     <thead>
-    <th> </th>
-    <th> </th>
-    <th>Monday (easy)</th>
-    <th>Wednesday (medium)</th>
-    <th>Sunday (complex)</th>
+      <tr>
+        <th></th>
+        <th></th>
+        <th>Monday (easy)</th>
+        <th>Wednesday (medium)</th>
+        <th>Sunday (complex)</th>
+      </tr>
     </thead>
     <tbody>
     <tr>
-      <td><a href="/foods/spring-spinach"><%= image_tag 'nav-food-images/spring-spinach.png', width: 80, class: 'wiggle' %></a></td>
+      <td><%= link_to image_tag('nav-food-images/spring-spinach.png', width: 80, class: 'wiggle'), food_path('spring-spinach') %></td>
       <th>Week 1: Spinach and Avocado</th>
       <td>Spinach, Strawberry and Banana, Pecan Salad Jars with Sweet Champagne Vinaigrette</td>
       <td>Spinach Pesto Pasta with Chick Peas</td>
       <td>Fast and Easy Spring Minestrone with Spinach Pesto. <br />Dessert: Avocado Strawberry Popsicles</td>
     </tr>
     <tr>
-      <td><a href="/foods/spring-potato"><%= image_tag 'nav-food-images/spring-potato.png', width: 80, class: 'wiggle' %></a></td>
+      <td><%= link_to image_tag('nav-food-images/spring-potato.png', width: 80, class: 'wiggle'), food_path('spring-potato') %></td>
       <th>Week 2: Potato and Rhubarb</th>
       <td>Purple Potato Salad</td>
       <td>Homemade BBQ Potato Chips </td>
@@ -33,7 +35,7 @@
         <br />Dessert: Rhubarb Strawberry Compote</td>
     </tr>
     <tr>
-      <td><a href="/foods/spring-fennel"><%= image_tag 'nav-food-images/spring-fennel.png', width: 80, class: 'wiggle' %></a></td>
+      <td><%= link_to image_tag('nav-food-images/spring-fennel.png', width: 80, class: 'wiggle'), food_path('spring-fennel') %></td>
       <th>Week 3: Fennel and Strawberry</th>
       <td>Fennel and Apple Ranch Dippers</td>
       <td>Sweet Roasted Fennel Two Ways</td>
@@ -41,14 +43,14 @@
         <br />Dessert: Strawberries Dipped in Chocolate</td>
     </tr>
     <tr>
-      <td><a href="/foods/spring-avocado"><%= image_tag 'nav-food-images/spring-avocado.png', width: 80, class: 'wiggle' %></a></td>
+      <td><%= link_to image_tag('nav-food-images/spring-avocado.png', width: 80, class: 'wiggle'), food_path('spring-avocado') %></td>
       <th>Week 4: Free Week - You Choose!</th>
       <td>Make your favorite recipe again!</td>
       <td>Make your favorite veggie again!</td>
       <td>Make your favorite dessert again!</td>
     </tr>
     <tr>
-      <td><a href="/foods/spring-asparagus"><%= image_tag 'nav-food-images/spring-asparagus.png', width: 80, class: 'wiggle' %></a></td>
+      <td><%= link_to image_tag('nav-food-images/spring-asparagus.png', width: 80, class: 'wiggle'), food_path('spring-asparagus') %></td>
       <th>Week 5: Asparagus and Avocado</th>
       <td>Curly Whirly Shaved Asparagus Salad</td>
       <td>Balsamic Maple Roasted Asparagus</td>
@@ -56,7 +58,7 @@
         <br />Dessert: Avocado and Mango Spring Rolls with Sweet Lime Yogurt Dipping Sauce</td>
     </tr>
     <tr>
-      <td><a href="/foods/spring-radish"><%= image_tag 'nav-food-images/spring-radish.png', width: 80, class: 'wiggle' %></a></td>
+      <td><%= link_to image_tag('nav-food-images/spring-radish.png', width: 80, class: 'wiggle'), food_path('spring-radish') %></td>
       <th>Week 6: Radish and Rhubarb</th>
       <td>A Rainbow of Radishes with two Creamy Radish Dips</td>
       <td>Savory Roasted Radishes Caprese Salad</td>
@@ -64,7 +66,7 @@
         <br />Dessert: Rhubarb Ice Cream Floats </td>
     </tr>
     <tr>
-      <td><a href="/foods/spring-green-onion"><%= image_tag 'nav-food-images/spring-green-onion.png', width: 80, class: 'wiggle' %></a></td>
+      <td><%= link_to image_tag('nav-food-images/spring-green-onion.png', width: 80, class: 'wiggle'), food_path('spring-green-onion') %></td>
       <th>Week 7: Green Onion and Strawberry</th>
       <td>Green Scallions Ginger Buckwheat Noodles</td>
       <td>Savory Green Onion Pancakes</td>
@@ -72,14 +74,14 @@
         <br />Dessert: Macerated Orange Basil Strawberries with Yogurt</td>
     </tr>
     <tr>
-      <td><a href="/foods/spring-rhubarb"><%= image_tag 'nav-food-images/spring-rhubarb.png', width: 80, class: 'wiggle' %></a></td>
+      <td><%= link_to image_tag('nav-food-images/spring-rhubarb.png', width: 80, class: 'wiggle'), food_path('spring-rhubarb') %></td>
       <th>Week 8: Free Week - You Choose!</th>
       <td>Make your favorite recipe again!</td>
       <td>Make your favorite veggie again!</td>
       <td>Make your favorite dessert again!</td>
     </tr>
     <tr>
-      <td><a href="/foods/spring-peas"><%= image_tag 'nav-food-images/spring-peas.png', width: 80, class: 'wiggle' %></a></td>
+      <td><%= link_to image_tag('nav-food-images/spring-peas.png', width: 80, class: 'wiggle'), food_path('spring-peas') %></td>
       <th>Week 9: Peas and Avocado</th>
       <td>Sugar Snap Peas and Radish Dippers with Super Duper Easy and Healthy Ranch Dressing </td>
       <td>Petite Pea and Goat Cheese Dip</td>
@@ -87,7 +89,7 @@
         <br />Dessert: Avocado Chocolate Mousse with Spring Berries</td>
     </tr>
     <tr>
-      <td><a href="/foods/spring-artichoke"><%= image_tag 'nav-food-images/spring-artichoke.png', width: 80, class: 'wiggle' %></a></td>
+      <td><%= link_to image_tag('nav-food-images/spring-artichoke.png', width: 80, class: 'wiggle'), food_path('spring-artichoke') %></td>
       <th>Week 10: Artichoke and Rhubarb</th>
       <td>Steamed Artichokes with Two Dipping Sauces</td>
       <td>Spinach and Artichoke Grilled Cheese</td>
@@ -95,7 +97,7 @@
         <br />Dessert: Rhubarb Strawberry Quinoa Pudding </td>
     </tr>
     <tr>
-      <td><a href="/foods/spring-greens"><%= image_tag 'nav-food-images/spring-greens.png', width: 80, class: 'wiggle' %></a></td>
+      <td><%= link_to image_tag('nav-food-images/spring-greens.png', width: 80, class: 'wiggle'), food_path('spring-greens') %></td>
       <th>Week 11: Greens and Strawberry</th>
       <td>Simple Spring Lettuce Salad with a Homemade Vinaigrette</td>
       <td>Sweet and Crunchy Arugula Salad with a Lime Cumin Vinaigrette</td>
@@ -103,7 +105,7 @@
         <br />Dessert: Strawberry and Chocolate Bread Pudding</td>
     </tr>
     <tr>
-      <td><a href="/foods/spring-strawberry"><%= image_tag 'nav-food-images/spring-strawberry.png', width: 80, class: 'wiggle' %></a></td>
+      <td><%= link_to image_tag('nav-food-images/spring-strawberry.png', width: 80, class: 'wiggle'), food_path('spring-strawberry') %></td>
       <th>Week 12: Free Week - You Choose!</th>
       <td>Make your favorite recipe again!</td>
       <td>Make your favorite veggie again!</td>
