@@ -16,9 +16,11 @@
     <% @shopping_list.ingredient_list_items.group_by{|ili| ili.ingredient.category }.each do |category, ingredient_list_items| %>
         <div class="col-md-4">
           <h3><%= category %></h3>
-          <% ingredient_list_items.sort_by{|ili| ili.ingredient.name }.each do |ingredient_list_item| %>
-              <p><%= ingredient_list_item.ingredient.name %>, <%= ingredient_list_item.quantity %></p>
+          <p>
+            <% ingredient_list_items.sort_by{|ili| ili.ingredient.name }.each do |ingredient_list_item| %>
+              <%= ingredient_list_item.ingredient.name %>, <%= ingredient_list_item.quantity %><br />
           <% end %>
+          </p>
         </div>
     <% end %>
   </div>
