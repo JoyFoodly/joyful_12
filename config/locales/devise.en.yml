@@ -18,9 +18,9 @@ en:
       unconfirmed: "You need to confirm your account before continuing."
     mailer:
       confirmation_instructions:
-        subject: "Confirmation instructions"
+        subject: "Joyful 12 Confirmation Instructions"
       reset_password_instructions:
-        subject: "Reset password instructions"
+        subject: "Joyful 12 Reset Password Instructions"
       unlock_instructions:
         subject: "Unlock Instructions"
     omniauth_callbacks:
