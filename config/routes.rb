@@ -4,7 +4,7 @@ Joyfoodly::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   resources :recipe_redirects, only: :show
-  resources :foods, only: [:index, :show]
+  resources :foods, only: [:index, :show], path: 'classroom'
   resources :users, only: [:edit, :update] do
     get 'change_password', on: :member
   end
