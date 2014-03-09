@@ -4,13 +4,19 @@ module ApplicationHelper
     session[:season_name] || Season.current_season_name
   end
 
+  def gravatar_url(email)
+    email_digest = Digest::MD5.hexdigest(email)
+    default_avatar = image_url('comments/default-user-avatar.png')
+    "https://www.gravatar.com/avatar/#{email_digest}?s=200&d=#{default_avatar}"
+  end
+
   def comments_sso_script_for(user)
     # create a JSON packet of our data attributes
     data = 	{
         id: user.id,
         username: user.username,
-        email: user.email
-        #'avatar' => user.avatar,
+        email: user.email,
+        avatar: gravatar_url(user.email),
         #'url' => user.url,
     }.to_json
 

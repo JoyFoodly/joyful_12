@@ -21,7 +21,7 @@
 
     <%= form_for @user, html: { role: "form" } do |f| %>
       <div class='row'>
-        <div class='col-md-12'>
+        <div class='col-md-9'>
           <div class="form-group">
             <%= f.label :username %>
             <%= f.text_field :username, class: 'form-control' %>
@@ -40,6 +40,16 @@
           <div class="form-group">
             <%= f.label :last_name %>
             <%= f.text_field :last_name, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="thumbnail top-padding">
+            <%= image_tag gravatar_url(@user.email) %>
+            <div class="caption text-center">
+              <h3>Profile Image</h3>
+              <p>This image will show up when you add comments</p>
+              <p>Change your avatar at <%= link_to 'Gravatar.com', 'https://gravatar.com/' %>.</p>
+            </div>
           </div>
         </div>
       </div>
