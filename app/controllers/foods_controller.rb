@@ -1,5 +1,6 @@
 class FoodsController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :set_food, only: :show
   before_filter :set_season
   before_filter :set_foods
   before_filter :authorize_user
@@ -12,11 +13,25 @@ class FoodsController < ApplicationController
   end
 
   def show
-    @food = Food.includes(:video_links, recipes: [:images, :dietary_categories, :child_recipes, ingredient_list_items: [:ingredient]]).find_by!(slug: params[:id])
     @child_recipes = @food.recipes.map(&:child_recipes).flatten
   end
 
 private
+
+  def set_food
+    food_includes = [:video_links, recipes: [:images, :dietary_categories, :child_recipes, ingredient_list_items: [:ingredient]]]
+    @food = Food.includes(food_includes).find_by!(slug: params[:id])
+  end
+
+  def set_season
+    if @food.present?
+      @season = @food.season
+      session[:season_name] = @season.name
+    else
+      session[:season_name] ||= current_user.try(:season).try(:name) || Season.current_season_name
+      @season = Season.current_season(current_user, session[:season_name])
+    end
+  end
 
   def set_foods
     @foods = @season.foods
