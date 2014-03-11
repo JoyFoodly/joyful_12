@@ -24,3 +24,6 @@ en:
     user_limit_hit: "The beta is at capacity, click <a href='/wait_lists/new'>here</a> to join the wait-list."
   wait_list:
     added: "Great! We'll let you know when we're ready to accept more people into the program."
+  user:
+    updated: 'Account updated!'
+    email_confirmation_sent: 'A confirmation email has been sent to your new address. Check your mail in a minute.'
