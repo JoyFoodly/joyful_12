@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
     if @user.update_attributes(user_params)
       flash[:notice] = I18n.t('user.updated') unless params[:user][:hide_notice].present?
-      flash[:notice] = I18n.t('user.email_confirmation_sent') if @user.email != user_params[:email]
+      flash[:warning] = I18n.t('user.email_confirmation_sent') if @user.email != user_params[:email]
       redirect_to edit_user_path(@user)
     else
       render :edit
