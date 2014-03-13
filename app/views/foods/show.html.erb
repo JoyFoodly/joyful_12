@@ -46,7 +46,7 @@
 
     <div class='col-md-4 pull-left-md'>
 
-      <% @food.video_links.each do |video_link| %>
+      <% @food.video_links.sort_by(&:sort_order).each do |video_link| %>
           <div class="bottom-buffer video-embed">
             <%= content_tag(:iframe, '', frameborder: 0, webkitallowfullscreen: true,
                             mozallowfullscreen: true, allowfullscreen: true,
