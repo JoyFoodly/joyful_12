@@ -331,7 +331,7 @@ ActiveRecord::Schema.define(version: 20140313183635) do
     t.string   "provider_id", default: "", null: false
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.integer  "sort_order"
+    t.integer  "sort_order",  default: 0,  null: false
   end
 
   create_table "wait_lists", force: true do |t|
