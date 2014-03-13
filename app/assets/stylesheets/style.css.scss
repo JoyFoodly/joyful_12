@@ -206,6 +206,11 @@ Specific colors, image backgrounds, customized widgets, etc.
   color:#b2b2b2;
 }
 
+// Tab deep links
+.js-tab-link:focus {
+  outline:none;
+}
+
 // Custom image and text nav.
 nav a.image-text-link, .image-text-link {
   padding: 0;
