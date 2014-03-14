@@ -49,7 +49,7 @@ private
   end
 
   def beta_user_limit
-    errors.add(:base, I18n.t('beta.user_limit_hit')) if User.where.not(payment_gateway_customer_id: nil).count >= 50
+    errors.add(:base, I18n.t('beta.user_limit_hit')) if User.where.not(payment_gateway_customer_id: '').count >= 50
   end
 
 end
