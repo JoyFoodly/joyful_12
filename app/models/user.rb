@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   validates :last_name, presence: true
   validate :beta_user_limit, on: :create
 
+  after_commit :add_to_mailing_list
+
   accepts_nested_attributes_for :family_members, allow_destroy: true
 
   def full_name
@@ -50,6 +52,22 @@ private
 
   def beta_user_limit
     errors.add(:base, I18n.t('beta.user_limit_hit')) if User.where.not(payment_gateway_customer_id: '').count >= 50
+  end
+
+  def add_to_mailing_list
+    Gibbon::API.lists.subscribe({
+      id: ENV['MAILING_LIST_ID'],
+      email: { email: user.email },
+      merge_vars: {
+        FNAME: user.first_name,
+        LNAME: user.last_name,
+        SIGNED_UP_AT: user.created_at,
+      },
+      double_optin: false,
+      update_existing: true,
+    })
+  rescue
+    nil
   end
 
 end

@@ -48,10 +48,13 @@ gem 'paperclip', '~> 4.1.0'
 gem 'simple_form', '~> 3.0.1'
 
 # Image storage
-gem 'aws-sdk', '~> 1.35.0'
+gem 'aws-sdk', '~> 1.38.0'
 
 # Remote Form Support
 gem 'jquery-rails', '~> 3.1.0'
+
+# Mailing Lists
+gem 'gibbon', '~> 1.1.2'
 
 group :test do
   # Testing framework
