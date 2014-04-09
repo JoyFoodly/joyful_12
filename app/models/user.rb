@@ -61,7 +61,7 @@ private
       merge_vars: {
         FNAME: user.first_name,
         LNAME: user.last_name,
-        SIGNED_UP_AT: user.created_at,
+        SIGNED_UP: user.created_at,
       },
       double_optin: false,
       update_existing: true,
