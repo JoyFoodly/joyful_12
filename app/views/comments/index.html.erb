@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <title>Recipe: <%= @recipe.title %></title>
+</head>
+<body>
+
+    <p>
+      <% if @recipe.images.first %>
+        <%= image_tag recipe.images.first.file.url(:thumbnail) %>
+      <% end %>
+    </p>
+
+    <p>
+      Do you have any questions or comments about this recipe? Do you have a photo to share? Comment below.
+    </p>
+
+</body>
+</html>
