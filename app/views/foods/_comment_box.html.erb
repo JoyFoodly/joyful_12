@@ -1,5 +1,5 @@
 <%= content_tag :iframe, '',
-                src: "https://community.joyful12.com/embed/comments?embed_url=#{food_url(food)}/#{recipe.slug}",
+                src: "https://community.joyful12.com/embed/comments?embed_url=#{food_url(food, protocol: 'https')}/#{recipe.slug}",
                 frameBorder: '0',
                 width: '100%',
                 scrolling: 'no' %>
