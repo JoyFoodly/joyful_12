@@ -7,7 +7,7 @@
 
     <p>
       <% if @recipe.images.first %>
-        <%= image_tag recipe.images.first.file.url(:thumbnail) %>
+        <%= image_tag @recipe.images.first.file.url(:thumbnail) %>
       <% end %>
     </p>
 
