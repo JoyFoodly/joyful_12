@@ -10,12 +10,11 @@ class CommentsController < ApplicationController
 private
 
   def redirect_to_foods_page
-    Rails.logger.fatal "REMOTE IP: #{request.remote_ip}, #{request.env['HTTP_X_FORWARDED_FOR']}, #{request.env['REMOTE_ATTR']}"
     redirect_to "#{food_path(params[:food_id])}##{params[:recipe_slug]}" and return
   end
 
   def comments_crawler
-    request.remote_ip =~ Regexp.new(ENV['COMMENTS_CRAWLER_IP_ADDRESS'])
+    request.env['HTTP_X_FORWARDED_FOR'] =~ Regexp.new(ENV['COMMENTS_CRAWLER_IP_ADDRESS'])
   end
 
 end
