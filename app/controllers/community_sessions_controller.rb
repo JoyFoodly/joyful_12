@@ -1,5 +1,6 @@
 class CommunitySessionsController < ApplicationController
-
+  before_filter :authenticate_user!
+  
   def show
     secret = ENV['COMMUNITY_SSO_SECRET']
     sso = SingleSignOn.parse(request.query_string, secret)
