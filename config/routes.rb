@@ -21,6 +21,7 @@ Joyfoodly::Application.routes.draw do
     get 'submitted', on: :member
   end
   get 'almost_there' => 'home#confirmation_sent', as: :confirmation_sent
+  get 'community_sessions' => 'community_sessions#show'
 
   root to: 'foods#index'
 end
