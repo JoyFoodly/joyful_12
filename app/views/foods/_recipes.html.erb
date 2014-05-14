@@ -86,7 +86,7 @@
           </div>
         </div>
       </div>
-      <%= render 'comment_box', food: @food, recipe: recipe %>
+      <%= render 'comment_box', food: @food, recipe: recipe if @season.name != 'Summer' %>
     </div>
     <%= render 'recipe_image_gallery', recipe: recipe %>
   <% end %>
