@@ -1,4 +1,5 @@
 <%= content_tag :iframe, '',
+                class: 'js-auto-size-iframe',
                 src: "#{food_url(food, protocol: 'https')}/#{recipe.slug}/comments",
                 frameBorder: '0',
                 width: '100%',
