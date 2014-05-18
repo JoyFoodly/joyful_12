@@ -2,7 +2,7 @@
 
 <script type="text/javascript">
     var discourseUrl = "<%= ENV['COMMUNITY_URL'] %>/",
-        discourseEmbedUrl = "<%= food_url(@food, protocol: 'https') + @recipe.slug %>";
+        discourseEmbedUrl = '<%= "#{food_url(@food, protocol: 'https')}/#{@recipe.slug}" %>';
 
     (function() {
         var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
