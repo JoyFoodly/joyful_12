@@ -5,7 +5,8 @@ Joyfoodly::Application.routes.draw do
 
   resources :recipe_redirects, only: :show
   resources :foods, only: [:index, :show], path: 'classroom' do
-    get ':recipe_slug' => 'comments#index'
+    get ':recipe_slug' => 'comment_thread_sources#show'
+    get ':recipe_slug/comments' => 'comments#index'
   end
   resources :users, only: [:edit, :update] do
     get 'change_password', on: :member

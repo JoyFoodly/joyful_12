@@ -1,19 +1,12 @@
-<!DOCTYPE html>
-<html lang='en'>
-<head>
-  <title>Recipe: <%= @recipe.title %></title>
-</head>
-<body>
+<div id="discourse-comments"></div>
 
-    <p>
-      <% if @recipe.images.first %>
-        <%= image_tag @recipe.images.first.file.url(:gallery) %>
-      <% end %>
-    </p>
+<script type="text/javascript">
+    var discourseUrl = "<%= ENV['COMMUNITY_URL'] %>",
+        discourseEmbedUrl = "<%= food_url(@food, protocol: 'https') + @recipe.slug %>";
 
-    <p>
-      Do you have any questions or comments about this recipe? Do you have a photo to share? Comment below.
-    </p>
-
-</body>
-</html>
+    (function() {
+        var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+        d.src = discourseUrl + 'javascripts/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+    })();
+</script>
