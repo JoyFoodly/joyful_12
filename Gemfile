@@ -26,7 +26,7 @@ gem 'kgio', '~> 2.9.1'
 gem 'memcachier', '~> 0.0.2'
 
 # Server monitoring
-gem 'newrelic_rpm', '~> 3.7.0'
+gem 'newrelic_rpm', '~> 3.8.0'
 
 # Admin Interface
 gem 'rails_admin', '~> 0.6.0'
@@ -36,7 +36,7 @@ gem 'paper_trail', '~> 3.0.0.rc2'
 gem 'devise', '~> 3.2.2'
 
 # Accept Payments
-gem 'stripe', '~> 1.10.0'
+gem 'stripe', '~> 1.11.0'
 
 # Markdown parsing
 gem 'redcarpet', '~> 3.1.1'
@@ -48,7 +48,7 @@ gem 'paperclip', '~> 4.1.0'
 gem 'simple_form', '~> 3.0.1'
 
 # Image storage
-gem 'aws-sdk', '~> 1.38.0'
+gem 'aws-sdk', '~> 1.40.0'
 
 # Remote Form Support
 gem 'jquery-rails', '~> 3.1.0'
@@ -67,7 +67,7 @@ group :test do
   gem 'capybara', '~> 2.2.0'
 
   # Disallow external requests in test env
-  gem 'webmock', '~> 1.17.1'
+  gem 'webmock', '~> 1.18.0'
 
   # Coverage stats
   gem 'simplecov', '~> 0.8.2', require: false
@@ -85,7 +85,7 @@ group :development, :test do
   gem 'binding_of_caller', '~> 0.7.2'
 
   # Environment variables for dev and test
-  gem 'dotenv-rails', '~> 0.10.0'
+  gem 'dotenv-rails', '~> 0.11.0'
 end
 
 group :production do
