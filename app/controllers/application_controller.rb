@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
 
 protected
 
+  def ensure_onboarding
+    redirect_to edit_user_path(current_user) and return unless current_user.onboarded?
+  end
+
   def web_crawler_info
     if request.user_agent =~ /facebookexternalhit/
       render 'web_crawler/show', layout: false

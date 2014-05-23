@@ -1,5 +1,6 @@
 class FoodsController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :ensure_onboarding
   before_filter :set_food, only: :show
   before_filter :set_season
   before_filter :set_foods

@@ -52,18 +52,18 @@
         <div class="top-buffer"></div>
         <h2 class="text-center">Welcome to the Joyful 12!</h2>
         <h3 class="text-center">Excited to get started?</h3>
-        <p class="top-buffer">Please take a minute to fill out your family's profile. Then be sure to stop by orientation to
-          learn how the course will work.</p>
-        <p class="top-buffer text-center">(We promise it's super fun!)</p>
+        <p class="top-buffer">You'll go through a quick orientation to learn all about the course, and then you're in!</p>
+        <p class="top-buffer text-center">(We promise it's super fun)</p>
         <div class="top-buffer"></div>
 
         <%= form_for @user do |f| %>
             <%= f.submit "Let's get started", class: 'btn btn-primary centered' %>
+            <%= f.hidden_field :email %>
             <div class="checkbox">
               <%= f.check_box :onboarded %>
-              <%= f.label :onboarded, "yes, I've read and accept the terms of service" %>
+              <%= f.label :onboarded, "yes, I've read and accept the" %>
+              <a href="/pages/ToS">Terms of Service</a>
             </div>
-            <a href="/pages/ToS">Terms of Service</a>
             <%= f.hidden_field :hide_notice, value: true %>
         <% end %>
 
