@@ -9,10 +9,8 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require bootstrap_app_config
- *= require bootstrap_config
- *= require bootstrap_extensions
- *= require parent_resources
- *= require sign_up
- *= require style
+ *= require bootstrap
+ *= require_tree ./qubico
  */
+
+

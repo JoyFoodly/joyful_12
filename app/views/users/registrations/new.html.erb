@@ -1,251 +1,1335 @@
-<div class="spacer"></div>
-<div class='row'>
- <div class='col-md-12'>
-  <h1>What is the Joyful 12?</h1>
- </div>
-</div>
-<div class='row'>
-  <div class='col-md-5'>
-    <h4>
-      The Joyful 12 is a crash course in helping your family eat more fruits and veggies from Chef Hollie Greene.
-    </h4>
-    <p class="bottom-padding">Watch the video to the right or scroll down to learn more!</p>
-    <img class="img-responsive" src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/2ba673432eaa163325512a8150f1680b501c9f18.png?1393741295" />
+<!-- ==============================================
+		MAIN NAV
+		=============================================== -->
+<div id="main-nav" class="navbar navbar-fixed-top">
+  <div class="container">
+
+    <div class="navbar-header">
+
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#site-nav">
+        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+      </button>
+
+      <!-- ======= LOGO ========-->
+      <a class="navbar-brand " href="#home">
+
+
+        <span class="logo-small"><%= image_tag 'qubico/joyful12-logo-small.png' %></span>
+
+        <!-- ==== Image Logo ==== -->
+        <!--<img class="site-logo" src="/assets/qubico/logo.png" alt="logo" />-->
+      </a>
+
+    </div>
+
+    <div id="site-nav" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="sr-only">
+          <a href="#home" class="scrollto">Home</a>
+        </li>
+        <li>
+          <a href="#features" class="scrollto">Features</a>
+        </li>
+        <li>
+          <a href="#reviews" class="scrollto">Reviews</a>
+        </li>
+        <li>
+          <a href="#tour" class="scrollto">Tour</a>
+        </li>
+        <li>
+          <a href="#chefhollie" class="scrollto">Chef Hollie</a>
+        </li>
+        <li>
+          <a href="#pricing" class="scrollto">Prices</a>
+        </li>
+        <li>
+          <a href="#partners" class="scrollto">Partners</a>
+        </li>
+        <li>
+          <a href="#contact" class="scrollto">Contact</a>
+        </li>
+        <li>
+          <a href="http://www.joyfoodly.com/blog" target="_blank">Blog</a>
+
+        </li>
+      </ul>
+    </div><!--End navbar-collapse -->
+
+  </div><!--End container -->
+
+</div><!--End main-nav -->
+
+<!-- ==============================================
+		HEADER
+		=============================================== -->
+<header id="home" class="jumbotron">
+
+  <div id="sequence-theme">
+
+    <div id="sequence">
+
+      <ul class="controls">
+        <li class="sequence-prev"><i class="fa fa-angle-left fa-fw"></i></li>
+        <li class="sequence-next"><i class="fa fa-angle-right fa-fw"></i></li>
+      </ul>
+
+      <ul class="sequence-canvas container">
+        <li class="animate-in">
+          <div class="message-slide1">
+            <h2 class="title in-from-left fast">A Kitchen Learning Lab</h2>
+            <p class="in-from-bottom fast delay2">Where parents explore and learn how to joyfully get fruits and veggies
+            into their families' diets each season. It's easy!</p>
+          </div>
+          <div class="slide3-img1 in-from-top fast">
+            <img class="img-responsive" src="/assets/qubico/slider/imac.png" alt="" />
+            <div class="imac-screen">
+              <img class="img-responsive" src="/assets/qubico/slide-3-imagea.png" alt="" />
+            </div>
+          </div>
+          <div class="slide3-img2 in-from-top fast delay1">
+            <img class="img-responsive" src="/assets/qubico/slider/ipad-flat.png" alt="" />
+            <div class="ipad-screen">
+              <img class="img-responsive" src="/assets/qubico/slide-3-imageb.png" alt="" />
+            </div>
+          </div>
+          <div class="slide3-img3 in-from-top fast delay2">
+            <img class="img-responsive" src="/assets/qubico/slider/iphone-flat.png" alt="" />
+            <div class="iphone-screen">
+              <img class="img-responsive" src="/assets/qubico/slide-3-imagec.png" alt="" />
+            </div>
+          </div>
+
+
+
+        </li>
+        <li>
+          <div class="message-slide2">
+            <h2 class="title in-from-right fast delay1">Skill Building</h2>
+            <p class="in-from-bottom fast delay2">Kitchen skills and tips for families.</p>
+          </div>
+          <div class="slide2-img in-from-top fast">
+            <img class="img-responsive" src="/assets/qubico/slider/ipad-flat.png" alt="" />
+            <div class="ipad-screen">
+              <img class="img-responsive" src="/assets/qubico/slide2.png" alt="" />
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="message-slide3">
+            <h2 class="title in-from-left fast delay1">A Year of Eating in Season</h2>
+            <p class="in-from-left fast delay3">Get 36 recipes every season for a whole year. With tips and photos.</p>
+          </div>
+
+
+
+          <div class="slide1-img in-from-right slow delay1">
+            <%= image_tag 'qubico/slider/imac.png', class: 'img-responsive' %>
+            <div class="imac-screen">
+              <img class="img-responsive" src="/assets/qubico/slider-1-image.png" alt="" />
+            </div>
+          </div>
+
+
+
+
+
+
+
+        </li>
+      </ul>
+
+    </div>
+
   </div>
-  <div class='col-md-6 col-md-offset-1'>
-    <div class="video-embed">
-    <iframe src="//player.vimeo.com/video/88189339?portrait=0&amp;color=4196b4" width="584" height="329" frameborder="0"
-            webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+</header><!--End header -->
+
+<!-- ==============================================
+CALL TO ACTION
+=============================================== -->
+<section class="gray-bg cta">
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-8 cta-message">
+        <p><strong>The Joyful 12!</strong> is a kitchen learning lab for families. Learn from Chef Hollie and get your family excited about fruits and veggies.</p>
+      </div>
+      <div class="col-md-4 cta-button">
+        <p class="text-center"><a class="btn btn-qubico scrollto" href="#pricing"><i class="fa fa-shopping-cart"></i>Sign Up Now</a></p>
+      </div>
+    </div><!--End row-->
+
+  </div><!--End container -->
+
+</section><!--End Call to Action -->
+
+<!-- ==============================================
+FEATURES
+=============================================== -->
+<section id="features" class="white-bg padding-top-bottom">
+
+  <div class="container features">
+
+    <h1 class="section-title">Main Features</h1>
+    <p class="section-description">The Joyful 12 is an online kitchen learning lab that helps parents learn how to joyfully
+    get fruits and veggies into their families' diets. All the tools you need to create a joyful kitchen experience using proven methods from Chef Hollie.</p>
+
+    <div class="row">
+
+      <div class="col-sm-4 scrollimation fade-up">
+
+        <div class="media">
+          <div class="icon pull-left">
+            <%= image_tag 'qubico/feature-1.png' %>
+            <i class="media-object icon-1 fa fa-html5"></i>
+            <i class="media-object icon-2 fa fa-css3"></i>
+          </div>
+
+          <div class="media-body">
+            <h4>Make Great Food</h4>
+            <p>Feel great about the meals you make for your family. 36 recipes every season, for 4 seasons.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-sm-4 scrollimation fade-up d1">
+
+        <div class="media">
+          <div class="icon pull-left">
+            <%= image_tag 'qubico/feature-2.png' %>
+            <i class="media-object icon-1 fa fa-mobile"></i>
+            <i class="media-object icon-2 fa fa-desktop"></i>
+          </div>
+
+          <div class="media-body">
+            <h4>Interactive Shopping List</h4>
+            <p>Make shopping easy with a shopping list you can email, save, print, or view on your smartphone.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-sm-4 scrollimation fade-up d2">
+
+        <div class="media">
+          <div class="icon pull-left">
+            <%= image_tag 'qubico/feature-3.png' %>
+            <i class="media-object icon-1 fa fa-leaf"></i>
+            <i class="media-object icon-2 fa fa-pencil"></i>
+          </div>
+
+          <div class="media-body">
+            <h4>Develop Your Skills</h4>
+            <p>With 40+ quick video tutorials, it's never been easier to gain the skills to have fun and make dinner quickly.</p>
+          </div>
+        </div>
+
+      </div>
+
     </div>
+
+    <div class="row">
+
+      <div class="col-sm-4 scrollimation fade-up">
+
+        <div class="media">
+          <div class="icon pull-left">
+            <%= image_tag 'qubico/feature-4.png' %>
+            <i class="media-object icon-1 fa fa-heart-o"></i>
+            <i class="media-object icon-2 fa fa-heart"></i>
+          </div>
+
+          <div class="media-body">
+            <h4>Community Support</h4>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-sm-4 scrollimation fade-up d1">
+
+        <div class="media">
+          <div class="icon pull-left">
+            <%= image_tag 'qubico/feature-5.png' %>
+            <i class="media-object icon-1 fa fa-cog"></i>
+            <i class="media-object icon-2 fa fa-cogs"></i>
+          </div>
+
+          <div class="media-body">
+            <h4>Get Kids Involved</h4>
+            <p>Proven techniques from Chef Hollie for getting your kids excited about eating their veggies. Adults too!</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-sm-4 scrollimation fade-up d2">
+
+        <div class="media">
+          <div class="icon pull-left">
+            <%= image_tag 'qubico/feature-6.png' %>
+            <i class="media-object icon-1 fa fa-star-o"></i>
+            <i class="media-object icon-2 fa fa-star"></i>
+          </div>
+
+          <div class="media-body">
+            <h4>Learn from the Best</h4>
+            <p>All recipes, techniques, and tips for getting kids involved come from Chef Hollie's years of experience.</p>
+          </div>
+        </div>
+
+      </div>
+
     </div>
-</div>
 
-<div class="page-sub-header text-center top-buffer top-padding">
-  <h2 class="dotted">Join Us Now!</h2>
-  <h3 class="no-buffer">We only have room for 50 people in our Beta.</h3> <p>Not sure yet? Scroll down for more features.</p>
-</div>
+  </div>
 
-<div class='row top-buffer bottom-buffer'>
+</section>
 
-  <div class='col-md-5 bg-grey right-padding left-padding bottom-padding'>
-    <h2>Beta Member Discount | <%= number_to_currency(ENV['BETA_PRICE'].to_i / 100) %></h2>
-    <h4>The first 50 people to sign up receive:</h4>
+<!-- ==============================================
+RESPONSIVE VIDEO
+=============================================== -->
+<section class="color-bg light-typo padding-top-bottom">
+
+  <div class="container">
+
+    <h1 class="section-title">The Joyful 12 is for people on the go</h1>
+    <p class="section-description">You can make great food with some extra support.</p>
+
+    <div class="row">
+
+      <div class="col-sm-10 col-sm-offset-1">
+
+        <div class="macbook-frame">
+
+          <img class="img-responsive img-center" src="/assets/qubico/macbook.png" alt=""/>
+
+          <div class="macbook-screen">
+            <iframe width="640" height="360" src="//player.vimeo.com/video/88189339?color=4196b4" frameborder="0" allowfullscreen></iframe>
+          </div>
+
+
+
+        </div>
+
+      </div>
+
+    </div><!-- End row -->
+
+  </div><!-- End container -->
+
+</section>
+
+<!-- ==============================================
+Reviews
+=============================================== -->
+<section id="reviews" class="white-bg padding-top-bottom">
+
+  <div class="container">
+
+    <h1 class="section-title">Real Families Are Excited</h1>
+    <p class="section-description">Don't just take our word for it.</p>
+
+    <div class="row team-member">
+
+      <div class="col-sm-3 col-sm-offset-1 member-thumb scrollimation fade-right">
+
+        <img class="img-responsive img-center" src="/assets/qubico/jean.png" alt="" />
+        <h4>Jean</h4>
+        <p class="title">Aunt of 2 in Minneapolis, MN</p>
+
+      </div>
+
+      <div class="col-sm-7 scrollimation fade-left">
+
+        <div class="member-details">
+          <p>Our niece and nephew were both asking for more broccoli after this fresh take of Mac 'n Cheese'.</p>
+
+
+        </div>
+      </div>
+    </div>
+
+    <div class="row team-member right">
+
+      <div class="col-sm-3 col-sm-push-8 member-thumb scrollimation fade-left">
+
+        <img class="img-responsive img-center" src="/assets/qubico/rhonda.png" alt=""/>
+        <h4>Rhonda</h4>
+        <p class="title">Mother of 3 in Federal Way, Washington</p>
+
+      </div>
+
+      <div class="col-sm-7 col-sm-pull-2 scrollimation fade-right">
+
+        <div class="member-details">
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+
+          <ul class="member-socials">
+            <li><a href="mailto:mail@example.com"><i class="fa fa-envelope fa-fw"></i></a></li>
+            <li><a href="#link"><i class="fa fa-twitter fa-fw"></i></a></li>
+            <li><a href="#link"><i class="fa fa-facebook fa-fw"></i></a></li>
+            <li><a href="#link"><i class="fa fa-linkedin fa-fw"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="row team-member">
+
+      <div class="col-sm-3 col-sm-offset-1 member-thumb scrollimation fade-right">
+
+        <img class="img-responsive img-center" src="/assets/qubico/augusta.png" alt=""/>
+        <h4>Augusta</h4>
+        <p class="title">Mother of 2 in South Carolina</p>
+
+      </div>
+
+      <div class="col-sm-7 scrollimation fade-left">
+
+        <div class="member-details">
+          <p>We made the dreamy greenie quesadillas tonight. They were fabulous! Even my son loved them and I
+            thought the greens would be a hard sell. They were really filling so I have leftovers for lunch.
+            And I love that avocado sauce…I could eat that everyday. We’re having fun trying the Joyful 12
+            recipes. The kids are always willing to try something new if I tell them it’s your recipe.</p>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    </div><!--End row -->
+
+  </div>
+
+</section>
+
+
+<!-- ==============================================
+Tour
+=============================================== -->
+<section id="tour" class="gray-bg padding-top">
+
+  <div class="container">
+
+    <h1 class="section-title">Take a Tour</h1>
+    <p class="section-description">Join Us for a Year of Eating in Season. Try each veggie three ways. Packed with tutorials and tips for the busy parent.</p>
+
+    <div class="ipad-frame scrollimation fade-up">
+
+      <img class="img-responsive img-center" src="/assets/qubico/ipad-landscape.png" alt=""/>
+
+      <div class="ipad-screen ipad-slider flexslider">
+
+        <ul class="slides">
+
+          <li>
+            <img class="img-responsive" src="/assets/qubico/tour-2.png" alt=""/>
+          </li>
+          <li>
+            <img class="img-responsive" src="/assets/qubico/tour-15.png" alt=""/>
+          </li>
+          <li>
+            <img class="img-responsive" src="/assets/qubico/tour-3.png" alt=""/>
+          </li>
+          <li>
+            <img class="img-responsive" src="/assets/qubico/tour-4.png" alt=""/>
+          </li>
+          <li>
+            <img class="img-responsive" src="/assets/qubico/tour-5.png" alt=""/>
+          </li>
+          <li>
+            <img class="img-responsive" src="/assets/qubico/tour-6.png" alt=""/>
+          </li>
+          <li>
+            <img class="img-responsive" src="/assets/qubico/tour-16.png" alt=""/>
+          </li>
+          <li>
+            <img class="img-responsive" src="/assets/qubico/tour-14.png" alt=""/>
+          </li>
+          <li>
+            <img class="img-responsive" src="/assets/qubico/tour-13.png" alt=""/>
+          </li>
+          <li>
+            <img class="img-responsive" src="/assets/qubico/tour-11.png" alt=""/>
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ==============================================
+Life of Joyful 12 User
+=============================================== -->
+
+<section class="white-bg padding-top-bottom">
+
+  <div class="container">
+
+    <h1 class="section-title">The Life of a Joyful 12 User</h1>
+    <p class="section-description">Here's an example of what a member of the Joyful 12 experiences!</p>
+
+    <div class="timeline">
+
+      <div class="date-title">
+        <span>Take the Plunge: Sign Up</span>
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-6 news-item scrollimation fade-up">
+
+          <div class="news-content">
+
+            <div class="date">
+              <small>Day</small>
+              <p>1</p>
+            </div>
+
+            <h2 class="news-title">Welcome!</h2>
+
+
+
+            <p>Your first week, we'll start off with a big HELLO! We'll get you started with tips on how to use the program,
+              support, and get you into the community.</p>
+
+          </div>
+        </div>
+
+        <div class="col-sm-6 news-item right scrollimation fade-up">
+
+          <div class="news-content">
+
+            <div class="date">
+              <small>Day</small>
+              <p>3</p>
+            </div>
+
+            <h2 class="news-title">Get your first Friday email</h2>
+
+            <p>This is the start of something special. Every Friday, you'll get an email with recipe suggestions that the
+              community will be participating in, and helpful tips and reminders to make everything smoother.</p>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-6 news-item scrollimation fade-up">
+
+          <div class="news-content">
+
+            <div class="date">
+              <small>Day</small>
+              <p>5</p>
+            </div>
+
+            <h2 class="news-title">Shop with Ease</h2>
+
+            <div class="news-media video">
+              <a class="colorbox-video" href="http://www.youtube.com/embed/JMK86SdYBpE?feature=player_detailpage&amp;wmode=transparent"><img class="img-responsive" src="/assets/qubico/blog/travelling_thumb.jpg" alt="" /></a>
+            </div>
+
+            <p>Use our handy shopping list tool to save recipes and print shopping lists, or just view it on your smartphone while at the store.
+              Get everything you need for the week.</p>
+
+          </div>
+        </div>
+
+        <div class="col-sm-6 news-item right scrollimation fade-up">
+
+          <div class="news-content">
+
+            <div class="date">
+              <small>Day</small>
+              <p>7</p>
+            </div>
+
+            <h2 class="news-title">Make your First Recipe</h2>
+
+            <div class="col-sm-4 pull-right news-media gallery">
+              <a class="colorbox" href="<%= image_url '/assets/qubico/recipe-1.jpg'%>"><%= image_tag '/assets/qubico/recipe-1.jpg', class: 'img-responsive' %></a>
+              <a class="colorbox" href="<%= image_url '/assets/qubico/recipe-2.jpg'%>"></a>
+              <a class="colorbox" href="<%= image_url '/assets/qubico/recipe-3.jpg'%>"></a>
+              <a class="colorbox" href="<%= image_url '/assets/qubico/recipe-4.jpg'%>"></a>
+              <a class="colorbox" href="<%= image_url '/assets/qubico/recipe-5.jpg'%>"></a>
+              <a class="colorbox" href="<%= image_url '/assets/qubico/recipe-6.jpg'%>"></a>
+              <a class="colorbox" href="<%= image_url '/assets/qubico/recipe-7.jpg'%>"></a>
+              <a class="colorbox" href="<%= image_url '/assets/qubico/recipe-8.jpg'%>"></a>
+
+            </div>
+
+            <p>Follow easy directions and helpful photos for each step of the recipe. Get tips on how to prep food and
+              watch technique videos.</p>
+
+            <em>Click to see examples of our Tomatillo Potato Salad</em>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="date-title">
+        <span>As the Season Passes...</span>
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-6 news-item scrollimation fade-up">
+
+          <div class="news-content">
+
+            <div class="date">
+              <small>Week</small>
+              <p>2</p>
+            </div>
+
+            <h2 class="news-title">Browse 40+ Technique Videos</h2>
+
+            <div class="col-sm-4 pull-right news-media video">
+              <a class="colorbox-video" href="//player.vimeo.com/video/88323584?title=0&amp;byline=0&amp;portrait=0&amp;color=f3cd00">
+                <%= image_tag '/assets/qubico/video-technique-player.png', class: 'img-responsive' %></a>
+            </div>
+
+
+
+
+            <p>Learn about everything from knife skills to how to prep asparagus in short, fun technique videos. More videos added every season.</p>
+
+          </div>
+        </div>
+
+        <div class="col-sm-6 news-item right scrollimation fade-up">
+
+          <div class="news-content">
+
+            <div class="date">
+              <small>Week</small>
+              <p>3</p>
+            </div>
+
+            <h2 class="news-title">Get Kids Involved</h2>
+
+            <p>Every recipe has tips for getting kids involved in the recipe. Watch videos with advice and support, and have fun in the kitchen!</p>
+
+          </div>
+        </div>
+
+
+      </div>
+
+    </div>
+
+    <p class="text-center"><a class="btn btn-qubico" href="blog/blog.html">Read our Blog</a></p>
+
+  </div>
+
+</section>
+
+<!-- ==============================================
+Chef Hollie
+=============================================== -->
+<section id="chefhollie" class="color-bg light-typo padding-top-bottom cta-iphones">
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-sm-6">
+
+        <div class="iphones-wrapper scrollimation">
+
+          <div class="iphone-portrait-frame">
+            <img class="img-responsive" src="/assets/qubico/iphone-portrait.png" alt=""/>
+            <div class="iphone-portrait-screen">
+              <img class="img-responsive" src="/assets/qubico/iphone-up.png" alt=""/>
+            </div>
+          </div>
+
+          <div class="iphone-landscape-frame">
+            <img class="img-responsive" src="/assets/qubico/iphone-landscape.png" alt=""/>
+            <div class="iphone-landscape-screen">
+              <img class="img-responsive" src="/assets/qubico/iphone-down.png" alt=""/>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-sm-5 col-sm-offset-1">
+
+        <h2>Learn From Chef Hollie</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in varius erat.</p>
+        <p>Nam id felis eu felis consequat adipiscing. Suspendisse sit amet faucibus nunc, dignissim vehicula enim. Vestibulum luctus turpis sit amet varius venenatis.</p>
+
+        <a class="btn btn-qubico white scrollto" href="#services"><i class="fa fa-arrow-down"></i>See the magic</a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ==============================================
+PRICES
+=============================================== -->
+<section id="pricing" class="gray-bg padding-top-bottom">
+
+  <div class="container">
+
+    <h1 class="section-title">Sign Up Now</h1>
+    <p class="section-description">We offer great plans. Find the one that suits your needs.</p>
+
+    <div class="row pricing">
+
+      <div class="col-lg-10 col-lg-offset-1">
+
+        <div class="col-sm-4 text-center scrollimation fade-right">
+
+          <div class="item">
+
+            <p class="icon"><%= image_tag 'qubico/price-1.png' %></p>
+            <h2>One Season</h2>
+            <p class="price">$12</p>
+
+            <p>1 season of the learning lab</p>
+            <p>Support from the community</p>
+            <p>Lifetime Access</p>
+            <p>$4/month (just $1/vegetable!)</p>
+
+            <a class="btn btn-qubico" href="#link">Sign Up</a>
+
+          </div><!-- End Pricing Item -->
+
+        </div>
+
+        <div class="col-sm-4 text-center scrollimation fade-up">
+
+          <div class="item featured">
+
+            <p class="icon"><%= image_tag 'qubico/price-3.png' %></p>
+            <h2>Full Year</h2>
+            <p class="price">$40</p>
+
+            <p>Save 20% with the full year</p>
+            <p>Access to the entire lab</p>
+            <p>Lifetime access</p>
+            <p>Less than $1/vegetable</p>
+
+            <a class="btn btn-qubico" href="#link">Sign Up</a>
+
+          </div><!-- End Pricing Item -->
+
+        </div>
+
+        <div class="col-sm-4 text-center scrollimation fade-left">
+
+          <div class="item">
+
+            <p class="icon"><%= image_tag 'qubico/price-4.png' %></p>
+            <h2>Give a Gift</h2>
+            <p class="price">$12</p>
+
+            <p>Gift a subscription</p>
+            <p>Perfect for parents</p>
+            <p>The gift of better home cooking</p>
+
+            <a class="btn btn-qubico" href="#link">Give Now</a>
+
+          </div><!-- End Pricing Item -->
+
+        </div>
+
+      </div>
+
+    </div><!-- End row -->
+
+  </div><!-- End container -->
+
+</section>
+
+
+<!-- ==============================================
+CALL TO ACTION
+=============================================== -->
+<section class="color-bg light-typo cta">
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-9 cta-message">
+        <p><strong>Comes out with 12 predefined color schemes.</strong> Or choose your own colors without making any harm to your website with a colors only CSS file.</p>
+      </div>
+      <div class="col-md-3 cta-button">
+        <p class="text-center"><a class="btn btn-qubico white scrollto" href="#pricing"><i class="fa fa-shopping-cart"></i>Purchase Now</a></p>
+      </div>
+    </div><!--End row-->
+
+  </div><!--End container -->
+
+</section><!--End Call to Action -->
+
+<!-- ==============================================
+PARTNERS
+=============================================== -->
+
+<section id="partners" class="white-bg padding-top-bottom">
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-sm-4 col-sm-offset-1">
+
+        <span class="logo-small scrollimation fade-right"><%= image_tag 'qubico/whole-foods.png' %></span>
+
+      </div>
+
+      <div class="col-sm-7 ">
+
+        <h2>Partnering with Whole Foods</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in varius erat.</p>
+        <p>Nam id felis eu felis consequat adipiscing. Suspendisse sit amet faucibus nunc, dignissim vehicula enim. Vestibulum luctus turpis sit amet varius venenatis.</p>
+
+        <a class="btn btn-qubico white scrollto" href="#services"><i class="fa fa-arrow-down"></i>See the magic</a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ==============================================
+CONTACT
+=============================================== -->
+<section id="contact" class="gray-bg padding-top-bottom">
+
+  <div class="container">
+
+    <h1 class="section-title">We'd Love to Hear from You!</h1>
+    <p class="contact-description">Do you have questions or feedback? Let us know!</p>
+    <div class="col-sm-offset-5">
+    <span class="logo-small"><a href="<%= image_url 'http://www.facebook.com/joyfoodly'%>" target="_blank"><%= image_tag 'qubico/facebook.png' %></a></span>
+    <span class="logo-small"><a href="<%= image_url 'http://www.twitter.com/joyfoodly'%>" target="_blank"><%= image_tag 'qubico/twitter.png' %></a></span>
+    <span class="logo-small"><a href="<%= image_url 'https://plus.google.com/+Joyfoodly'%>" target="_blank"><%= image_tag 'qubico/google.png' %></a></span>
+    <span class="logo-small"><a href="<%= image_url 'http://www.pinterest.com/joyfoodly'%>" target="_blank"><%= image_tag 'qubico/pinterest.png' %></a></span>
+    <span class="logo-small"><a href="<%= image_url 'http://www.instagram.com/joyfoodly'%>" target="_blank"><%= image_tag 'qubico/instagram.png' %></a></span>
+    <span class="logo-small"><a href="<%= image_url 'http://www.vimeo.com/joyfoodly'%>" target="_blank"><%= image_tag 'qubico/vimeo.png' %></a></span>
+    </div>
+
+
+    <div class="row">
+
+      <div class="col-sm-4 col-sm-offset-2 text-center contact-item scrollimation fade-right">
+
+        <a class="icon" href="http://goo.gl/maps/0m7WQ" target="_blank"><i class="fa fa-map-marker fa-fw"></i></a>
+        <h2>Our Location</h2>
+        <p>San Francisco, CA</p>
+
+      </div>
+
+
+
+      <div class="col-sm-4 text-center contact-item scrollimation fade-left">
+
+        <a class="icon" href="#link"><i class="fa fa-phone fa-fw"></i></a>
+        <h2>Email Us</h2>
+        <p>hollie@joyfoodly.com</p>
+
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <!--=== Contact Form ===-->
+
+      <form id="contact-form" class="col-sm-6 col-sm-offset-3" action="contact.php" method="post" novalidate>
+
+        <div class="form-group">
+          <label class="control-label" for="contact-name">Name</label>
+          <div class="controls">
+            <input id="contact-name" name="contactName" placeholder="Your name" class="form-control requiredField label_better" type="text" data-error-empty="Please enter your name">
+            <i class="fa fa-user"></i>
+          </div>
+        </div><!-- End name input -->
+
+        <div class="form-group">
+          <label class="control-label" for="contact-mail">Email</label>
+          <div class=" controls">
+            <input id="contact-mail" name="email" placeholder="Your email" class="form-control requiredField label_better" type="email" data-error-empty="Please enter your email" data-error-invalid="Invalid email address">
+            <i class="fa fa-envelope"></i>
+          </div>
+        </div><!-- End email input -->
+
+        <div class="form-group">
+          <label class="control-label" for="contact-message">Message</label>
+          <div class="controls">
+            <textarea id="contact-message" name="comments"  placeholder="Your message" class="form-control requiredField label_better" rows="6" data-error-empty="Please enter your message"></textarea>
+            <i class="fa fa-comment"></i>
+          </div>
+        </div><!-- End textarea -->
+
+        <p><button name="submit" type="submit" class="btn btn-qubico btn-block" data-error-message="Error!" data-sending-message="Sending..." data-ok-message="Message Sent"><i class="fa fa-location-arrow"></i>Send Message</button></p>
+        <input type="hidden" name="submitted" id="submitted" value="true" />
+
+      </form><!-- End contact-form -->
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ==============================================
+SERVICES
+=============================================== -->
+<section id="services" class="white-bg padding-top-bottom">
+
+  <div class="container">
+
+    <h1 class="section-title">Our Services</h1>
+    <p class="section-description">We create awesome Websites and Mobile Apps, the perfect solution for your project.<br/> We don't make designs, we make magic!</p>
+
+    <div class="row services">
+
+      <div class="col-sm-3 item text-center scrollimation fade-right d2">
+
+        <div class="icon"><%= image_tag 'qubico/feature-1-b.png' %></div>
+        <h3>Branding</h3>
+        <p>Phasellus ac mi quam. Suspendisse eu erat venenatis, euismod tellus sollicitudin, egestas lacus.</p>
+
+      </div>
+
+      <div class="col-sm-3 item text-center scrollimation fade-right">
+
+        <div class="icon"><i class="fa fa-pencil"></i></div>
+        <h3>Design</h3>
+        <p>Phasellus ac mi quam. Suspendisse eu erat venenatis, euismod tellus sollicitudin, egestas lacus.</p>
+
+      </div>
+
+      <div class="col-sm-3 item text-center scrollimation fade-left">
+
+        <div class="icon"><i class="fa fa-code"></i></div>
+        <h3>Development</h3>
+        <p>Phasellus ac mi quam. Suspendisse eu erat venenatis, euismod tellus sollicitudin, egestas lacus.</p>
+
+      </div>
+
+      <div class="col-sm-3 item text-center scrollimation fade-left d2">
+
+        <div class="icon"><i class="fa fa-rocket"></i></div>
+        <h3>Rocket Science</h3>
+        <p>Phasellus ac mi quam. Suspendisse eu erat venenatis, euismod tellus sollicitudin, egestas lacus.</p>
+
+      </div>
+
+    </div>
+
+
+    <h1 class="subsection-title">Meet Chef Hollie</h1>
+    <p class="subsection-description">Chef Hollie is a trained chef and taught with over 2,000 children.
+      <br/>She'll share with you all the ways she gets kids excited about veggies. Because the truth is, kids love veggies.</p>
+
+    <div class="process-box scrollimation">
+
+      <ul class="process-list">
+        <li>
+          <p class="icon"><i class="fa fa-search fa-fw"></i></p>
+          <h4>Meet Hollie</h4>
+        </li>
+        <li>
+          <p class="icon"><i class="fa fa-pencil fa-fw"></i></p>
+          <h4>Proven Principles</h4>
+        </li>
+        <li>
+          <p class="icon"><i class="fa fa-code fa-fw"></i></p>
+          <h4>Recipe Tips</h4>
+        </li>
+        <li>
+          <p class="icon"><i class="fa fa-cogs fa-fw"></i></p>
+          <h4>Video Support</h4>
+        </li>
+        <li class="colored">
+          <p class="icon"><i class="fa fa-globe fa-fw"></i></p>
+          <h4>Q & A</h4>
+        </li>
+      </ul>
+
+      <div class="process-line"></div>
+
+    </div>
+
+    <p class="text-center"><a class="btn btn-qubico scrollto" href="#pricing">Check Our Prices</a></p>
+
+  </div>
+
+</section>
+
+
+
+
+
+<!-- ==============================================
+PORTFOLIO
+=============================================== -->
+<section id="portfolio" class="gray-bg padding-top-bottom">
+
+<div class="container">
+
+  <h1 class="section-title">Our Portfolio</h1>
+  <p class="section-description">We are proud of what we do. This is just an example of our greatest projects.</p>
+
+  <!--==== Portfolio Filters ====-->
+
+  <div id="filter-works">
+
     <ul>
-      <li>Access to our entire Spring classroom, with parent resources, recipes, videos and tips for cooking with kids</li>
-      <li>A guide to buying, cooking and eating 12 fruits and vegetables growing in that season</li>
-      <li>36 kid and family friendly visual recipes that have been tested gluten free</li>
-      <li>Quick videos to learn kitchen techniques to make cooking easier</li>
-      <li>A weekly game plan, from easiest to more challenging recipes for your family’s busy schedule</li>
-      <li>50% off the normal cost of a subscription, plus 20% off Summer/Fall 2014</li>
+      <li class="active">
+        <a href="#" data-filter="*">All Categories</a>
+      </li>
+      <li>
+        <a href="#" data-filter=".web-design">Web Design</a>
+      </li>
+      <li>
+        <a href="#" data-filter=".apps">Apps</a>
+      </li>
+      <li>
+        <a href="#" data-filter=".psd">PSD</a>
+      </li>
     </ul>
-    <p><strong>BONUS! You'll also have access to 6 winter fruits and vegetables, with 18 recipes, and a free canvas "living
-      veggie love" shopping bag with goodies!</strong></p>
-    <p><strong>Only <%= number_to_currency(ENV['BETA_PRICE'].to_i / 100) %> for access to the beta! </strong></p>
-    <%= form_tag user_registration_path, method: :post do %>
-        <%= hidden_field_tag :product_id, 'beta' %>
-        <script
-        src='https://checkout.stripe.com/checkout.js' class='stripe-button'
-        data-key='<%= ENV['STRIPE_PUBLIC_KEY'] %>'
-        data-image='<%= image_path('payments/stripe-store-image.png') %>'
-        data-label='Sign Up Now'
-        data-name='Joyful 12'
-        data-panel-label='Pay {{amount}}'
-        data-billing-address='true'
-        data-shipping-address='true'
-        data-description='Joyful 12 Beta (<%= number_to_currency(ENV['BETA_PRICE'].to_i / 100) %>)'
-        data-amount='<%= ENV['BETA_PRICE'] %>'>
-        </script>
-    <% end %>
+
+  </div><!--End portfolio filters -->
+
+  <div class="projects-container scrollimation">
+
+    <div class="row">
+
+      <!-- ==============================================
+      SINGLE PROJECT ITEM
+      =============================================== -->
+
+      <article class="col-md-4 col-sm-6 project-item web-design apps psd">
+
+        <!--==== Project Thumbnail & Title ====-->
+
+        <div class="project-thumb">
+          <a href="#" class="main-link">
+            <img class="img-responsive img-center" src="/assets/qubico/projects/placeholder-400x300.jpg" alt=""/>
+            <h2 class="project-title">Project Title</h2>
+            <span class="overlay-mask"></span>
+          </a>
+          <a class="enlarge" href="/assets/qubico/projects/placeholder-full-size.jpg" title="Title"><i class="fa fa-expand fa-fw"></i></a>
+          <a class="link" href="#"><i class="fa fa-eye fa-fw"></i></a>
+        </div><!-- End Thumbnail -->
+
+        <!--==== Project Preview Content ====-->
+
+        <div class="preview-content" data-images="/assets/qubico/projects/placeholder-645x430.jpg,/assets/qubico/projects/placeholder-645x430.jpg">
+
+          <p class="preview-subtitle">A project about bills</p>
+
+          <p>Lorem ipsum dolor sit amet, <a href="">consectetur</a> adipiscing elit. Donec ac odio sed enim bibendum luctus. Morbi consectetur augue nec erat congue accumsan. Pellentesque ac tempor ipsum. Fusce in nisl adipiscing, luctus ipsum in, dictum mi. </p>
+
+          <a href="#link" target="_blank" title="Visit Website"><img class="img-responsive img-center" src="/assets/qubico/projects/placeholder-600x200.jpg" alt=""/></a>
+
+          <p>Morbi et gravida tellus, quis malesuada odio. Quisque facilisis cursus mi condimentum lobortis. Maecenas eros erat, varius et felis at, pretium aliquam ante. </p>
+          <p>Pellentesque dictum vulputate ornare. In hac habitasse platea dictumst. Proin pellentesque viverra tortor sit amet feugiat. Etiam varius neque quam, a tincidunt odio congue quis. Sed nec est leo. Curabitur nec eleifend magna. Nunc blandit laoreet ornare.</p>
+
+          <p class="text-center"><a class="btn btn-qubico" href="#externallink" target="_blank">Visit Website</a></p>
+
+        </div><!-- End Project Preview -->
+
+      </article>
+      <!-- ==============================================
+      END PROJECT ITEM
+      =============================================== -->
+
+      <article class="col-md-4 col-sm-6 project-item apps">
+
+        <div class="project-thumb">
+          <a href="#" class="main-link">
+            <img class="img-responsive img-center" src="/assets/qubico/projects/placeholder-400x300.jpg" alt=""/>
+            <h2 class="project-title">Project Title</h2>
+            <span class="overlay-mask"></span>
+          </a>
+          <a class="link centered" href=""><i class="fa fa-eye fa-fw"></i></a>
+        </div>
+
+        <div class="preview-content" data-images="/assets/qubico/projects/placeholder-645x430.jpg,/assets/qubico/projects/placeholder-645x430.jpg,/assets/qubico/projects/placeholder-645x430.jpg">
+
+
+          <p>Second Title ipsum dolor sit amet, <a href="">consectetur</a> adipiscing elit. Donec ac odio sed enim bibendum luctus. Morbi consectetur augue nec erat congue accumsan. Pellentesque ac tempor ipsum. Fusce in nisl adipiscing, luctus ipsum in, dictum mi. </p>
+
+          <p>Morbi et gravida tellus, quis malesuada odio. Quisque facilisis cursus mi condimentum lobortis. Maecenas eros erat, varius et felis at, pretium aliquam ante. </p>
+          <p>Pellentesque dictum vulputate ornare. In hac habitasse platea dictumst. Proin pellentesque viverra tortor sit amet feugiat. Etiam varius neque quam, a tincidunt odio congue quis. Sed nec est leo. Curabitur nec eleifend magna. Nunc blandit laoreet ornare.</p>
+
+          <p class="text-center"><a class="btn btn-qubico" href="#externallink" target="_blank">Visit Website</a></p>
+
+        </div>
+      </article>
+
+      <article class="col-md-4 col-sm-6 project-item web-design psd">
+
+        <div class="project-thumb">
+          <a href="#" class="main-link">
+            <img class="img-responsive img-center" src="/assets/qubico/projects/placeholder-400x300.jpg" alt=""/>
+            <h2 class="project-title">Project Title</h2>
+            <span class="overlay-mask"></span>
+          </a>
+          <a class="enlarge centered" href="/assets/qubico/projects/placeholder-full-size.jpg" title="Title"><i class="fa fa-expand fa-fw"></i></a>
+        </div><!-- End Thumbnail -->
+
+      </article>
+
+      <article class="col-md-4 col-sm-6 project-item apps">
+        <div class="project-thumb">
+          <a href="#" class="main-link">
+            <img class="img-responsive img-center" src="/assets/qubico/projects/placeholder-400x300.jpg" alt=""/>
+            <h2 class="project-title">Project Title</h2>
+            <span class="overlay-mask"></span>
+          </a>
+          <a class="enlarge" href="/assets/qubico/projects/placeholder-full-size.jpg" title="Title"><i class="fa fa-expand fa-fw"></i></a>
+          <a class="link" href="#"><i class="fa fa-eye fa-fw"></i></a>
+        </div>
+        <div class="preview-content">
+
+          <p class="preview-subtitle">This is another cool project</p>
+
+          <p>Second Title ipsum dolor sit amet, <a href="">consectetur</a> adipiscing elit. Donec ac odio sed enim bibendum luctus. Morbi consectetur augue nec erat congue accumsan. Pellentesque ac tempor ipsum. Fusce in nisl adipiscing, luctus ipsum in, dictum mi. </p>
+
+          <p>Morbi et gravida tellus, quis malesuada odio. Quisque facilisis cursus mi condimentum lobortis. Maecenas eros erat, varius et felis at, pretium aliquam ante. </p>
+          <p>Pellentesque dictum vulputate ornare. In hac habitasse platea dictumst. Proin pellentesque viverra tortor sit amet feugiat. Etiam varius neque quam, a tincidunt odio congue quis. Sed nec est leo. Curabitur nec eleifend magna. Nunc blandit laoreet ornare.</p>
+
+          <p class="text-center"><a class="btn btn-qubico" href="#externallink" target="_blank">Visit Website</a></p>
+
+        </div>
+      </article>
+
+      <article class="col-md-4 col-sm-6 project-item web-design psd">
+
+        <div class="project-thumb">
+          <a href="#" class="main-link">
+            <img class="img-responsive img-center" src="/assets/qubico/projects/placeholder-400x300.jpg" alt=""/>
+            <h2 class="project-title">Project Title</h2>
+            <span class="overlay-mask"></span>
+          </a>
+          <a class="enlarge" href="/assets/qubico/projects/placeholder-full-size.jpg" title="Title"><i class="fa fa-expand fa-fw"></i></a>
+          <a class="link" href="#"><i class="fa fa-eye fa-fw"></i></a>
+        </div>
+
+        <div class="preview-content" data-images="/assets/qubico/projects/placeholder-645x430.jpg,/assets/qubico/projects/placeholder-645x430.jpg,/assets/qubico/projects/placeholder-645x430.jpg">
+
+
+          <p>Second Title ipsum dolor sit amet, <a href="">consectetur</a> adipiscing elit. Donec ac odio sed enim bibendum luctus. Morbi consectetur augue nec erat congue accumsan. Pellentesque ac tempor ipsum. Fusce in nisl adipiscing, luctus ipsum in, dictum mi. </p>
+
+          <p>Morbi et gravida tellus, quis malesuada odio. Quisque facilisis cursus mi condimentum lobortis. Maecenas eros erat, varius et felis at, pretium aliquam ante. </p>
+          <p>Pellentesque dictum vulputate ornare. In hac habitasse platea dictumst. Proin pellentesque viverra tortor sit amet feugiat. Etiam varius neque quam, a tincidunt odio congue quis. Sed nec est leo. Curabitur nec eleifend magna. Nunc blandit laoreet ornare.</p>
+
+          <p class="text-center"><a class="btn btn-qubico" href="#externallink" target="_blank">Visit Website</a></p>
+
+        </div>
+      </article>
+
+      <article class="col-md-4 col-sm-6 project-item web-design apps">
+        <div class="project-thumb">
+          <a href="#" class="main-link">
+            <img class="img-responsive img-center" src="/assets/qubico/projects/placeholder-400x300.jpg" alt=""/>
+            <h2 class="project-title">Project Title</h2>
+            <span class="overlay-mask"></span>
+          </a>
+          <a class="enlarge" href="/assets/qubico/projects/placeholder-full-size.jpg" title="Title"><i class="fa fa-expand fa-fw"></i></a>
+          <a class="link" href="#"><i class="fa fa-eye fa-fw"></i></a>
+        </div>
+        <div class="preview-content" data-images="/assets/qubico/projects/placeholder-645x430.jpg,/assets/qubico/projects/placeholder-645x430.jpg">
+
+          <p class="preview-subtitle">Listen to the music of Sonor!</p>
+
+          <p>Second Title ipsum dolor sit amet, <a href="">consectetur</a> adipiscing elit. Donec ac odio sed enim bibendum luctus. Morbi consectetur augue nec erat congue accumsan. Pellentesque ac tempor ipsum. Fusce in nisl adipiscing, luctus ipsum in, dictum mi. </p>
+
+          <p>Morbi et gravida tellus, quis malesuada odio. Quisque facilisis cursus mi condimentum lobortis. Maecenas eros erat, varius et felis at, pretium aliquam ante. </p>
+          <p>Pellentesque dictum vulputate ornare. In hac habitasse platea dictumst. Proin pellentesque viverra tortor sit amet feugiat. Etiam varius neque quam, a tincidunt odio congue quis. Sed nec est leo. Curabitur nec eleifend magna. Nunc blandit laoreet ornare.</p>
+
+          <p class="text-center"><a class="btn btn-qubico" href="#externallink" target="_blank">Visit Website</a></p>
+
+        </div>
+      </article>
+
+    </div><!-- End Row -->
+
+  </div><!-- End Projects Container -->
+
+  <p class="text-center"><a id="ajax-load" class="btn btn-qubico" href="#"><i class="fa fa-plus-circle"></i>Load More</a></p>
+
+</div><!-- End container -->
+
+<!--==== Project Preview Panel (DO NOT REMOVE)====-->
+
+<div id="preview-scroll"></div>
+
+<div id="project-preview">
+
+  <div class="container">
+
+    <div class="preview-header text-center">
+      <a class="close-preview" href="#">&times;</a>
+      <h1 class="preview-title"></h1>
+      <p class="preview-subtitle"></p>
+    </div>
+
+    <div class="imac-frame">
+
+      <img class="img-responsive img-center" src="/assets/qubico/imac.png" alt=""/>
+      <span class="loader"></span>
+      <div class="imac-screen imac-slider flexslider"></div>
+
+    </div>
+
+    <div class="row">
+      <div id="preview-content" class="col-sm-10 col-sm-offset-1"></div>
+    </div>
+
+    <div class="preview-footer text-center">
+      <a class="close-preview" href="#">&times;</a>
+    </div>
+
+
+  </div><!--End container -->
+
+</div><!--End #project-preview panel-->
+
+</section>
+
+<!-- ==============================================
+CLIENTS
+=============================================== -->
+<section id="clients" class="white-bg padding-top-bottom">
+
+  <div class="container">
+
+    <h1 class="section-title">Our Partners</h1>
+    <p class="section-description">We work with Whole Foods</p>
+
+    <div class="row clients">
+
+      <div class="col-sm-6 col-md-3">
+
+        <div class="client scrollimation fade-up">
+          <a href="#link" target="_blank"><img class="img-responsive img-center" src="/assets/qubico/placeholder-200x82.jpg" alt=""/></a>
+        </div>
+
+      </div>
+
+      <div class="col-sm-6 col-md-3">
+
+        <div class="client scrollimation fade-up d1">
+          <a href="#link" target="_blank"><img class="img-responsive img-center" src="/assets/qubico/placeholder-200x82.jpg" alt=""/></a>
+        </div>
+
+      </div>
+
+      <div class="col-sm-6 col-md-3">
+
+        <div class="client scrollimation fade-up d3">
+          <a href="#link" target="_blank"><img class="img-responsive img-center" src="/assets/qubico/placeholder-200x82.jpg" alt=""/></a>
+        </div>
+
+      </div>
+
+      <div class="col-sm-6 col-md-3">
+
+        <div class="client scrollimation fade-up d2">
+          <a href="#link" target="_blank"><img class="img-responsive img-center" src="/assets/qubico/placeholder-200x82.jpg" alt=""/></a>
+        </div>
+
+      </div>
+
+
+      <div class="col-sm-6 col-md-3">
+
+        <div class="client scrollimation fade-up d4">
+          <a href="#link" target="_blank"><img class="img-responsive img-center" src="/assets/qubico/placeholder-200x82.jpg" alt=""/></a>
+        </div>
+
+      </div>
+
+      <div class="col-sm-6 col-md-3">
+
+        <div class="client scrollimation fade-up d3">
+          <a href="#link" target="_blank"><img class="img-responsive img-center" src="/assets/qubico/placeholder-200x82.jpg" alt=""/></a>
+        </div>
+
+      </div>
+
+      <div class="col-sm-6 col-md-3">
+
+        <div class="client scrollimation fade-up d2">
+          <a href="#link" target="_blank"><img class="img-responsive img-center" src="/assets/qubico/placeholder-200x82.jpg" alt=""/></a>
+        </div>
+
+      </div>
+
+      <div class="col-sm-6 col-md-3">
+
+        <div class="client scrollimation fade-up d1">
+          <a href="#link" target="_blank"><img class="img-responsive img-center" src="/assets/qubico/placeholder-200x82.jpg" alt=""/></a>
+        </div>
+
+      </div>
+
+    </div><!-- End row -->
+
+  </div><!-- End container -->
+
+</section>
+
+
+
+<!-- ==============================================
+FOOTER
+=============================================== -->
+<footer id="main-footer" class="color-bg light-typo">
+
+  <div class="container text-center">
+    <ul class="social-links">
+      <li><a href="#link"><i class="fa fa-twitter fa-fw"></i></a></li>
+      <li><a href="#link"><i class="fa fa-facebook fa-fw"></i></a></li>
+      <li><a href="#link"><i class="fa fa-google-plus fa-fw"></i></a></li>
+      <li><a href="#link"><i class="fa fa-dribbble fa-fw"></i></a></li>
+      <li><a href="#link"><i class="fa fa-linkedin fa-fw"></i></a></li>
+    </ul>
+    <p>&copy;2014 <a href="https://wrapbootstrap.com/user/qthemes" target="_blank">Qthemes</a>. Proudly hosted by <a href="http://secure.hostgator.com/~affiliat/cgi-bin/affiliates/clickthru.cgi?id=qthemes-qubicofoot">Hostgator</a></p>
+    <em>Text and imagery in this website are for demo purposes only and have nothing to do with Qthemes.</em>
+
   </div>
-  <div class="col-md-6 col-md-offset-1">
-    <h2 class="text-center">Beta Member Bonuses</h2>
-    <h4 class="centered top-buffer bottom-padding">Bonus! Since we're so excited about our new class, the 50 Beta users will
-      receive a free canvas "living veggie love" shopping bag with goodies and access to an additional 18 winter
-      recipes! You'll also receive 20% off Summer/Fall 2014 seasons.</h4>
-    <img class="centered" src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/b1ccfa17ec1ab55686e582f9791cd315f5a45800.png?1393744432" />
-  </div>
-</div>
 
-
-
-
-
-<div class='hidden-xs row top-buffer top-padding'>
-
-  <div class="col-lg-2 col-md-6 col-xs-12 bottom-padding">
-      <img class='wiggle centered' alt="Spinach" src="http://www.joyfoodly.com/wp-content/uploads/2014/02/1veg.png"/>
-  </div>
-
-  <div class="col-lg-2 col-md-6 col-xs-12 bottom-padding">
-      <img class='wiggle centered' alt="Potato" src="http://www.joyfoodly.com/wp-content/uploads/2014/02/2veg.png"/>
-  </div>
-
-  <div class="col-lg-2 col-md-6 col-xs-12 bottom-padding">
-      <img class='wiggle centered' alt="Fennel" src="http://www.joyfoodly.com/wp-content/uploads/2014/02/3veg.png"/>
-  </div>
-
-  <div class="col-lg-2 col-md-6 col-xs-12 bottom-padding">
-      <img class='wiggle centered' alt="Avocado" src="http://www.joyfoodly.com/wp-content/uploads/2014/02/4veg.png"/>
-  </div>
-
-  <div class="col-lg-2 col-md-6 col-xs-12 bottom-padding">
-      <img class='wiggle centered' alt="Asparagus" src="http://www.joyfoodly.com/wp-content/uploads/2014/02/5veg.png"/>
-  </div>
-
-  <div class="col-lg-2 col-md-6 col-xs-12 bottom-padding">
-      <img class='wiggle centered' alt="Radish" src="http://www.joyfoodly.com/wp-content/uploads/2014/02/12veg.png"/>
-  </div>
-
-  <div class="col-lg-2 col-md-6 col-xs-12 bottom-padding">
-      <img class='wiggle centered' alt="Green Onion" src="http://www.joyfoodly.com/wp-content/uploads/2014/02/6veg.png"/>
-  </div>
-
-  <div class="col-lg-2 col-md-6 col-xs-12 bottom-padding">
-      <img class='wiggle centered' alt="Rhubarb" src="http://www.joyfoodly.com/wp-content/uploads/2014/02/7veg.png"/>
-  </div>
-
-  <div class="col-lg-2 col-md-6 col-xs-12 bottom-padding">
-      <img class='wiggle centered' alt="Peas" src="http://www.joyfoodly.com/wp-content/uploads/2014/02/8veg.png"/>
-  </div>
-
-  <div class="col-lg-2 col-md-6 col-xs-12 bottom-padding">
-      <img class='wiggle centered' alt="Artichoke" src="http://www.joyfoodly.com/wp-content/uploads/2014/02/9veg.png"/>
-  </div>
-
-  <div class="col-lg-2 col-md-6 col-xs-12 bottom-padding">
-      <img class='wiggle centered' alt="Greens" src="http://www.joyfoodly.com/wp-content/uploads/2014/02/10veg.png"/>
-  </div>
-
-  <div class="col-lg-2 col-md-6 col-xs-12 bottom-padding">
-      <img class='wiggle centered' alt="Strawberry" src="http://www.joyfoodly.com/wp-content/uploads/2014/02/11veg.png"/>
-  </div>
-
-</div>
-
-
-<div class="row top-buffer">
-  <div class="col-md-2 col-md-offset-2">
-    <img class="hidden-xs top-buffer top-padding bottom-padding" src="http://www.joyfoodly.com/wp-content/uploads/2014/01/hollie-round.png" />
-  </div>
-  <div class="col-md-6">
-    <h1>Meet Chef Hollie</h1>
-    <p>
-    After teaching 2,000 kids across the country, from the East Coast to California, I discovered that kids naturally
-    love exploring and eating fruits and vegetables. Let me help your family get more fruits and veggies into your diet
-    each season with JOY.
-    </p>
-  </div>
-</div>
-
-<div class="page-sub-header text-center top-buffer top-padding">
-  <h2 class="dotted">What's Included in the Joyful 12</h2>
-</div>
-<img class="img-responsive" src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/24216faf2a776dadc6979cee82415d830967dc18.png?1393810415" />
-
-
-<div class="page-sub-header text-center top-buffer top-padding">
-  <h2 class="dotted">We’re here for you season after season</h2>
-</div>
-
-<p>
-  All your recipe favorites, family notes, and shopping lists are stored in your family’s Joyful 12 profile so next
-  winter you won’t have to begin all over again. This is a complete curriculum that you can adjust to your own tastes
-  and schedule.
-</p>
-<img class="centered top-padding img-responsive" src="http://www.joyfoodly.com/wp-content/uploads/2014/01/spinach-threeways.png" />
-
-<div class="page-sub-header text-center top-buffer top-padding">
-  <h2 class="dotted">Why our course is right for you</h2>
-</div>
-
-<div class="col-md-10 col-md-offset-1 bg-grey general-padding text-center">
-  <h4 class="bottom-buffer">I know you are time pressed, so I make deciding what’s for dinner easier.</h4>
-  <h4 class="bottom-buffer">I test all of my recipes with your child in mind. Believe me, they’ll like it!</h4>
-  <h4 class="bottom-buffer">I don’t judge! I will help your family eat more veggies along with their favorite foods.</h4>
-  <h4 class="bottom-buffer">I’ll share with you all my kitchen tricks to help make cooking fun again!</h4>
-</div>
-
-
-<div class="row top-buffer">
-  <div class="col-md-12 top-padding">
-    <h1>What Parents Are Saying...</h1>
-  </div>
-</div>
-<div class="row top-buffer">
-  <div class="col-md-12">
-    <blockquote>
-      <p><em>"We made the dreamy greenie quesadillas tonight. They were fabulous! Even my son loved them and I thought the
-        greens would be a hard sell. They were really filling so I have leftovers for lunch. And I love that avocado
-        sauce…I could eat that everyday. We’re having fun trying the Joyful 12 recipes. The kids are always willing to
-        try something new if I tell them it’s your recipe."</em></p>
-      <small class="pull-right">
-        <img class="right-padding-small" src="http://www.joyfoodly.com/wp-content/uploads/2014/02/augusta-testimonial.png" />
-        Augusta, <cite title="Source Title">South Carolina, Mom of 2</cite>
-      </small>
-    </blockquote>
-  </div>
-</div>
-
-
-<div class="page-sub-header text-center top-buffer top-padding">
-  <h1 class="dotted">Are you excited to join us?</h1>
-</div>
-<div class='col-md-10 col-md-offset-1 bg-grey right-padding left-padding bottom-padding'>
-  <h2 class="text-center">Beta Member Discount | <%= number_to_currency(ENV['BETA_PRICE'].to_i / 100) %></h2>
-
-<div class="col-md-7 col-md-offset-1 bg-grey left-padding bottom-padding">
-  <p><strong>Full access to our Spring Joyful 12 course, with recipes, tutorials, videos, tips, and resources!</strong></p>
-  <p><strong>BONUS! You'll also have access to 6 winter fruits and vegetables, with 18 recipes, and a free canvas "living
-    veggie love" shopping bag with goodies! Beta members will receive 20% off Fall/Winter 2014 classes.</strong></p>
-  <p><strong>Only <%= number_to_currency(ENV['BETA_PRICE'].to_i / 100) %> for access to the beta! </strong></p>
-  <%= form_tag user_registration_path, method: :post do %>
-      <%= hidden_field_tag :product_id, 'beta' %>
-      <script
-      src='https://checkout.stripe.com/checkout.js' class='stripe-button'
-      data-key='<%= ENV['STRIPE_PUBLIC_KEY'] %>'
-      data-image='<%= image_path('payments/stripe-store-image.png') %>'
-      data-label='Sign Up Now'
-      data-name='Joyful 12'
-      data-panel-label='Pay {{amount}}'
-      data-billing-address='true'
-      data-shipping-address='true'
-      data-description='Joyful 12 Beta (<%= number_to_currency(ENV['BETA_PRICE'].to_i / 100) %>)'
-      data-amount='<%= ENV['BETA_PRICE'] %>'>
-      </script>
-  <% end %>
-</div>
-<div class="col-md-3 bg-grey bottom-padding">
-  <img src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/94e2314e710a34bce79edb1c29aafb6772fbcfe8.png?1393752100" />
-</div>
-</div>
-<div class='spacer'></div>
-
-<div class='row'>
-  <div class='col-md-12 top-buffer'>
-    <h1>About JoyFoodly</h1>
-    <p>
-        The Joyful 12 was created and developed by the same JoyFoodly™ team that produces highly acclaimed visual
-        recipes and technique timeouts. <a href="http://joyfoodly.com">Visit the JoyFoodly website to learn more.</a>
-    </p>
-  </div>
-</div>
-
-<div class='row'>
-  <div class='col-md-12'>
-    <h1>About Chef Hollie</h1>
-    <p>
-      Chef Hollie is a vegetable enthusiast and food educator with a mission to transform kids’ relationship with food.
-      Hollie founded JoyFoodly™, a San Francisco mission based company, to create a new food culture where kids and
-      families celebrate the JOY of good food together. Hollie is passionate about helping parents feel good about the
-      food they feed their kids.
-    </p>
-    <p>
-      Chef Hollie has taught over 2,000 children in New York and California through her work with non-profit programs
-      partnering with Rachael Ray’s Yum-O!, Mayor Bloomberg, and Mary J. Blige. She is a Professional Expert for the
-      State of California’s Healthy CA Kids Initiative and has worked as an Education Director for The Sylvia Center and
-      Chef in Residence in NYC Schools through Wellness in the Schools to improve School Food. Prior to attending the
-      French Culinary Institute in New York City,Hollie spent ten years creating global leadership development programs.
-      This experience infuses her fun and positive approach to helping families gain confidence in the kitchen.
-    </p>
-  </div>
-</div>
+</footer>
