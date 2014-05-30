@@ -1,5 +1,4 @@
 class RegistrationsController < Devise::RegistrationsController
-  layout 'qubico'
   
   def create
     @user = UserRegistration.from_stripe_params(stripe_params)
