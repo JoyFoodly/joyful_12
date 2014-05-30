@@ -1,0 +1,44 @@
+.navbar-brand {
+    height: 56px;
+}
+
+.news-content .news-media {
+    position: static;
+    width: 45%;
+     bottom: auto;
+     right: auto;
+     border-radius: 0px;
+}
+
+.news-content .news-media.gallery {
+     box-shadow: none;
+}
+
+.features .icon {
+    width: 88px;
+    height: 88px;
+}
+
+.cta {
+    padding: 20px 0 0px;
+}
+
+.social-media-icon {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 10px;
+    margin-left: 10px;
+    opacity: 1;
+    transition: all .2s ease-in;
+}
+
+.social-media {
+    margin-bottom: 35px;
+}
+
+.contact-description {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 35px;
+}

@@ -10,14 +10,5 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery_ujs
 //= require bootstrap
-//= require ajax_sub_resource_form
-//= require auto-size-iframe
-//= require carousel_modal_gallery
-//= require dropdown_form
-//= require modal_auto_open
-//= require nav_hover
-//= require shopping_list
-//= require tab_deep_link
-//= require tooltips
+//= require_tree ./qubico

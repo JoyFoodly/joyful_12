@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>The Joyful 12! from JoyFoodly</title>
+  <%= favicon_link_tag 'favicon.ico' %>
+  <%= stylesheet_link_tag 'qubico', media: 'all' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<!--[if lt IE 8]>
+<div class="alert alert-danger">
+    <p class="browsehappy text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+</div>
+<![endif]-->
+
+
+  <% flash.each do |name, msg| %>
+      <% if msg.present? %>
+          <div class='alert alert-<%= name == :notice ? 'success' : 'danger' %>'>
+            <a class='close' data-dismiss='alert'>×</a>
+            <%= msg.html_safe %>
+          </div>
+      <% end %>
+  <% end %>
+
+  <section class='main-content'>
+    <%= yield %>
+  </section>
+
+
+<%= render 'layouts/jquery_with_cdn_fallback' %>
+<%= render 'layouts/tracking' %>
+<%= javascript_include_tag 'qubico' %>
+
+</body>
+</html>
