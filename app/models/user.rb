@@ -51,7 +51,9 @@ private
   end
 
   def beta_user_limit
-    errors.add(:base, I18n.t('beta.user_limit_hit')) if User.where.not(payment_gateway_customer_id: '').count >= 42
+    if payment_gateway_customer_id.present? && User.where.not(payment_gateway_customer_id: '').count >= 42
+      errors.add(:base, I18n.t('beta.user_limit_hit'))
+    end
   end
 
   def add_to_mailing_list
