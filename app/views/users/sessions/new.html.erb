@@ -1,53 +1,6 @@
 <% content_for :hide_nav, true %>
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
 
-        <h4 class="modal-title" id="myModalLabel">
-          You need to be a member to view this - we'd love for you to join us!
-        </h4>
-
-      </div>
-      <div class="modal-body">
-        <img src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/fd67665cc879e2040abc128decfb781acb0b67ed.png?1393748413" />
-        <img src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/ef61e49e3664a76e158d6629992366b1047e9145.png?1393748422" />
-        <div class="top-buffer"></div>
-        <%= link_to 'learn more and join now!', new_user_registration_path, class: 'btn btn-primary centered' %>
-        <h2>Existing Users Sign In</h2>
-        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { role: "form" }) do |f| %>
-
-            <div class="form-group">
-              <%= f.label :email %>
-              <%= f.email_field :email, class: 'form-control', autofocus: true, placeholder: 'Enter email' %>
-            </div>
-
-            <div class="form-group">
-              <%= f.label :password %>
-              <%= f.password_field :password, class: 'form-control' %>
-            </div>
-
-            <% if devise_mapping.rememberable? -%>
-                <div class="form-group">
-                  <div class="checkbox">
-                    <%= f.check_box :remember_me %>
-                    <%= f.label :remember_me %>
-                  </div>
-                </div>
-            <% end -%>
-
-            <%= f.submit "Sign in", class: 'btn btn-primary' %>
-            <%= render "users/shared/links" %>
-
-
-        <% end %>
-
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- Modal -->
 <div class="modal fade modal-auto-open" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -86,10 +39,12 @@
             </div>
 
             <% if devise_mapping.rememberable? -%>
+              <div class="form-group">
                 <div class="checkbox">
                   <%= f.check_box :remember_me %>
                   <%= f.label :remember_me %>
                 </div>
+              </div>
             <% end -%>
 
             <%= f.submit "Sign in", class: 'btn btn-primary' %>
@@ -98,7 +53,7 @@
 
         <% end %>
         <div class="top-buffer"></div>
-        <%= link_to 'Not a member yet? learn more and join now!', new_user_registration_path, class: 'btn btn-primary centered' %>
+        <%= link_to 'Not a member yet? Learn more and join now!', new_user_registration_path, class: 'btn btn-primary centered' %>
 
       </div>
     </div>
