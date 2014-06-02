@@ -56,14 +56,22 @@
         <p class="top-buffer text-center">(We promise it's super fun)</p>
         <div class="top-buffer"></div>
 
+
+
         <%= form_for @user do |f| %>
             <%= f.submit "Let's get started", class: 'btn btn-primary centered' %>
             <%= f.hidden_field :email %>
-            <div class="checkbox">
-              <%= f.check_box :onboarded %>
-              <%= f.label :onboarded, "yes, I've read and accept the" %>
-              <a href="/pages/ToS">Terms of Service</a>
+            <% if params[:onboarded] == 'false' %>
+                <p class="text-danger text-center">You must accept the terms to continue.</p>
+            <% end %>
+            <div class="form-group">
+              <div class="checkbox">
+                <%= f.check_box :onboarded %>
+                <%= f.label :onboarded, "yes, I've read and accept the" %>
+                <a href="/pages/ToS">Terms of Service</a>
+              </div>
             </div>
+
             <%= f.hidden_field :hide_notice, value: true %>
         <% end %>
 
