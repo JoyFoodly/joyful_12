@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140313183635) do
+ActiveRecord::Schema.define(version: 20140607191505) do
 
   create_table "addresses", force: true do |t|
     t.string   "line_1",     default: "", null: false
@@ -331,7 +331,8 @@ ActiveRecord::Schema.define(version: 20140313183635) do
     t.string   "provider_id", default: "", null: false
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.integer  "sort_order",  default: 0,  null: false
+    t.integer  "sort_order"
+    t.string   "category"
   end
 
   create_table "wait_lists", force: true do |t|

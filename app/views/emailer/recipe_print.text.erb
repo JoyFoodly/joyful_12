@@ -1,0 +1,53 @@
+<!-- Recipe tab panes -->
+<div class="tab-content panel panel-default panel-no-top">
+  <% @food.recipes.reject{ |recipe| @child_recipes.include?(recipe) }.sort_by(&:sort_order).each_with_index do |recipe, i| %>
+      <div class="tab-pane <%= 'active' if i == 0 %>" id="<%= recipe.difficulty %>-<%= recipe.id %>">
+        <div class='panel-body'>
+          <div class='row'>
+            <div class='col-md-12'>
+              <h4 class="media-heading"><%= recipe.title %></h4>
+              <h5><%= recipe.subtitle %></h5>
+              <p>Serving size: <%= recipe.serving_size %></p>
+              <p>Prep time: <%= recipe.prep_time %></p>
+              <p>Cooking time: <%= recipe.cook_time %></p>
+              <p>
+                <% recipe.dietary_categories.each do |dietary_category| %>
+                    <%= image_tag dietary_category.icon.url, alt: dietary_category.name, title: dietary_category.name,
+                                  class: 'right-padding-small bottom-padding-small' %>
+                <% end %>
+              </p>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-md-12'>
+              <h3>Ingredients</h3>
+              <ul>
+                <% recipe.ingredient_list_items.sort_by(&:sort_order).each do |ingredient_list_item| %>
+                    <li><%= ingredient_list_item.ingredient.name %>, <%= ingredient_list_item.quantity %></li>
+                <% end %>
+              </ul>
+              <% if recipe.child_recipes.present? %>
+                  <% recipe.child_recipes.each do |child_recipe| %>
+                      <h5><%= child_recipe.title %></h5>
+                      <ul>
+                        <% child_recipe.ingredient_list_items.sort_by(&:sort_order).each do |child_ingredient_list_item| %>
+                            <li><%= child_ingredient_list_item.ingredient.name %>, <%= child_ingredient_list_item.quantity %></li>
+                        <% end %>
+                      </ul>
+                  <% end %>
+              <% end %>
+              <h3>Directions</h3>
+              <%= markdown recipe.instructions %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <hr/>
+              <h3 class="text-center">Get your kids to love <%= recipe.title %></h3>
+              <%= recipe.tips.try(:html_safe) %>
+            </div>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>

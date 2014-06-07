@@ -5,6 +5,9 @@ Joyfoodly::Application.routes.draw do
 
   resources :recipe_redirects, only: :show
   resources :foods, only: [:index, :show], path: 'classroom' do
+    resources :recipes, only: [] do
+      get 'print_view'
+    end
     get ':recipe_slug' => 'comment_thread_sources#show'
     get ':recipe_slug/comments' => 'comments#index'
   end
@@ -15,6 +18,7 @@ Joyfoodly::Application.routes.draw do
   resources :shopping_list_emails, only: :create
   resources :seasons, only: :update
   resource :parent_resources, only: :show
+  resource :videos, only: :show
   resource :class_schedule
   resources :pages, only: :show
   resources :wait_lists, only: [:new, :create, :show]
