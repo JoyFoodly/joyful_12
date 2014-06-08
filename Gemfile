@@ -30,7 +30,6 @@ gem 'newrelic_rpm', '~> 3.8.0'
 
 # Admin Interface
 gem 'rails_admin', '~> 0.6.0'
-gem 'paper_trail', '~> 3.0.0.rc2'
 
 # User authentication
 gem 'devise', '~> 3.2.2'

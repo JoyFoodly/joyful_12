@@ -12,7 +12,7 @@ RailsAdmin.config do |config|
   # config.authorize_with :cancan
 
   ## == PaperTrail ==
-  config.audit_with :paper_trail, 'Admin', 'PaperTrail::Version'
+  # config.audit_with :paper_trail, 'Admin', 'PaperTrail::Version'
 
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration

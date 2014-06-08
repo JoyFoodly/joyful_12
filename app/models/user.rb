@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  has_paper_trail
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
   has_many :shipping_addresses, dependent: :destroy
   has_many :billing_addresses,  dependent: :destroy

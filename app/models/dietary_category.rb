@@ -1,5 +1,4 @@
 class DietaryCategory < ActiveRecord::Base
-  has_paper_trail
   has_attached_file :icon
 
   has_and_belongs_to_many :recipes
