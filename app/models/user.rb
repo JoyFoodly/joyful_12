@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :shopping_lists,     dependent: :destroy
   has_many :payments,           dependent: :destroy
   belongs_to :season
+  has_and_belongs_to_many :seasons
 
   before_validation :set_default_username, on: :create
 

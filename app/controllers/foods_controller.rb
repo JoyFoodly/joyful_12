@@ -41,7 +41,7 @@ private
   end
 
   def authorize_user
-    if (@season.name.in?(%w[Summer Fall]) && !current_user.email.in?(%w[michelle@joyfoodly.com hollie@joyfoodly.com test@example.com chefhollie@gmail.com michelle.ann.harvey@gmail.com chefannierose@gmail.com])) || @foods.empty?
+    if !current_user.seasons.include?(@season) || @foods.empty?
       redirect_to page_path('no-access') and return
     end
   end

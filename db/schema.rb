@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140608224122) do
+ActiveRecord::Schema.define(version: 20140608230536) do
 
   create_table "addresses", force: true do |t|
     t.string   "line_1",     default: "", null: false
@@ -247,6 +247,13 @@ ActiveRecord::Schema.define(version: 20140608224122) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
+
+  create_table "seasons_users", id: false, force: true do |t|
+    t.integer "user_id",   null: false
+    t.integer "season_id", null: false
+  end
+
+  add_index "seasons_users", ["user_id", "season_id"], name: "index_seasons_users_on_user_id_and_season_id"
 
   create_table "shopping_lists", force: true do |t|
     t.string   "name"
