@@ -35,7 +35,7 @@ gem 'rails_admin', '~> 0.6.0'
 gem 'devise', '~> 3.2.2'
 
 # Accept Payments
-gem 'stripe', '~> 1.11.0'
+gem 'stripe', '~> 1.13.0'
 
 # Markdown parsing
 gem 'redcarpet', '~> 3.1.1'
@@ -47,7 +47,7 @@ gem 'paperclip', '~> 4.1.0'
 gem 'simple_form', '~> 3.0.1'
 
 # Image storage
-gem 'aws-sdk', '~> 1.40.0'
+gem 'aws-sdk', '~> 1.42.0'
 
 # Remote Form Support
 gem 'jquery-rails', '~> 3.1.0'
@@ -63,7 +63,7 @@ group :test do
   gem 'factory_girl_rails', '~> 4.4.1'
 
   # Request spec DSL
-  gem 'capybara', '~> 2.2.0'
+  gem 'capybara', '~> 2.3.0'
 
   # Disallow external requests in test env
   gem 'webmock', '~> 1.18.0'
@@ -77,7 +77,7 @@ group :development, :test do
   gem 'sqlite3'
 
   # Live reload page
-  gem 'guard-livereload', '~> 2.1.0'
+  gem 'guard-livereload', '~> 2.2.0'
 
   # Error REPL
   gem 'better_errors', '~> 1.1.0'
