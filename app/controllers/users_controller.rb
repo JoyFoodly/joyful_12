@@ -4,6 +4,12 @@ class UsersController < ApplicationController
   def edit
     @user = current_user
     @user.family_members.build if @user.family_members.blank?
+
+    current_list = @user.shopping_lists.current_list
+    num_current_list_recipes = current_list.empty? ? 0 : current_list[0].recipes.length
+
+    # Information to use on the user/edit view
+    @shopping_list_info={current_list: current_list, current_list_length: num_current_list_recipes}
   end
 
   def change_password

@@ -32,6 +32,7 @@ private
       session[:season_name] = @season.name
     else
       session[:season_name] ||= current_user.try(:season).try(:name) || Season.current_season_name
+
       @season = Season.current_season(session[:season_name])
     end
   end

@@ -12,6 +12,8 @@ user_attributes = { first_name: 'Tester', last_name: 'Person', password: 'passwo
 user = User.create_with(user_attributes).find_or_create_by!(email: 'test@example.com')
 user.confirm!
 
+test_user = user
+
 easy_recipe_attributes = {
     title: 'Roasted Cauliflower',
     subtitle: 'Cauliflower recipe 1 - easy',
@@ -49,6 +51,9 @@ spring_foods.each do |name, slug|
   food = Food.find_or_create_by(name: name, slug: slug, season: spring_season)
   food.recipes.find_or_create_by(easy_recipe_attributes.merge(title: "#{spring_season.name} Roasted #{food.name}" ))
 end
+
+# Test user is a Spring user
+test_user.seasons << spring_season
 
 winter_foods = [["Sweet Potato", "winter-sweet-potato"],
                 ["Brussels Sprout", "winter-brussels-sprout"],
