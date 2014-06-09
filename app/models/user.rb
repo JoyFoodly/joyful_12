@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  has_paper_trail
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
   has_many :shipping_addresses, dependent: :destroy
   has_many :billing_addresses,  dependent: :destroy
@@ -8,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :shopping_lists,     dependent: :destroy
   has_many :payments,           dependent: :destroy
   belongs_to :season
+  has_and_belongs_to_many :seasons
 
   before_validation :set_default_username, on: :create
 
@@ -59,11 +59,11 @@ private
   def add_to_mailing_list
     Gibbon::API.lists.subscribe({
       id: ENV['MAILING_LIST_ID'],
-      email: { email: user.email },
+      email: { email: email },
       merge_vars: {
-        FNAME: user.first_name,
-        LNAME: user.last_name,
-        SIGNED_UP: user.created_at,
+        FNAME: first_name,
+        LNAME: last_name,
+        SIGNED_UP: created_at,
       },
       double_optin: false,
       update_existing: true,

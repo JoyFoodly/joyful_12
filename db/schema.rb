@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140313183635) do
+ActiveRecord::Schema.define(version: 20140608230536) do
 
   create_table "addresses", force: true do |t|
     t.string   "line_1",     default: "", null: false
@@ -248,6 +248,13 @@ ActiveRecord::Schema.define(version: 20140313183635) do
     t.datetime "updated_at",              null: false
   end
 
+  create_table "seasons_users", id: false, force: true do |t|
+    t.integer "user_id",   null: false
+    t.integer "season_id", null: false
+  end
+
+  add_index "seasons_users", ["user_id", "season_id"], name: "index_seasons_users_on_user_id_and_season_id"
+
   create_table "shopping_lists", force: true do |t|
     t.string   "name"
     t.datetime "completed_at"
@@ -312,18 +319,6 @@ ActiveRecord::Schema.define(version: 20140313183635) do
   add_index "users", ["season_id"], name: "index_users_on_season_id"
   add_index "users", ["username"], name: "index_users_on_username", unique: true
 
-  create_table "versions", force: true do |t|
-    t.string   "item_type",      default: "", null: false
-    t.integer  "item_id",        default: 0,  null: false
-    t.string   "event",          default: "", null: false
-    t.string   "whodunnit"
-    t.text     "object"
-    t.text     "object_changes"
-    t.datetime "created_at",                  null: false
-  end
-
-  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
-
   create_table "video_links", force: true do |t|
     t.string   "name",        default: "", null: false
     t.integer  "height",      default: 0,  null: false
@@ -331,7 +326,8 @@ ActiveRecord::Schema.define(version: 20140313183635) do
     t.string   "provider_id", default: "", null: false
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.integer  "sort_order",  default: 0,  null: false
+    t.integer  "sort_order"
+    t.string   "category"
   end
 
   create_table "wait_lists", force: true do |t|

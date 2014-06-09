@@ -33,9 +33,10 @@ describe RegistrationsController do
 
     context 'for subscriptions' do
       it "Redirects to user profile if successful" do
+        create(:season, name: Season.current_season_name)
         Subscription.any_instance.should_receive(:stripe_customer_created)
         post :create, stripe_subscription_params
-        expect(response).to redirect_to(root_url)
+        expect(response).to redirect_to(confirmation_sent_path)
       end
 
       it "Redirects the user back if there are user creation errors" do
@@ -72,11 +73,12 @@ describe RegistrationsController do
 
     context 'for payments' do
       it "Redirects to user profile if successful" do
+        create(:season, name: Season.current_season_name)
         Payment.any_instance.should_receive(:create_stripe_customer)
         Payment.any_instance.should_receive(:create_stripe_charge)
         Payment.any_instance.stub(customer_id: 'cus_3M3xSDLKJF&', charge_id: 'ch_103M3x2oorRFV7')
         post :create, stripe_payment_params
-        expect(response).to redirect_to(root_url)
+        expect(response).to redirect_to(confirmation_sent_path)
       end
 
       it "Redirects the user back if there are user creation errors" do

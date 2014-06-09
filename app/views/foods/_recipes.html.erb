@@ -43,6 +43,7 @@
                                                           recipe_ids: [recipe.id] }}, remote: true,
                                                           data: { disable_with: 'Adding...'}, class: 'btn btn-primary' %>
                 </p>
+                <%= link_to 'Print me!', food_recipe_print_view_path(@food, recipe), class: "btn btn-info"  %>
               <% end %>
             </p>
             <p class=""><%= link_to 'view class schedule >', class_schedule_path %></p>
