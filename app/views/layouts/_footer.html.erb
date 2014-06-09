@@ -8,7 +8,9 @@
       <li><%= link_to 'PARENT RESOURCES', parent_resources_path %></li>
       <li><%= link_to 'VIDEO LIBRARY', videos_path %></li>
       <li><%= link_to 'COMMUNITY FORUM', ENV['COMMUNITY_URL'] %></li>
+      <% if user_signed_in? %>
       <li><%= link_to 'MY PROFILE', "#{ENV['COMMUNITY_URL']}/users/#{current_user.username}" %></li>
+      <% end %>
       <li><%= link_to 'SHOPPING LIST', edit_shopping_list_path('current') %></li>
       <li><%= link_to 'ORIENTATION', page_path('orientation') %></li>
       <li><%= link_to 'FAQs', page_path('faqs') %></li>
