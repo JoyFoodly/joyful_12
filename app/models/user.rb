@@ -59,11 +59,11 @@ private
   def add_to_mailing_list
     Gibbon::API.lists.subscribe({
       id: ENV['MAILING_LIST_ID'],
-      email: { email: user.email },
+      email: { email: email },
       merge_vars: {
-        FNAME: user.first_name,
-        LNAME: user.last_name,
-        SIGNED_UP: user.created_at,
+        FNAME: first_name,
+        LNAME: last_name,
+        SIGNED_UP: created_at,
       },
       double_optin: false,
       update_existing: true,
