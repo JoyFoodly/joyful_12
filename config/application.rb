@@ -10,6 +10,7 @@ require "sprockets/railtie"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
+Paperclip.options[:command_path] = "/usr/local/bin/identify"
 
 module Joyfoodly
   class Application < Rails::Application
@@ -26,5 +27,6 @@ module Joyfoodly
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.assets.precompile += %w[jquery-2.1.0.js qubico.css qubico.js]
+
   end
 end
