@@ -8,7 +8,7 @@
                     class: 'dropdown-toggle general-padding-small pull-left',
                     data: { toggle: 'dropdown' } if user_signed_in? %>
         <ul class="dropdown-menu">
-          <li><%= link_to 'Community Profile', "#{ENV['COMMUNITY_URL']}/login" %></li>
+          <li><%= link_to 'Community Profile', "#{ENV['COMMUNITY_URL']}/users/#{current_user.username}" %></li>
           <% if user_signed_in? %>
           <!--<li><%= link_to 'Messages', "#{ENV['COMMUNITY_URL']}/users/#{current_user.username}/private-messages" %></li>-->
           <!--<li><%= link_to 'Preferences', "#{ENV['COMMUNITY_URL']}/users/#{current_user.username}/preferences" %></li>-->

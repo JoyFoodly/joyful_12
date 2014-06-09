@@ -326,7 +326,7 @@ ActiveRecord::Schema.define(version: 20140608230536) do
     t.string   "provider_id", default: "", null: false
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.integer  "sort_order",  default: 0,  null: false
+    t.integer  "sort_order"
     t.string   "category"
   end
 

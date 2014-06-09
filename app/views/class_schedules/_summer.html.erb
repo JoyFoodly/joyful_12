@@ -1,34 +1,98 @@
-<img src="http://joyful12.s3.amazonaws.com/pages/media/original/df89d010118df2cd0c881b0a84ec83ff66935e70.png?1393189180"/>
+<p><a href="http://d3uroln2zt6ogz.cloudfront.net/pages/pdfs/original/e94640542a58568e5f8061c9a843037b48c07f4c.pdf" class="btn btn-primary" role="button">printable version of the schedule</a></p>
 
-<h3 class="text-center">Aw Shucks! Summer and Fall aren't available yet.</h3>
-<h4 class="text-center">(but you'll be the first to know when they are!)</h4>
-<img class="centered top-padding" alt="spinach-threeways" src="http://www.joyfoodly.com/wp-content/uploads/2014/01/spinach-threeways.png" />
-
-<div class="spacer"></div>
-<div class="page-sub-header text-center">
-  <h2 class="dotted">Summer/Fall 2014 Seasons</h2>
-</div>
-<div class="row col-md-8 col-md-offset-2 bg-grey general-padding">
-  <h3 class="text-center no-buffer">Coming later this year</h3>
-  <p>As a Beta member, you'll be the first to know when we launch more seasons. You'll also receive 20% off the cost,
-    just because we like you so much!</p>
-  <div class="col-md-8 col-md-offset-2">
-
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">The Joyful 12 Summer Recommended Schedule</div>
+  <div class="panel-body">
+    <p>Sometimes it takes a few tries to start liking a new vegetable. Our schedule has you trying each new fruit and veggie three different ways. Don't worry if you miss a week! This schedule is just a guide, and you know what's right for your family.</p>
+    <p><%= link_to 'Learn more about how to use the Joyful 12! Watch orientation video  >', page_path('orientation') %></p>
   </div>
+  <!-- Table -->
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>Monday (easy)</th>
+      <th>Wednesday (medium)</th>
+      <th>Sunday (complex)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><%= link_to image_tag('nav-food-images/summer-squash.png', width: 80, class: 'wiggle'), food_path('summer-squash') %></td>
+      <th>June 30 - July 6: Summer Squash and Berries</th>
+      <td>Steamed Squash “Baked Potato”</td>
+      <td>Stuffed Squash Tacos</td>
+      <td>Greek Summer Zucchini Fritters <br />Dessert: Blueberry Peach Crumble</td>
+    </tr>
+    <tr>
+      <td><%= link_to image_tag('nav-food-images/summer-green-bean.png', width: 80, class: 'wiggle'), food_path('summer-green-beans') %></td>
+      <th>July 7 - July 13: Green Beans and Stone Fruit</th>
+      <td>Japanese Roasted Green Beans </td>
+      <td>Crunchy Green Beans Sauteed in Thyme Honey Butter</td>
+      <td>Nutty Noodles with Crispy Green Beans
+        <br />Dessert: Cherry Lemon Yogurt Cake with Fresh Cherries</td>
+    </tr>
+    <tr>
+      <td><%= link_to image_tag('nav-food-images/summer-okra.png', width: 80, class: 'wiggle'), food_path('summer-okra') %></td>
+      <th>July 14 - July 20: Okra and Berries</th>
+      <td>Cornmeal Crusted Sauteed Okra</td>
+      <td>Roasted Okra with a Sweet n Tangy Red Pepper Relish</td>
+      <td>Southern Style Okra Corn Muffins
+        <br />Dessert: Blackberry Clafoutis
+      </td>
+    </tr>
+    <tr>
+      <td><%= link_to image_tag('nav-food-images/summer-tomato.png', width: 80, class: 'wiggle'), food_path('summer-tomato') %></td>
+      <th>July 21 - July 27: Tomatoes and Stone Fruit</th>
+      <td>Sun Kissed Salsa with Homemade Tortilla Chips</td>
+      <td>Kaleidoscope Tomato Pasta Salad</td>
+      <td>Heirloom Tomato and Sweet Onion Quiche <br />Dessert: Maple Grilled Peaches with Toasted Coconut</td>
+    </tr>
+    <tr>
+      <td><%= link_to image_tag('nav-food-images/summer-corn.png', width: 80, class: 'wiggle'), food_path('summer-corn') %></td>
+      <th>July 28 - August 3: Corn and Melons</th>
+      <td>Quick Corn Saute in Basil Butter</td>
+      <td>Corn and Tomato Quinoa Salad in a Lime Basil Vinaigrette</td>
+      <td>Around the World Corn on the Cob
+        <br />Dessert: Watermelon Strawberry Ice Cream Floats</td>
+    </tr>
+    <tr>
+      <td><%= link_to image_tag('nav-food-images/summer-bell-pepper.png', width: 80, class: 'wiggle'), food_path('summer-pepper') %></td>
+      <th>August 4 - August 10: Bell Pepper and Melon </th>
+      <td>Pimento Cheese Dip with Bell Pepper Dippers</td>
+      <td>Veggie Lasagna Stuffed Bell Peppers</td>
+      <td>Rainbow of Peppers Onigiri
+        <br />Dessert: Green Dream Honeydew Fruit Salad</td>
+    </tr>
+    <tr>
+      <td><%= link_to image_tag('nav-food-images/summer-eggplant.png', width: 80, class: 'wiggle'), food_path('summer-eggplant') %></td>
+      <th>August 11 - August 17: Eggplant and Stone Fruit</th>
+      <td>Sweet n Spicy Eggplant Tomato Penne</td>
+      <td>Sunshine Eggplant Pizza</td>
+      <td>Better than Takeout Eggplant Fried Rice
+        <br />Dessert: Nectarine Mango Lassi</td>
+    </tr>
+    <tr>
+      <td><%= link_to image_tag('nav-food-images/summer-tomatillo.png', width: 80, class: 'wiggle'), food_path('summer-tomatillo') %></td>
+      <th>August 18 - August 24: Tomatillos and Berries</th>
+      <td>Bright and Shiny Tomatillo Guacamole</td>
+      <td>Terrific Tomatillo and Corn Potato Salad</td>
+      <td>Tomatillo White Bean Chili <br />Dessert: Raspberry Cream Popsicles</td>
+    </tr>
+    <tr>
+      <td><%= link_to image_tag('nav-food-images/summer-greens.png', width: 80, class: 'wiggle'), food_path('summer-greens') %></td>
+      <th>August 25 - August 31: Summer Greens and Melon</th>
+      <td>Summer Salad with Carrot Curls and Sweet Avocado Ranch Dressing</td>
+      <td>Collard Green Pesto Veggie Pizza</td>
+      <td>Rainbow Chard Vietnamese Summer Rolls
+        <br />Dessert: Vanilla Honey Cantaloupe Panna Cotta</td>
+    </tr>
+    </tbody>
+  </table>
 </div>
 
 
-<div class="page-sub-header text-center">
-  <h2 class="dotted">Quick Links</h2>
-</div>
-<div class="row">
-  <div class="col-md-4">
-    <a href="/classroom" class="btn btn-primary btn-lg btn-block">Go Back to the classroom</a>
-  </div>
-  <div class="col-md-4">
-    <a href="/parent_resources" class="btn btn-default btn-lg btn-block">View Parent Resources</a>
-  </div>
-  <div class="col-md-4">
-    <a href="/pages/orientation" class="btn btn-warning btn-lg btn-block">Go Back to Orientation</a>
-  </div>
-</div>
+
+

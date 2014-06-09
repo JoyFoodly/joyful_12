@@ -81,26 +81,285 @@
 </div>
 
 <div class="page-sub-header text-center">
-  <h2 id="videos" class="dotted">Video Resources</h2>
+  <h2 id="sauces" class="dotted">Dips & Sauces Corner</h2>
 </div>
 
-<div class="row bg-grey top-padding">
-  <div class="col-sm-12">
-    <% @video_links.each do |video_link| %>
-      <div class="col-md-4 col-sm-6">
-        <div class="thumbnail thumbnail-group">
-          <div class="video-embed">
-            <%= content_tag(:iframe, '', frameborder: 0, webkitallowfullscreen: true, mozallowfullscreen: true,
-                            allowfullscreen: true, src: "///player.vimeo.com/video/#{video_link.provider_id}?title=0&amp;byline=0&amp;portrait=0") %>
-          </div>
-          <div class="caption-video">
-            <h4 class="no-buffer"><%= video_link.name %></h4>
-          </div>
-        </div>
+<div class="panel-group" id="accordion">
+  <div class="panel panel-info col-sm-6 col-md-4 col-equal-height sauces">
+    <div class="panel-heading sauces-heading">
+      <p class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          <%= image_tag 'parent-resources/sauce1.png', class: 'img-responsive' %>
+          Lemon Dill Yogurt Sauce
+        </a>
+      </p>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in">
+      <div class="panel-body">
+        <p><strong>Ingredients:</strong> 7 oz plain (greek style) yogurt,
+          1 clove garlic,
+          1 small cucumber,
+          1 lemon,
+          4 TBS dill,
+          3 TBS olive oil,
+          1 tsp salt
+        </p>
+        <p><strong>Directions:</strong> Put all ingredients for this sauce into a blender or your cuisinart and pulse until chunky.
+        </p>
       </div>
-    <% end %>
+    </div>
+  </div>
+  <div class="panel panel-info col-sm-6 col-md-4 col-equal-height sauces">
+    <div class="panel-heading sauces-heading">
+      <p class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+          <%= image_tag 'parent-resources/sauce2.png', class: 'img-responsive' %>
+          Easy Ranch Dip
+        </a>
+      </p>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p><strong>Ingredients:</strong> 1 cup full fat organic yogurt,
+          2 tsp apple cider vinegar
+          2 TBS olive oil
+          4 tsp dried parsley
+          4 tsp granulated onion spice (salt free)
+          1 tsp black pepper
+          ½ tsp salt
+        </p>
+        <p><strong>Directions:</strong> Place all ingredients in a mason jar and shake together or mix together in a bowl.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-info col-sm-6 col-md-4 col-equal-height sauces">
+    <div class="panel-heading sauces-heading">
+      <p class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+          <%= image_tag 'parent-resources/sauce3.png', class: 'img-responsive' %>
+          Garlic Lemon Aioli
+        </a>
+      </p>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p><strong>Ingredients:</strong> 1 cup of mayonnaise,
+          4-5 cloves garlic,
+          2 TBS lemon juice,
+          2 tsp salt,
+          1 tsp black pepper
+        </p>
+        <p><strong>Directions:</strong> Mix all ingredients in a bowl. If you have a garlic press, press the garlic. If
+          you don't, mince garlic finely. </p>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-info col-sm-6 col-md-4 col-equal-height sauces">
+    <div class="panel-heading sauces-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+          <%= image_tag 'parent-resources/sauce4.png', class: 'img-responsive' %>
+          Cumin Lime Yogurt Sauce
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p><strong>Ingredients:</strong> 1 cup plain yogurt,
+          3 TBS olive oil,
+          1 lime (zest and juice),
+          1 tsp salt,
+          2 tsp cumin
+        </p>
+        <p><strong>Directions:</strong> Mix all ingredients in a bowl.</p>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-info col-sm-6 col-md-4 col-equal-height sauces">
+    <div class="panel-heading sauces-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+          <%= image_tag 'parent-resources/sauce5.png', class: 'img-responsive' %>
+          Honey Mustard Dressing
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFive" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p><strong>Ingredients:</strong> 1 cup plain yogurt,
+          4 TBS honey,
+          3 TBS smooth Dijon mustard,
+          2 TBS rice wine vinegar,
+          Juice of ½ lemon
+        </p>
+        <p><strong>Directions:</strong> Place all ingredients into a mason jar and shake, or use a whisk and combine in a bowl.</p>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-info col-sm-6 col-md-4 col-equal-height sauces">
+    <div class="panel-heading sauces-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
+          <%= image_tag 'parent-resources/sauce6.png', class: 'img-responsive' %>
+          Sweet Champagne Vinaigrette
+        </a>
+      </h4>
+    </div>
+    <div id="collapseSix" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p><strong>Ingredients:</strong> 3 TBS champagne vinegar,
+          3 TBS honey,
+          2 tsp dijon mustard,
+          ½ tsp poppy seeds,
+          1 tsp salt,
+          1/2 cup vegetable oil
+        </p>
+        <p><strong>Directions:</strong> Place all ingredients into a mason jar and shake until combined, or use a whisk and combine in a bowl.</p>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-info col-sm-6 col-md-4 col-equal-height sauces">
+    <div class="panel-heading sauces-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">
+          <%= image_tag 'parent-resources/sauce7.png', class: 'img-responsive' %>
+          Sweet Lime Yogurt Dipping Sauce
+        </a>
+      </h4>
+    </div>
+    <div id="collapseSeven" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p><strong>Ingredients:</strong> 1 cup plain full fat yogurt,
+          2 TBS honey,
+          1/2 lime,
+          zest from half a lime
+        </p>
+        <p><strong>Directions:</strong> Mix all ingredients in a bowl</p>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-info col-sm-6 col-md-4 col-equal-height sauces">
+    <div class="panel-heading sauces-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseeight">
+          <%= image_tag 'parent-resources/sauce8.png', class: 'img-responsive' %>
+          Creamy Avocado Sauce
+        </a>
+      </h4>
+    </div>
+    <div id="collapseeight" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p><strong>Ingredients:</strong> 1 avocado,
+          2 TBS plain yogurt,
+          1 tsp salt,
+          1/2 lemon,
+          1 small bunch (approx. 1/2 cup) cilantro,
+          1 TBS olive oil
+        </p>
+        <p><strong>Directions:</strong> Blend ingredients altogether in a blender until smooth.</p>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-info col-sm-6 col-md-4 col-equal-height sauces">
+    <div class="panel-heading sauces-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapsenine">
+          <%= image_tag 'parent-resources/sauce9.png', class: 'img-responsive' %>
+          Spinach Basil Pesto
+        </a>
+      </h4>
+    </div>
+    <div id="collapsenine" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p><strong>Ingredients:</strong> ⅓ cup grated Parmesan cheese,
+          ⅓ cup walnuts,
+          2 cups baby spinach,
+          2 cups fresh basil,
+          1 tsp salt,
+          ⅔ cup olive oil
+        </p>
+        <p><strong>Directions:</strong> First grind cheese and walnuts together in a food processor.
+          Add basil and spinach gradually, with olive oil, to combine.
+          Add salt, blend and check for overall seasoning.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-info col-sm-6 col-md-4 col-equal-height sauces">
+    <div class="panel-heading sauces-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseten">
+          <%= image_tag 'parent-resources/sauce10.png', class: 'img-responsive' %>
+          Savory Red Radish Cream Cheese Dip
+        </a>
+      </h4>
+    </div>
+    <div id="collapseten" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p><strong>Ingredients:</strong> 5 red radishes,
+          1 8 oz block cream cheese,
+          1 tsp dried parsley,
+          1 tsp dried onion,
+          1/4 tsp salt,
+          1/4 tsp black pepper
+        </p>
+        <p><strong>Directions:</strong> Wash and cut the radishes into quarters. Bring cream cheese to room temperature.
+          Blend the 5 radishes that go into the dip in the food processor until finely grated. Add all other ingredients and cream
+        cheese. Blend until smooth.</p>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-info col-sm-6 col-md-4 col-equal-height sauces">
+    <div class="panel-heading sauces-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseeleven">
+          <%= image_tag 'parent-resources/sauce11.png', class: 'img-responsive' %>
+          Sweet Strawberry and Radish Cream Cheese Dip
+        </a>
+      </h4>
+    </div>
+    <div id="collapseeleven" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p><strong>Ingredients:</strong> 5 fresh strawberries,
+          1 8oz block cream cheese,
+          5 red radishes,
+          1/2 TBS honey
+        </p>
+        <p><strong>Directions:</strong> Wash and cut the radishes into quarters. Bring cream cheese to room temperature.
+          Blend the 5 radishes that go into the dip in the food processor until finely grated. Add all other ingredients and cream
+          cheese. Blend until smooth.</p>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-info col-sm-6 col-md-4 col-equal-height sauces">
+    <div class="panel-heading sauces-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapsetwelve">
+          <%= image_tag 'parent-resources/sauce12.png', class: 'img-responsive' %>
+          Sriracha Mayo Dipping Sauce
+        </a>
+      </h4>
+    </div>
+    <div id="collapsetwelve" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p><strong>Ingredients:</strong> ⅓ cup mayonnaise,
+          2 tsp tamari (gluten free soy sauce),
+          ½ tsp sriracha
+        </p>
+        <p><strong>Directions:</strong> Mix all ingredients in a bowl.</p>
+      </div>
+    </div>
   </div>
 </div>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= link_to 'Printable Dips & Sauces', "http://d3uroln2zt6ogz.cloudfront.net/pages/pdfs/original/bba8e715a688454443a8b8655643823dc4fefb98.pdf", class: 'btn btn-warning btn-lg btn-block', target: "_blank" %>
+  </div>
+</div>
+<div class="spacer"></div>
+
 
 <div class="page-sub-header text-center">
   <h2 class="dotted">Quick Links</h2>
@@ -111,7 +370,7 @@
     <%= link_to 'View the shopping list', shopping_list_path('current'), class: 'btn btn-primary btn-lg btn-block' %>
   </div>
   <div class="col-md-4">
-    <%= link_to 'View your profile', edit_user_path('me'), class: 'btn btn-default btn-lg btn-block' %>
+    <%= link_to 'Visit Community Forum', ENV['COMMUNITY_URL'], class: 'btn btn-default btn-lg btn-block' %>
   </div>
   <div class="col-md-4">
     <%= link_to 'Go back to the classroom', foods_path, class: 'btn btn-warning btn-lg btn-block' %>
