@@ -5,4 +5,8 @@ class RecipesController < ApplicationController
     @recipe = @food.recipes.find(params[:recipe_id])
   end
 
+  def show
+    @recipe=Recipe.find(params[:id])
+    render 'recipes/print_view'
+  end
 end

@@ -8,4 +8,7 @@ class ShoppingList < ActiveRecord::Base
     where(completed_at: nil)
   end
 
+  def self.saved_lists
+    where.not(completed_at: nil).order(created_at: :desc)
+  end
 end

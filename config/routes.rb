@@ -29,5 +29,7 @@ Joyfoodly::Application.routes.draw do
   get 'almost_there' => 'home#confirmation_sent', as: :confirmation_sent
   get 'community_sessions' => 'community_sessions#show'
 
+  resources :recipes, only: [:show]
+
   root to: 'foods#index'
 end
