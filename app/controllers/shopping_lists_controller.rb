@@ -9,7 +9,11 @@ class ShoppingListsController < ApplicationController
     @shopping_list = ShoppingList::ListBuilder.call(@user, recipe)
 
     if @shopping_list.save
-      redirect_to edit_shopping_list_path(@shopping_list), notice: 'Shopping list updated!'
+      if request.xhr?
+        head :ok
+      else
+        redirect_to edit_shopping_list_path(@shopping_list), notice: 'Shopping list updated!'
+      end
     else
       redirect_to :back, notice: 'Sorry, something went wrong. Please try again in a few minutes.'
     end

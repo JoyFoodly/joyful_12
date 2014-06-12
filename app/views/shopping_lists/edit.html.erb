@@ -33,10 +33,10 @@
             <% end %>
 
           </div>
-          <%= f.button :submit, 'Save and continue editing', class: 'btn-default top-buffer' %>
-          <%= f.button :submit, 'Save and archive', name: 'archive', class: 'btn-primary top-buffer' %>
-          <%= link_to 'Print friendly version', shopping_list_path(@shopping_list), class: 'btn btn-primary top-buffer' %>
-          <%= f.button :submit, 'Email Me', name: 'email', class: 'btn-primary top-buffer' %>
+          <%= f.button :submit, 'Save', class: 'btn-primary top-buffer' %>
+          <%= f.button :submit, 'Archive', name: 'archive', class: 'btn-primary top-buffer' %>
+          <%= link_to 'Print', shopping_list_path(@shopping_list), class: 'btn btn-primary top-buffer' %>
+          <%= f.button :submit, 'Email', name: 'email', class: 'btn-primary top-buffer' %>
       <% end %>
       <div class="top-buffer"><%= link_to 'See past saved shopping lists >', "#{edit_user_path('me')}#shopping-lists" %></div>
     </div>

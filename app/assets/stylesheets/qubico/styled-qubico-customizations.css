@@ -91,3 +91,45 @@ margin-top: 40px;
     padding-left: 40px;
 }
 
+.news-title {
+    padding-left: 0px;
+}
+
+.pricing .item {
+    padding: 40px 10px;
+    width: 340px;
+}
+
+.col-lg-10-price {
+    float: left;
+    width: 99.333333%;
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.col-lg-offset-1-price {
+    margin-left: 1.333333%;
+}
+
+.margin-3 {
+    margin-top: 3%;
+}
+
+.navbar-brand.scrollto:hover .logo-small {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+    -webkit-transition: all 0s;
+    transition: all 0s;
+}
+
+a {
+    color: #7C7C7C;
+}
+
+a:hover, a:focus {
+    color: #424242;
+    text-decoration: underline;
+}
