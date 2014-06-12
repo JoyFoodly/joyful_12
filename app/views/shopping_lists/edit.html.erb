@@ -6,7 +6,7 @@
 <div class='row bg-grey bottom-padding top-padding top-buffer'>
   <div class="col-md-4">
     <h3>Select Recipes To Add:</h3>
-    <%= form_tag shopping_lists_path, role: 'form' do %>
+    <%= simple_form_for @shopping_list, html: { role: 'form' } do |f| %>
         <div class='form-group'>
         <%= content_tag :select, name: 'shopping_list[recipe_ids][]', class: 'form-control' do %>
             <%= content_tag :option %>
