@@ -9,4 +9,9 @@ class Image < ActiveRecord::Base
       content_type: %w[image/jpg image/jpeg image/gif image/png]
   }
 
+
+  def self.default_image_url
+    "http://d3uroln2zt6ogz.cloudfront.net/recipes/images/thumbnail/712c07157bc8ee3838c0bb1c3187e1e385440ab8.jpg?1393118545"
+  end
+    
 end

@@ -36,7 +36,11 @@
       <% shopping_list.recipes[0..[3, list_length].min].each do |recipe| %>
 	<div class="col-sm-5 col-md-3 col-lg-3 img-responsive shopping-image">
 	  <a href="<%= recipe_path(recipe) %>">
-	    <%= image_tag(recipe.images[0].file.url) %>
+	    <% if recipe.images[0] %>
+	      <%= image_tag(recipe.images[0].file.url) %>
+	    <% else %>
+	      <%= image_tag(Image.default_image_url) %>
+	    <% end %>
 	    <div><%= recipe.title %></div>
 	  </a>
 
