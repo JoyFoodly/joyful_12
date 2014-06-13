@@ -3,7 +3,10 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user
-    @user.family_members.build if @user.family_members.blank?
+    shopping_lists = @user.shopping_lists.includes(recipes: [:images, :sub_recipes])
+    @current_shopping_list = shopping_lists.detect(&:current?)
+    @saved_shopping_lists = shopping_lists.reject(&:current?)
+    @child_recipes = shopping_lists.map(&:recipes).flatten.map(&:child_recipes).flatten
   end
 
   def change_password

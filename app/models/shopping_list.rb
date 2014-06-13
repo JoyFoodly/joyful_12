@@ -11,4 +11,8 @@ class ShoppingList < ActiveRecord::Base
   def self.saved_lists
     where.not(completed_at: nil).order(created_at: :desc)
   end
+
+  def current?
+    completed_at.blank?
+  end
 end

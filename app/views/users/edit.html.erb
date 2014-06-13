@@ -1,87 +1,33 @@
-<div class='row'>
-  <div class='col-md-12'>
-    <div class="page-header">
-      <h3 id="shopping-lists">Current Shopping List</h3>
-    </div>
-  </div>
+<div class="page-header">
+  <h3 id="shopping-lists">Current Shopping List</h3>
 </div>
 
-<!-- if there's no current shopping list --> 
-<% if @user.shopping_lists.current_list.empty? %>
+<% if @current_shopping_list.present? %>
+  <%= render partial: 'shopping_list_panel', locals: { shopping_list: @current_shopping_list } %>
+<% else %>
+  <!-- if there's no current shopping list -->
   <div class='row'>
     <div class="col-md-6">
       <p> You don't have a current shopping list yet. Create one! </p>
       <%= link_to 'Create a Shopping List', shopping_list_path('current/edit'), class: 'btn btn-warning btn-lg btn-block' %>
     </div>
-    <div class="col-md-6">
-    </div>
   </div>
-<% else %>
-  <%= render partial: 'shopping_list_panel', locals: {current: true, shopping_list: @user.shopping_lists.current_list[0]} %>
-<% end # Else condition for when there's a current list %>
+<% end %>
 
-<div class='row'>
-  <div class='col-md-12'>
-    <div class="page-header">
-      <h3 id="shopping-lists">Saved Shopping Lists</h3>
-    </div>
-  </div>
+<div class="page-header">
+  <h3 id="shopping-lists">Saved Shopping Lists</h3>
 </div>
 
-<% if @user.shopping_lists.saved_lists.empty? %>
+<% if @saved_shopping_lists.present? %>
+  <% @saved_shopping_lists.each do |shopping_list| %>
+    <%= render partial: 'shopping_list_panel', locals: { shopping_list: shopping_list } %>
+  <% end %>
+<% else %>
   <div class='row'>
     <div class="col-md-6">
       <p> You don't have any saved shopping lists. </p>
     </div>
-    <div class="col-md-6">
-    </div>
   </div>
-<% else %>
-  <% @user.shopping_lists.saved_lists.each do |shopping_list| %>
-    <%= render partial: 'shopping_list_panel', locals: {current: false, shopping_list: shopping_list} %>
-  <% end # Else condition for when there're saved lists %>
 <% end %>
 
-<% unless @user.onboarded %>
-<div class="modal fade modal-auto-open" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-
-      <div class="modal-body">
-        <div class="centered">
-          <img src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/0a7fa9d1e3db6ad2f886b876f3f496c43cc77ea5.png?1393748893" />
-          <img src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/ef61e49e3664a76e158d6629992366b1047e9145.png?1393748422" />
-        </div>
-        <div class="top-buffer"></div>
-        <h2 class="text-center">Welcome to the Joyful 12!</h2>
-        <h3 class="text-center">Excited to get started?</h3>
-        <p class="top-buffer">You'll go through a quick orientation to learn all about the course, and then you're in!</p>
-        <p class="top-buffer text-center">(We promise it's super fun)</p>
-        <div class="top-buffer"></div>
-
-
-
-        <%= form_for @user do |f| %>
-            <%= f.submit "Let's get started", class: 'btn btn-primary centered' %>
-            <%= f.hidden_field :email %>
-            <% if params[:onboarded] == 'false' %>
-                <p class="text-danger text-center">You must accept the terms to continue.</p>
-            <% end %>
-            <div class="form-group">
-              <div class="checkbox">
-                <%= f.check_box :onboarded, style: "margin-left: 0px;"  %>
-                <%= f.label :onboarded, "yes, I've read and accept the" %>
-                <a href="/pages/ToS">Terms of Service</a>
-              </div>
-            </div>
-
-            <%= f.hidden_field :hide_notice, value: true %>
-        <% end %>
-
-      </div>
-    </div>
-  </div>
-</div>
-<% end %>
-
-
+<%= render 'onboarding_modal' unless @user.onboarded %>
