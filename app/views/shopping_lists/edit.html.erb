@@ -8,7 +8,7 @@
     <h3>Select Recipes To Add:</h3>
     <%= simple_form_for @shopping_list, html: { role: 'form' } do |f| %>
         <div class='form-group'>
-        <%= content_tag :select, name: 'shopping_list[recipe_ids][]', class: 'form-control' do %>
+        <%= content_tag :select, name: 'shopping_list[new_recipe_ids][]', class: 'form-control', id: 'add_recipe_select' do %>
             <%= content_tag :option %>
             <%= option_groups_from_collection_for_select(@season.foods.includes(:recipes), :recipes, :name, :id, :title) %>
         <% end %>

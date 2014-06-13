@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'View food' do
-  let(:user) { FactoryGirl.create(:onboarded_user) }
+  let(:user) { FactoryGirl.create(:user) }
   before(:each) { sign_in(user) }
 
   scenario 'displays information about food' do

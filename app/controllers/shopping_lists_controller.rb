@@ -30,6 +30,7 @@ class ShoppingListsController < ApplicationController
 
   def update
     @shopping_list = ShoppingList.find(params[:id])
+    @shopping_list.recipe_ids += params[:shopping_list][:new_recipe_ids].to_a
     @shopping_list.completed_at = Time.current if params[:archive].present? || params[:email].present?
 
     if @shopping_list.update(shopping_list_params)

@@ -6,9 +6,6 @@ FactoryGirl.define do
     last_name 'Deen'
     password 'secretpass'
     confirmed_at { 1.minute.ago }
-
-    factory :onboarded_user do
-      onboarded true
-    end
+    onboarded true
   end
 end
