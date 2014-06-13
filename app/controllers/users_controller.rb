@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user
-    shopping_lists = @user.shopping_lists.includes(recipes: [:images, :sub_recipes])
+    shopping_lists = @user.shopping_lists.includes(recipes: [:images, :child_recipes])
     @current_shopping_list = shopping_lists.detect(&:current?)
     @saved_shopping_lists = shopping_lists.reject(&:current?)
     @child_recipes = shopping_lists.map(&:recipes).flatten.map(&:child_recipes).flatten
