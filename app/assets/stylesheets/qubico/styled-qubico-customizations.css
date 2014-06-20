@@ -133,3 +133,71 @@ a:hover, a:focus {
     color: #424242;
     text-decoration: underline;
 }
+
+#sequence-theme {
+    height: 610px;
+}
+
+#sequence {
+    height: 610px;
+}
+
+#sequence .message-slide1 {
+    left: 2%;
+    top: 142px;
+    width: 45%;
+}
+
+#sequence .message-slide2 {
+    top: 142px;
+}
+
+#sequence .message-slide3 {
+    top: 142px;
+}
+
+#sequence .slide2-img {
+    bottom: 75px;
+}
+
+.overlay {
+    background-color: #333333;
+    width: 100%;
+    height: 92%;
+    z-index: 2;
+    position: absolute;
+    opacity: 0.5;
+    padding: 100px 0;
+    margin-top: -99px;
+}
+
+.overlay-pricing {
+    z-index: 3;
+    background-color: #ffffff;
+    position: absolute;
+    height: 170px;
+    border-radius: 8px;
+    padding-top: 30px;
+}
+
+.temp-z-index {
+    z-index: 1;
+}
+
+.social-blue {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 5px;
+    opacity: 1;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+}
+
+.social-blue:hover {
+    opacity: 0.5;
+}
+
+.social-links li:hover {
+    background: none;
+    box-shadow: none;
+}
