@@ -6,9 +6,9 @@ $(document).ready(function() {
 			sendingMessage = $('#contact-form button').data('sending-message'),
 			okMessage = $('#contact-form button').data('ok-message'),
 			hasError = false;
-		
+
 		$('#contact-form .error-message').remove();
-		
+
 		$('.requiredField').each(function() {
 			if($.trim($(this).val()) == '') {
 				var errorText = $(this).data('error-empty');
@@ -25,7 +25,7 @@ $(document).ready(function() {
 				}
 			}
 		});
-		
+
 		if(hasError) {
 			$('#contact-form button').html('<i class="fa fa-times"></i>'+errorMessage);
 			setTimeout(function(){
@@ -34,15 +34,21 @@ $(document).ready(function() {
 		}
 		else {
 			$('#contact-form button').html('<i class="fa fa-spinner fa-spin"></i>'+sendingMessage);
-			
+
 			var formInput = $(this).serialize();
 			$.post($(this).attr('action'),formInput, function(data){
 				$('#contact-form button').html('<i class="fa fa-check"></i>'+okMessage);
 				setTimeout(function(){
 					$('#contact-form button').html(buttonCopy);
+                    $('#contact-form').find("input, textarea").val("");
 				},2000);
 				
-			});
+			}).fail(function(){
+                $('#contact-form button').html(errorMessage);
+                setTimeout(function(){
+                    $('#contact-form button').html(buttonCopy);
+                },2000);
+            });
 		}
 		
 		return false;	

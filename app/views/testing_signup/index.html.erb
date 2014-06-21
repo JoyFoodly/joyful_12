@@ -881,7 +881,7 @@ PRICES
 <div class="col-sm-4 col-sm-offset-4 overlay-pricing">
   <h2 class="text-center">We're almost ready!</h2>
   <p class="text-center">Hear about our launch by following us on social media:</p>
-  <div class="col-sm-offset-4">
+  <div class="col-sm-offset-3">
     <span class="social-blue"><a href="<%= image_url 'http://www.facebook.com/joyfoodly'%>" target="_blank"><%= image_tag 'qubico/facebook.png' %></a></span>
     <span class="social-blue"><a href="<%= image_url 'http://www.twitter.com/joyfoodly'%>" target="_blank"><%= image_tag 'qubico/twitter.png' %></a></span>
     <span class="social-blue"><a href="<%= image_url 'https://plus.google.com/+Joyfoodly'%>" target="_blank"><%= image_tag 'qubico/google.png' %></a></span>
@@ -1138,36 +1138,49 @@ CONTACT
 
       <!--=== Contact Form ===-->
 
-      <form id="contact-form" class="col-sm-6 col-sm-offset-3" action="contact.php" method="post" novalidate>
-
-        <div class="form-group">
-          <label class="control-label" for="contact-name">Name</label>
-          <div class="controls">
-            <input id="contact-name" name="contactName" placeholder="Your name" class="form-control requiredField label_better" type="text" data-error-empty="Please enter your name">
-            <i class="fa fa-user"></i>
+      <%= form_tag contact_forms_path, id: 'contact-form', class: 'col-sm-6 col-sm-offset-3' do %>
+          <div class="form-group">
+            <%= label_tag :name, class: 'control-label' %>
+            <div class="controls">
+              <%= text_field_tag :name, '', placeholder: 'Your name', class: 'form-control requiredField label_better',
+                  required: true %>
+              <i class="fa fa-user"></i>
+            </div>
           </div>
-        </div><!-- End name input -->
 
-        <div class="form-group">
-          <label class="control-label" for="contact-mail">Email</label>
-          <div class=" controls">
-            <input id="contact-mail" name="email" placeholder="Your email" class="form-control requiredField label_better" type="email" data-error-empty="Please enter your email" data-error-invalid="Invalid email address">
-            <i class="fa fa-envelope"></i>
+          <div class="form-group">
+            <%= label_tag :email, class: 'control-label' %>
+            <div class="controls">
+              <%= email_field_tag :email, '', placeholder: 'Your email', class: 'form-control requiredField label_better',
+                  required: true  %>
+              <i class="fa fa-user"></i>
+            </div>
           </div>
-        </div><!-- End email input -->
 
-        <div class="form-group">
-          <label class="control-label" for="contact-message">Message</label>
-          <div class="controls">
-            <textarea id="contact-message" name="comments"  placeholder="Your message" class="form-control requiredField label_better" rows="6" data-error-empty="Please enter your message"></textarea>
-            <i class="fa fa-comment"></i>
+          <div class="form-group">
+            <%= label_tag :name, class: 'control-label' %>
+            <div class="controls">
+              <%= text_field_tag :subject, '', placeholder: 'Subject', class: 'form-control requiredField label_better',
+                  required: true  %>
+              <i class="fa fa-user"></i>
+            </div>
           </div>
-        </div><!-- End textarea -->
 
-        <p><button name="submit" type="submit" class="btn btn-qubico btn-block" data-error-message="Error!" data-sending-message="Sending..." data-ok-message="Message Sent"><i class="fa fa-location-arrow"></i>Send Message</button></p>
-        <input type="hidden" name="submitted" id="submitted" value="true" />
+          <div class="form-group">
+            <%= label_tag :name, class: 'control-label' %>
+            <div class="controls">
+              <%= text_area_tag :message, '', placeholder: 'Your Message',
+                                class: 'form-control requiredField label_better', rows: '6', required: true %>
+              <i class="fa fa-user"></i>
+            </div>
+          </div>
 
-      </form><!-- End contact-form -->
+          <p>
+            <%= button_tag "Send Message", class: "btn btn-qubico btn-block js-submit", data: {
+                    error_message: "Error!", sending_message: "Sending...", ok_message: "Message Sent" } %>
+          </p>
+      <% end %>
+      <!-- End contact-form -->
 
     </div>
 

@@ -23,6 +23,7 @@ Joyfoodly::Application.routes.draw do
   resources :pages, only: :show
   resources :wait_lists, only: [:new, :create, :show]
   resources :testing_signup, only: :index
+  resources :contact_forms, only: :create
   resources :forms, only: [:create, :show] do
     get 'submitted', on: :member
   end
