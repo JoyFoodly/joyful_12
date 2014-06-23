@@ -64,8 +64,8 @@ $(document).ready(function() {
 	iPad Slider
 	==============================================*/
 	$('.ipad-slider').flexslider({
-		prevText: '<i class="fa fa-angle-left"></i>',
-		nextText: '<i class="fa fa-angle-right"></i>',
+		prevText: '<i class="glyphicon glyphicon-chevron-left"></i>',
+		nextText: '<i class="glyphicon glyphicon-chevron-right"></i>',
 		animation: 'slide',
 		slideshowSpeed: 3000,
 		useCSS: true,

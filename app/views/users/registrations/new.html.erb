@@ -1,3 +1,5 @@
+
+
 <!-- ==============================================
 		MAIN NAV
 		=============================================== -->
@@ -23,34 +25,31 @@
     </div>
 
     <div id="site-nav" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="sr-only">
-          <a href="#home" class="scrollto">Home</a>
-        </li>
-        <li>
+
+      <ul class="nav navbar-nav navbar-right row">
+        <li class="hidden-sm">
           <a href="#features" class="scrollto">Features</a>
         </li>
-        <li>
+        <li class="hidden-sm">
           <a href="#chefhollie" class="scrollto">Chef Hollie</a>
         </li>
-        <li>
+        <li class="hidden-sm">
           <a href="#reviews" class="scrollto">Reviews</a>
         </li>
-        <li>
+        <li class="hidden-sm">
           <a href="#tour" class="scrollto">Tour</a>
         </li>
-        <li>
+        <li class="hidden-sm">
           <a href="#pricing" class="scrollto">Sign Up</a>
         </li>
-        <li>
+        <li class="hidden-sm">
           <a href="#partners" class="scrollto">Partners</a>
         </li>
-        <li>
+        <li class="hidden-sm">
           <a href="#contact" class="scrollto">Contact</a>
         </li>
-        <li>
+        <li class="hidden-sm hidden-xs">
           <a href="http://www.joyfoodly.com/blog" target="_blank">Blog</a>
-
         </li>
       </ul>
     </div><!--End navbar-collapse -->
@@ -68,19 +67,14 @@
 
     <div id="sequence">
 
-      <ul class="controls">
-        <li class="sequence-prev"><i class="fa fa-angle-left fa-fw"></i></li>
-        <li class="sequence-next"><i class="fa fa-angle-right fa-fw"></i></li>
-      </ul>
-
-      <ul class="sequence-canvas container">
-        <li class="">
+      <ul class="sequence-canvas container hidden-xs">
+        <li class="hidden-xs">
           <div class="message-slide1">
             <h2 class="title">Chef Hollie's Kitchen Learning Lab</h2>
             <p class="">A place for families to learn how to cook and love eating 12 vegetables and fruits each season—each three different ways
             </p>
           </div>
-          <div class="slide3-img1 ">
+          <div class="slide3-img1">
             <%= image_tag 'qubico/slider/imac.png', class: 'img-responsive' %>
             <div class="imac-screen">
               <%= image_tag 'qubico/slide-3-imagea.png', class: 'img-responsive' %>
@@ -102,7 +96,7 @@
 
 
         </li>
-        <li>
+        <li class=" hidden-xs">
           <div class="message-slide2">
             <h2 class="title">A Proven Method to Build Your Kitchen Skills </h2>
             <p class="">Chef Hollie’s proven approach with ways to engage kids in the cooking
@@ -115,7 +109,7 @@
             </div>
           </div>
         </li>
-        <li>
+        <li class=" hidden-xs">
           <div class="message-slide3">
             <h2 class="title">A Year of Families Eating in Season</h2>
             <p class="">Simple, joyful methods for busy families to cook a wide variety of veggies and fruits — 48 in a year!</p>
@@ -128,7 +122,7 @@
             </div>
           </div>
         </li>
-        <li>
+        <li class=" hidden-xs">
           <div class="message-slide2">
             <h2 class="title">Learn from Chef Hollie</h2>
             <p class="">All recipes, techniques, and tips for getting kids involved come from Chef Hollie's 10 + years
@@ -143,11 +137,27 @@
         </li>
       </ul>
 
+
     </div>
 
   </div>
 
+
+  <div id="sequence-theme-iphone">
+
+          <div class="">
+            <h2 class="title">Chef Hollie's Kitchen Learning Lab</h2>
+            <p class="">A place for families to learn how to cook and love eating 12 vegetables and fruits each season—each three different ways
+            </p>
+          </div>
+          <div class="">
+            <%= image_tag 'qubico/screen-sizes-joyful.png', class: 'img-responsive' %>
+          </div>
+
 </header><!--End header -->
+
+
+<!--end header just for iphones -->
 
 <!-- ==============================================
 CALL TO ACTION
@@ -157,7 +167,7 @@ CALL TO ACTION
   <div class="container">
 
     <div class="row">
-      <div class="col-md-8 cta-message">
+      <div class="col-md-8 cta-message col-sm-9">
         <p><strong>The Joyful 12!</strong> is a kitchen learning lab for families. Learn from Chef Hollie and get your family excited about fruits and veggies.</p>
       </div>
       <div class="col-md-4 cta-button">
@@ -181,9 +191,9 @@ FEATURES
       get fruits and veggies into their families' diets. All the tools you need to create a joyful kitchen experience using
       proven methods from Chef Hollie.</p>
 
-    <div class="row">
 
-      <div class="col-sm-4 scrollimation fade-up">
+
+      <div class="col-md-4 col-sm-6 scrollimation fade-up">
 
         <div class="media">
           <div class="icon pull-left">
@@ -194,14 +204,14 @@ FEATURES
 
           <div class="media-body">
             <h4>Eat the Rainbow</h4>
-            <p>Feel great about the meals you make for your family. 12 veggie and fruits every season, throughout the year. Get out of the rut of the same old veggies
+            <p>Feel great about the meals you make for your family. 12 veggie and fruits every season, throughout the year. Get out of the rut of the same old veggies.
             </p>
           </div>
         </div>
 
       </div>
 
-      <div class="col-sm-4 scrollimation fade-up d1">
+      <div class="col-md-4 col-sm-6 scrollimation fade-up d1">
 
         <div class="media">
           <div class="icon pull-left">
@@ -218,7 +228,7 @@ FEATURES
 
       </div>
 
-      <div class="col-sm-4 scrollimation fade-up d2">
+      <div class="col-md-4 col-sm-6 scrollimation fade-up d2">
 
         <div class="media">
           <div class="icon pull-left">
@@ -235,11 +245,8 @@ FEATURES
 
       </div>
 
-    </div>
 
-    <div class="row">
-
-      <div class="col-sm-4 scrollimation fade-up">
+      <div class="col-md-4 col-sm-6 scrollimation fade-up">
 
         <div class="media">
           <div class="icon pull-left">
@@ -256,7 +263,7 @@ FEATURES
 
       </div>
 
-      <div class="col-sm-4 scrollimation fade-up d1">
+      <div class="col-md-4 col-sm-6 scrollimation fade-up d1">
 
         <div class="media">
           <div class="icon pull-left">
@@ -273,7 +280,7 @@ FEATURES
 
       </div>
 
-      <div class="col-sm-4 scrollimation fade-up d2">
+      <div class="col-md-4 col-sm-6 scrollimation fade-up d2">
 
         <div class="media">
           <div class="icon pull-left">
@@ -291,7 +298,6 @@ FEATURES
 
       </div>
 
-    </div>
 
   </div>
 
@@ -302,7 +308,7 @@ FEATURES
 <!-- ==============================================
 RESPONSIVE VIDEO
 =============================================== -->
-<section class="gray-bg  padding-top-bottom">
+<section class="gray-bg  padding-top-bottom hidden-xs">
 
   <div class="container">
 
@@ -388,7 +394,7 @@ Chef Hollie
 <!-- ==============================================
 CALL TO ACTION
 =============================================== -->
-<section class="gray-bg cta">
+<section class="gray-bg cta  hidden-xs">
 
   <div class="container">
 
@@ -517,12 +523,12 @@ Reviews
 <!-- ==============================================
 CALL TO ACTION
 =============================================== -->
-<section class="color-bg light-typo cta">
+<section class="color-bg light-typo cta hidden-xs">
 
   <div class="container">
 
     <div class="row">
-      <div class="col-md-9 cta-message">
+      <div class="col-md-9 cta-message col-sm-8">
         <p><strong>The Joyful 12</strong> is a year of eating in season with Chef Hollie. Busy families get access to 144 recipes, video tutorials,
           a community forum, parent resources, and more!</p>
       </div>
@@ -634,7 +640,7 @@ Life of Joyful 12 User
 
     <div class="news-content">
 
-      <h2 class="news-title col-sm-6">Get your first Friday email</h2>
+      <h2 class="news-title col-sm-12 col-md-6">Get your first Friday email</h2>
       <div class="col-sm-4 pull-right news-media gallery">
         <%= image_tag 'qubico/tomatillo.png', class: 'img-responsive' %></a>
       </div>
@@ -803,7 +809,7 @@ Life of Joyful 12 User
 
     <div class="news-content">
 
-      <h2 class="news-title col-sm-6">Build Your Kitchen Skills</h2>
+      <h2 class="news-title col-sm-12 col-md-6">Build Your Kitchen Skills</h2>
       <div class="col-sm-4 pull-right news-media gallery">
         <%= image_tag 'qubico/strawberry.png', class: 'img-responsive' %></a>
       </div>
@@ -826,7 +832,7 @@ Life of Joyful 12 User
 
     <div class="news-content">
 
-      <h2 class="news-title col-sm-6">You Still Have Access</h2>
+      <h2 class="news-title col-md-6 col-sm-12">You Still Have Access</h2>
       <div class="col-sm-4 pull-right news-media gallery">
         <%= image_tag 'qubico/lettuce.png', class: 'img-responsive' %></a>
       </div>
@@ -840,7 +846,7 @@ Life of Joyful 12 User
 
     <div class="news-content">
 
-      <h2 class="news-title col-sm-6">Seasonal Eating: The Next Season</h2>
+      <h2 class="news-title col-md-6 col-sm-12">Seasonal Eating: The Next Season</h2>
 
       <div class="col-sm-4 pull-right news-media gallery">
         <%= image_tag 'qubico/spinach.png', class: 'img-responsive' %></a>
@@ -878,10 +884,10 @@ PRICES
 
 <section id="pricing" class="gray-bg padding-top-bottom temp-z-index">
   <div class="overlay"></div>
-  <div class="col-sm-4 col-sm-offset-4 overlay-pricing">
+  <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1 overlay-pricing">
     <h2 class="text-center">We're almost ready!</h2>
     <p class="text-center">Hear about our launch by following us on social media:</p>
-    <div class="col-sm-offset-3">
+    <div class="col-sm-offset-3 col-xs-offset-3 ">
       <span class="social-blue"><a href="<%= image_url 'http://www.facebook.com/joyfoodly'%>" target="_blank"><%= image_tag 'qubico/facebook.png' %></a></span>
       <span class="social-blue"><a href="<%= image_url 'http://www.twitter.com/joyfoodly'%>" target="_blank"><%= image_tag 'qubico/twitter.png' %></a></span>
       <span class="social-blue"><a href="<%= image_url 'https://plus.google.com/+Joyfoodly'%>" target="_blank"><%= image_tag 'qubico/google.png' %></a></span>
@@ -898,7 +904,7 @@ PRICES
 
       <div class="col-lg-10-price col-lg-offset-1-price">
 
-        <div class="col-sm-4 text-center scrollimation fade-right">
+        <div class="col-md-4 col-sm-10 text-center scrollimation fade-right">
 
           <div class="item">
 
@@ -937,7 +943,7 @@ PRICES
 
         </div>
 
-        <div class="col-sm-4 text-center scrollimation fade-up">
+        <div class="col-md-4 col-sm-10 text-center scrollimation fade-up">
 
           <div class="item featured">
 
@@ -976,7 +982,7 @@ PRICES
 
         </div>
 
-        <div class="col-sm-4 text-center scrollimation fade-left">
+        <div class="col-md-4 col-sm-10 text-center scrollimation fade-left">
 
           <div class="item">
 
@@ -991,7 +997,7 @@ PRICES
             <p>Unlimited access</p>
             <p>Learn Chef Hollie's proven methods</p>
 
-            <a class="btn btn-qubico" href="#link">Give Now</a>
+            <a class="btn btn-qubico" href="#link">Coming Soon</a>
 
           </div><!-- End Pricing Item -->
 
@@ -1008,9 +1014,9 @@ PRICES
 <!-- ==============================================
 CALL TO ACTION
 =============================================== -->
-<section class="color-bg light-typo cta">
+<section class="color-bg light-typo cta hidden-xs">
 
-  <div class="container">
+  <div class="container hidden-sm hidden-xs">
 
     <div class="row">
       <div class="col-md-9 cta-message">
@@ -1031,13 +1037,13 @@ CALL TO ACTION
 PARTNERS
 =============================================== -->
 
-<section id="partners" class="white-bg padding-top-bottom">
+<section id="partners" class="white-bg padding-top-bottom hidden-sm hidden-xs">
 
   <div class="container">
 
     <div class="row">
 
-      <div class="col-sm-4 col-sm-offset-1">
+      <div class="col-md-4 col-md-offset-1 col-sm-3 col-sm-offset-1">
 
         <span class="logo-small scrollimation fade-right"><%= image_tag 'qubico/whole-foods.png' %></span>
 
@@ -1071,7 +1077,7 @@ PARTNERS
 <!-- ==============================================
 Chef Hollie
 =============================================== -->
-<section id="more-hollie" class="color-bg light-typo padding-top-bottom cta-iphones">
+<section id="more-hollie" class="color-bg light-typo padding-top-bottom cta-iphones  hidden-xs">
 
   <div class="container">
 
@@ -1132,7 +1138,7 @@ CONTACT
 
     <h1 class="section-title">We'd Love to Hear from You!</h1>
     <p class="contact-description">Do you have questions or feedback? Let us know!</p>
-    <div class="col-sm-offset-5">
+    <div class="col-md-offset-5 col-sm-6 col-sm-offset-4 hidden-xs">
       <span class="social-blue"><a href="<%= image_url 'http://www.facebook.com/joyfoodly'%>" target="_blank"><%= image_tag 'qubico/facebook.png' %></a></span>
       <span class="social-blue"><a href="<%= image_url 'http://www.twitter.com/joyfoodly'%>" target="_blank"><%= image_tag 'qubico/twitter.png' %></a></span>
       <span class="social-blue"><a href="<%= image_url 'https://plus.google.com/+Joyfoodly'%>" target="_blank"><%= image_tag 'qubico/google.png' %></a></span>
@@ -1144,7 +1150,7 @@ CONTACT
 
     <div class="row">
 
-      <div class="col-sm-4 col-sm-offset-2 text-center contact-item scrollimation fade-right">
+      <div class="col-sm-4 col-sm-offset-2 text-center contact-item scrollimation fade-right hidden-xs">
 
         <a class="icon" href="http://goo.gl/maps/0m7WQ" target="_blank"><i class="glyphicon glyphicon-pushpin"></i></a>
         <h2>Our Location</h2>
@@ -1168,7 +1174,7 @@ CONTACT
 
       <!--=== Contact Form ===-->
 
-      <%= form_tag contact_forms_path, id: 'contact-form', class: 'col-sm-6 col-sm-offset-3' do %>
+      <%= form_tag contact_forms_path, id: 'contact-form', class: 'col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2' do %>
           <div class="form-group">
             <%= label_tag :name, class: 'control-label' %>
             <div class="controls">

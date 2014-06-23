@@ -1,3 +1,5 @@
+@import "bootstrap/_variables";
+
 .navbar-brand {
     height: 56px;
 }
@@ -156,8 +158,18 @@ a:hover, a:focus {
     top: 142px;
 }
 
+#sequence .message-slide4 {
+  bottom: 75px;
+  top: 142px;
+  width: 40%
+}
+
 #sequence .slide2-img {
     bottom: 75px;
+}
+
+#sequence .slide4-img {
+  bottom: 75px;
 }
 
 .overlay {
@@ -200,4 +212,135 @@ a:hover, a:focus {
 .social-links li:hover {
     background: none;
     box-shadow: none;
+}
+
+.media-body {
+  height: 175px;
+}
+
+.cta-iphones h2 {
+  margin-top: 21px;
+}
+
+.ipad-slider .flex-direction-nav .flex-prev, .ipad-slider .flex-direction-nav .flex-next {
+  width: 55px;
+  height: 55px;
+  padding-top: 5px;
+  padding-left: 4px
+}
+
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+
+  #sequence-theme {
+    height: 483px;
+  }
+
+  #sequence {
+    height: 483px;
+  }
+
+  #sequence .message-slide1 {
+    left: 2%;
+    top: 142px;
+    width: 45%;
+  }
+
+  #sequence .message-slide2 {
+    top: 102px;
+  }
+
+  #sequence .message-slide3 {
+    top: 142px;
+  }
+
+  #sequence .slide2-img {
+    bottom: 75px;
+  }
+
+  #sequence h2 {
+    font-size: 27px !important;
+    line-height: 40px;
+  }
+
+  .jumbotron p {
+    margin-bottom: 15px;
+    font-size: 21px !important;
+    font-weight: 200;
+    margin-right: 15px;
+  }
+
+  #sequence p {
+    line-height: 30px;
+  }
+
+  .cta-iphones h2 {
+    margin-top: 18px;
+  }
+
+  .news-content .news-title {
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .pricing .item {
+    padding: 40px 10px;
+    width: 675px;
+    margin-bottom: 45px;
+  }
+
+  .overlay {
+    height: 2453px;
+  }
+
+}
+
+
+@media (max-width: $screen-xs-max) {
+
+  .btn-qubico {
+    margin: 0 0 20px 0;
+  }
+
+  #sequence-theme {
+    height: 0;
+  }
+
+  #sequence-theme-iphone {
+    height: 470px;
+    padding: 40px;
+  }
+
+  .jumbotron p {
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 28px;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .overlay {
+    height: 2280px;
+  }
+
+  .overlay-pricing {
+    margin-top: 46px;
+  }
+
+  .padding-top-bottom {
+    padding: 50px 0;
+  }
+
+  body, p {
+    font-size: 12px;
+    line-height: 21px;
+  }
+
+
 }
