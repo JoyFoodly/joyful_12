@@ -5,7 +5,7 @@ class Payment < ActiveRecord::Base
 
   validates :amount,      presence: true, numericality: { greater_than: 0 }
   validates :card_token,  presence: true
-  validates :product_id,  presence: true, inclusion: { in: %w[beta] }
+  validates :product_id,  presence: true, inclusion: { in: %w[beta season year] }
   validates :user_id,     presence: true
   validate :create_stripe_customer
   validate :create_stripe_charge
@@ -15,7 +15,7 @@ class Payment < ActiveRecord::Base
 private
 
   def set_amount
-    self.amount = ENV['BETA_PRICE'].to_i if product_id == 'beta'
+    self.amount = product_id == 'season' ? ENV['PRICE_PER_SEASON'].to_i : ENV['PRICE_PER_YEAR'].to_i
   end
 
   def create_stripe_customer
@@ -40,7 +40,7 @@ private
     charge = Stripe::Charge.create(
       customer: customer_id,
       amount: amount,
-      description: 'Joyful 12 beta',
+      description: "Joyful 12 #{product_id}",
       currency: 'usd',
     )
     self.charge_id = charge.id

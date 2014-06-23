@@ -916,7 +916,22 @@ PRICES
             <p>Parent resources</p>
             <p>Family Focused Forum</p>
 
-            <a class="btn btn-qubico" href="#link">Sign Up</a>
+            <br>
+            <%= form_tag user_registration_path, method: :post do %>
+                <%= hidden_field_tag :product_id, 'season' %>
+                <script
+                src='https://checkout.stripe.com/checkout.js' class='stripe-button'
+                data-key='<%= ENV['STRIPE_PUBLIC_KEY'] %>'
+                data-image='<%= image_path('payments/stripe-store-image.png') %>'
+                data-label='Sign Up Now'
+                data-name='Joyful 12'
+                data-panel-label='Pay {{amount}}'
+                data-billing-address='true'
+                data-shipping-address='true'
+                data-description='Joyful 12 Season (<%= number_to_currency(ENV['PRICE_PER_SEASON'].to_i / 100) %>)'
+                data-amount='<%= ENV['PRICE_PER_SEASON'] %>'>
+                </script>
+            <% end %>
 
           </div><!-- End Pricing Item -->
 
@@ -940,7 +955,22 @@ PRICES
             <p>Family Focused Forum</p>
             <p>4 times as much fun as one season!</p>
 
-            <a class="btn btn-qubico" href="#link">Sign Up</a>
+            <br>
+            <%= form_tag user_registration_path, method: :post do %>
+                <%= hidden_field_tag :product_id, 'year' %>
+                <script
+                src='https://checkout.stripe.com/checkout.js' class='stripe-button'
+                data-key='<%= ENV['STRIPE_PUBLIC_KEY'] %>'
+                data-image='<%= image_path('payments/stripe-store-image.png') %>'
+                data-label='Sign Up Now'
+                data-name='Joyful 12'
+                data-panel-label='Pay {{amount}}'
+                data-billing-address='true'
+                data-shipping-address='true'
+                data-description='Joyful 12 Year (<%= number_to_currency(ENV['PRICE_PER_YEAR'].to_i / 100) %>)'
+                data-amount='<%= ENV['PRICE_PER_YEAR'] %>'>
+                </script>
+            <% end %>
 
           </div><!-- End Pricing Item -->
 
