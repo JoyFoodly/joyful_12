@@ -3,7 +3,7 @@
   <% @food.recipes.reject{ |recipe| @child_recipes.include?(recipe) }.sort_by(&:sort_order).each_with_index do |recipe, i| %>
       <li class="<%= 'active' if i == 0 %>">
         <a id='<%= recipe.title.parameterize.underscore %>' class='js-tab-link' href="#<%= recipe.difficulty %>-<%= recipe.id %>" data-toggle="tab">
-          <%= recipe.difficulty.titleize %>
+          <%= recipe.difficulty.gsub('complex', 'adventurous').titleize %>
         </a>
       </li>
   <% end %>
