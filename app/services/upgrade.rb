@@ -18,6 +18,7 @@ class Upgrade
   def create_payment
     create_stripe_customer
     create_stripe_payment
+    add_seasons
     self
   end
 
@@ -54,6 +55,10 @@ private
 
   def amount
     ENV['PRICE_PER_SEASON'].to_i * params[:season_ids].count
+  end
+
+  def add_seasons
+    user.seasons << Season.find(params[:season_ids])
   end
 
 end
