@@ -1,0 +1,81 @@
+
+<div class="row">
+  <img class="centered top-padding" src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/11ed50d2574b967713a426bd9e30fe85cfd13df2.png?1402437916"/>
+</div>
+
+<h3 class="text-center">Aw Shucks, You Don't Have Access To This!</h3>
+<h4 class="text-center">(but we'd love for you to join us!)</h4>
+
+<div class="spacer"></div>
+
+<div class="btn btn-primary col-md-offset-4 col-md-4"><h4>Upgrade and Join Us Now</h4></div>
+
+
+
+<div class="page-sub-header text-center">
+  <h2 class="dotted">Quick Links</h2>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <a href="/videos" class="btn btn-primary btn-lg btn-block">Go To The Video Library</a>
+  </div>
+  <div class="col-md-4">
+    <a href="/parent_resources" class="btn btn-default btn-lg btn-block">View Parent Resources</a>
+  </div>
+  <div class="col-md-4">
+    <a href="/pages/orientation" class="btn btn-warning btn-lg btn-block">Go Back to Orientation</a>
+  </div>
+</div>
+
+<% if flash[:notice].present? %>
+    <h3 class="text-danger"><%= flash[:notice] %></h3>
+<% end %>
+
+
+<% if @unpurchased_seasons.empty? %>
+  <h2>You seem to have access to all seasons!</h2>
+
+<% else %>
+
+  <h2>Upgrade Now</h2>
+  <div class="row">
+      <% @unpurchased_seasons.each do |unpurchased_season| %>
+         <div class="col-md-3">
+           <%= form_tag upgrades_path, method: :post do %>
+               <%= hidden_field_tag 'season_ids[]', unpurchased_season.id %>
+               <script
+               src='https://checkout.stripe.com/checkout.js' class='stripe-button'
+               data-key='<%= ENV['STRIPE_PUBLIC_KEY'] %>'
+               data-image='<%= image_path('payments/stripe-store-image.png') %>'
+               data-label='<%= unpurchased_season.name %> $<%= ENV['PRICE_PER_SEASON'].to_i / 100 %>'
+               data-name='Joyful 12'
+               data-panel-label='Pay {{amount}}'
+               data-billing-address='true'
+               data-shipping-address='true'
+               data-description='<%= number_to_currency(ENV['PRICE_PER_SEASON'].to_i / 100) %>'
+               data-amount='<%= ENV['PRICE_PER_SEASON'] %>'>
+               </script>
+           <% end %>
+         </div>
+      <% end %>
+      <div class="col-md-3">
+        <% unpurchased_seasons_price = (ENV['PRICE_PER_SEASON'].to_i / 100) * @unpurchased_seasons.count %>
+        <%= form_tag upgrades_path, method: :post do %>
+            <%= hidden_field_tag 'season_ids[]', @unpurchased_seasons.map(&:id).join(',') %>
+            <script
+            src='https://checkout.stripe.com/checkout.js' class='stripe-button'
+            data-key='<%= ENV['STRIPE_PUBLIC_KEY'] %>'
+            data-image='<%= image_path('payments/stripe-store-image.png') %>'
+            data-label='Buy <%= @unpurchased_seasons.count %> together: $<%= unpurchased_seasons_price %>'
+            data-name='Joyful 12'
+            data-panel-label='Pay {{amount}}'
+            data-billing-address='true'
+            data-shipping-address='true'
+            data-description='<%= number_to_currency(unpurchased_seasons_price) %>'
+            data-amount='<%= unpurchased_seasons_price %>'>
+            </script>
+        <% end %>
+      </div>
+  </div>
+<% end %>
+

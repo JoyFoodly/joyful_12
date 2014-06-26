@@ -1,17 +1,41 @@
-<img class="centered" src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/cea9d97d6022e57ec85af1168ba2b674b50cb20b.png?1394068446" />
-<h2>Welcome to the Joyful 12, <%= @user.first_name %>!</h2>
+<% if @resource.full_member? %>
+
+    <img class="centered" src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/cea9d97d6022e57ec85af1168ba2b674b50cb20b.png?1394068446" />
+    <h2>Welcome to the Joyful 12, <%= @user.first_name %>!</h2>
 
 
-<p>We are so excited to that you are a part of the Joyful 12!</p>
+    <p>We are so excited to that you are a part of the Joyful 12!</p>
 
-<p>All you have to do is confirm your email in the
-  link below, and then you're in! (easy, right?)</p>
+    <p>All you have to do is confirm your email in the
+      link below, and then you're in! (easy, right?)</p>
 
-<p>Confirm your account email by clicking on the link:</p>
+    <p>Confirm your account email by clicking on the link:</p>
 
-<p><strong><%= link_to "Confirm my account, I'm ready to get started!", confirmation_url(@resource, confirmation_token: @token) %></strong></p>
+    <p><strong><%= link_to "Confirm my account, I'm ready to get started!", confirmation_url(@resource, confirmation_token: @token) %></strong></p>
 
-In the future you can sign in by going to joyful12.com.
+    In the future you can sign in by going to joyful12.com.
 
-<p><em>Living veggie love, </em></p>
-<p><em>Chef Hollie</em></p>
+    <p><em>Living veggie love, </em></p>
+    <p><em>Chef Hollie</em></p>
+
+<% elsif @resource.season_member? %>
+
+    <img class="centered" src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/cea9d97d6022e57ec85af1168ba2b674b50cb20b.png?1394068446" />
+    <h2>Welcome to the Joyful 12, <%= @user.first_name %>!</h2>
+
+
+    <p>We are so excited to that you are a part of the Joyful 12!</p>
+
+    <p>All you have to do is confirm your email in the
+      link below, and then you're in! (easy, right?)</p>
+
+    <p>Confirm your account email by clicking on the link:</p>
+
+    <p><strong><%= link_to "Confirm my account, I'm ready to get started!", confirmation_url(@resource, confirmation_token: @token) %></strong></p>
+
+    In the future you can sign in by going to joyful12.com.
+
+    <p><em>Living veggie love, </em></p>
+    <p><em>Chef Hollie</em></p>
+
+<% end %>

@@ -25,6 +25,14 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
+  def full_member?
+    seasons.count == 4
+  end
+
+  def season_member?
+    seasons.count == 1
+  end
+
 private
 
   def set_default_username

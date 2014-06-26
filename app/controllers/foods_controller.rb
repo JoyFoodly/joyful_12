@@ -41,10 +41,4 @@ private
     @foods = @season.foods
   end
 
-  def authorize_user
-    if !current_user.seasons.include?(@season) || @foods.empty?
-      redirect_to page_path('no-access') and return
-    end
-  end
-
 end

@@ -32,5 +32,7 @@ Joyfoodly::Application.routes.draw do
 
   resources :recipes, only: [:show]
 
+  resources :upgrades, only: [:index, :create, :show]
+
   root to: 'foods#index'
 end

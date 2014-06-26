@@ -1,3 +1,5 @@
+<% if @resource.full_member? %>
+
 Welcome to the Joyful 12, <%= @user.first_name %>!
 
 We are so excited to that you are a part of the Joyful 12!
@@ -10,3 +12,20 @@ In the future you can sign in by going to joyful12.com.
 
 Living veggie love,
 Chef Hollie
+
+<% elsif @resource.season_member? %>
+
+Welcome to the Joyful 12, <%= @user.first_name %>!
+
+We are so excited to that you are a part of the Joyful 12!
+
+All you have to do is confirm your email in the link below, and then you're in! (easy, right?)
+
+Confirm your account email by clicking on the link: <%= confirmation_url(@resource, confirmation_token: @token) %>
+
+In the future you can sign in by going to joyful12.com.
+
+Living veggie love,
+Chef Hollie
+
+<% end %>

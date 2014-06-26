@@ -24,4 +24,14 @@ protected
     edit_user_path(resource_or_scope) if resource_or_scope.class == User
   end
 
+  def authorize_user
+    if current_user.seasons.include?(@season)
+      if @season.name.in? ["Fall", "Winter"]
+        redirect_to page_path('coming-soon') and return
+      end
+    else
+      redirect_to page_path('upgrade') and return
+    end
+  end
+
 end
