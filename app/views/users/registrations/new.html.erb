@@ -886,18 +886,31 @@ PRICES
 
 <section id="pricing" class="gray-bg padding-top-bottom temp-z-index">
 
+  <div class="overlay"></div>
+  <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1 overlay-pricing">
+    <h2 class="text-center">We're almost ready!</h2>
+    <p class="text-center">Hear about our launch by following us on social media:</p>
+    <div class="col-sm-offset-3 col-xs-offset-3 ">
+      <span class="social-blue"><a href="<%= image_url 'http://www.facebook.com/joyfoodly'%>" target="_blank"><%= image_tag 'qubico/facebook.png' %></a></span>
+      <span class="social-blue"><a href="<%= image_url 'http://www.twitter.com/joyfoodly'%>" target="_blank"><%= image_tag 'qubico/twitter.png' %></a></span>
+      <span class="social-blue"><a href="<%= image_url 'https://plus.google.com/+Joyfoodly'%>" target="_blank"><%= image_tag 'qubico/google.png' %></a></span>
+      <span class="social-blue"><a href="<%= image_url 'http://www.pinterest.com/joyfoodly'%>" target="_blank"><%= image_tag 'qubico/pinterest.png' %></a></span>
+      <span class="social-blue"><a href="<%= image_url 'http://www.instagram.com/joyfoodly'%>" target="_blank"><%= image_tag 'qubico/instagram.png' %></a></span>
+      <span class="social-blue"><a href="<%= image_url 'http://www.vimeo.com/joyfoodly'%>" target="_blank"><%= image_tag 'qubico/vimeo.png' %></a></span>
+    </div>
+  </div>
 
   <div class="container">
     <h1 class="section-title">Sign Up Now</h1>
     <p class="section-description">Join us for a year of eating in season.</p>
 
-    <div class="row pricing">
+    <div class="row pricing-option">
 
       <div class="col-lg-10-price col-lg-offset-1-price">
 
         <div class="col-md-4 col-sm-10 text-center scrollimation fade-right">
 
-          <div class="item">
+          <div class="item-pricing">
 
             <p class="icon"><%= image_tag 'qubico/price-1.png' %></p>
             <h2>Each Season</h2>
@@ -936,7 +949,7 @@ PRICES
 
         <div class="col-md-4 col-sm-10 text-center scrollimation fade-up">
 
-          <div class="item featured">
+          <div class="item-pricing featured">
 
             <p class="icon"><%= image_tag 'qubico/price-3.png' %></p>
             <h2>All Four Seasons</h2>
@@ -975,7 +988,7 @@ PRICES
 
         <div class="col-md-4 col-sm-10 text-center scrollimation fade-left">
 
-          <div class="item">
+          <div class="item-pricing">
 
             <p class="icon"><%= image_tag 'qubico/price-4.png' %></p>
             <h2>Give a Gift</h2>

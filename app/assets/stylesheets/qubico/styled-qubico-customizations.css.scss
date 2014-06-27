@@ -97,10 +97,72 @@ margin-top: 40px;
     padding-left: 0px;
 }
 
-.pricing .item {
+.pricing-option .item-pricing {
     padding: 40px 10px;
     width: 340px;
+    position: relative;
+    top: 20px;
+    background: rgba(255,255,255,1);
+    border-radius: 7px;
+    color: #777;
+    box-shadow: 5px 5px 0 rgba(0,0,0,0.05);
+    transition: none;
 }
+
+.pricing-option .item-pricing .icon {
+  display: inline-block;
+  margin-bottom: 30px;
+  background: #ccc;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  font-size: 48px;
+  line-height: 120px;
+  color: #fff;
+  -webkit-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+}
+
+.pricing-option .item-pricing.featured {
+  background: #5CC9DF;
+  color: #fff;
+  top: 0;
+  padding-top: 50px;
+  padding-bottom: 65px;
+}
+
+.pricing-option .item-pricing.featured .icon {
+  color: #5cc9df;
+  background: #fff;
+}
+
+.pricing-option .item-pricing p {
+  margin-bottom: 5px;
+  font-weight: 400;
+}
+
+.pricing-option .item-pricing h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+
+.pricing-option .item-pricing .price {
+  font-size: 48px;
+  font-weight: 100;
+  line-height: 48px;
+  margin-bottom: 30px;
+}
+
+.pricing-option .item-pricing .btn-qubico {
+  margin-top: 20px;
+  margin-bottom: 0;
+  font-size: 16px;
+  padding: 10px 20px;
+}
+
+
 
 .col-lg-10-price {
     float: left;
@@ -344,3 +406,4 @@ a:hover, a:focus {
 
 
 }
+
