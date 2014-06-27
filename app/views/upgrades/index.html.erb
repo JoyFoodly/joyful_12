@@ -1,35 +1,52 @@
 
-<div class="row">
-  <img class="centered top-padding" src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/11ed50d2574b967713a426bd9e30fe85cfd13df2.png?1402437916"/>
-</div>
+<div class='row'>
 
-<h3 class="text-center">Aw Shucks, You Don't Have Access To This!</h3>
-<h4 class="text-center">(but we'd love for you to join us!)</h4>
+  <div class="col-lg-3 col-md-6 col-md-offset-1 col-xs-6 bottom-padding">
+      <img class='wiggle centered' alt="Greens" src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/b7a1fd37db8bb577f7633af9603aeb8ee619adf7.png?1403810974"/>
+  </div>
+
+  <div class="col-lg-2 col-md-6 hidden-xs bottom-padding">
+      <img class='wiggle centered' alt="Radish" src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/a823a3918d5f7f564ee8f4967ca439a4c881cb1c.png?1403813561"/>
+  </div>
+
+  <div class="col-lg-2 col-md-6 hidden-xs bottom-padding">
+      <img class='wiggle centered' alt="Spinach" src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/04f1e29f80de20fd134c968f470ef9b398fc55c6.png?1403813588"/>
+  </div>
+
+  <div class="col-lg-3 col-md-6 col-xs-6 bottom-padding">
+    <img class='wiggle centered' alt="Tomato" src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/a835ae833d367fc97b51a9041f0c45e76c43aa08.png?1403811155"/>
+  </div>
+</div>
+<div class="row">
+
+   <h1 class="text-center">Aw Rutabaga!</h1>
+   <h4 class="text-center">You don’t have access to this season, but we’d sure love for you to join us. </h4>
+
+  <div class="thumbnail thumbnail-border-sharp col-md-2 col-md-offset-1 hidden-xs">
+    <img src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/95b1e15e902372b3df0a19bd15c1e2059657258a.jpg?1403812900" />
+  </div>
+  <div class="thumbnail thumbnail-border-sharp col-md-2 margin-left hidden-xs">
+    <img src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/41c02b03864296181c3582226694ad871b3241d9.jpg?1403813308" />
+  </div>
+  <div class="thumbnail thumbnail-border-sharp col-md-2 margin-left hidden-xs">
+    <img src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/6b307e255910ce65bba900d2b98400f0260e2299.jpg?1403813327" />
+  </div>
+  <div class="thumbnail thumbnail-border-sharp col-md-2 margin-left hidden-xs">
+    <img src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/8226a016c51a665df2926fe0ae26ee75c7dd7524.jpg?1403813347" />
+  </div>
+  <div class="thumbnail thumbnail-border-sharp col-md-2 margin-left hidden-xs">
+    <img src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/e0da9f31046cd58ed16f08b985648e77f538802d.jpg?1403813365" />
+  </div>
+
+</div>
 
 <div class="spacer"></div>
-
-<div class="btn btn-primary col-md-offset-4 col-md-4"><h4>Upgrade and Join Us Now</h4></div>
-
-
-
-<div class="page-sub-header text-center">
-  <h2 class="dotted">Quick Links</h2>
-</div>
-<div class="row">
-  <div class="col-md-4">
-    <a href="/videos" class="btn btn-primary btn-lg btn-block">Go To The Video Library</a>
-  </div>
-  <div class="col-md-4">
-    <a href="/parent_resources" class="btn btn-default btn-lg btn-block">View Parent Resources</a>
-  </div>
-  <div class="col-md-4">
-    <a href="/pages/orientation" class="btn btn-warning btn-lg btn-block">Go Back to Orientation</a>
-  </div>
-</div>
 
 <% if flash[:notice].present? %>
     <h3 class="text-danger"><%= flash[:notice] %></h3>
 <% end %>
+
+
 
 
 <% if @unpurchased_seasons.empty? %>
@@ -37,10 +54,12 @@
 
 <% else %>
 
-  <h2>Upgrade Now</h2>
+  <h3 class="text-center">Upgrade Now</h3>
+
+      <div class="spacer"></div>
   <div class="row">
       <% @unpurchased_seasons.each do |unpurchased_season| %>
-         <div class="col-md-3">
+         <div class="col-md-3 col-md-offset-2 col-xs-2 col-xs-offset-1">
            <%= form_tag upgrades_path, method: :post do %>
                <%= hidden_field_tag 'season_ids[]', unpurchased_season.id %>
                <script
@@ -79,3 +98,16 @@
   </div>
 <% end %>
 
+
+  <div class="spacer"></div>
+  <div class="spacer"></div>
+
+  <div class="text-center col-md-6 col-md-offset-3">
+  <em>Note: Fall and Winter are coming soon! If you sign up for those seasons now, you'll automatically get access later in the year.</em>
+  </div>
+
+  <div class="spacer"></div>
+  <div class="spacer"></div>
+<div class="row"></div>
+<div class="spacer"></div>
+<div class="spacer"></div>

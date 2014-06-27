@@ -1,41 +1,55 @@
 <% if @resource.full_member? %>
 
-    <img class="centered" src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/cea9d97d6022e57ec85af1168ba2b674b50cb20b.png?1394068446" />
+    <img class="centered" src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/5c39e0dc88fe077d72ab22fe943ffd7b0d2f0b6b.png?1403815959" />
     <h2>Welcome to the Joyful 12, <%= @user.first_name %>!</h2>
 
+    <p>I’m so happy you’ll be joining me in the Learning Lab for a year of eating in season. We’ll be cooking our way through
+      summer, fall, winter and spring with a total of forty-eight seasonal vegetables and fruits. </p>
 
-    <p>We are so excited to that you are a part of the Joyful 12!</p>
+    <p>Just so you know, we are still building the Joyful 12 Fall and Winter seasons. What that means is that you now have
+      immediate access to Spring and Summer, which are the vegetables and fruits available now! When we release our Fall
+      and Winter recipes during Fall 2014, you’ll be the first to get access to those! And, you’ll have unlimited access
+      to the Joyful 12 year-over-year. I can’t wait to get started!</p>
 
     <p>All you have to do is confirm your email in the
-      link below, and then you're in! (easy, right?)</p>
+      link below, and then you're in the classroom! (easy, right?)</p>
 
     <p>Confirm your account email by clicking on the link:</p>
 
     <p><strong><%= link_to "Confirm my account, I'm ready to get started!", confirmation_url(@resource, confirmation_token: @token) %></strong></p>
 
-    In the future you can sign in by going to joyful12.com.
+    <p>In the future you can sign in by going to <a href="https://www.joyful12.com">joyful12.com</a>.</p>
 
-    <p><em>Living veggie love, </em></p>
+    <p>I’m sure you’re going to love the Joyful 12 so much, you’ll want to spread some of that veggie love to your family and friends. The Joyful 12 is a great gift for a loved one.
+    </p>
+
+    <p><em>Yours in fun and tasty kitchen adventures,</em></p>
     <p><em>Chef Hollie</em></p>
+
+    <p>Contact me anytime!</p>
+    <p>hollie@joyfoodly.com</p>
 
 <% elsif @resource.season_member? %>
 
-    <img class="centered" src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/cea9d97d6022e57ec85af1168ba2b674b50cb20b.png?1394068446" />
+    <img class="centered" src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/5c39e0dc88fe077d72ab22fe943ffd7b0d2f0b6b.png?1403815959" />
     <h2>Welcome to the Joyful 12, <%= @user.first_name %>!</h2>
 
-
-    <p>We are so excited to that you are a part of the Joyful 12!</p>
+    <p>I’m so happy you’ll be joining me in the Learning Lab for a year of eating in season. We’ll be cooking our way through summer, fall, winter and spring with a total of forty-eight seasonal vegetables and fruits. </p>
 
     <p>All you have to do is confirm your email in the
-      link below, and then you're in! (easy, right?)</p>
+      link below, and then you're in the classroom! (easy, right?)</p>
 
     <p>Confirm your account email by clicking on the link:</p>
 
     <p><strong><%= link_to "Confirm my account, I'm ready to get started!", confirmation_url(@resource, confirmation_token: @token) %></strong></p>
 
-    In the future you can sign in by going to joyful12.com.
+    <p>In the future you can sign in by going to <a href="https://www.joyful12.com">joyful12.com</a>.</p>
+    <p>I’m sure you’re going to love the Joyful 12 so much, I’ll see you back for the next three seasons. Spread some veggie love to your family and friends. The Joyful 12 is a great gift for a loved one. </p>
 
-    <p><em>Living veggie love, </em></p>
+    <p><em>Yours in fun and tasty kitchen adventures,</em></p>
     <p><em>Chef Hollie</em></p>
+
+    <p>Contact me anytime!</p>
+    <p>hollie@joyfoodly.com</p>
 
 <% end %>
