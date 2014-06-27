@@ -54,57 +54,7 @@
 
 <% else %>
 
-  <h3 class="text-center">Upgrade Now</h3>
-
-      <div class="spacer"></div>
-  <div class="row">
-      <% @unpurchased_seasons.each do |unpurchased_season| %>
-         <div class="col-md-3 col-md-offset-2 col-xs-2 col-xs-offset-1">
-           <%= form_tag upgrades_path, method: :post do %>
-               <%= hidden_field_tag 'season_ids[]', unpurchased_season.id %>
-               <script
-               src='https://checkout.stripe.com/checkout.js' class='stripe-button'
-               data-key='<%= ENV['STRIPE_PUBLIC_KEY'] %>'
-               data-image='<%= image_path('payments/stripe-store-image.png') %>'
-               data-label='<%= unpurchased_season.name %> $<%= ENV['PRICE_PER_SEASON'].to_i / 100 %>'
-               data-name='Joyful 12'
-               data-panel-label='Pay {{amount}}'
-               data-billing-address='true'
-               data-shipping-address='true'
-               data-description='<%= number_to_currency(ENV['PRICE_PER_SEASON'].to_i / 100) %>'
-               data-amount='<%= ENV['PRICE_PER_SEASON'] %>'>
-               </script>
-           <% end %>
-         </div>
-      <% end %>
-      <div class="col-md-3">
-        <% unpurchased_seasons_price = (ENV['PRICE_PER_SEASON'].to_i / 100) * @unpurchased_seasons.count %>
-        <%= form_tag upgrades_path, method: :post do %>
-            <%= hidden_field_tag 'season_ids[]', @unpurchased_seasons.map(&:id).join(',') %>
-            <script
-            src='https://checkout.stripe.com/checkout.js' class='stripe-button'
-            data-key='<%= ENV['STRIPE_PUBLIC_KEY'] %>'
-            data-image='<%= image_path('payments/stripe-store-image.png') %>'
-            data-label='Buy <%= @unpurchased_seasons.count %> together: $<%= unpurchased_seasons_price %>'
-            data-name='Joyful 12'
-            data-panel-label='Pay {{amount}}'
-            data-billing-address='true'
-            data-shipping-address='true'
-            data-description='<%= number_to_currency(unpurchased_seasons_price) %>'
-            data-amount='<%= unpurchased_seasons_price %>'>
-            </script>
-        <% end %>
-      </div>
-  </div>
-<% end %>
-
-
-  <div class="spacer"></div>
-  <div class="spacer"></div>
-
-  <div class="text-center col-md-6 col-md-offset-3">
-  <em>Note: Fall and Winter are coming soon! If you sign up for those seasons now, you'll automatically get access later in the year.</em>
-  </div>
+ 
 
   <div class="spacer"></div>
   <div class="spacer"></div>
