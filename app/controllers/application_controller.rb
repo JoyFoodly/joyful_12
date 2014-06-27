@@ -30,7 +30,7 @@ protected
         redirect_to page_path('coming-soon') and return
       end
     else
-      redirect_to upgrades_path('upgrade') and return
+      redirect_to upgrades_path and return
     end
   end
 

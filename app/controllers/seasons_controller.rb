@@ -17,7 +17,7 @@ private
   end
 
   def redirect_back_unless_recipe_page
-    if request.referrer =~ /#{foods_path}\/\w+/ || request.referrer =~ /no-access/
+    if request.referrer =~ /#{foods_path}\/\w+/ || request.referrer =~ /coming-soon|upgrades/
       redirect_to foods_path
     else
       redirect_to :back
