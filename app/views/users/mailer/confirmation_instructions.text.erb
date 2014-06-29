@@ -1,21 +1,19 @@
 Welcome to the Joyful 12, <%= @user.first_name %>!
 
-  I’m so happy you’ll be joining me in the Learning Lab. We’ll be cooking our way through
-  summer, fall, winter and spring with a total of forty-eight seasonal vegetables and fruits.
+I’m so happy you’ll be joining me in the Joyful12 Learning Lab. We'll be cooking our way through summer, fall, winter and spring with a total of forty-eight seasonal vegetables and fruits. I can't wait to get started on our 12 Summer Vegetables and Fruits.
 
-  Just so you know, we are still building the Joyful 12 Fall and Winter seasons. What that means is that Spring and Summer
-  are available now, and when we release our Fall
-  and Winter recipes during Fall 2014, you’ll be the first to know! Not only that, but you’ll have unlimited access
-  to the Joyful 12 year-over-year. I can’t wait to get started!
+If you've signed up for the full year (yay!!), you'll have access to the Spring and Summer classroom now, and when we release our Fall and Winter recipes during Fall 2014, you’ll be the first to have access!
 
-  All you have to do is confirm your email in the
-  link below, and then you're in the classroom! (easy, right?)
+All you have to do is click the link below, then set up your password, and you're in the classroom! (easy, right?)
 
-Confirm your account email by clicking on the link:
+<%= confirmation_url(@resource, confirmation_token: @token) %>
 
-Confirm your account email by clicking on the link: <%= confirmation_url(@resource, confirmation_token: @token) %>
+I’m sure you’re going to love the Joyful 12 so much, you’ll want to spread some of that veggie love to your family and friends. The Joyful 12 is a great gift for a loved one.
 
-In the future you can sign in by going to joyful12.com.
+Just so you know: after the first time you've signed in, bookmark joyful12.com.
 
-Living veggie love,
+Yours in fun and tasty kitchen adventures,
 Chef Hollie
+
+Contact me anytime!
+hollie@joyfoodly.com
