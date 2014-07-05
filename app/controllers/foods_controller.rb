@@ -5,6 +5,7 @@ class FoodsController < ApplicationController
   before_filter :set_season
   before_filter :set_foods
   before_filter :authorize_user
+  before_filter :set_forum_onboarded
 
   def index
     expires_in 10.minutes, public: false
@@ -39,6 +40,13 @@ private
 
   def set_foods
     @foods = @season.foods
+  end
+
+  def set_forum_onboarded
+    unless current_user.forum_onboarded
+      current_user.update_attributes(forum_onboarded: true)
+      @should_show_forum_onboarding = true
+    end
   end
 
 end
