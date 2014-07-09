@@ -30,6 +30,14 @@ describe RegistrationsController do
     end
     let(:stripe_subscription_params) { stripe_base_params.merge(plan_id: 'season') }
     let(:stripe_payment_params) { stripe_base_params.merge(product_id: 'season') }
+    let(:stripe_gift_params) do
+      stripe_payment_params.merge({
+        recipient_email: 'recipient@example.com',
+        recipient_first_name: 'John',
+        recipient_last_name: 'Doe',
+      })
+    end
+
 
     context 'for subscriptions' do
       it "Redirects to user profile if successful" do
@@ -90,6 +98,21 @@ describe RegistrationsController do
         post :create, stripe_payment_params.merge(product_id: 'year')
         expect(response).to redirect_to(confirmation_sent_path)
         expect(User.first.seasons.count).to eq(4)
+      end
+
+      it "Redirects to user profile if successful for gift recipients" do
+        %w[Spring Summer Fall Winter].each { |name| create(:season, name: name) }
+        Payment.any_instance.should_receive(:create_stripe_customer)
+        Payment.any_instance.should_receive(:create_stripe_charge)
+        Payment.any_instance.stub(customer_id: 'cus_3M3xSDLKJF&', charge_id: 'ch_103M3x2oorRFV7')
+        post :create, stripe_gift_params
+        expect(response).to redirect_to(confirmation_sent_path)
+        user = User.first
+        expect(user.email).to eq(stripe_gift_params[:recipient_email])
+        expect(user.first_name).to eq(stripe_gift_params[:recipient_first_name])
+        expect(user.last_name).to eq(stripe_gift_params[:recipient_last_name])
+        expect(user.shipping_addresses.count).to eq(0)
+        expect(user.billing_addresses.count).to eq(0)
       end
 
       it "Redirects the user back if there are user creation errors" do

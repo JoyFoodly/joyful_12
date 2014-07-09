@@ -1,5 +1,4 @@
 class RegistrationsController < Devise::RegistrationsController
-
   layout 'qubico'
 
   def create
@@ -18,7 +17,15 @@ class RegistrationsController < Devise::RegistrationsController
 private
 
   def stripe_params
-    params.permit("plan_id", "product_id", "stripeToken", "stripeEmail", *billing_params, *shipping_params)
+    params.permit("plan_id", "product_id", "stripeToken", "stripeEmail", *recipient_params, *billing_params, *shipping_params)
+  end
+
+  def recipient_params
+    %w[
+      recipient_email
+      recipient_first_name
+      recipient_last_name
+    ]
   end
 
   def billing_params

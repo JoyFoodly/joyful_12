@@ -987,7 +987,46 @@ PRICES
             <p>Unlimited access</p>
             <p>Learn Chef Hollie's proven methods</p>
 
-            <a class="btn btn-qubico" href="#link">Coming Soon</a>
+            <%= form_tag user_registration_path, method: :post do %>
+                <div class="radio radio-height-fix">
+                  <label>
+                    <%= radio_button_tag :product_id, 'year', true %>
+                    Full Year Member
+                  </label>
+                </div>
+                <div class="radio radio-height-fix">
+                  <label>
+                    <%= radio_button_tag :product_id, 'season' %>
+                    One Season Member
+                  </label>
+                </div>
+
+                <div class="form-group">
+                  <%= email_field_tag :recipient_email, '', placeholder: 'gift recipient email', class: 'form-control',
+                                      required: true %>
+                </div>
+                <div class="form-group">
+                  <%= text_field_tag :recipient_first_name, '', placeholder: 'gift recipient first name', class: 'form-control',
+                                     required: true %>
+                </div>
+                <div class="form-group">
+                  <%= text_field_tag :recipient_last_name, '', placeholder: 'gift recipient last name', class: 'form-control',
+                                     required: true %>
+                </div>
+
+                <script
+                src='https://checkout.stripe.com/checkout.js' class='stripe-button'
+                data-key='<%= ENV['STRIPE_PUBLIC_KEY'] %>'
+                data-image='<%= image_path('payments/stripe-store-image.png') %>'
+                data-label='Sign Up Now'
+                data-name='Joyful 12'
+                data-panel-label='Pay {{amount}}'
+                data-billing-address='true'
+                data-shipping-address='true'
+                data-description='Joyful 12 Year (<%= number_to_currency(ENV['PRICE_PER_YEAR'].to_i / 100) %>)'
+                data-amount='<%= ENV['PRICE_PER_YEAR'] %>'>
+                </script>
+            <% end %>
 
           </div><!-- End Pricing Item -->
 

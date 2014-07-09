@@ -22,17 +22,17 @@
             <%= f.label :name, 'Shopping list name (edit)' %>
             <%= f.text_field :name, class: 'form-control' %>
           </div>
-          <div class='form-group'>
             <h3>You've selected these recipes:</h3>
             <% @shopping_list.recipes.each do |recipe| %>
+              <div class="checkbox">
               <%= f.label :recipe_ids, value: recipe.id, class: "checkbox #{'text-blue' if recipe.optional?}" do %>
                 <%= check_box_tag 'shopping_list[recipe_ids][]', recipe.id, true, id: "shopping_list_recipe_ids_#{recipe.id}" %>
                 <%= recipe.title %>
               <% end %>
               <%= f.hidden_field :recipe_ids, name: 'shopping_list[recipe_ids][]', value: nil %>
+              </div>
             <% end %>
 
-          </div>
           <%= f.button :submit, 'Save', class: 'btn-primary top-buffer' %>
           <%= f.button :submit, 'Archive', name: 'archive', class: 'btn-primary top-buffer' %>
           <%= link_to 'Print', shopping_list_path(@shopping_list), class: 'btn btn-primary top-buffer' %>

@@ -10,6 +10,7 @@ feature 'Add recipe to shopping lists' do
 
   scenario 'allows users to add recipes to their current list' do
     visit edit_shopping_list_path('current')
+    expect(page).to have_content(recipe.title)
     select recipe.title, from: "add_recipe_select"
     click_button 'Add Recipe'
     expect(user.shopping_lists.first.recipes).to include(recipe)

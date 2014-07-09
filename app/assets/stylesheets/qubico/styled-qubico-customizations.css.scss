@@ -291,6 +291,11 @@ a:hover, a:focus {
   padding-left: 4px
 }
 
+//fixing the height of radio boxes, specifically on the sign up page pricing
+.radio-height-fix {
+  height: 10px;
+}
+
 @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
 
   #sequence-theme {

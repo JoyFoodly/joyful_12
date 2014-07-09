@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :season do
-    name 'Spring'
+    name Season.current_season_name
   end
 end
