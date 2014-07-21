@@ -33,6 +33,10 @@ class User < ActiveRecord::Base
     seasons.count == 1
   end
 
+  def gift_recipient?
+    gift_giver_name.present?
+  end
+
 private
 
   def set_default_username

@@ -5,9 +5,12 @@ class RegistrationsController < Devise::RegistrationsController
     @user = UserRegistration.from_stripe_params(stripe_params)
 
     if @user.persisted?
-      set_flash_message :notice, :"signed_up_but_#{@user.inactive_message}" if is_flashing_format?
-      expire_data_after_sign_in!
-      respond_with @user, location: confirmation_sent_path
+      if @user.gift_recipient?
+        redirect_to page_path('gift_sent')
+      else
+        expire_data_after_sign_in!
+        respond_with @user, location: confirmation_sent_path
+      end
     else
       flash.now[:error] = @user.errors.full_messages.first
       render :new

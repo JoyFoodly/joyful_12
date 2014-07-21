@@ -20,12 +20,17 @@ private
       email: stripe_payment['recipient_email'] || stripe_payment['stripeEmail'],
       first_name: stripe_payment['recipient_first_name'] || stripe_payment['stripeBillingName'].split.first,
       last_name: stripe_payment['recipient_last_name'] || stripe_payment.fetch('stripeBillingName').split[1..-1].try(:join, ' '),
+      gift_giver_name: gift_giver_name_if_applicable(stripe_payment),
       password: Devise.friendly_token[0,20]
     )
   end
 
+  def self.gift_giver_name_if_applicable(stripe_payment)
+    stripe_payment['stripeBillingName'] if gift_recipient?(stripe_payment)
+  end
+
   def self.create_user_addresses_from_stripe_payment(user, stripe_payment)
-    unless stripe_payment['recipient_email'].present?
+    unless gift_recipient?(stripe_payment)
       user.billing_addresses.create!(
           name: stripe_payment.fetch("stripeBillingName"),
           line_1: stripe_payment.fetch("stripeBillingAddressLine1"),
@@ -66,5 +71,10 @@ private
       user.seasons << Season.current_season
     end
   end
+
+  def self.gift_recipient?(stripe_payment)
+    stripe_payment['recipient_email'].present?
+  end
+
 
 end

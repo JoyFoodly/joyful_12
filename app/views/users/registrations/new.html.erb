@@ -99,7 +99,7 @@
         <li class=" hidden-xs">
           <div class="message-slide2">
             <h2 class="title">A Proven Method to Build Your Kitchen Skills </h2>
-            <p class="">Chef Hollie’s proven approach with ways to engage kids in the cooking
+            <p class="">Chef Hollie's proven approach with ways to engage kids in the cooking
               process and videos on how to prep and make veggies taste amazing!</p>
           </div>
           <div class="slide2-img">
@@ -483,7 +483,7 @@ Reviews
         <div class="member-details">
           <p>This whole program inspires me to cook more. Most cookbooks I only like two or three recipes, but I love so
             many of the Joyful 12 recipes and the step-by-step photos really help me understand everything. I especially
-            love the videos. They’re quick and I’ve learned so much from watching them. I feel like I’m becoming much more
+            love the videos. They're quick and I've learned so much from watching them. I feel like I'm becoming much more
             confident when I make recipes, and I love the wholesome ingredients and the fact that Chef Hollie responds to
             my questions personally!</p>
           <a href="http://www.joyfoodly.com/rhonda" target="_blank">Read more about Rhonda  ></a>
@@ -507,8 +507,8 @@ Reviews
         <div class="member-details">
           <p>We made the dreamy greenie quesadillas tonight. They were fabulous! Even my son loved them and I
             thought the greens would be a hard sell. They were really filling so I have leftovers for lunch.
-            And I love that avocado sauce…I could eat that everyday. We’re having fun trying the Joyful 12
-            recipes. The kids are always willing to try something new if I tell them it’s your recipe.</p>
+            And I love that avocado sauce…I could eat that everyday. We're having fun trying the Joyful 12
+            recipes. The kids are always willing to try something new if I tell them it's your recipe.</p>
 
         </div>
       </div>
@@ -911,6 +911,8 @@ PRICES
             <p>Time saving shopping list</p>
             <p>Parent resources</p>
             <p>Family Focused Forum</p>
+            <p>Weekly motivating emails</p>
+            <p>Tips for getting kids involved</p>
 
             <br>
             <%= form_tag user_registration_path, method: :post do %>
@@ -950,6 +952,8 @@ PRICES
             <p>Parent resources</p>
             <p>Family Focused Forum</p>
             <p>4 times as much fun as one season!</p>
+            <p>Weekly motivating emails</p>
+            <p>Tips for getting kids involved</p>
 
             <br>
             <%= form_tag user_registration_path, method: :post do %>
@@ -982,29 +986,10 @@ PRICES
             <strong>Show your love with a year of seasonal eating!</strong>
 
             <p>Perfect for busy parents, newlyweds, or an expectant mom!</p>
-            <p>One season at $12 or a full year with a 20% discount at $40</p>
             <p>Same content as a season or full year</p>
-            <p>Unlimited access</p>
-            <p>Learn Chef Hollie's proven methods</p>
 
             <%= form_tag user_registration_path, method: :post do %>
-                <div class="radio radio-height-fix">
-                  <label>
-                    <%= radio_button_tag :product_id, 'year', true %>
-                    Full Year Member
-                  </label>
-                </div>
-                <div class="radio radio-height-fix">
-                  <label>
-                    <%= radio_button_tag :product_id, 'season' %>
-                    One Season Member
-                  </label>
-                </div>
 
-                <div class="form-group">
-                  <%= email_field_tag :recipient_email, '', placeholder: 'gift recipient email', class: 'form-control',
-                                      required: true %>
-                </div>
                 <div class="form-group">
                   <%= text_field_tag :recipient_first_name, '', placeholder: 'gift recipient first name', class: 'form-control',
                                      required: true %>
@@ -1013,18 +998,33 @@ PRICES
                   <%= text_field_tag :recipient_last_name, '', placeholder: 'gift recipient last name', class: 'form-control',
                                      required: true %>
                 </div>
+                <div class="form-group">
+                  <%= email_field_tag :recipient_email, '', placeholder: 'gift recipient email', class: 'form-control',
+                                      required: true %>
+                </div>
+
+                <div class="radio radio-height-fix">
+                  <label>
+                    <%= radio_button_tag :product_id, 'year', true %>
+                    Full Year Member - <%= number_to_currency(ENV['PRICE_PER_YEAR'].to_i / 100.0) %>
+                  </label>
+                </div>
+                <div class="radio radio-height-fix">
+                  <label>
+                    <%= radio_button_tag :product_id, 'season' %>
+                    One Season Member - <%= number_to_currency(ENV['PRICE_PER_SEASON'].to_i / 100.0) %>
+                  </label>
+                </div>
 
                 <script
                 src='https://checkout.stripe.com/checkout.js' class='stripe-button'
                 data-key='<%= ENV['STRIPE_PUBLIC_KEY'] %>'
                 data-image='<%= image_path('payments/stripe-store-image.png') %>'
-                data-label='Sign Up Now'
+                data-label='Give A Gift'
                 data-name='Joyful 12'
-                data-panel-label='Pay {{amount}}'
                 data-billing-address='true'
                 data-shipping-address='true'
-                data-description='Joyful 12 Year (<%= number_to_currency(ENV['PRICE_PER_YEAR'].to_i / 100) %>)'
-                data-amount='<%= ENV['PRICE_PER_YEAR'] %>'>
+                data-description='Joyful 12 Gift'>
                 </script>
             <% end %>
 
@@ -1084,7 +1084,7 @@ PARTNERS
         <em>"Chef Hollie shares our commitment to health, seasonality and freshness, and we love her dedication to getting
           families back in the kitchen to cook together. With so many fast and easy options available, we recognize that
           in order to get people to eat real, whole, healthy foods, we have to make cooking fun and worth their valuable time.
-          Hollie’s incredible energy and passion around that cause makes her a perfect partner for Whole Foods Market.”
+          Hollie's incredible energy and passion around that cause makes her a perfect partner for Whole Foods Market.”
         </em>
         <br />
         <br />
