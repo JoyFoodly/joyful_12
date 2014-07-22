@@ -21,6 +21,7 @@ private
       first_name: stripe_payment['recipient_first_name'] || stripe_payment['stripeBillingName'].split.first,
       last_name: stripe_payment['recipient_last_name'] || stripe_payment.fetch('stripeBillingName').split[1..-1].try(:join, ' '),
       gift_giver_name: gift_giver_name_if_applicable(stripe_payment),
+      gift_message: stripe_payment['recipient_gift_message'],
       password: Devise.friendly_token[0,20]
     )
   end

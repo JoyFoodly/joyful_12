@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140709072921) do
+ActiveRecord::Schema.define(version: 20140721061159) do
 
   create_table "addresses", force: true do |t|
     t.string   "line_1",     default: "", null: false
@@ -313,6 +313,7 @@ ActiveRecord::Schema.define(version: 20140709072921) do
     t.boolean  "onboarded",                   default: false, null: false
     t.boolean  "forum_onboarded",             default: false, null: false
     t.string   "gift_giver_name"
+    t.string   "gift_message"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
@@ -328,7 +329,7 @@ ActiveRecord::Schema.define(version: 20140709072921) do
     t.string   "provider_id", default: "", null: false
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.integer  "sort_order",  default: 0,  null: false
+    t.integer  "sort_order"
     t.string   "category"
   end
 

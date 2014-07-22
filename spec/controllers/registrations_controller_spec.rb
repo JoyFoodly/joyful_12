@@ -106,7 +106,7 @@ describe RegistrationsController do
         Payment.any_instance.should_receive(:create_stripe_charge)
         Payment.any_instance.stub(customer_id: 'cus_3M3xSDLKJF&', charge_id: 'ch_103M3x2oorRFV7')
         post :create, stripe_gift_params
-        expect(response).to redirect_to(page_path('gift_sent'))
+        expect(response).to redirect_to(page_path('gift-sent'))
         user = User.first
         expect(user.email).to eq(stripe_gift_params[:recipient_email])
         expect(user.first_name).to eq(stripe_gift_params[:recipient_first_name])

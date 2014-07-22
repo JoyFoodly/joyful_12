@@ -26,7 +26,9 @@ protected
 
   def authorize_user
     if current_user.seasons.include?(@season)
-      if @season.name.in? ["Fall", "Winter"]
+      if @season.name == 'Fall'
+        redirect_to page_path('coming-soon') and returnf
+      elsif @season.name == "Winter" && current_user.created_at > Date.parse('2014-07-01')
         redirect_to page_path('coming-soon') and return
       end
     else

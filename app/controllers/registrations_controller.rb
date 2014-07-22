@@ -6,14 +6,13 @@ class RegistrationsController < Devise::RegistrationsController
 
     if @user.persisted?
       if @user.gift_recipient?
-        redirect_to page_path('gift_sent')
+        redirect_to page_path('gift-sent')
       else
         expire_data_after_sign_in!
         respond_with @user, location: confirmation_sent_path
       end
     else
-      flash.now[:error] = @user.errors.full_messages.first
-      render :new
+      redirect_to "#{new_user_registration_path}?message=#{URI.escape(@user.errors.full_messages.first)}#pricing"
     end
   end
 
@@ -28,6 +27,7 @@ private
       recipient_email
       recipient_first_name
       recipient_last_name
+      recipient_gift_message
     ]
   end
 
