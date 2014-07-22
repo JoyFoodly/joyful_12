@@ -28,6 +28,7 @@ private
       recipient_first_name
       recipient_last_name
       recipient_gift_message
+      gift_giver_name
     ]
   end
 
