@@ -24,9 +24,18 @@ protected
     edit_user_path(resource_or_scope) if resource_or_scope.class == User
   end
 
+  def authorize_user_emails
+    %w[hollie@joyfoodly.com
+       chefhollie@gmail.com
+       michelle.ann.harvey@gmail.com
+       heather.harvey.marie@gmail.com
+       michelle@joyfoodly.com
+       chefannierose@gmail.com]
+  end
+  
   def authorize_user
     if current_user.seasons.include?(@season)
-      if @season.name == 'Fall'
+      if @season.name == 'Fall' && !current_user.email.in?(authorize_user_emails)
         redirect_to page_path('coming-soon') and return
       elsif @season.name == "Winter" && current_user.created_at > Date.parse('2014-07-01')
         redirect_to page_path('coming-soon') and return
