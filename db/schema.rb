@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140721061159) do
+ActiveRecord::Schema.define(version: 20140820052837) do
 
   create_table "addresses", force: true do |t|
     t.string   "line_1",     default: "", null: false
@@ -287,12 +287,12 @@ ActiveRecord::Schema.define(version: 20140721061159) do
   add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id"
 
   create_table "users", force: true do |t|
-    t.string   "email",                       default: "",    null: false
-    t.string   "encrypted_password",          default: "",    null: false
+    t.string   "email",                                   default: "",    null: false
+    t.string   "encrypted_password",                      default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",               default: 0,     null: false
+    t.integer  "sign_in_count",                           default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -301,19 +301,19 @@ ActiveRecord::Schema.define(version: 20140721061159) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.string   "first_name",                  default: "",    null: false
-    t.string   "last_name",                   default: "",    null: false
+    t.string   "first_name",                              default: "",    null: false
+    t.string   "last_name",                               default: "",    null: false
     t.text     "family_description"
     t.text     "family_struggles"
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.datetime "created_at",                                              null: false
+    t.datetime "updated_at",                                              null: false
     t.integer  "season_id"
-    t.string   "username",                    default: "",    null: false
+    t.string   "username",                                default: "",    null: false
     t.string   "payment_gateway_customer_id"
-    t.boolean  "onboarded",                   default: false, null: false
-    t.boolean  "forum_onboarded",             default: false, null: false
+    t.boolean  "onboarded",                               default: false, null: false
+    t.boolean  "forum_onboarded",                         default: false, null: false
     t.string   "gift_giver_name"
-    t.string   "gift_message"
+    t.text     "gift_message",                limit: 255
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
@@ -329,7 +329,7 @@ ActiveRecord::Schema.define(version: 20140721061159) do
     t.string   "provider_id", default: "", null: false
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.integer  "sort_order"
+    t.integer  "sort_order",  default: 0,  null: false
     t.string   "category"
   end
 
