@@ -4,7 +4,7 @@
     <ul class="nav navbar-nav navbar-left navbar-left-small">
 
       <li class="dropdown">
-        <% if user_signed_in? %>
+        <% if user_signed_in? && current_user %>
         <%= link_to "Hi, #{current_user.username}", "#{ENV['COMMUNITY_URL']}/login",
                     class: 'dropdown-toggle general-padding-small pull-left',
                     data: { toggle: 'dropdown' } if user_signed_in? %>
