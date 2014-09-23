@@ -6,7 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Admin.create_with(password: 'password').find_or_create_by!(email: 'michelle.ann.harvey@gmail.com')
+Admin.create_with(password: 'password').find_or_create_by!(email: 'siruguri@gmail.com')
+Admin.create_with(password: 'password').find_or_create_by!(email: 'hollie@joyfoodly.com')
 
 user_attributes = { first_name: 'Tester', last_name: 'Person', password: 'password', created_at: Time.current }
 user = User.create_with(user_attributes).find_or_create_by!(email: 'test@example.com')
