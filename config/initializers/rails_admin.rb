@@ -33,6 +33,15 @@ RailsAdmin.config do |config|
     # history_show
   end
 
+  config.model 'User' do
+    object_label_method do
+      :fullname
+    end
+  end
+
+  def fullname
+    "#{self.first_name} #{self.last_name}"
+  end
   # Media Config
   config.model 'Media' do
     list do
