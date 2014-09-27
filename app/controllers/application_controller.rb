@@ -27,9 +27,7 @@ protected
   def authorize_user
     # If we are in admin scope then let's authorize all actions.
     if current_user.seasons.include?(@season)
-      if @season.name == 'Fall' && !current_user.email.in?(Admin.all.map(&:email))
-        redirect_to page_path('coming-soon') and return
-      elsif @season.name == "Winter" && current_user.created_at > Date.parse('2014-07-01')
+      if @season.name == "Winter" && !current_user.email.in?(Admin.all.map(&:email))
         redirect_to page_path('coming-soon') and return
       end
     else
