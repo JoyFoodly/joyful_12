@@ -9,7 +9,7 @@ class Season < ActiveRecord::Base
   end
 
   def self.current_season_name
-    'Summer'
+    'Fall'
   end
 
 end
