@@ -6,7 +6,7 @@ recipe_info=
    {slug: 'fall-jicama', alt: 'Fall Jicama', url_loc: 'http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/599bb56718669916c655bdc19665444ffdf82fcc.png?1412019804'},
    {slug: 'fall-greens', alt: 'Fall Greens', url_loc: 'http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/21f5b3cd5ed38351db93133dbc291dead5a24236.png?1412019788'},
    {slug: 'fall-figs', alt: 'Fall Figs', url_loc: 'http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/4160ca68fc7873c0c69baf05b336722d7d8299da.png?1412019776'},
-   {slug: 'fall-cranberries', alt: 'Fall Cranberries', url_loc: 'http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/5719c4983dd759bd6e741c33a216ddfa46a0698f.png?1412019758'},
+   {slug: 'fall-cranberries', alt: 'Fall Cranberries', url_loc: 'http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/b946822949e76aedbe2cb9c402a4b10628c78475.png?1412034674'},
    {slug: 'fall-celeriac', alt: 'Fall Celeriac', url_loc: 'http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/766e1a67420fd7941507c1260d0032e5ee11a237.png?1412019734'},
    {slug: 'fall-carrots', alt: 'Fall Carrots', url_loc: 'http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/dbfb02419afddd905a184332d469a81de98958ee.png?1412019723'},
    {slug: 'fall-cauliflower', alt: 'Fall Cauliflower', url_loc: 'http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/98ce71e1ffb64822e7ba6f3ff2e4925598a54b4e.png?1412019712'},
