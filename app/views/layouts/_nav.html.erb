@@ -52,7 +52,7 @@
               Current Season: <%= season_name %> <b class='caret'></b>
             </a>
             <ul class="dropdown-menu js-season-selector">
-              <% Season.all.each_with_index do |season, i| %>
+              <% Season.where('published is null or published = ?', true).each_with_index do |season, i| %>
                   <li class="<%= 'active' if season.name == season_name %>"><%= link_to season.name, '#' %></li>
               <% end %>
             </ul>
