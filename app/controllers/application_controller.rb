@@ -26,11 +26,7 @@ protected
 
   def authorize_user
     # If we are in admin scope then let's authorize all actions.
-    if current_user.seasons.include?(@season)
-      if @season.name == "Winter" && !current_user.email.in?(Admin.all.map(&:email))
-        redirect_to page_path('coming-soon') and return
-      end
-    else
+    if !current_user.seasons.include?(@season)
       redirect_to upgrades_path and return
     end
   end
