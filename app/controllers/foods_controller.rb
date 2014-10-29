@@ -3,7 +3,7 @@ class FoodsController < ApplicationController
   before_filter :ensure_onboarding
   before_filter :set_food, only: :show
   before_filter :set_season
-  before_filter :set_foods
+  before_filter :set_published_foods
   before_filter :authorize_user
   before_filter :set_forum_onboarded
 
@@ -40,6 +40,9 @@ private
 
   def set_foods
     @foods = @season.foods
+  end
+  def set_published_foods
+    @foods = @season.foods.where('published = ? or published is null', true)
   end
 
   def set_forum_onboarded
