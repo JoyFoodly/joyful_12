@@ -1,0 +1,55 @@
+<% if @unpurchased_seasons.empty? %>
+  <h3>You seem to have access to all seasons!</h3>
+
+<% else %>
+  <div class='row'>
+    <div class="col-xs-12">
+      <h4>Click To Purchase</h4>
+    </div>
+  </div>
+  
+  <div class='row' style='margin-bottom: 15px;'>
+  <% @unpurchased_seasons.each do |unpurchased_season| %>
+    <div class="col-md-6 col-xs-6">
+      <%= form_tag upgrades_path, method: :post do %>
+        <%= hidden_field_tag 'season_ids[]', unpurchased_season.id %>
+        <script
+          src='https://checkout.stripe.com/checkout.js' class='stripe-button'
+          data-key='<%= ENV['STRIPE_PUBLIC_KEY'] %>'
+          data-image='<%= image_path('payments/stripe-store-image.png') %>'
+          data-label='<%= unpurchased_season.name %> $<%= ENV['PRICE_PER_SEASON'].to_i / 100 %>'
+          data-name='Joyful 12'
+          data-panel-label='Pay {{amount}}'
+          data-billing-address='true'
+          data-shipping-address='true'
+          data-description='<%= number_to_currency(ENV['PRICE_PER_SEASON'].to_i / 100) %>'
+          data-amount='<%= ENV['PRICE_PER_SEASON'] %>'>
+        </script>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+  <div class='row'>
+    <% if @unpurchased_seasons.count > 1 %>
+      <div class="col-xs-12">
+        <% unpurchased_seasons_price = (ENV['PRICE_PER_SEASON'].to_i / 100) * @unpurchased_seasons.count %>
+        <%= form_tag upgrades_path, method: :post do %>
+          <%= hidden_field_tag 'season_ids[]', @unpurchased_seasons.map(&:id).join(',') %>
+          <script
+            src='https://checkout.stripe.com/checkout.js' class='stripe-button'
+            data-key='<%= ENV['STRIPE_PUBLIC_KEY'] %>'
+            data-image='<%= image_path('payments/stripe-store-image.png') %>'
+            data-label='Buy <%= @unpurchased_seasons.count %> together: $<%= unpurchased_seasons_price %>'
+            data-name='Joyful 12'
+            data-panel-label='Pay {{amount}}'
+            data-billing-address='true'
+            data-shipping-address='true'
+            data-description='<%= number_to_currency(unpurchased_seasons_price) %>'
+            data-amount='<%= unpurchased_seasons_price %>'>
+          </script>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+<% end %>

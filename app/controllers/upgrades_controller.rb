@@ -3,7 +3,6 @@ class UpgradesController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    # all_seasons=Season.all.select { |x| x.name != 'Spring' }
     all_seasons = Season.all
     @unpurchased_seasons = all_seasons - current_user.seasons
   end
