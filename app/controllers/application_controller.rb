@@ -4,7 +4,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :web_crawler_info
 
-protected
+  # Overwriting the sign_out redirect path method
+  def after_sign_out_path_for(resource_or_scope)
+    root_path
+  end
+  
+  protected
 
   def ensure_onboarding
     redirect_to edit_user_path(current_user) and return unless current_user.onboarded?
