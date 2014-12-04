@@ -1,5 +1,5 @@
 foods = Food.where('slug like ?', 'winter-%')
-recipe_info = foods.each do |food|
+recipe_info = foods.map do |food|
   {slug: food.slug, alt: "Winter #{food.name}", url_loc: food.images[0].file.url}
 end
 
