@@ -1,3 +1,5 @@
+foods = Food.where('slug like ?', 'winter-%')
+
 recipe_info=
   [{slug: 'fall-apple', alt: 'Fall Apple', url_loc: 'http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/904cf1654826b1a93b08cd1d076c985d569307f6.png?1412019653'},
    {slug: 'fall-winter-squash', alt: 'Fall Winter Squash', url_loc: 'http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/1c54571bbaaea839d5b5e9eed2f9cbcc72b5e787.png?1412019851'},
@@ -12,6 +14,10 @@ recipe_info=
    {slug: 'fall-cauliflower', alt: 'Fall Cauliflower', url_loc: 'http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/98ce71e1ffb64822e7ba6f3ff2e4925598a54b4e.png?1412019712'},
    {slug: 'fall-broccoli', alt: 'Fall Broccoli', url_loc: 'http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/8d0cba9a29b1b1838b069d61a780839db7b02c07.png?1412019691'}
   ]
+
+recipe_info = foods.each do |food|
+  {slug: food.slug, alt: "Winter #{food.name}", url_loc: food.images[0].file.url}
+end
 
 recipe_info.each do |rec|
   puts "<div class=\"col-lg-3 col-md-6 col-xs-12 bottom-padding\">
