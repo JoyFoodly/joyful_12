@@ -6,6 +6,11 @@ class User < ActiveRecord::Base
   has_many :family_members,     dependent: :destroy
   has_many :shopping_lists,     dependent: :destroy
   has_many :payments,           dependent: :destroy
+
+  has_many :coupon_uses, dependent: :destroy
+  has_many :coupons, through: :coupon_uses
+
+  belongs_to :partner
   belongs_to :season
   has_and_belongs_to_many :seasons
 

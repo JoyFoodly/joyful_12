@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141027175056) do
+ActiveRecord::Schema.define(version: 20141210191042) do
 
   create_table "addresses", force: true do |t|
     t.string   "line_1",     default: "", null: false
@@ -58,6 +58,29 @@ ActiveRecord::Schema.define(version: 20141027175056) do
   end
 
   add_index "allergies_family_members", ["allergy_id", "family_member_id"], name: "index_allergies_family_members_allergy_id_and_family_member_id"
+
+  create_table "coupon_allocations", force: true do |t|
+    t.integer "coupon_id"
+    t.integer "partner_id"
+  end
+
+  create_table "coupon_uses", force: true do |t|
+    t.integer  "coupon_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "coupons", force: true do |t|
+    t.text     "description"
+    t.string   "shareable_tag"
+    t.string   "shareable_link"
+    t.string   "stripe_coupon_name"
+    t.datetime "expires_on"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "tag_signed"
+  end
 
   create_table "dietary_categories", force: true do |t|
     t.string   "name",              default: "", null: false
@@ -181,6 +204,13 @@ ActiveRecord::Schema.define(version: 20141027175056) do
   end
 
   add_index "pages", ["slug"], name: "index_pages_on_slug", unique: true
+
+  create_table "partners", force: true do |t|
+    t.string   "name"
+    t.string   "email_domain"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "payments", force: true do |t|
     t.integer  "amount",      default: 0,  null: false
