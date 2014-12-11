@@ -1,8 +1,8 @@
 class Payment < ActiveRecord::Base
   belongs_to :user
-
+  
   before_validation :set_amount
-
+  
   validates :amount,      presence: true, numericality: { greater_than: 0 }
   validates :card_token,  presence: true
   validates :product_id,  presence: true, inclusion: { in: %w[beta season year] }
@@ -11,11 +11,15 @@ class Payment < ActiveRecord::Base
   validate :create_stripe_charge
   validates :customer_id, presence: true
   validates :charge_id,   presence: true
-
-private
-
+  
+  private
+  
   def set_amount
-    self.amount = product_id == 'season' ? ENV['PRICE_PER_SEASON'].to_i : ENV['PRICE_PER_YEAR'].to_i
+    if Rails.env.development?
+      self.amount = 4242
+    else
+      self.amount = product_id == 'season' ? ENV['PRICE_PER_SEASON'].to_i : ENV['PRICE_PER_YEAR'].to_i
+    end
   end
 
   def create_stripe_customer
