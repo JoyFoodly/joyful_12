@@ -1,7 +1,5 @@
 <% content_for :hide_nav, true %>
 
-
-
 <!-- Modal -->
 <div class="modal fade modal-auto-open" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
@@ -25,7 +23,9 @@
           </div>
         </div>
         <div class="top-buffer"></div>
-        <h2 class="text-center">Welcome! Please Sign In</h2>
+        <h2 class="text-center">
+	  <%= "Welcome #{session[:partner_id]} user! Please Sign In" %>
+	</h2>
         <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { role: "form" }) do |f| %>
 
             <div class="form-group">
