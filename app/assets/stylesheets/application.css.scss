@@ -8,9 +8,11 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
- *= require bootstrap
- *= require_tree ./qubico
+ *= require bootstrap_app_config
+ *= require bootstrap_config
+ *= require bootstrap_extensions
+ *= require parent_resources
+ *= require sign_up
+ *= require style
+ *= require root_page
  */
-
-
