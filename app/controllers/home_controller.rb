@@ -4,6 +4,10 @@ class HomeController < ApplicationController
 
   end
 
+  def rootpage
+    render layout: 'plain'
+  end
+  
   def marketing
     # Enable marketing slugs
     session[:partner_id]=params[:tracking_slug]

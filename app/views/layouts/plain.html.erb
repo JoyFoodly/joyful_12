@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>The Joyful 12! from JoyFoodly</title>
+  <%= favicon_link_tag 'favicon.ico' %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= csrf_meta_tags %>
+
+  <!-- social media meta data -->
+  <title>The Joyful 12! is a kitchen learning lab for families.</title>
+  <meta name="description" content="JJoin me in the Joyful 12 Kitchen Learning Lab! Chef Hollie Greene teaches families, like us, how to cook and eat more vegetables and fruits each season. Gluten free and allergen friendly, with videos to teach you everything you need to know--from getting your child to love trying veggies--to fun ways to prep summer squash!" />
+
+  <!-- Twitter Card data -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@joyfoodly">
+  <meta name="twitter:title" content="Joyful 12! a Kitchen Learning Lab for Families.">
+  <meta name="twitter:description" content="Join me in the Joyful 12 Kitchen Learning Lab! Learn from Chef Hollie and get
+  your family excited about fruits and veggies.">
+  <meta name="twitter:creator" content="@joyfoodly">
+  <!-- Twitter Summary card images must be at least 200x200px -->
+  <meta name="twitter:image" content="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/b5c35398f6cc29d33f3c933bd3de215b98175c5a.png?1404031203">
+
+  <!-- Open Graph data -->
+  <meta property="og:title" content="The Joyful 12!" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.joyful12.com" />
+  <meta property="og:image" content="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/b5c35398f6cc29d33f3c933bd3de215b98175c5a.png?1404031203" />
+  <meta property="og:description" content="Join me in the Joyful 12 Kitchen Learning Lab! Chef Hollie Greene teaches families, like us, how to cook and eat more vegetables and fruits each season. Gluten free and allergen friendly, with videos to teach you everything you need to know--from getting your child to love trying veggies--to fun ways to prep summer squash!" />
+  <meta property="og:site_name" content="The Joyful 12!" />
+  <meta property="fb:admins" content="160343853979962" />
+</head>
+<body>
+
+  <!--[if lt IE 8]>
+  <div class="alert alert-danger">
+    <p class="browsehappy text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  </div>
+  <![endif]-->
+
+
+  <div class='container-fluid'>
+
+    <%= yield %>
+
+  </div>
+
+
+<%= render 'layouts/jquery_with_cdn_fallback' %>
+<%= render 'layouts/tracking' %>
+<%= javascript_include_tag 'application' %>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+@import 'variables';
+
+body {
+	font-family: Lato, Arial, sans-serif;
+	color:#7a7c7f;
+	font-weight:300;
+}
+
+.rootpage {
+	.navrow {
+		margin-top: 5px;
+		margin-left: 10%;
+		height: 50px;
+		background: white;
+
+		.logoimage {
+			max-height: 50px;
+		}
+
+		.textinput {
+			background: $inputbox-light-color;
+			padding: 10px;
+			border: solid 1px $inputbox-dark-color;
+			transition: box-shadow 0.3s, border 0.3s;
+
+			&:focus,
+			&.focus {
+				border: solid 1px $inputbox-dark-color;
+				border-radius: 5px;
+				box-shadow: 0 0 5px 1px $orange-light-color;
+			}
+		}
+
+		.signin-box {
+			display: inline-block;
+			padding: 4px;
+			background-color: $lightblue-color;
+			color: white;
+			width: 75px;
+			border-radius: 5px;
+			margin: auto 0px auto 20px;
+			text-align: center;
+		}
+	}
+
+	.herorow {
+		height: 450px;
+		background: $lightblue-color;
+	}
+
+	.section {
+		margin-top: 20px;
+	}
+
+	.holliebox {
+		border-radius: 6px;
+		border: 3px $lightblue-color solid;
+		color: $lightblue-color;
+	}
+
+	.center-div {
+		margin: auto;
+		width: 50%;
+		text-align: center;
+	}
+
+	.blueline {
+		border-bottom: $lightblue-color solid 10px;
+		width: 12.5%;
+	}
+
+
+	.offset-15 {
+		margin-left: 12.48%;
+	}
+
+	.examplebox {
+		border: solid white 5px;
+		background-color: lightgrey;
+		height: 100px;
+	}
+}

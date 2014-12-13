@@ -5,6 +5,13 @@ UTILITY CLASSES
 Helpful styles that are not app or bootstrap specific.
 ******************************************************/
 
+.bold-text, .bold {
+  font-weight: 700;
+}
+.large-text, .large {
+  font-size: 3em;
+}
+
 .text-align-top {
   vertical-align: top;
 }

@@ -15,4 +15,5 @@
  *= require parent_resources
  *= require sign_up
  *= require style
+ *= require root_page
  */

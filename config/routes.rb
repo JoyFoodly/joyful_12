@@ -34,8 +34,8 @@ Joyfoodly::Application.routes.draw do
 
   resources :upgrades, only: [:index, :create, :show]
 
-  root to: 'foods#index'
-
+#  root to: 'foods#index'
+  root to: 'home#rootpage'
   # catch all to enable marketing links
   get '/:tracking_slug' => 'home#marketing'
 end
