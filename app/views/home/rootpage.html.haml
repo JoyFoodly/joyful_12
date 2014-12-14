@@ -1,13 +1,16 @@
 .rootpage
   .row.navrow
-    .col-xs-4
-      = image_tag "joyful12logo.png", class: 'img-responsive logoimage'
+    .col-xs-1
     .col-xs-2
-      %input.textinput{placeholder: 'Email'}  
-    .col-xs-4
-      %input.textinput{placeholder: 'Password', style: 'display: inline'}  
-      %span.signin-box
-        SIGN IN
+      = image_tag "joyful12logo.png", class: 'logoimage'
+    .col-xs-2
+    = form_tag('/users/sign_in', id: 'signin_form') do
+      .col-xs-3
+        %input.textinput#email_field{name: 'user[email]', placeholder: 'Email', style: 'width: 90%; float: right;'}  
+      .col-xs-4
+        %input.textinput#password_field{name: 'user[password]', type: 'password', placeholder: 'Password', style: 'display: inline'}  
+        %span#signin-box
+          SIGN IN
   .row.herorow
 
   .row.section
@@ -33,15 +36,41 @@
 
   .section.bottom-buffer
     .row    
-      .col-xs-3.offset-15.examplebox
-      .col-xs-3.examplebox
-      .col-xs-3.examplebox
+      .col-xs-4.col-xs-offset-2.examplebox
+      .col-xs-4.examplebox
     .row
-      .col-xs-3.offset-15.examplebox
-      .col-xs-3.examplebox
-      .col-xs-3.examplebox
+      .col-xs-4.col-xs-offset-2.examplebox
+      .col-xs-4.examplebox
                     
   .row.section.bottom-buffer
     .center-div.holliebox
       Learn more about Joyfoodly and Chef Hollie! 
 
+  .row.section.giftbg.bottom-padding
+    .col-xs-12
+      .center-div.large-text
+        GIVE A GIFT
+    .row
+      .col-xs-12
+        .center-div.blueline
+
+    .row.section
+      .center-div
+        They offered her a ride home.
+
+        Buddy orders her a new hat.
+
+        I buy her a gift.
+
+        Those barbers offered her a ride home.
+
+  .row.footerrow.top-padding.bottom-padding
+    .center-div
+      %span.social-icon
+      %span.social-icon
+      %span.social-icon
+      %span.social-icon
+      %span.social-icon
+      %span.social-icon
+
+        

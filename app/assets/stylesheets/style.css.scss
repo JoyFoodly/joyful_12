@@ -1,4 +1,6 @@
 @import "bootstrap_app_config";
+@import 'variables';
+
 /******************************************************
 UTILITY CLASSES
 
@@ -194,6 +196,11 @@ Specific colors, image backgrounds, customized widgets, etc.
   }
 }
 
+// Button customizations
+.btn-default {
+  border: none;
+}
+
 // Caption customizations
 .caption-video {
   margin-top: 10px;
@@ -341,7 +348,7 @@ OTHER (TODO remove these if possible)
 }
 
 .dropdown-outlined {
-  background-color: #E6E6E6;
+  background-color: $buttongray;
   padding: 7px;
 }
 

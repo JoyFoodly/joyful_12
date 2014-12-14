@@ -1,23 +1,17 @@
 @import 'variables';
-
-body {
-	font-family: Lato, Arial, sans-serif;
-	color:#7a7c7f;
-	font-weight:300;
-}
-
 .rootpage {
 	.navrow {
 		margin-top: 5px;
-		margin-left: 10%;
 		height: 50px;
 		background: white;
+		padding-bottom: 60px;
 
 		.logoimage {
 			max-height: 50px;
 		}
 
 		.textinput {
+			width: 50%;
 			background: $inputbox-light-color;
 			padding: 10px;
 			border: solid 1px $inputbox-dark-color;
@@ -31,8 +25,9 @@ body {
 			}
 		}
 
-		.signin-box {
+		#signin-box {
 			display: inline-block;
+			cursor: pointer;
 			padding: 4px;
 			background-color: $lightblue-color;
 			color: white;
@@ -78,5 +73,20 @@ body {
 		border: solid white 5px;
 		background-color: lightgrey;
 		height: 100px;
+	}
+
+	.giftbg {
+		background-color: #E0EBEB;
+	}
+
+	.footerrow {
+		background-color: $lightblue-color;
+	}
+
+	.social-icon {
+		display: inline-block;
+		height: 57px;
+		width: 57px;
+		background-color: lightgrey;
 	}
 }

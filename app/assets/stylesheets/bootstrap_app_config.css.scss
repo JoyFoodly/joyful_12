@@ -1,3 +1,5 @@
+@import 'variables';
+
 // Body Config
 $body-bg: white;
 
@@ -15,6 +17,7 @@ $font-family-base: 'Open Sans',"Helvetica Neue",Helvetica,Arial,sans-serif;
 $font-size-base: 15px;
 
 // Button Config
+$btn-default-bg: $buttongray;
 $btn-success-border: #4196b4;
 $btn-success-bg: #4196b4;
 $btn-warning-border: #f3cd00;

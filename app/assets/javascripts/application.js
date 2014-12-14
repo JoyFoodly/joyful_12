@@ -22,3 +22,4 @@
 //= require shopping_list
 //= require tab_deep_link
 //= require tooltips
+//= require home 

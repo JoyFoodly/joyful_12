@@ -44,25 +44,19 @@
         <li><%= link_to 'Video Library', videos_path %></li>
         <li><%= link_to 'Community Forum', ENV['COMMUNITY_URL'] %></li>
         <br />
-
-
-
-          <li class="dropdown dropdown-outlined">
-            <a href='#' class='dropdown-toggle general-padding-small' data-toggle='dropdown'>
-              Current Season: <%= season_name %> <b class='caret'></b>
-            </a>
-            <ul class="dropdown-menu js-season-selector">
-              <% Season.where('published is null or published = ?', true).each_with_index do |season, i| %>
-                  <li class="<%= 'active' if season.name == season_name %>"><%= link_to season.name, '#' %></li>
-              <% end %>
-            </ul>
-            <%= form_tag season_path('selected_season'), method: :patch, class: 'js-season-form' do %>
-                <%= hidden_field_tag 'season[name]', nil, class: 'js-season-input' %>
+	<li class="dropdown dropdown-outlined">
+	  <button class="btn btn-default dropdown-toggle general-padding-small" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+            Current Season: <%= season_name %> <b class='caret'></b>
+          </button>
+          <ul role='menu' class="dropdown-menu" aria-labelledby='dropdownMenu1'>
+            <% Season.where('published is null or published = ?', true).each_with_index do |season, i| %>
+              <li class=" js-season-selector <%= 'active' if season.name == season_name %>"><%= link_to season.name, '#', role: 'menuitem' %></li>
             <% end %>
-          </li>
-
-
-
+          </ul>
+          <%= form_tag season_path('selected_season'), method: :patch, class: 'js-season-form' do %>
+            <%= hidden_field_tag 'season[name]', nil, class: 'js-season-input' %>
+          <% end %>
+	</li>
       </ul>
     </div>
   </nav>

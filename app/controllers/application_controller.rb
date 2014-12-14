@@ -3,10 +3,16 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_filter :web_crawler_info, :grab_coupon_code
-
-  # Overwriting the sign_out redirect path method
+  
+  # Overwriting the sign in and sign_out redirect path method
   def after_sign_out_path_for(resource_or_scope)
+    puts ">>> #{root_path}"
     root_path
+  end
+  
+  def after_sign_in_path_for(resource_or_scope)
+    puts ">>> #{foods_path}"
+    foods_path
   end
   
   protected
@@ -23,11 +29,9 @@ class ApplicationController < ActionController::Base
   def grab_coupon_code
     if params[:tid]
       session[:tid]=params[:tid]
+    else
+      session[:tid]=nil
     end
-  end
-  
-  def after_sign_in_path_for(resource_or_scope)
-    stored_location_for(resource_or_scope) || model_specific_path(resource_or_scope) || signed_in_root_path(resource_or_scope)
   end
 
   def model_specific_path(resource_or_scope)
@@ -35,7 +39,8 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize_user
-    # If we are in admin scope then let's authorize all actions.
+    # If we are in admin scope then let's authorize all actions. - don't know how to do that in devise's multiple
+    # scope arrangement, yet. 
     if !current_user.seasons.include?(@season)
       redirect_to upgrades_path and return
     end
