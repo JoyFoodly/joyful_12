@@ -52,7 +52,7 @@ gem 'simple_form', '~> 3.0.1'
 gem 'aws-sdk', '~> 1.42.0'
 
 # Remote Form Support
-gem 'jquery-rails', '~> 3.1.0'
+gem 'jquery-rails', '~> 3'
 
 # Mailing Lists
 gem 'gibbon', '~> 1.1.2'

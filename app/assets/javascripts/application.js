@@ -11,9 +11,8 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap-sprockets
 //= require jquery_ujs
-//= require bootstrap
+//= require bootstrap-sprockets
 //= require ajax_sub_resource_form
 //= require auto-size-iframe
 //= require carousel_modal_gallery

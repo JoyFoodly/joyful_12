@@ -12,8 +12,8 @@
 
 /* "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables" */
 @import "bootstrap-sprockets";
-@import "bootstrap";
 @import 'bootstrap_app_config';
+@import "bootstrap";
 @import 'bootstrap_extensions';
 @import 'parent_resources';
 @import 'sign_up';
