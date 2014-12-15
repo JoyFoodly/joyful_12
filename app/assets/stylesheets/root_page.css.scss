@@ -39,12 +39,57 @@
 	}
 
 	.herorow {
-		height: 450px;
+		height: 475px;
 		background: $lightblue-color;
+		font-size: 2em;
+		color: white;
+
+		.vertical-third {
+			height: 33%;
+		}
+		.heroimage {
+			margin-top: 50px;
+			max-height: 300px;
+		}
+
+		.signupbox {
+			margin-top: 20px;
+			padding: 10px;
+			line-height: 150%;
+			cursor: pointer;
+		}
 	}
 
+	button {
+		border: 0;
+		box-shadow: none;
+	}
+	.stripe-button-el {
+		background-image: none;
+		box-shadow: none;
+		padding: 0;
+		span {
+			font-size: inherit;
+			font-family: inherit;
+			border-color: inherit;
+			border: 0;
+			box-shadow: none;
+			padding: 0;
+			border-radius: 0;
+			background: none;
+			background-image: none;
+			background-color: $orange-light-color;
+			padding: none;
+		}
+	}
 	.section {
 		margin-top: 20px;
+	}
+
+	
+
+	.orangebg {
+		background-color: $orange-light-color;
 	}
 
 	.holliebox {
@@ -87,6 +132,6 @@
 		display: inline-block;
 		height: 57px;
 		width: 57px;
-		background-color: lightgrey;
+		background-color: transparent;
 	}
 }

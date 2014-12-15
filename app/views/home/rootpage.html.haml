@@ -12,7 +12,32 @@
         %span#signin-box
           SIGN IN
   .row.herorow
-
+    .col-xs-6{style: 'height: 100%;'}
+      .vertical-third
+      .vertical-third
+        .bold-text
+          = "WELCOME#{@welcome_message != '' ? (', ' + @welcome_message) : ''}"
+          %br
+          JOIN US FOR A YEAR OF EATING IN SEASON.
+      .vertical-third
+    .col-xs-6
+      = image_tag "screen_shapes_trans.gif", class: 'img-responsive heroimage', style: 'margin: auto;'
+      .center-div{style: 'width: 80%'}
+        Get an entire year of access for just $40!
+      .center-div
+        .signupbox.orangebg
+          = form_tag user_registration_path, method: :post do
+            = hidden_field_tag :product_id, 'season'
+            %script{'src' => 'https://checkout.stripe.com/checkout.js', class: 'stripe-button',
+            'data-key' => ENV['STRIPE_PUBLIC_KEY'],
+            'data-image' => image_path('payments/stripe-store-image.png'),
+            'data-label' => 'SIGN ME UP!',
+            'data-name' => 'Joyful 12',
+            'data-panel-label' => 'Pay {{amount}}',
+            'data-billing-address' => 'true',
+            'data-shipping-address' => 'true',
+            'data-description' => "Joyful 12 Season (#{number_to_currency(ENV['PRICE_PER_SEASON'].to_i / 100)})",
+            'data-amount' => ENV['PRICE_PER_SEASON']}
   .row.section
     .col-xs-12
       .center-div.large-text
@@ -67,10 +92,15 @@
   .row.footerrow.top-padding.bottom-padding
     .center-div
       %span.social-icon
+        =image_tag 'qubico/facebook-white.png'
       %span.social-icon
+        =image_tag 'qubico/pinterest-white.png'
       %span.social-icon
+        =image_tag 'qubico/instagram-white.png'
       %span.social-icon
+        =image_tag 'qubico/google-white.png'
       %span.social-icon
-      %span.social-icon
+        =image_tag 'qubico/twitter-white.png'
+
 
         
