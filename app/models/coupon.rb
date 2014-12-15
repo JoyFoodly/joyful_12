@@ -1,6 +1,9 @@
 class Coupon < ActiveRecord::Base
+  has_many :coupon_allocations, dependent: :destroy
+  has_many :partners, through: :coupon_allocations
+  
   validates :description, :shareable_tag, presence: true
-
+  
   validate :tag_is_shareable
   before_save :add_shareable_link
 

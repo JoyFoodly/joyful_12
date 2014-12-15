@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  before_filter :web_crawler_info, :grab_coupon_code
+  before_filter :web_crawler_info
   
   # Overwriting the sign in and sign_out redirect path method
   def after_sign_out_path_for(resource_or_scope)
@@ -24,13 +24,6 @@ class ApplicationController < ActionController::Base
   def web_crawler_info
     if request.user_agent =~ /facebookexternalhit/
       render 'web_crawler/show', layout: false
-    end
-  end
-  def grab_coupon_code
-    if params[:tid]
-      session[:tid]=params[:tid]
-    else
-      session[:tid]=nil
     end
   end
 
