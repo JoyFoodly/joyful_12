@@ -118,14 +118,14 @@
         .center-div.limited-width
           = form_tag user_registration_path, method: :post do
             .form-group
-              = text_field_tag :recipient_first_name, '', placeholder: 'Gift recipient first name', class: 'form-control', required: true
+              = text_field_tag :recipient_first_name, '', placeholder: 'Recipient first name', class: 'form-control', required: true
             .form-group
-              = text_field_tag :recipient_last_name, '', placeholder: 'Gift recipient last name', class: 'form-control', required: true
+              = text_field_tag :recipient_last_name, '', placeholder: 'Recipient last name', class: 'form-control', required: true
             .form-group
-              = email_field_tag :recipient_email, '', placeholder: 'Gift recipient email', class: 'form-control', required: true
+              = email_field_tag :recipient_email, '', placeholder: 'Recipient email', class: 'form-control', required: true
 
             .form-group
-              = text_area_tag :recipient_gift_message, '', placeholder: 'Enter a short message for recipient!', class: 'form-control', required: true, rows:'1'
+              = text_area_tag :recipient_gift_message, '', placeholder: 'Enter a short message for recipient!', class: 'form-control', required: true, rows:'2'
 
               %script{src: 'https://checkout.stripe.com/checkout.js', class: 'stripe-button',
                       "data-key" =>  ENV['STRIPE_PUBLIC_KEY'],
