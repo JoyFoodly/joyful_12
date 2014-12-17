@@ -8,6 +8,7 @@ class HomeController < ApplicationController
     if (c=Coupon.find_by_shareable_tag(session[:partner_id])) 
       # if the coupon is used by just one partner, use that partner's welcome message, else
       # use the coupon's welcome message.
+      @price = c.price
       if c.partners.size == 1
         @welcome_message = c.partners[0].welcome_message
       else
@@ -15,6 +16,7 @@ class HomeController < ApplicationController
       end
     else
       @welcome_message = ''
+      @price=ENV['PRICE_PER_SEASON'].to_i
     end
 
     render layout: 'plain'

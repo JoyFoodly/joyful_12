@@ -35,15 +35,18 @@ RailsAdmin.config do |config|
   end
 
   config.model 'Coupon' do
-    configure :invite_link do
-      visible false # so it's not on new/edit
-    end
     edit do
+      field :description
+      field :price
       field :shareable_tag do
         label 'Coupon Name'
         help 'Enter a coupon name you\'ll send as text. It must be alphanumeric - underscores and periods are also allowed.'
       end
-      field :description
+
+      field :shareable_link
+      configure :shareable_link do
+        read_only true
+      end
     end
   end
   
@@ -56,6 +59,7 @@ RailsAdmin.config do |config|
   def fullname
     "#{self.first_name} #{self.last_name}"
   end
+
   # Media Config
   config.model 'Media' do
     list do
@@ -79,8 +83,8 @@ RailsAdmin.config do |config|
   config.model 'VideoLink' do
     edit do
       configure :provider_id do
-        label 'Provider id'
-        help 'Example: Youtube embed id'
+        label 'Provider ID'
+        help 'Example: YouTube Embed ID'
       end
     end
   end

@@ -18,7 +18,6 @@ class Coupon < ActiveRecord::Base
   end
 
   def tag_is_shareable
-    puts ">>> Validating #{shareable_tag}"
     errors.add(:shareable_tag, 'Must be alphanumeric (_ and . allowed)') unless /^\s*[A-Za-z0-9_.]+\s*$/.match(shareable_tag)
   end
 end

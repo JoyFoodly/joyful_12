@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141216024512) do
+ActiveRecord::Schema.define(version: 20141217181234) do
 
   create_table "addresses", force: true do |t|
     t.string   "line_1",     default: "", null: false
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20141216024512) do
     t.datetime "updated_at"
     t.string   "tag_signed"
     t.text     "welcome_message"
+    t.float    "price"
   end
 
   create_table "dietary_categories", force: true do |t|

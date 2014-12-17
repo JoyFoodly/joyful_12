@@ -1,5 +1,11 @@
 @import 'variables';
 .rootpage {
+	.xs-remove-buffer {
+		@media (max-width: 500px) {
+			margin-top: 0px;
+		}
+	}
+
 	color: $fontgray;
 	font-size: 18px;
 
@@ -155,6 +161,10 @@
 			margin-right: 5px;
 			border-radius: 50%;
 			border: 5px solid $buttongray; 
+			@media (max-width: 960px) {
+				left: 40px;
+				position: relative;
+			}
 		}
 		.box-header {
 			margin-bottom: 20px;

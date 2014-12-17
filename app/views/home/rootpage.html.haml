@@ -17,14 +17,14 @@
       .vertical-third
       .vertical-third
         .bold-text
-          = "WELCOME#{@welcome_message != '' ? (', ' + @welcome_message) : ''}"
+          = "WELCOME#{@welcome_message != '' ? (', ' + @welcome_message) : '.'}"
           %br
-          JOIN US FOR A YEAR OF EATING IN SEASON.
+          = HomePageFeature.get_feature(:general_welcome_message)
       .vertical-third
     .col-xs-6
       = image_tag "screen_shapes_trans.gif", class: 'img-responsive heroimage', style: 'margin: auto;'
       .center-div
-        Get an entire year of access for just $40!
+        Get an entire year of access for just $48!
       .center-div.signupbox.orangebg
         = form_tag user_registration_path, method: :post do
           = hidden_field_tag :product_id, 'season'
@@ -36,8 +36,8 @@
                   'data-panel-label' => 'Pay {{amount}}',
                   'data-billing-address' => 'true',
                   'data-shipping-address' => 'true',
-                  'data-description' => "Joyful 12 Season (#{number_to_currency(ENV['PRICE_PER_SEASON'].to_i / 100)})",
-                  'data-amount' => ENV['PRICE_PER_SEASON']}
+                  'data-description' => "Joyful 12 Season (#{number_to_currency(@price / 100)})",
+                  'data-amount' => @price}
   .row.section
     .col-xs-12
       .center-div.large-text
@@ -88,7 +88,7 @@
         .col-sm-1.col-md-2.hidden-xs
         .col-xs-2.hidden-sm.hidden-md.hidden-lg
 
-      .top-buffer
+      .top-buffer.xs-remove-buffer
         .col-xs-2.hidden-sm.hidden-md.hidden-lg
         .col-sm-1.col-md-2.hidden-xs
 
