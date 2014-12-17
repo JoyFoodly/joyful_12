@@ -11,7 +11,13 @@ Helpful styles that are not app or bootstrap specific.
   font-weight: 700;
 }
 .large-text, .large {
-  font-size: 3em;
+  @media (min-width: 450px) {
+    font-size: 3em;
+  }
+  @media (max-width: 450px) {
+    font-size: 1.5em;
+  }
+
 }
 
 .text-align-top {

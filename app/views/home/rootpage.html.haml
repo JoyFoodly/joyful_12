@@ -4,13 +4,14 @@
     .col-xs-2
       = image_tag "joyful12logo.png", class: 'logoimage'
     .col-xs-2
-    = form_tag('/users/sign_in', id: 'signin_form') do
-      .col-xs-3
-        %input.textinput#email_field{name: 'user[email]', placeholder: 'Email', style: 'width: 90%; float: right;'}  
-      .col-xs-4
-        %input.textinput#password_field{name: 'user[password]', type: 'password', placeholder: 'Password', style: 'display: inline'}  
-        %span#signin-box
-          SIGN IN
+    .hidden-xs
+      = form_tag('/users/sign_in', id: 'signin_form') do
+        .col-xs-3
+          %input.textinput#email_field{name: 'user[email]', placeholder: 'Email', style: 'width: 90%; float: right;'}  
+        .col-xs-4
+          %input.textinput#password_field{name: 'user[password]', type: 'password', placeholder: 'Password', style: 'display: inline'}  
+          %span#signin-box
+            SIGN IN
   .row.herorow
     .col-xs-6{style: 'height: 100%;'}
       .vertical-third
@@ -22,22 +23,21 @@
       .vertical-third
     .col-xs-6
       = image_tag "screen_shapes_trans.gif", class: 'img-responsive heroimage', style: 'margin: auto;'
-      .center-div{style: 'width: 80%'}
-        Get an entire year of access for just $40!
       .center-div
-        .signupbox.orangebg
-          = form_tag user_registration_path, method: :post do
-            = hidden_field_tag :product_id, 'season'
-            %script{'src' => 'https://checkout.stripe.com/checkout.js', class: 'stripe-button',
-            'data-key' => ENV['STRIPE_PUBLIC_KEY'],
-            'data-image' => image_path('payments/stripe-store-image.png'),
-            'data-label' => 'SIGN ME UP!',
-            'data-name' => 'Joyful 12',
-            'data-panel-label' => 'Pay {{amount}}',
-            'data-billing-address' => 'true',
-            'data-shipping-address' => 'true',
-            'data-description' => "Joyful 12 Season (#{number_to_currency(ENV['PRICE_PER_SEASON'].to_i / 100)})",
-            'data-amount' => ENV['PRICE_PER_SEASON']}
+        Get an entire year of access for just $40!
+      .center-div.signupbox.orangebg
+        = form_tag user_registration_path, method: :post do
+          = hidden_field_tag :product_id, 'season'
+          %script{'src' => 'https://checkout.stripe.com/checkout.js', class: 'stripe-button',
+                  'data-key' => ENV['STRIPE_PUBLIC_KEY'],
+                  'data-image' => image_path('payments/stripe-store-image.png'),
+                  'data-label' => 'SIGN ME UP!',
+                  'data-name' => 'Joyful 12',
+                  'data-panel-label' => 'Pay {{amount}}',
+                  'data-billing-address' => 'true',
+                  'data-shipping-address' => 'true',
+                  'data-description' => "Joyful 12 Season (#{number_to_currency(ENV['PRICE_PER_SEASON'].to_i / 100)})",
+                  'data-amount' => ENV['PRICE_PER_SEASON']}
   .row.section
     .col-xs-12
       .center-div.large-text
@@ -48,7 +48,7 @@
       .center-div.blueline
 
   .row.section
-    .center-div
+    .center-div.limited-width
       I name the dog Fido.
 
       That taxi driver found the box empty.
@@ -60,18 +60,50 @@
       Ms. Brown named the dog Fido.
 
   .section.bottom-buffer
-    .row    
-      .col-xs-4.col-xs-offset-2.examplebox
-      .col-xs-4.examplebox
     .row
-      .col-xs-4.col-xs-offset-2.examplebox
-      .col-xs-4.examplebox
-                    
+      .clearfix
+        .col-xs-1.col-xs-offset-2.featurebox
+          .box-image
+            = image_tag 'qubico/feature-1-b.png', class: 'img-responsive'
+        .col-xs-3.featurebox
+          .box-header.bold-text
+            = HomePageFeature.get_feature :box11_header
+          .box-text
+            = HomePageFeature.get_feature :box11_text
+        .col-xs-1.featurebox
+          .box-image
+            = image_tag 'qubico/feature-1-b.png', class: 'img-responsive'
+        .col-xs-3.featurebox
+          .box-header.bold-text
+            = HomePageFeature.get_feature :box12_header
+          .box-text
+            = HomePageFeature.get_feature :box12_text
+        .col-xs-2
+
+      .top-buffer
+        .col-xs-1.col-xs-offset-2.featurebox
+          .box-image
+            = image_tag 'qubico/feature-1-b.png', class: 'img-responsive'
+        .col-xs-3.featurebox
+          .box-header.bold-text
+            = HomePageFeature.get_feature :box11_header
+          .box-text
+            = HomePageFeature.get_feature :box11_text
+        .col-xs-1.featurebox
+          .box-image
+            = image_tag 'qubico/feature-1-b.png', class: 'img-responsive'
+        .col-xs-3.featurebox
+          .box-header.bold-text
+            = HomePageFeature.get_feature :box12_header
+          .box-text
+            = HomePageFeature.get_feature :box12_text                    
+        .col-sm-2.col-xs-2
+          
   .row.section.bottom-buffer
-    .center-div.holliebox
+    .center-div.holliebox.limited-width
       Learn more about Joyfoodly and Chef Hollie! 
 
-  .row.section.giftbg.bottom-padding
+  .row.section.giftrow.bottom-padding
     .col-xs-12
       .center-div.large-text
         GIVE A GIFT
@@ -81,13 +113,28 @@
 
     .row.section
       .center-div
-        They offered her a ride home.
+        = HomePageFeature.get_feature :gift_message
+      .section
+        .center-div.limited-width
+          = form_tag user_registration_path, method: :post do
+            .form-group
+              = text_field_tag :recipient_first_name, '', placeholder: 'Gift recipient first name', class: 'form-control', required: true
+            .form-group
+              = text_field_tag :recipient_last_name, '', placeholder: 'Gift recipient last name', class: 'form-control', required: true
+            .form-group
+              = email_field_tag :recipient_email, '', placeholder: 'Gift recipient email', class: 'form-control', required: true
 
-        Buddy orders her a new hat.
+            .form-group
+              = text_area_tag :recipient_gift_message, '', placeholder: 'Enter a short message for recipient!', class: 'form-control', required: true, rows:'1'
 
-        I buy her a gift.
-
-        Those barbers offered her a ride home.
+              %script{src: 'https://checkout.stripe.com/checkout.js', class: 'stripe-button',
+                      "data-key" =>  ENV['STRIPE_PUBLIC_KEY'],
+                      "data-image" => image_path('payments/stripe-store-image.png'),
+                      "data-label" => 'Give A Gift',
+                      "data-name" => 'Joyful 12',
+                      "data-billing-address" => 'true',
+                      "data-shipping-address" => 'true',
+                      "data-description" => 'Joyful 12 Gift'}
 
   .row.footerrow.top-padding.bottom-padding
     .center-div

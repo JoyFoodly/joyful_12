@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141215054858) do
+ActiveRecord::Schema.define(version: 20141216024512) do
 
   create_table "addresses", force: true do |t|
     t.string   "line_1",     default: "", null: false
@@ -151,6 +151,13 @@ ActiveRecord::Schema.define(version: 20141215054858) do
     t.boolean  "approved_for_marketing"
     t.boolean  "testimonial_approval"
     t.boolean  "testimonial"
+  end
+
+  create_table "home_page_features", force: true do |t|
+    t.string   "key"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "images", force: true do |t|

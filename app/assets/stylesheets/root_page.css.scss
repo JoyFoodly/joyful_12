@@ -1,10 +1,14 @@
 @import 'variables';
 .rootpage {
+	color: $fontgray;
+	font-size: 18px;
+
 	.navrow {
 		margin-top: 5px;
 		height: 50px;
 		background: white;
 		padding-bottom: 60px;
+		font-size: 0.8em;
 
 		.logoimage {
 			max-height: 50px;
@@ -41,7 +45,13 @@
 	.herorow {
 		height: 475px;
 		background: $lightblue-color;
-		font-size: 2em;
+		@media (min-width: 450px) {
+			font-size: 1.5em;			
+		}
+		@media (max-width: 450px) {
+			font-size: 1em;
+			height: 275px;
+		}
 		color: white;
 
 		.vertical-third {
@@ -54,8 +64,15 @@
 
 		.signupbox {
 			margin-top: 20px;
+
 			padding: 10px;
-			line-height: 150%;
+			@media (max-width: 1440px) {
+				width: 50%;
+			}
+			@media (max-width: 840px) {
+				width: 80%;
+			}
+
 			cursor: pointer;
 		}
 	}
@@ -68,7 +85,18 @@
 		background-image: none;
 		box-shadow: none;
 		padding: 0;
+		background-color: $orange-light-color;
+		@media (max-width: 585px)
+		and (min-width: 450px) {
+			height: 100px;
+		}
 		span {
+			@media (max-width: 585px)
+			and (min-width: 450px)  {
+				height: 50px;
+			}
+
+			min-height: 40px;
 			font-size: inherit;
 			font-family: inherit;
 			border-color: inherit;
@@ -96,12 +124,15 @@
 		border-radius: 6px;
 		border: 3px $lightblue-color solid;
 		color: $lightblue-color;
+		padding: 10px;
 	}
 
 	.center-div {
 		margin: auto;
-		width: 50%;
 		text-align: center;
+	}
+	.limited-width {
+		max-width: 50%;
 	}
 
 	.blueline {
@@ -114,14 +145,28 @@
 		margin-left: 12.48%;
 	}
 
-	.examplebox {
-		border: solid white 5px;
-		background-color: lightgrey;
-		height: 100px;
+	.featurebox {
+		.box-image {
+			max-height: 75px;
+			max-width: 75px;
+			min-width: 50px;
+			float: left;
+			margin-right: 5px;
+			border-radius: 50%;
+			border: 5px solid $buttongray; 
+		}
+		.box-header {
+			margin-bottom: 20px;
+
+		}
 	}
 
-	.giftbg {
+	.giftrow {
 		background-color: #E0EBEB;
+		.stripe-button-el {
+			margin-top: 20px;
+			padding: 5px;
+		}
 	}
 
 	.footerrow {
