@@ -62,43 +62,61 @@
   .section.bottom-buffer
     .row
       .clearfix
-        .col-xs-1.col-xs-offset-2.featurebox
+        .col-xs-2.hidden-sm.hidden-md.hidden-lg
+        .col-sm-1.col-md-2.hidden-xs
+
+        .col-xs-3.col-sm-2.col-md-1.featurebox
           .box-image
             = image_tag 'qubico/feature-1-b.png', class: 'img-responsive'
-        .col-xs-3.featurebox
+        .col-xs-5.col-sm-3.featurebox
           .box-header.bold-text
             = HomePageFeature.get_feature :box11_header
           .box-text
             = HomePageFeature.get_feature :box11_text
-        .col-xs-1.featurebox
+        .col-xs-2.hidden-sm.hidden-md.hidden-lg
+              
+        .col-xs-2.hidden-sm.hidden-md.hidden-lg{style: 'clear: left;'}
+
+        .col-xs-3.col-sm-2.col-md-1.featurebox
           .box-image
             = image_tag 'qubico/feature-1-b.png', class: 'img-responsive'
-        .col-xs-3.featurebox
+        .col-xs-5.col-sm-3.featurebox
           .box-header.bold-text
             = HomePageFeature.get_feature :box12_header
           .box-text
             = HomePageFeature.get_feature :box12_text
-        .col-xs-2
+        .col-sm-1.col-md-2.hidden-xs
+        .col-xs-2.hidden-sm.hidden-md.hidden-lg
 
       .top-buffer
-        .col-xs-1.col-xs-offset-2.featurebox
+        .col-xs-2.hidden-sm.hidden-md.hidden-lg
+        .col-sm-1.col-md-2.hidden-xs
+
+        .col-xs-3.col-sm-2.col-md-1.featurebox
           .box-image
             = image_tag 'qubico/feature-1-b.png', class: 'img-responsive'
-        .col-xs-3.featurebox
+        .col-xs-5.col-sm-3.featurebox
           .box-header.bold-text
             = HomePageFeature.get_feature :box11_header
           .box-text
             = HomePageFeature.get_feature :box11_text
-        .col-xs-1.featurebox
+        .col-xs-2.hidden-sm.hidden-md.hidden-lg
+
+        .col-xs-2.hidden-sm.hidden-md.hidden-lg{style: 'clear: left;'}
+
+        .col-xs-3.col-sm-2.col-md-1.featurebox
           .box-image
             = image_tag 'qubico/feature-1-b.png', class: 'img-responsive'
-        .col-xs-3.featurebox
+        .col-xs-5.col-sm-3.featurebox
           .box-header.bold-text
             = HomePageFeature.get_feature :box12_header
           .box-text
-            = HomePageFeature.get_feature :box12_text                    
-        .col-sm-2.col-xs-2
-          
+            = HomePageFeature.get_feature :box12_text
+        .col-sm-1.col-md-2.hidden-xs
+        .col-xs-2.hidden-sm.hidden-md.hidden-lg
+
+  // End of main features
+        
   .row.section.bottom-buffer
     .center-div.holliebox.limited-width
       Learn more about Joyfoodly and Chef Hollie! 
