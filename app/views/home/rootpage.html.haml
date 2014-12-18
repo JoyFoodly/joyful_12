@@ -20,6 +20,9 @@
           = "WELCOME#{@welcome_message != '' ? (', ' + @welcome_message) : '.'}"
           %br
           = HomePageFeature.get_feature(:general_welcome_message)
+          // Making this raw because we'll have html in it
+
+        = raw(HomePageFeature.get_feature(:welcome_bullets))
       .vertical-third
     .col-xs-6
       = image_tag "screen_shapes_trans.gif", class: 'img-responsive heroimage', style: 'margin: auto;'
@@ -130,6 +133,7 @@
         .center-div.blueline
 
     .row.section
+      %a{name: 'gift'}      
       .center-div
         = HomePageFeature.get_feature :gift_message
       .section
@@ -142,6 +146,7 @@
             .form-group
               = email_field_tag :recipient_email, '', placeholder: 'Recipient email', class: 'form-control', required: true
 
+            = hidden_field_tag :product_id, 'year'
             .form-group
               = text_area_tag :recipient_gift_message, '', placeholder: 'Enter a short message for recipient!', class: 'form-control', required: true, rows:'2'
 
@@ -152,7 +157,7 @@
                       "data-name" => 'Joyful 12',
                       "data-billing-address" => 'true',
                       "data-shipping-address" => 'true',
-                      "data-description" => 'Joyful 12 Gift'}
+                      "data-description" => "Joyful 12 Gift #{number_to_currency(@price / 100)} Full Year"}
 
   .row.footerrow.top-padding.bottom-padding
     .center-div

@@ -6,12 +6,10 @@ class ApplicationController < ActionController::Base
   
   # Overwriting the sign in and sign_out redirect path method
   def after_sign_out_path_for(resource_or_scope)
-    puts ">>> #{root_path}"
     root_path
   end
   
   def after_sign_in_path_for(resource_or_scope)
-    puts ">>> #{foods_path}"
     foods_path
   end
   

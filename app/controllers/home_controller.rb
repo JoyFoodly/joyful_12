@@ -5,7 +5,7 @@ class HomeController < ApplicationController
   end
 
   def rootpage
-    if (c=Coupon.find_by_shareable_tag(session[:partner_id])) 
+    if (session[:partner_id] && c=Coupon.find_by_shareable_tag(session[:partner_id])) 
       # if the coupon is used by just one partner, use that partner's welcome message, else
       # use the coupon's welcome message.
       @price = c.price

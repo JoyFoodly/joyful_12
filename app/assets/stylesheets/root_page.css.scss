@@ -155,13 +155,18 @@
 	}
 
 	.featurebox {
+		// Undoing the effects of Bootstrap just a little for this div
+		padding: 0;
+		margin-left: 15px;
+
 		.box-image {
 			max-height: 75px;
 			max-width: 75px;
 			margin-right: 5px;
 			border-radius: 50%;
 			border: 5px solid $buttongray; 
-			@media (max-width: 960px) {
+			@media (max-width: 980px) and
+			(min-width: 500px) {
 				left: 40px;
 				position: relative;
 			}
@@ -170,10 +175,17 @@
 			margin-bottom: 20px;
 
 		}
+
+		.box-text {
+			@media (max-width: 500px) {
+				margin-bottom: 10px;
+			}
+		}
 	}
 
 	.giftrow {
 		background-color: #E0EBEB;
+		background-image: url('/assets/joyfoodly-veggie-bg.png');
 		.stripe-button-el {
 			margin-top: 20px;
 			padding: 5px;
