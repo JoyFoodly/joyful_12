@@ -11,14 +11,16 @@ Helpful styles that are not app or bootstrap specific.
   font-weight: 700;
 }
 .large-text, .large {
-  @media (min-width: 450px) {
-    font-size: 3em;
+  @media (min-width: 768px) {
+    font-size: 2em;
   }
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     font-size: 1.5em;
   }
 
 }
+
+// Over-riding bootstrap here
 
 .text-align-top {
   vertical-align: top;

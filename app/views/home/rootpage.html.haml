@@ -13,38 +13,44 @@
           %span#signin-box
             SIGN IN
   .row.herorow
-    .col-xs-6{style: 'height: 100%;'}
-      .vertical-third
-      .vertical-third
-        .bold-text
+    .col-xs-12.col-sm-6.leftherocolumn
+      .leftherocolumntext
+        .bold-text.titletext
           = "WELCOME#{@welcome_message != '' ? (', ' + @welcome_message) : '.'}"
           %br
           = HomePageFeature.get_feature(:general_welcome_message)
           // Making this raw because we'll have html in it
-
-        = raw(HomePageFeature.get_feature(:welcome_bullets))
-      .vertical-third
-    .col-xs-6
-      = image_tag "screen_shapes_trans.gif", class: 'img-responsive heroimage', style: 'margin: auto;'
-      .center-div
-        Get an entire year of access for just $48!
-      .center-div.signupbox.orangebg
-        = form_tag user_registration_path, method: :post do
-          = hidden_field_tag :product_id, 'season'
-          %script{'src' => 'https://checkout.stripe.com/checkout.js', class: 'stripe-button',
-                  'data-key' => ENV['STRIPE_PUBLIC_KEY'],
-                  'data-image' => image_path('payments/stripe-store-image.png'),
-                  'data-label' => 'SIGN ME UP!',
-                  'data-name' => 'Joyful 12',
-                  'data-panel-label' => 'Pay {{amount}}',
-                  'data-billing-address' => 'true',
-                  'data-shipping-address' => 'true',
-                  'data-description' => "Joyful 12 Season (#{number_to_currency(@price / 100)})",
-                  'data-amount' => @price}
+        .subtext.hidden-xs
+          = raw(HomePageFeature.get_feature(:welcome_bullets))
+    .col-xs-12.col-sm-6
+      .rightcolumntext
+        = image_tag "screen_shapes_trans.gif", class: 'img-responsive heroimage', style: 'margin: auto;'
+        .price_circle
+          .vertical-third
+          .vertical-third
+            = @price_in_dollars
+          .vertical-third
+        .center-div
+          = HomePageFeature.get_feature(:rightcolumn_subtext)
+          %span.bold-text
+            = @price_in_dollars
+        .center-div
+          = form_tag user_registration_path, method: :post do
+            = hidden_field_tag :product_id, 'season'
+            %script{'src' => 'https://checkout.stripe.com/checkout.js', class: 'stripe-button',
+                    'data-key' => ENV['STRIPE_PUBLIC_KEY'],
+                    'data-image' => image_path('payments/stripe-store-image.png'),
+                    'data-label' => 'START COOKING NOW!',
+                    'data-name' => 'Joyful 12',
+                    'data-panel-label' => 'Pay {{amount}}',
+                    'data-billing-address' => 'true',
+                    'data-shipping-address' => 'true',
+                    'data-description' => "Joyful 12 Season (#{number_to_currency(@price / 100)})",
+                    'data-amount' => @price}
   .row.section
     .col-xs-12
-      .center-div.large-text
-        MAIN FEATURES
+      .center-div.large-text.limited-width.bold-text.feature-title
+        = HomePageFeature.get_feature(:section_title_one)
 
   .row
     .col-xs-12
@@ -52,15 +58,7 @@
 
   .row.section
     .center-div.limited-width
-      I name the dog Fido.
-
-      That taxi driver found the box empty.
-
-      We called her "the selfish store clerk".
-
-      I called him "the scientist".
-
-      Ms. Brown named the dog Fido.
+      = HomePageFeature.get_feature(:section_subtext_one)
 
   .section.bottom-buffer
     .row
@@ -77,7 +75,7 @@
           .box-text
             = HomePageFeature.get_feature :box11_text
         .col-xs-2.hidden-sm.hidden-md.hidden-lg
-              
+
         .col-xs-2.hidden-sm.hidden-md.hidden-lg{style: 'clear: left;'}
 
         .col-xs-3.col-sm-2.col-md-1.featurebox
@@ -119,7 +117,7 @@
         .col-xs-2.hidden-sm.hidden-md.hidden-lg
 
   // End of main features
-        
+
   .row.section.bottom-buffer
     .center-div.holliebox.limited-width
       Learn more about Joyfoodly and Chef Hollie! 
@@ -127,15 +125,24 @@
   .row.section.giftrow.bottom-padding
     .col-xs-12
       .center-div.large-text
-        GIVE A GIFT
+        = HomePageFeature.get_feature(:section_title_two)
+
     .row
       .col-xs-12
         .center-div.blueline
 
     .row.section
-      %a{name: 'gift'}      
-      .center-div
-        = HomePageFeature.get_feature :gift_message
+      .center-div.limited-width
+        = HomePageFeature.get_feature(:section_subtext_two)
+
+    .row.section.giftcard.center-div.limited-width
+      %a{name: 'gift'}
+      .section
+        .large-text.bold-text
+          = @price_in_dollars
+      .section
+        .bold-text    
+          Make someone a full year member!
       .section
         .center-div.limited-width
           = form_tag user_registration_path, method: :post do
@@ -173,4 +180,4 @@
         =image_tag 'qubico/twitter-white.png'
 
 
-        
+

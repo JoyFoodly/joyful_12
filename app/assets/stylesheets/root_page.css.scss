@@ -49,69 +49,117 @@
 	}
 
 	.herorow {
-		height: 475px;
+		@media (min-width: 768px) {
+			height: 475px;
+		}
+		
 		background: $lightblue-color;
-		@media (min-width: 450px) {
-			font-size: 1.5em;			
-		}
-		@media (max-width: 450px) {
-			font-size: 1em;
-			height: 275px;
-		}
+		padding-bottom: 40px;
+
 		color: white;
 
+		.leftherocolumn {
+			@media (min-width: 768px) {
+				height: 100%;
+			}
+			position: relative;
+		}
+
+		.leftherocolumntext {
+			top: 25%;
+			height: 50%;
+			@media (min-width: 768px) {
+				position: absolute;
+			}
+			@media (max-width: 768px) {
+				text-align: center;
+			}
+			margin-bottom: auto;
+			margin-left: 20%;
+			padding-right: 15%;
+			color: #eee;
+		}
 		.vertical-third {
 			height: 33%;
+		}
+		.titletext {
+			margin-bottom: 20px;
+			font-size: 1.5em;
 		}
 		.heroimage {
 			margin-top: 50px;
 			max-height: 300px;
 		}
-
+		.rightcolumntext {
+			position: relative;
+		}
+		.price_circle {
+			height: 80px;
+			width: 80px;
+			position: absolute;
+			left: 50%;
+			margin-left: 20%;
+			top: 0%;
+			background-color: $orange-light-color;
+			color: white;
+			font-size: 1.3em;
+			border-radius: 50%;
+			text-align: center;
+		}
 		.signupbox {
 			margin-top: 20px;
-
 			padding: 10px;
-			@media (max-width: 1440px) {
-				width: 50%;
-			}
-			@media (max-width: 840px) {
-				width: 80%;
-			}
-			@media (max-width: 490px) {
-				width: 95%;
-			}
-
 			cursor: pointer;
+			width: 80%;
+			max-width: 400px;
+
+			border-radius: 5px;
+		}
+
+		@media (max-width: 550px) {
+			font-size: 1.5em;			
+			.stripe-button-el {
+				width: 70%;
+			}
+			.titletext {
+				text-align: center;
+			}
+			.heroimage {				
+				height: 90px;
+			}
+			font-size: 1em;
+			height: 275px;
 		}
 	}
 
+	.feature-title {
+		color: #777;
+	}
 	button {
 		border: 0;
 		box-shadow: none;
 	}
+	.giftcard {
+		background-color: $lightblue-color;
+		padding: 5px 10px;
+		border-radius: 10px;
+	}
 	.stripe-button-el {
 		background-image: none;
 		box-shadow: none;
-		padding: 0;
+		padding: 10px;
 		background-color: $orange-light-color;
-		@media (max-width: 585px)
-		and (min-width: 450px) {
-			height: 100px;
-		}
+		margin-top: 20px;
+		width: 60%;
 		span {
-			@media (max-width: 585px)
-			and (min-width: 450px)  {
-				height: 50px;
-			}
-
+		
 			min-height: 40px;
 			font-size: inherit;
 			font-family: inherit;
 			border-color: inherit;
 			border: 0;
 			box-shadow: none;
-			padding: 0;
+	
 			border-radius: 0;
 			background: none;
 			background-image: none;
@@ -142,6 +190,9 @@
 	}
 	.limited-width {
 		max-width: 50%;
+		@media (max-width: 768px) {
+			max-width: 75%;
+		}
 	}
 
 	.blueline {
@@ -186,6 +237,7 @@
 	.giftrow {
 		background-color: #E0EBEB;
 		background-image: url(asset-path('joyfoodly-veggie-bg.png'));
+		background-size: 150px 91px;
 		.stripe-button-el {
 			margin-top: 20px;
 			padding: 5px;

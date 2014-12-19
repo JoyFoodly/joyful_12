@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  include ActionView::Helpers::NumberHelper
 
   def confirmation_sent
 
@@ -19,6 +20,7 @@ class HomeController < ApplicationController
       @price=ENV['PRICE_PER_SEASON'].to_i
     end
 
+    @price_in_dollars = number_to_currency(@price/100, precision: 0)
     render layout: 'plain'
   end
   
