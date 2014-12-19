@@ -3,7 +3,7 @@ keys = [:box11_text, :box12_text, :box21_text, :box22_text, :box11_header, :box1
 contents = {box11_header: 'Eat the Rainbox', box11_text: 'Feel great about the meals you make for your family. 12 veggies and fruits', box12_header: 'Time Saving Shopping List', box12_text: 'Make shopping easy with a shopping list. You can email',
             general_welcome_message: 'COOK VEGGIES YOUR KIDS WILL LOVE.',
             welcome_bullets_old: '<li>Master 48 fruits and veggies</li><li>144 family-friendly recipes for all the year</li><li>Master 48 fruits and veggies</li><li>144 family-friendly recipes for all the year</li>',
-            welcome_bullets: 'Kids demand smashed cauliflower when their parents cook the Joyful12! Improve the health of your children with our joyful method to cook a wide variety of fruits and vegetables every season.',
+            welcome_bullets: '<p>Kids demand smashed cauliflower when their parents cook the Joyful12! <p> Improve the health of your children with our joyful method to cook a wide variety of fruits and vegetables every season.<P>Every purchase supports our Joyful 12 School Projects.',
             rightcolumn_subtext: 'Get cooking lessons year round in your own home for ',
             section_title_one: 'HOLY SWEET POTATO! COOKING DELICIOUS VEGGIES HAS NEVER BEEN EASIER',
             section_title_two: 'Give the gift of the Joyful 12!',

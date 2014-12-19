@@ -16,7 +16,7 @@
     .col-xs-12.col-sm-6.leftherocolumn
       .leftherocolumntext
         .bold-text.titletext
-          = "WELCOME#{@welcome_message != '' ? (', ' + @welcome_message) : '.'}"
+
           %br
           = HomePageFeature.get_feature(:general_welcome_message)
           // Making this raw because we'll have html in it
@@ -49,12 +49,11 @@
                     'data-amount' => @price}
   .row.section
     .col-xs-12
-      .center-div.large-text.limited-width.bold-text.feature-title
+      .center-div.limited-width.bold-text.feature-title
         = HomePageFeature.get_feature(:section_title_one)
-
-  .row
-    .col-xs-12
-      .center-div.blueline
+    .row
+      .col-xs-12
+        .center-div.blueline
 
   .row.section
     .center-div.limited-width
@@ -122,14 +121,15 @@
     .center-div.holliebox.limited-width
       Learn more about Joyfoodly and Chef Hollie! 
 
-  .row.section.giftrow.bottom-padding
-    .col-xs-12
-      .center-div.large-text
-        = HomePageFeature.get_feature(:section_title_two)
-
-    .row
+  .row.giftrow
+    .section
       .col-xs-12
-        .center-div.blueline
+        .center-div.bold-text.feature-title
+          = HomePageFeature.get_feature(:section_title_two)
+
+      .row
+        .col-xs-12
+          .center-div.blueline
 
     .row.section
       .center-div.limited-width
