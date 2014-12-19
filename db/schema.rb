@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141217181234) do
+ActiveRecord::Schema.define(version: 20141219232910) do
 
   create_table "addresses", force: true do |t|
     t.string   "line_1",     default: "", null: false
@@ -159,6 +159,7 @@ ActiveRecord::Schema.define(version: 20141217181234) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "coupon_id"
   end
 
   create_table "images", force: true do |t|
