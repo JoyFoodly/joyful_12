@@ -9,7 +9,7 @@ class HomeController < ApplicationController
     if (session[:partner_id] && c=Coupon.find_by_shareable_tag(session[:partner_id])) 
       # if the coupon is used by just one partner, use that partner's welcome message, else
       # use the coupon's welcome message.
-      @price = c.price
+      @price = c.price.to_i
       if c.partners.size == 1
         @welcome_message = c.partners[0].welcome_message
       else
