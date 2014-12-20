@@ -1,6 +1,10 @@
+# coding: utf-8
 keys = [:box11_text, :box12_text, :box21_text, :box22_text, :box11_header, :box12_header, :box21_header, :box22_header, [:general_welcome_message, nil], [:general_welcome_message, 'HealthyKitchens'], [:welcome_bullets, nil], [:welcome_bullets, 'HealthyKitchens'], :section_title_one, :section_title_two, :rightcolumn_subtext, :section_subtext_one, :section_subtext_two]
 
-contents = {box11_header: 'Eat the Rainbox', box11_text: 'Feel great about the meals you make for your family. 12 veggies and fruits', box12_header: 'Time Saving Shopping List', box12_text: 'Make shopping easy with a shopping list. You can email',
+contents = {box11_header: 'Improve your family’s health', box11_text: 'You get lifetime access to 144 family friendly (gluten and allergy free) recipes, over 50 skill building videos, and a time saving shopping list to help you master 48 vegetables and fruits in a year',
+            box12_header: 'Get your kids to love veggies', box12_text: 'Learn Chef Hollie’s proven methods, taught to thousands of kids and parents, to excite kids to try a variety of vegetables and fruits',
+            box21_header: 'Build kitchen confidence', box21_text: 'Learn at your own pace with our online program through easy, medium, and adventurous recipes for every veggie and fruit and over 50 skill-building videos to make cooking veggies quick and delicious',
+            box22_header: 'Support our Joyful 12 school projects', box22_text: 'Your purchase helps us provide cooking education to every parent, teacher, and child of partner schools through a lifetime access to the Joyful 12',
             [:general_welcome_message, nil] => 'COOK VEGGIES YOUR KIDS WILL LOVE.',
             [:general_welcome_message, 'HealthyKitchens'] => 'Join me Healthy Kitchens, Healthy Lives Participants',
             welcome_bullets_old: '<li>Master 48 fruits and veggies</li><li>144 family-friendly recipes for all the year</li><li>Master 48 fruits and veggies</li><li>144 family-friendly recipes for all the year</li>',

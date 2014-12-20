@@ -5,9 +5,9 @@ class RegistrationsController < Devise::RegistrationsController
     @user = UserRegistration.from_stripe_params(stripe_params)
 
     if @user.persisted?
-      if session[:tid]
+      if session[:partner_id]
 #        tag = ActiveSupport::MessageVerifier.new(Joyfoodly::Application.config.secret_key_base).verify(session[:tid])
-        coupon = Coupon.find_by_shareable_tag session[:tid]
+        coupon = Coupon.find_by_shareable_tag session[:partner_id]
         @user.coupons << coupon
       end
       

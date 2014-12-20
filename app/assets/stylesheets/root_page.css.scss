@@ -260,6 +260,11 @@
 			}
 		}
 	}
+	.second-col-arrange {
+		@media (max-width: 500px) {
+			margin-top: 10px;
+		}
+	}
 
 	.giftrow {
 		background-color: #E0EBEB;

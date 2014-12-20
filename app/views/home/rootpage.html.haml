@@ -73,18 +73,18 @@
           .box-text
             = HomePageFeature.get_feature :box11_text
         .col-xs-2.hidden-sm.hidden-md.hidden-lg
+        .second-col-arrange
+          .col-xs-2.hidden-sm.hidden-md.hidden-lg{style: 'clear: left;'}
 
-        .col-xs-2.hidden-sm.hidden-md.hidden-lg{style: 'clear: left;'}
+          = render partial: 'feature_image', locals: {image_filename: 'qubico/feature-1-b.png'}          
 
-        = render partial: 'feature_image', locals: {image_filename: 'qubico/feature-1-b.png'}          
-
-        .col-xs-6.col-sm-3.featurebox
-          .box-header.bold-text
-            = HomePageFeature.get_feature :box12_header
-          .box-text
-            = HomePageFeature.get_feature :box12_text
-        .col-sm-1.col-md-2.hidden-xs
-        .col-xs-2.hidden-sm.hidden-md.hidden-lg
+          .col-xs-6.col-sm-3.featurebox
+            .box-header.bold-text
+              = HomePageFeature.get_feature :box12_header
+            .box-text
+              = HomePageFeature.get_feature :box12_text
+          .col-sm-1.col-md-2.hidden-xs
+          .col-xs-2.hidden-sm.hidden-md.hidden-lg
 
       .top-buffer.xs-remove-buffer
         .col-xs-2.hidden-sm.hidden-md.hidden-lg
@@ -94,22 +94,23 @@
           
         .col-xs-6.col-sm-3.featurebox
           .box-header.bold-text
-            = HomePageFeature.get_feature :box11_header
+            = HomePageFeature.get_feature :box21_header
           .box-text
-            = HomePageFeature.get_feature :box11_text
+            = HomePageFeature.get_feature :box21_text
         .col-xs-2.hidden-sm.hidden-md.hidden-lg
 
-        .col-xs-2.hidden-sm.hidden-md.hidden-lg{style: 'clear: left;'}
+        .second-col-arrange
+          .col-xs-2.hidden-sm.hidden-md.hidden-lg{style: 'clear: left;'}
 
-        = render partial: 'feature_image', locals: {image_filename: 'qubico/feature-1-b.png'}
+          = render partial: 'feature_image', locals: {image_filename: 'qubico/feature-1-b.png'}
           
-        .col-xs-6.col-sm-3.featurebox
-          .box-header.bold-text
-            = HomePageFeature.get_feature :box12_header
-          .box-text
-            = HomePageFeature.get_feature :box12_text
-        .col-sm-1.col-md-2.hidden-xs
-        .col-xs-2.hidden-sm.hidden-md.hidden-lg
+          .col-xs-6.col-sm-3.featurebox
+            .box-header.bold-text
+              = HomePageFeature.get_feature :box22_header
+            .box-text
+              = HomePageFeature.get_feature :box22_text
+          .col-sm-1.col-md-2.hidden-xs
+          .col-xs-2.hidden-sm.hidden-md.hidden-lg
 
   // End of main features
 
