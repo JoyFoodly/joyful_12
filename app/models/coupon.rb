@@ -5,12 +5,15 @@ class Coupon < ActiveRecord::Base
   validates :description, :shareable_tag, presence: true
   
   validate :tag_is_shareable
-  before_save :add_shareable_link
-
-  def add_shareable_link
-
+  before_save :pre_process_steps
+  
+  def pre_process_steps
+    # Generate a shareable link
     self.tag_signed = ActiveSupport::MessageVerifier.new(Joyfoodly::Application.config.secret_key_base).generate(shareable_tag)
     self.shareable_link = invite_link
+
+    # downcase the coupon's shareable tag
+    self.shareable_tag.downcase!
   end
   
   def invite_link

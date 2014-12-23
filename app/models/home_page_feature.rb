@@ -14,7 +14,7 @@ class HomePageFeature < ActiveRecord::Base
   def self.get_feature_switched(k, session)
     return nil unless k.is_a? Symbol or k.is_a? String
 
-    if !session[:partner_id] or !(switched_fs=HomePageFeature.joins(:coupon).where(coupons: {shareable_tag: session[:partner_id]}))
+    if !session[:partner_id] or !(switched_fs=HomePageFeature.joins(:coupon).where(coupons: {shareable_tag: session[:partner_id].downcase}))
       return self.get_feature(k)
     end
 

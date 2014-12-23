@@ -1,7 +1,7 @@
 shareable_tags = ['NovatoCoupon', 'HealthyKitchens']
 
 coupon_info = {'NovatoCoupon' => {description: '20% off', welcome_message: 'Lu Sutton Parent!', price: 3840},
-               'HealthyKitchens' => {description: '50% off', welcome_message: '2014 Attendee!', price: 2400}
+               'HealthyKitchens' => {description: '20% off', welcome_message: '2014 Attendee!', price: 3840}
               }
 shareable_tags.each do |st|
   h=Coupon.find_or_create_by shareable_tag: st

@@ -16,12 +16,11 @@
     .col-xs-12.col-sm-6.leftherocolumn
       .leftherocolumntext
         .bold-text.titletext
-
           %br
           = HomePageFeature.get_feature_switched(:general_welcome_message, session)
           // Making this raw because we'll have html in it
         .subtext.hidden-xs
-          = raw(HomePageFeature.get_feature_switched(:welcome_bullets, session))
+          = raw(HomePageFeature.get_feature(:welcome_bullets))
     .col-xs-12.col-sm-6
       .rightcolumntext
         = image_tag "screen_shapes_trans.gif", class: 'img-responsive heroimage', style: 'margin: auto; min-height: 200px'
@@ -31,9 +30,7 @@
             = @price_in_dollars
           .vertical-third
         .center-div
-          = HomePageFeature.get_feature(:rightcolumn_subtext)
-          %span.bold-text
-            = @price_in_dollars
+          = HomePageFeature.get_feature_switched(:rightcolumn_subtext, session)
         .center-div
           = form_tag user_registration_path, method: :post do
             = hidden_field_tag :product_id, 'season'
@@ -50,7 +47,7 @@
   .row.section
     .col-xs-12
       .center-div.limited-width.bold-text.feature-title
-        = HomePageFeature.get_feature(:section_title_one)
+        = raw(HomePageFeature.get_feature(:section_title_one))
     .row
       .col-xs-12
         .center-div.blueline
@@ -65,7 +62,7 @@
         .col-xs-2.hidden-sm.hidden-md.hidden-lg
         .col-sm-1.col-md-2.hidden-xs
 
-        = render partial: 'feature_image', locals: {image_filename: 'qubico/feature-1-b.png'}
+        = render partial: 'feature_image', locals: {image_filename: 'circle_images/hollie with kids.png'}
           
         .col-xs-6.col-sm-3.featurebox
           .box-header.bold-text
@@ -76,7 +73,7 @@
         .second-col-arrange
           .col-xs-2.hidden-sm.hidden-md.hidden-lg{style: 'clear: left;'}
 
-          = render partial: 'feature_image', locals: {image_filename: 'qubico/feature-1-b.png'}          
+          = render partial: 'feature_image', locals: {image_filename: 'circle_images/just hollie.png'}          
 
           .col-xs-6.col-sm-3.featurebox
             .box-header.bold-text
@@ -90,7 +87,7 @@
         .col-xs-2.hidden-sm.hidden-md.hidden-lg
         .col-sm-1.col-md-2.hidden-xs
 
-        = render partial: 'feature_image', locals: {image_filename: 'qubico/feature-1-b.png'}
+        = render partial: 'feature_image', locals: {image_filename: 'circle_images/ingredients.png'}
           
         .col-xs-6.col-sm-3.featurebox
           .box-header.bold-text
@@ -102,7 +99,7 @@
         .second-col-arrange
           .col-xs-2.hidden-sm.hidden-md.hidden-lg{style: 'clear: left;'}
 
-          = render partial: 'feature_image', locals: {image_filename: 'qubico/feature-1-b.png'}
+          = render partial: 'feature_image', locals: {image_filename: 'circle_images/pink radish.png'}
           
           .col-xs-6.col-sm-3.featurebox
             .box-header.bold-text
@@ -116,7 +113,7 @@
 
   .row.section.bottom-buffer
     .center-div.holliebox.limited-width
-      Learn more about Joyfoodly and Chef Hollie! 
+      Learn more about Joyful12 and Chef Hollie! 
 
   .row.giftrow
     .section
@@ -141,7 +138,7 @@
           = @price_in_dollars
       %p
         .bold-text{style: 'padding: 5px 0px;'}
-          Make someone a full year member!
+          Make someone a lifetime member!
       .center-div.limited-width
         = form_tag user_registration_path, method: :post do
           .form-group
@@ -162,7 +159,7 @@
                   "data-name" => 'Joyful 12',
                   "data-billing-address" => 'true',
                   "data-shipping-address" => 'true',
-                  "data-description" => "Joyful 12 Gift #{number_to_currency(@price / 100)} Full Year"}
+                  "data-description" => "Joyful 12 Gift #{number_to_currency(@price / 100)} Lifetime"}
 
   .row.footerrow.top-padding.bottom-padding
     .center-div
