@@ -4,7 +4,7 @@ coupon_info = {'NovatoCoupon' => {description: '20% off', welcome_message: 'Lu S
                'HealthyKitchens' => {description: '20% off', welcome_message: '2014 Attendee!', price: 3840}
               }
 shareable_tags.each do |st|
-  h=Coupon.find_or_create_by shareable_tag: st
+  h=Coupon.find_or_create_by shareable_tag: st.downcase
 
   if coupon_info[st]
     h.description = coupon_info[st][:description]
