@@ -10,22 +10,27 @@
 		}
 	}
 
-	color: $fontgray;
 	font-size: 18px;
 
 	.navrow {
 		margin-top: 5px;
 		height: 50px;
 		background: white;
-		padding-bottom: 60px;
+		padding-bottom: 70px;
 		font-size: 0.8em;
 
 		.logoimage {
 			max-height: 50px;
 		}
+		.forgot-password {
+			color: $font-grey;
+			font-size: 0.9em;
+			margin-top: 5px;
+		}
 
 		.textinput {
 			width: 50%;
+			margin-right: 5px;
 			background: $inputbox-light-color;
 			padding: 10px;
 			border: solid 1px $inputbox-dark-color;
@@ -57,6 +62,10 @@
 			height: 475px;
 		}
 
+		p {
+			padding-bottom: 5px;
+			
+		}
 		background: $lightblue-color;
 		padding: 20px 0 40px;
 
@@ -92,7 +101,7 @@
 		}
 		.heroimage {
 			margin-top: 50px;
-			max-height: 300px;
+			height: 300px;
 		}
 		.rightcolumntext {
 			position: relative;
@@ -235,7 +244,6 @@
 	.featurebox {
 		// Undoing the effects of Bootstrap just a little for this div
 		padding: 0;
-		margin-left: 15px;
 
 		.box-image {
 			max-height: 75px;
@@ -262,8 +270,9 @@
 		}
 	}
 	.second-col-arrange {
-		@media (max-width: 500px) {
+		@media (max-width: 768px) {
 			margin-top: 10px;
+			float: left;
 		}
 	}
 
