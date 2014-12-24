@@ -14,7 +14,7 @@
             #signin-box
               SIGN IN
             .forgot-password
-              Forgot Password?  
+              =link_to 'Forgot Password?', '/users/password/new'
   .row.herorow
     .col-xs-12.col-sm-6.leftherocolumn
       .leftherocolumntext
@@ -64,7 +64,7 @@
       .col-xs-2.hidden-sm.hidden-md.hidden-lg
       .col-sm-1.col-md-2.hidden-xs
 
-      = render partial: 'feature_image', locals: {image_filename: 'circle_images/hollie with kids.png'}
+      = render partial: 'feature_image', locals: {image_filename: 'circle_images/pink radish.png'}
       
       .col-xs-6.col-sm-3.featurebox
         .box-header.bold-text
@@ -102,7 +102,7 @@
       .second-col-arrange
         .col-xs-2.hidden-sm.hidden-md.hidden-lg{style: 'clear: left;'}
 
-        = render partial: 'feature_image', locals: {image_filename: 'circle_images/pink radish.png'}
+        = render partial: 'feature_image', locals: {image_filename: 'circle_images/hollie with kids.png'}
         
         .col-xs-6.col-sm-3.featurebox
           .box-header.bold-text
@@ -167,15 +167,20 @@
   .row.footerrow.top-padding.bottom-padding
     .center-div
       %span.social-icon
-        =image_tag 'qubico/facebook-white.png'
+        %a{href: 'http://www.facebook.com/joyfoodly'}
+          =image_tag 'qubico/facebook-white.png'
       %span.social-icon
-        =image_tag 'qubico/pinterest-white.png'
+        %a{href: 'http://www.pinterest.com/joyfoodly'}
+          =image_tag 'qubico/pinterest-white.png'
       %span.social-icon
-        =image_tag 'qubico/instagram-white.png'
+        %a{href: 'http://www.instagram.com/joyfoodly'}
+          =image_tag 'qubico/instagram-white.png'
       %span.social-icon
-        =image_tag 'qubico/google-white.png'
+        %a{href: 'https://plus.google.com/+Joyfoodly'}
+          =image_tag 'qubico/google-white.png'
       %span.social-icon
-        =image_tag 'qubico/twitter-white.png'
+        %a{href: 'http://www.twitter.com/joyfoodly'}
+          =image_tag 'qubico/twitter-white.png'
 
 
 
