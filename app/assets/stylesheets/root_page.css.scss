@@ -22,7 +22,7 @@
 		.logoimage {
 			max-height: 50px;
 		}
-		.forgot-password {
+		.forgot-password, .forgot-password a, .forgot-password a:hover {
 			color: $font-grey;
 			font-size: 0.9em;
 			margin-top: 5px;
@@ -64,7 +64,7 @@
 
 		p {
 			padding-bottom: 5px;
-			
+
 		}
 		background: $lightblue-color;
 		padding: 20px 0 40px;

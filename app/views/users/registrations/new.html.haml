@@ -1,0 +1,270 @@
+/ -- ==============================================
+/		MAIN NAV
+
+#main-nav.navbar.navbar-fixed-top
+  .container
+    .navbar-header
+      %button{type: "button", class: "navbar-toggle", "data-toggle" => "collapse", "data-target" => "#site-nav"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+
+      <!-- ======= LOGO ========-->
+      %a.navbar-brand.scrollto{href: "/"}
+        %span.logo-small
+          = image_tag 'qubico/joyful12-logo-small.png'
+
+        <!-- ==== Image Logo ==== -->
+        <!--<img class="site-logo" src="/assets/qubico/logo.png" alt="logo" />-->
+
+    #site-nav.navbar-collapse.collapse
+      %ul.nav.navbar-nav.navbar-right.row
+        %li.hidden-sm
+          %a.scrollto{href: "#chefhollie"}
+            Chef Hollie
+        %li.hidden-sm
+          %a.scrollto{href: "#reviews"}
+            Reviews
+        %li.hidden-sm
+          %a.scrollto{href: "#tour"}
+            Tour
+        %li.hidden-sm
+          %a.scrollto{href: "#contact"}
+            Contact
+        %li.hidden-sm.hidden-xs
+          %a.color{href: "http://www.joyfoodly.com/blog", target: "_blank"}
+            Blog
+    <!--End navbar-collapse -->
+
+  <!--End container -->
+
+<!--End main-nav -->
+<!-- ==============================================
+Chef Hollie
+=============================================== -->
+%section#chefhollie.color-bg.light-typo.padding-top-bottom.top-section.cta-iphones
+  %div.container
+
+    %div.row
+
+      %div.col-sm-4
+
+        %div.ipad-frame.scrollimation.fade-up
+
+          = image_tag 'qubico/hollie-5.png', class: 'img-responsive img-center'
+
+          %div.ipad-screen.ipad-slider.flexslider
+
+            %ul.slides
+
+              %li
+                = image_tag 'qubico/hollie-6.png', class: 'img-responsive'
+              %li
+                = image_tag 'qubico/hollie-7.png', class: 'img-responsive'
+
+      %div.col-sm-8
+        %h2
+          Learn From Chef Hollie
+        %p
+          The Joyful 12 was created by Chef Hollie as a way to support families in eating more fruits and veggies (and help them enjoy the experience!)
+        %p
+          Hollie has worked with over 2,000 parents and children across the country, and knows that kids love eating fruits and vegetables. After attending the French Culinary Institute
+          of New York City, Hollie worked with non-profits to develop programs that help get kids excited about vegetables.
+        %p
+          In the Joyful 12, Hollie will walk you through basic principles on introducing children to new foods, tips on how to get kids involved in the kitchen, and all kinds of resources to
+          make you a more confident home cook. She believes in flavor and fun above all else in the kitchen, which is what you get with the Joyful 12!
+        %a.btn.btn-qubico.white.scrollto.hidden-xs{href: "#more-hollie"}
+          %i.fa.fa-arrow-down
+            = form_tag user_registration_path, method: :post do
+              = hidden_field_tag :product_id, 'season'
+              %script{'src' => 'https://checkout.stripe.com/checkout.js', class: 'stripe-button',
+                      'data-key' => ENV['STRIPE_PUBLIC_KEY'],
+                      'data-image' => image_path('payments/stripe-store-image.png'),
+                      'data-label' => 'Sign Up Now!',
+                      'data-name' => 'Joyful 12',
+                      'data-panel-label' => 'Pay {{amount}}',
+                      'data-billing-address' => 'true',
+                      'data-shipping-address' => 'true',
+                      'data-description' => "Joyful 12 Season (#{number_to_currency(@price.to_f / 100)})",
+                      'data-amount' => @price}
+
+// ==============================================
+// RESPONSIVE VIDEO
+
+%section.gray-bg.padding-top-bottom.hidden-xs
+  %div.container
+    %h1.section-title
+      The Joyful 12 is for Busy Families
+    %p.section-description
+      You can make great food with Chef Hollie's support.
+
+    %div.row
+
+      .col-sm-10.col-sm-offset-1
+        .macbook-frame
+          = image_tag 'qubico/macbook2.png', class: 'img-responsive img-center'
+
+          .macbook-screen
+            %iframe{width: "640", height: "360", src: "//player.vimeo.com/video/88189339?color=4196b4", frameborder: "0", allowfullscreen: true}
+
+//-- ==============================================
+// Reviews
+//==============================================
+
+%section#reviews.white-bg.padding-top-bottom
+
+  .container
+
+    %h1.section-title
+      Real Families Are Excited
+    %p.section-description
+      Take their word for it!
+
+    .row.team-member
+    
+      .col-sm-3.col-sm-offset-1.member-thumb.scrollimation.fade-right
+
+        = image_tag 'qubico/jean.png', class: 'img-responsive img-center'
+        %h4
+          Jean
+        %p.title
+          Aunt of 2 in Minneapolis, MN
+
+      .col-sm-7.scrollimation.fade-left
+
+        .member-details
+          %p 
+            Our niece and nephew were both asking for more broccoli after this fresh take of Mac 'n Cheese.
+
+    .row.team-member
+    
+      .col-sm-3.col-sm-push-8.member-thumb.scrollimation.fade-left
+
+        = image_tag 'qubico/miguel.png', class: 'img-responsive img-center'
+        %h4
+          Miguel
+        %p.title
+          Father of 3 in Novato, California
+
+      .col-sm-7.col-sm-pull-2.scrollimation.fade-right
+
+        .member-details
+          %p 
+            Joyful 12 has taught me that you do not have begin with a love for cooking to enjoy cooking. Everyone will gain their own appreciation when learning and preparing the simple, delicious Joyful 12 meals. Mine is being satisfied that my children are not only learning a life skill that will nourish them the rest of their lives, but they are doing it humanely for themselves and for the environment by considering veggies and fruits as their first source of food.
+          %p
+          %a{href: "http://www.joyfoodly.com/miguel", target: "_blank"}
+            Read more about Miguel
+
+    .row.team-member
+
+      .col-sm-3.col-sm-offset-1.member-thumb.scrollimation.fade-right
+
+        = image_tag 'qubico/augusta.png', class: 'img-responsive img-center'
+        %h4
+          Augusta
+        %p.title
+          Mother of 2 in South Carolina
+
+
+      .col-sm-7.scrollimation.fade-left
+
+        .member-details
+          %p
+            We made the dreamy greenie quesadillas tonight. They were fabulous! Even my son loved them and I
+            thought the greens would be a hard sell. They were really filling so I have leftovers for lunch.
+            And I love that avocado sauce…I could eat that everyday. We're having fun trying the Joyful 12
+            recipes. The kids are always willing to try something new if I tell them it's your recipe.</p>
+
+
+// -- ==============================================
+// CALL TO ACTION
+// ===============================================
+%section.color-bg.light-typo.cta.hidden-xs
+
+  .container
+
+    .row
+      .col-md-9.cta-message.col-sm-8
+        %p
+          %strong
+            The Joyful 12
+          is a year of eating in season with Chef Hollie. Busy families get access to 144 recipes, video tutorials,
+          a community forum, parent resources, and more!
+
+      .col-md-3.cta-button
+        %p.text-center
+          %a.btn.btn-qubico.white.scrollto{href: "#pricing"}
+            %i.fa.fa-shopping-cart
+              Sign Up Now
+
+// !-- ==============================================
+// Tour
+// ===============================================
+%section#tour.gray-bg.padding-top
+
+  .container
+
+    %h1.section-title
+      Take a Tour
+    %p.section-description
+      Join us for a year of eating in season. Try each veggie three ways, and learn how to get your family involved. Packed with tutorials and tips for the busy parent.
+
+    .ipad-frame.scrollimation.fade-up
+
+      = image_tag 'qubico/ipad-landscape.png', class: 'img-responsive img-center'
+
+      .ipad-screen.ipad-slider.flexslider
+
+        %ul.slides
+
+          %li
+            = image_tag 'qubico/tour-2.png', class: 'img-responsive'
+
+          %li
+            = image_tag 'qubico/tour-15.png', class: 'img-responsive'
+
+          %li
+            = image_tag 'qubico/tour-3.png', class: 'img-responsive'
+
+          %li
+            = image_tag 'qubico/tour-4.png', class: 'img-responsive'
+
+          %li
+            = image_tag 'qubico/tour-5.png', class: 'img-responsive'
+
+          %li
+            = image_tag 'qubico/tour-6.png', class: 'img-responsive'
+
+          %li
+            = image_tag 'qubico/tour-16.png', class: 'img-responsive'
+
+          %li
+            = image_tag 'qubico/tour-14.png', class: 'img-responsive'
+
+          %li
+            = image_tag 'qubico/tour-12.png', class: 'img-responsive'
+
+          %li
+            = image_tag 'qubico/tour-11.png', class: 'img-responsive'
+
+// <!-- ==============================================
+// FOOTER
+// ===============================================
+%footer#main-footer.color-bg.light-typo
+
+  .container.text-center
+    %ul.social-links
+      = render partial: 'social_link', locals: {uri: 'http://www.facebook.com/joyfoodly', img: 'qubico/facebook-white.png'}
+      = render partial: 'social_link', locals: {uri: 'http://www.twitter.com/joyfoodly', img: 'qubico/twitter-white.png'}
+      = render partial: 'social_link', locals: {uri: 'https://plus.google.com/+Joyfoodly', img: 'qubico/google-white.png'}
+      = render partial: 'social_link', locals: {uri: 'http://www.pinterest.com/joyfoodly', img: 'qubico/pinterest-white.png'}
+      = render partial: 'social_link', locals: {uri: 'http://www.instagram.com/joyfoodly', img: 'qubico/instagram-white.png'}
+      = render partial: 'social_link', locals: {uri: 'http://www.vimeo.com/joyfoodly', img: 'qubico/vimeo-white.png'}
+
+  </ul>
+  <p>&copy;2014 <a href="http://www.joyfoodly.com" target="_blank">JoyFoodly</a>, LLC.</p>
+  <em>     </em>
+
+  </div>
+
+</footer>
