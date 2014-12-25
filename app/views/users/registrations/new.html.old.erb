@@ -1,7 +1,9 @@
+
+
 <!-- ==============================================
 		MAIN NAV
 		=============================================== -->
-#main-nav.navbar.navbar-fixed-top
+<div id="main-nav" class="navbar navbar-fixed-top">
   <div class="container">
 
     <div class="navbar-header">
@@ -11,7 +13,7 @@
       </button>
 
       <!-- ======= LOGO ========-->
-      <a class="navbar-brand scrollto" href="/">
+      <a class="navbar-brand scrollto" href="#home">
 
 
         <span class="logo-small"><%= image_tag 'qubico/joyful12-logo-small.png' %></span>
@@ -26,6 +28,9 @@
 
       <ul class="nav navbar-nav navbar-right row">
         <li class="hidden-sm">
+          <a href="#features" class="scrollto">Features</a>
+        </li>
+        <li class="hidden-sm">
           <a href="#chefhollie" class="scrollto">Chef Hollie</a>
         </li>
         <li class="hidden-sm">
@@ -33,6 +38,12 @@
         </li>
         <li class="hidden-sm">
           <a href="#tour" class="scrollto">Tour</a>
+        </li>
+        <li class="hidden-sm">
+          <a href="#pricing" class="scrollto">Sign Up</a>
+        </li>
+        <li class="hidden-sm hidden-xs">
+          <a href="#partners" class="scrollto">Partners</a>
         </li>
         <li class="hidden-sm">
           <a href="#contact" class="scrollto">Contact</a>
@@ -46,10 +57,293 @@
   </div><!--End container -->
 
 </div><!--End main-nav -->
+
+<!-- ==============================================
+		HEADER
+		=============================================== -->
+<header id="home" class="jumbotron">
+
+  <div id="sequence-theme">
+
+    <div id="sequence">
+
+      <ul class="sequence-canvas container hidden-xs">
+        <li class="hidden-xs">
+          <div class="message-slide1">
+            <h2 class="title">Chef Hollie's Kitchen Learning Lab</h2>
+            <p class="">A place for families to learn how to cook and love eating 12 vegetables and fruits each season—each three different ways
+            </p>
+          </div>
+          <div class="slide3-img1">
+            <%= image_tag 'qubico/slider/imac.png', class: 'img-responsive' %>
+            <div class="imac-screen">
+              <%= image_tag 'qubico/slide-3-imagea.png', class: 'img-responsive' %>
+            </div>
+          </div>
+          <div class="slide3-img2 ">
+            <%= image_tag 'qubico/slider/ipad-flat.png', class: 'img-responsive' %>
+            <div class="ipad-screen">
+              <%= image_tag 'qubico/slide-3-imageb.png', class: 'img-responsive' %>
+            </div>
+          </div>
+          <div class="slide3-img3 ">
+            <%= image_tag 'qubico/slider/iphone-flat.png', class: 'img-responsive' %>
+            <div class="iphone-screen">
+              <%= image_tag 'qubico/slide-3-imagec.png', class: 'img-responsive' %>
+            </div>
+          </div>
+
+
+
+        </li>
+        <li class=" hidden-xs">
+          <div class="message-slide2">
+            <h2 class="title">A Proven Method to Build Your Kitchen Skills </h2>
+            <p class="">Chef Hollie's proven approach with ways to engage kids in the cooking
+              process and videos on how to prep and make veggies taste amazing!</p>
+          </div>
+          <div class="slide2-img">
+            <%= image_tag 'qubico/slider/ipad-flat.png', class: 'img-responsive' %>
+            <div class="ipad-screen">
+              <%= image_tag 'qubico/slide2.png', class: 'img-responsive' %>
+            </div>
+          </div>
+        </li>
+        <li class=" hidden-xs">
+          <div class="message-slide3">
+            <h2 class="title">A Year of Families Eating in Season</h2>
+            <p class="">Simple, joyful methods for busy families to cook a wide variety of veggies and fruits — 48 in a year!</p>
+          </div>
+
+          <div class="slide1-img ">
+            <%= image_tag 'qubico/slider/imac.png', class: 'img-responsive' %>
+            <div class="imac-screen">
+              <%= image_tag 'qubico/slider-1-image.png', class: 'img-responsive' %>
+            </div>
+          </div>
+        </li>
+        <li class=" hidden-xs">
+          <div class="message-slide2">
+            <h2 class="title">Learn from Chef Hollie</h2>
+            <p class="">All recipes, techniques, and tips for getting kids involved come from Chef Hollie's 10 + years
+              of experience teaching thousands of kids and adults.</p>
+          </div>
+          <div class="slide2-img">
+            <%= image_tag 'qubico/slider/ipad-flat.png', class: 'img-responsive' %>
+            <div class="ipad-screen">
+              <%= image_tag 'qubico/slide4.png', class: 'img-responsive' %>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+
+    </div>
+
+  </div>
+
+
+  <div id="sequence-theme-iphone hidden-sm hidden-md hidden-lg">
+
+          <div class="hidden-sm hidden-md hidden-lg">
+            <h2 class="title">Chef Hollie's Kitchen Learning Lab</h2>
+            <p class="">A place for families to learn how to cook and love eating 12 vegetables and fruits each season—each three different ways
+            </p>
+          </div>
+          <div class="hidden-sm hidden-md hidden-lg">
+            <%= image_tag 'qubico/screen-sizes-joyful.png', class: 'img-responsive' %>
+          </div>
+
+  </div>
+
+</header><!--End header -->
+
+
+<!--end header just for iphones -->
+
+<!-- ==============================================
+CALL TO ACTION
+=============================================== -->
+<section class="gray-bg cta">
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-8 cta-message col-sm-9">
+        <p><strong>The Joyful 12!</strong> is a kitchen learning lab for families. Learn from Chef Hollie and get your family excited about fruits and veggies.</p>
+      </div>
+      <div class="col-md-4 cta-button">
+        <p class="text-center"><a class="btn btn-qubico scrollto" href="#pricing"><i class="fa fa-shopping-cart"></i>Sign Up</a></p>
+      </div>
+    </div><!--End row-->
+
+  </div><!--End container -->
+
+</section><!--End Call to Action -->
+
+<!-- ==============================================
+FEATURES
+=============================================== -->
+<section id="features" class="white-bg padding-top-bottom">
+
+  <div class="container features">
+
+    <h1 class="section-title">Main Features</h1>
+    <p class="section-description">The Joyful 12 is an online kitchen learning lab that helps parents learn how to joyfully
+      get fruits and veggies into their families' diets. All the tools you need to create a joyful kitchen experience using
+      proven methods from Chef Hollie.</p>
+
+
+
+      <div class="col-md-4 col-sm-6 scrollimation fade-up">
+
+        <div class="media">
+          <div class="icon pull-left">
+            <%= image_tag 'qubico/feature-1.png', class: 'feature-icon' %>
+            <i class="media-object icon-1 fa fa-html5"></i>
+            <i class="media-object icon-2 fa fa-css3"></i>
+          </div>
+
+          <div class="media-body">
+            <h4>Eat the Rainbow</h4>
+            <p>Feel great about the meals you make for your family. 12 veggie and fruits every season, throughout the year. Get out of the rut of the same old veggies.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-md-4 col-sm-6 scrollimation fade-up d1">
+
+        <div class="media">
+          <div class="icon pull-left">
+            <%= image_tag 'qubico/feature-2.png', class: 'feature-icon' %>
+            <i class="media-object icon-1 fa fa-mobile"></i>
+            <i class="media-object icon-2 fa fa-desktop"></i>
+          </div>
+
+          <div class="media-body">
+            <h4>Time Saving Shopping List</h4>
+            <p>Make shopping easy with a shopping list you can email, save, print, or view on your smartphone.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-md-4 col-sm-6 scrollimation fade-up d2">
+
+        <div class="media">
+          <div class="icon pull-left">
+            <%= image_tag 'qubico/feature-3.png', class: 'feature-icon' %>
+            <i class="media-object icon-1 fa fa-leaf"></i>
+            <i class="media-object icon-2 fa fa-pencil"></i>
+          </div>
+
+          <div class="media-body">
+            <h4>Build Kitchen Confidence</h4>
+            <p>With over 40 quick video tutorials, it's never been easier to gain the skills to have fun and make dinner quickly.</p>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="col-md-4 col-sm-6 scrollimation fade-up">
+
+        <div class="media">
+          <div class="icon pull-left">
+            <%= image_tag 'qubico/feature-4.png', class: 'feature-icon' %>
+            <i class="media-object icon-1 fa fa-heart-o"></i>
+            <i class="media-object icon-2 fa fa-heart"></i>
+          </div>
+
+          <div class="media-body">
+            <h4>Family Focused Forum</h4>
+            <p>Through the community forum, you can learn from other families facing the same challenges you do in feeding your children well.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-md-4 col-sm-6 scrollimation fade-up d1">
+
+        <div class="media">
+          <div class="icon pull-left">
+            <%= image_tag 'qubico/feature-5.png', class: 'feature-icon' %>
+            <i class="media-object icon-1 fa fa-cog"></i>
+            <i class="media-object icon-2 fa fa-cogs"></i>
+          </div>
+
+          <div class="media-body">
+            <h4>Get Kids Involved</h4>
+            <p>Proven techniques from Chef Hollie for getting your kids excited about eating their veggies. Adults too!</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-md-4 col-sm-6 scrollimation fade-up d2">
+
+        <div class="media">
+          <div class="icon pull-left">
+            <%= image_tag 'qubico/feature-6.png', class: 'feature-icon' %>
+            <i class="media-object icon-1 fa fa-star-o"></i>
+            <i class="media-object icon-2 fa fa-star"></i>
+          </div>
+
+          <div class="media-body">
+            <h4>Learn from Chef Hollie</h4>
+            <p>All recipes, techniques, and tips for getting kids involved come from Chef Hollie's 10 + years of experience teaching thousands of kids and adults.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- ==============================================
+RESPONSIVE VIDEO
+=============================================== -->
+<section class="gray-bg  padding-top-bottom hidden-xs">
+
+  <div class="container">
+
+    <h1 class="section-title">The Joyful 12 is for Busy Families</h1>
+    <p class="section-description">You can make great food with Chef Hollie's support.</p>
+
+    <div class="row">
+
+      <div class="col-sm-10 col-sm-offset-1">
+
+        <div class="macbook-frame">
+
+          <%= image_tag 'qubico/macbook2.png', class: 'img-responsive img-center' %>
+
+          <div class="macbook-screen">
+            <iframe width="640" height="360" src="//player.vimeo.com/video/88189339?color=4196b4" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+
+      </div>
+
+    </div><!-- End row -->
+
+  </div><!-- End container -->
+
+</section>
+
+
+
 <!-- ==============================================
 Chef Hollie
 =============================================== -->
-<section id="chefhollie" class="color-bg light-typo padding-top-bottom top-section cta-iphones">
+<section id="chefhollie" class="color-bg light-typo padding-top-bottom cta-iphones">
 
   <div class="container">
 
@@ -89,10 +383,7 @@ Chef Hollie
         <p>In the Joyful 12, Hollie will walk you through basic principles on introducing children to new foods, tips on how to get kids involved in the kitchen, and all kinds of resources to
           make you a more confident home cook. She believes in flavor and fun above all else in the kitchen, which is what you get with the Joyful 12!</p>
 
-        <a class="btn btn-qubico white scrollto hidden-xs" href="#more-hollie"><i class="fa fa-arrow-down"></i>
-
-
-	  Sign Up Now</a>
+        <a class="btn btn-qubico white scrollto hidden-xs" href="#more-hollie"><i class="fa fa-arrow-down"></i>More About Chef Hollie</a>
 
       </div>
 
@@ -103,36 +394,50 @@ Chef Hollie
 </section>
 
 <!-- ==============================================
-RESPONSIVE VIDEO
+CALL TO ACTION
 =============================================== -->
-<section class="gray-bg  padding-top-bottom hidden-xs">
+<section class="gray-bg cta  hidden-xs">
 
   <div class="container">
 
-    <h1 class="section-title">The Joyful 12 is for Busy Families</h1>
-    <p class="section-description">You can make great food with Chef Hollie's support.</p>
+    <h1 class="subsection-title-lessmargin">All Recipes Gluten Free</h1>
+    <p class="subsection-description-lessmargin">All recipes are tested gluten free, and most are allergen friendly or have special dietary substitutions.</p>
 
-    <div class="row">
+    <div class="process-box scrollimation in">
+      <ul class="process-list">
+        <li>
+          <p class="icon">
+            <%= image_tag 'qubico/eggfree.png', class: 'img-responsive img-center' %>
+          </p>
+        </li>
+        <li>
+          <p class="icon">
+            <%= image_tag 'qubico/nutfree.png', class: 'img-responsive img-center' %>
+          </p>
+        </li>
+        <li>
+          <p class="icon">
+            <%= image_tag 'qubico/vegetarian.png', class: 'img-responsive img-center' %>
+          </p>
+        </li>
+        <li>
+          <p class="icon">
+            <%= image_tag 'qubico/dairyfree.png', class: 'img-responsive img-center' %>
+          </p>
+        </li>
+        <li>
+          <p class="icon">
+            <%= image_tag 'qubico/glutenfree.png', class: 'img-responsive img-center' %>
+          </p>
+        </li>
+      </ul>
+      <div class="process-line"></div>
+    </div>
+    <!--End row-->
 
-      <div class="col-sm-10 col-sm-offset-1">
+  </div><!--End container -->
 
-        <div class="macbook-frame">
-
-          <%= image_tag 'qubico/macbook2.png', class: 'img-responsive img-center' %>
-
-          <div class="macbook-screen">
-            <iframe width="640" height="360" src="//player.vimeo.com/video/88189339?color=4196b4" frameborder="0" allowfullscreen></iframe>
-          </div>
-        </div>
-
-      </div>
-
-    </div><!-- End row -->
-
-  </div><!-- End container -->
-
-</section>
-
+</section><!--End Call to Action -->
 <!-- ==============================================
 Reviews
 =============================================== -->
@@ -167,17 +472,21 @@ Reviews
 
       <div class="col-sm-3 col-sm-push-8 member-thumb scrollimation fade-left">
 
-        <%= image_tag 'miguel.jpg', class: 'img-responsive img-center' %>
-        <h4>Miguel</h4>
-        <p class="title">Father of 3 in Novato, California</p>
+        <%= image_tag 'qubico/rhonda.png', class: 'img-responsive img-center' %>
+        <h4>Rhonda</h4>
+        <p class="title">Mother of 3 in Federal Way, Washington</p>
 
       </div>
 
       <div class="col-sm-7 col-sm-pull-2 scrollimation fade-right">
 
         <div class="member-details">
-          <p>Joyful 12 has taught me that you do not have begin with a love for cooking to enjoy cooking. Everyone will gain their own appreciation when learning and preparing the simple, delicious Joyful 12 meals. Mine is being satisfied that my children are not only learning a life skill that will nourish them the rest of their lives, but they are doing it humanely for themselves and for the environment by considering veggies and fruits as their first source of food.</p>
-          <a href="http://www.joyfoodly.com/miguel" target="_blank">Read more about Miguel  ></a>
+          <p>This whole program inspires me to cook more. Most cookbooks I only like two or three recipes, but I love so
+            many of the Joyful 12 recipes and the step-by-step photos really help me understand everything. I especially
+            love the videos. They're quick and I've learned so much from watching them. I feel like I'm becoming much more
+            confident when I make recipes, and I love the wholesome ingredients and the fact that Chef Hollie responds to
+            my questions personally!</p>
+          <a href="http://www.joyfoodly.com/rhonda" target="_blank">Read more about Rhonda  ></a>
 
         </div>
       </div>
@@ -291,6 +600,666 @@ Tour
   </div>
 
 </section>
+
+
+
+<!-- ==============================================
+Life of Joyful 12 User
+=============================================== -->
+
+<section class="white-bg padding-top-bottom">
+
+<div class="container">
+
+<h1 class="section-title">The Life of a Joyful 12 User Each Season</h1>
+<p class="section-description">Here's an example of what a member of the Joyful 12 experiences!</p>
+
+<div class="timeline">
+
+<div class="date-title">
+  <span>Get Cooking: Sign Up!</span>
+</div>
+
+<div class="row">
+
+  <div class="col-sm-6 news-item scrollimation fade-up">
+
+    <div class="news-content">
+
+      <h2 class="news-title col-sm-6">Welcome!</h2>
+
+      <div class="col-sm-4 pull-right news-media gallery">
+        <%= image_tag 'qubico/squash.png', class: 'img-responsive' %></a>
+      </div>
+
+      <p>Your first week, we'll start off with a big HELLO! We'll get you started with tips on how to use the program,
+        support, and get you into the community.</p>
+
+    </div>
+  </div>
+
+  <div class="col-sm-6 news-item right scrollimation fade-up">
+
+    <div class="news-content">
+
+      <h2 class="news-title col-sm-12 col-md-6">Get your first Friday email</h2>
+      <div class="col-sm-4 pull-right news-media gallery">
+        <%= image_tag 'qubico/tomatillo.png', class: 'img-responsive' %></a>
+      </div>
+      <p>This is the start of something special. Every Friday, you'll get an email with recipe suggestions that the
+        community will be participating in, and helpful tips and reminders to make everything smoother.</p>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-sm-6 news-item scrollimation fade-up">
+
+    <div class="news-content">
+
+
+      <h2 class="news-title">Shop with Ease</h2>
+
+      <p>Use our handy shopping list tool to save recipes and print shopping lists, or just view it on your smartphone while at the store.
+        Get everything you need for the week.</p>
+
+    </div>
+  </div>
+
+  <div class="col-sm-6 news-item right scrollimation fade-up">
+
+    <div class="news-content">
+
+      <h2 class="news-title">Make your First Recipe</h2>
+
+      <div class="col-sm-4 pull-right news-media gallery">
+        <a class="colorbox" href="<%= image_url 'qubico/recipe-1.jpg'%>"><%= image_tag 'qubico/recipe-1.jpg', class: 'img-responsive' %></a>
+        <a class="colorbox" href="<%= image_url 'qubico/recipe-2.jpg'%>"></a>
+        <a class="colorbox" href="<%= image_url 'qubico/recipe-3.jpg'%>"></a>
+        <a class="colorbox" href="<%= image_url 'qubico/recipe-4.jpg'%>"></a>
+        <a class="colorbox" href="<%= image_url 'qubico/recipe-5.jpg'%>"></a>
+        <a class="colorbox" href="<%= image_url 'qubico/recipe-6.jpg'%>"></a>
+        <a class="colorbox" href="<%= image_url 'qubico/recipe-7.jpg'%>"></a>
+        <a class="colorbox" href="<%= image_url 'qubico/recipe-8.jpg'%>"></a>
+
+
+      </div>
+
+      <p>There's 36 to choose from every season! Follow easy directions and helpful photos for each step of the recipe. Get tips on how to prep food and
+        watch technique videos.</p>
+
+      <em>Click to see examples of our Tomatillo Potato Salad</em>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="date-title">
+  <span>The First Few Weeks</span>
+</div>
+
+<div class="row">
+
+  <div class="col-sm-6 news-item scrollimation fade-up">
+
+    <div class="news-content">
+
+      <h2 class="news-title">Browse 40+ Technique Videos</h2>
+
+      <div class="col-sm-4 pull-right news-media video">
+        <a class="colorbox-video" href="//player.vimeo.com/video/88323584?title=0&amp;byline=0&amp;portrait=0&amp;color=f3cd00">
+          <%= image_tag 'qubico/video-technique-player.png', class: 'img-responsive' %></a>
+      </div>
+
+      <p>Learn about everything from knife skills to how to prep asparagus in short, fun technique videos. More videos added every season.</p>
+
+    </div>
+  </div>
+
+  <div class="col-sm-6 news-item right scrollimation fade-up">
+
+    <div class="news-content">
+
+      <h2 class="news-title">Try Each Veggie 3 Ways</h2>
+
+      <div class="col-sm-4 pull-right news-media gallery">
+        <a class="colorbox" href="<%= image_url 'qubico/tour-3.png'%>"><%= image_tag 'qubico/spinach-1.jpg', class: 'img-responsive' %></a>
+        <a class="colorbox" href="<%= image_url 'qubico/tour-4.png'%>"></a>
+        <a class="colorbox" href="<%= image_url 'qubico/tour-5.png'%>"></a>
+
+
+      </div>
+
+      <p>It can take 7 to 11 times of trying a new food before kids will like it. Each fruit and veggie in the classroom has three recipes, so you
+        can find the flavors and ingredients that you like the best.</p>
+      <em>Click to see all three spinach recipes</em>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-sm-6 news-item scrollimation fade-up">
+
+    <div class="news-content">
+
+      <h2 class="news-title">Get Your Kids Involved</h2>
+      <div class="col-sm-4 pull-right news-media gallery">
+        <%= image_tag 'qubico/hollie-3.png', class: 'img-responsive' %></a>
+
+
+      </div>
+
+      <p>Every recipe has tips for getting kids involved in the recipe. Watch videos with advice and support, and have fun in the kitchen!</p>
+
+    </div>
+  </div>
+
+  <div class="col-sm-6 news-item right scrollimation fade-up">
+
+    <div class="news-content">
+
+      <h2 class="news-title">Learn from Chef Hollie</h2>
+
+      <div class="col-sm-4 pull-right news-media gallery">
+        <%= image_tag 'qubico/hollie-1.png', class: 'img-responsive' %></a>
+      </div>
+
+      <p>Not only has Chef Hollie built this entire program based on proven principles (just ask those 2,000+ kids and adults she's worked with),
+        you'll be able to ask her questions directly. She loves helping people become more joyful in the kitchen!</p>
+
+      <p><a class=" scrollto" href="#chefhollie">Learn More About Chef Hollie</a></p>
+
+    </div>
+  </div>
+
+
+</div>
+
+
+
+
+
+
+<div class="date-title">
+  <span>As the Season Passes...</span>
+</div>
+
+<div class="row">
+
+  <div class="col-sm-6 news-item scrollimation fade-up">
+
+    <div class="news-content">
+
+      <h2 class="news-title">Talk to the Community</h2>
+      <div class="col-sm-4 pull-right news-media gallery">
+        <%= image_tag 'qubico/tomato.png', class: 'img-responsive' %></a>
+      </div>
+      <p>Interact with Chef Hollie and other families in the community forum. Post recipe questions, talk about strategies for feeding your
+        family, and share your own kitchen struggles and successes!</p>
+
+    </div>
+  </div>
+
+  <div class="col-sm-6 news-item right scrollimation fade-up">
+
+    <div class="news-content">
+
+      <h2 class="news-title col-sm-12 col-md-6">Build Your Kitchen Skills</h2>
+      <div class="col-sm-4 pull-right news-media gallery">
+        <%= image_tag 'qubico/strawberry.png', class: 'img-responsive' %></a>
+      </div>
+      <p>Become a more confident cook by learning culinary skills, understanding substitutions and how to combine different flavors,
+        and developing a system for enjoying food in your home.</p>
+
+    </div>
+  </div>
+
+
+</div>
+
+<div class="date-title">
+  <span>When The Season Ends...</span>
+</div>
+
+<div class="row">
+
+  <div class="col-sm-6 news-item scrollimation fade-up">
+
+    <div class="news-content">
+
+      <h2 class="news-title col-md-6 col-sm-12">You Still Have Access</h2>
+      <div class="col-sm-4 pull-right news-media gallery">
+        <%= image_tag 'qubico/lettuce.png', class: 'img-responsive' %></a>
+      </div>
+      <p>Didn't get time to try out all the recipes you wanted? No worries! You'll have access to any season you purchased for the lifetime of
+        the product. How about that?</p>
+
+    </div>
+  </div>
+
+  <div class="col-sm-6 news-item right scrollimation fade-up">
+
+    <div class="news-content">
+
+      <h2 class="news-title col-md-6 col-sm-12">Seasonal Eating: The Next Season</h2>
+
+      <div class="col-sm-4 pull-right news-media gallery">
+        <%= image_tag 'qubico/spinach.png', class: 'img-responsive' %></a>
+      </div>
+
+      <p>Eating in season helps you get the most nutrients, eat the best tasting food, and is actually great for your pocketbook! Move on to the
+        next season to try 36 new recipes that utilize fruits and veggies that are at their peak.</p>
+
+    </div>
+  </div>
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+<p class="text-center"><a class="btn btn-qubico scrollto" href="#pricing">The Journey Lasts a Lifetime. Are You Ready?</a></p>
+
+</div>
+
+</section>
+
+
+
+
+<!-- ==============================================
+PRICES
+=============================================== -->
+
+<section id="pricing" class="gray-bg padding-top-bottom temp-z-index">
+
+  <div class="container">
+    <h1 class="section-title">Sign Up Now</h1>
+    <p class="section-description">Join us for a year of eating in season.</p>
+
+    <% if params[:message].present? %>
+        <p class="text-warning col-md-offset-5 btn btn-warning"><%= params[:message] %></p>
+    <% end %>
+
+    <div class="row pricing-option">
+
+      <div class="col-lg-10-price col-lg-offset-1-price">
+
+        <div class="col-md-4 col-sm-10 text-center scrollimation fade-right">
+
+          <div class="item-pricing">
+
+            <p class="icon"><%= image_tag 'qubico/price-1.png' %></p>
+            <h2>Each Season</h2>
+            <p class="price">$12</p>
+            <strong>Winter Season Available Now!</strong>
+
+            <p>Unlimited access year over year</p>
+            <p>Master 12 seasonal veggies and fruits</p>
+            <p>Learn Chef Hollie's proven methods</p>
+            <p>36 family friendly recipes (gluten free!)</p>
+            <p>Over 40 skill building videos</p>
+            <p>Time saving shopping list</p>
+            <p>Parent resources</p>
+            <p>Family Focused Forum</p>
+            <p>Weekly motivating emails</p>
+            <p>Tips for getting kids involved</p>
+
+            <br>
+            <%= form_tag user_registration_path, method: :post do %>
+                <%= hidden_field_tag :product_id, 'season' %>
+                <script
+                src='https://checkout.stripe.com/checkout.js' class='stripe-button'
+                data-key='<%= ENV['STRIPE_PUBLIC_KEY'] %>'
+                data-image='<%= image_path('payments/stripe-store-image.png') %>'
+                data-label='Sign Up Now'
+                data-name='Joyful 12'
+                data-panel-label='Pay {{amount}}'
+                data-billing-address='true'
+                data-shipping-address='true'
+                data-description='Joyful 12 Season (<%= number_to_currency(ENV['PRICE_PER_SEASON'].to_i / 100) %>)'
+                data-amount='<%= ENV['PRICE_PER_SEASON'] %>'>
+                </script>
+            <% end %>
+
+          </div><!-- End Pricing Item -->
+
+        </div>
+
+        <div class="col-md-4 col-sm-10 text-center scrollimation fade-up">
+
+          <div class="item-pricing featured">
+
+            <p class="icon"><%= image_tag 'qubico/price-3.png' %></p>
+            <h2>All Four Seasons</h2>
+            <p class="price">$40</p>
+
+            <p>Unlimited access to all four seasons</p>
+            <p>Master 48 seasonal veggies and fruits</p>
+            <p>Learn Chef Hollie's proven methods</p>
+            <p>144 family friendly recipes (gluten free!)</p>
+            <p>Over 40 skill building videos</p>
+            <p>Time saving shopping list</p>
+            <p>Parent resources</p>
+            <p>Family Focused Forum</p>
+            <p>4 times as much fun as one season!</p>
+            <p>Weekly motivating emails</p>
+            <p>Tips for getting kids involved</p>
+
+            <br>
+            <%= form_tag user_registration_path, method: :post do %>
+                <%= hidden_field_tag :product_id, 'year' %>
+                <script
+                src='https://checkout.stripe.com/checkout.js' class='stripe-button'
+                data-key='<%= ENV['STRIPE_PUBLIC_KEY'] %>'
+                data-image='<%= image_path('payments/stripe-store-image.png') %>'
+                data-label='Sign Up Now'
+                data-name='Joyful 12'
+                data-panel-label='Pay {{amount}}'
+                data-billing-address='true'
+                data-shipping-address='true'
+                data-description='Joyful 12 Year (<%= number_to_currency(ENV['PRICE_PER_YEAR'].to_i / 100) %>)'
+                data-amount='<%= ENV['PRICE_PER_YEAR'] %>'>
+                </script>
+            <% end %>
+
+          </div><!-- End Pricing Item -->
+
+        </div>
+
+        <div class="col-md-4 col-sm-10 text-center scrollimation fade-left">
+
+          <div class="item-pricing">
+
+            <p class="icon"><%= image_tag 'qubico/price-4.png' %></p>
+            <h2>Give a Gift</h2>
+            <strong>Show your love with a year of seasonal eating!</strong>
+
+            <p>Perfect for busy parents, newlyweds, or an expectant mom!</p>
+
+            <%= form_tag user_registration_path, method: :post do %>
+
+                <div class="form-group">
+                  <%= text_field_tag :recipient_first_name, '', placeholder: 'gift recipient first name', class: 'form-control',
+                                     required: true %>
+                </div>
+                <div class="form-group">
+                  <%= text_field_tag :recipient_last_name, '', placeholder: 'gift recipient last name', class: 'form-control',
+                                     required: true %>
+                </div>
+                <div class="form-group">
+                  <%= email_field_tag :recipient_email, '', placeholder: 'gift recipient email', class: 'form-control',
+                                      required: true %>
+                </div>
+                <div class="form-group">
+                  <%= text_area_tag :recipient_gift_message, '', placeholder: 'enter a short message for recipient!', class: 'form-control',
+                                     required: true, rows:'1' %>
+                </div>
+
+                <div class="radio radio-height-fix">
+                  <label>
+                    <%= radio_button_tag :product_id, 'year', true %>
+                    Full Year Member - <%= number_to_currency(ENV['PRICE_PER_YEAR'].to_i / 100.0) %>
+                  </label>
+                </div>
+                <div class="radio radio-height-fix">
+                  <label>
+                    <%= radio_button_tag :product_id, 'season' %>
+                    One Season Member - <%= number_to_currency(ENV['PRICE_PER_SEASON'].to_i / 100.0) %>
+                  </label>
+                </div>
+
+                <script
+                src='https://checkout.stripe.com/checkout.js' class='stripe-button'
+                data-key='<%= ENV['STRIPE_PUBLIC_KEY'] %>'
+                data-image='<%= image_path('payments/stripe-store-image.png') %>'
+                data-label='Give A Gift'
+                data-name='Joyful 12'
+                data-billing-address='true'
+                data-shipping-address='true'
+                data-description='Joyful 12 Gift'>
+                </script>
+            <% end %>
+
+          </div><!-- End Pricing Item -->
+
+        </div>
+
+      </div>
+
+    </div><!-- End row -->
+
+  </div><!-- End container -->
+
+</section>
+
+<!-- ==============================================
+CALL TO ACTION
+=============================================== -->
+<section class="color-bg light-typo cta hidden-xs">
+
+  <div class="container hidden-sm hidden-xs">
+
+    <div class="row">
+      <div class="col-md-9 cta-message">
+        <p><strong>The Joyful 12</strong> is a year of eating in season with Chef Hollie. Over four seasons, busy families get access to 144 recipes, video tutorials,
+          a community forum, parent resources, and more! Whether you purchase one season (36 recipes) or the entire year (144 recipes), you will
+          have unlimited access to your classroom and Joyful 12 resources.</p>
+      </div>
+      <div class="col-md-3 cta-button margin-3">
+        <p class="text-center"><a class="btn btn-qubico white scrollto" href="#pricing"><i class="fa fa-shopping-cart"></i>Sign up now</a></p>
+      </div>
+    </div><!--End row-->
+
+  </div><!--End container -->
+
+</section><!--End Call to Action -->
+
+<!-- ==============================================
+PARTNERS
+=============================================== -->
+
+<section id="partners" class="white-bg padding-top-bottom hidden-sm hidden-xs">
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-4 col-md-offset-1 col-sm-3 col-sm-offset-1">
+
+        <span class="logo-small scrollimation fade-right"><%= image_tag 'qubico/whole-foods.png' %></span>
+
+      </div>
+
+      <div class="col-sm-7 ">
+
+        <h2>Valued JoyFoodly Partners</h2>
+        <em>"Chef Hollie shares our commitment to health, seasonality and freshness, and we love her dedication to getting
+          families back in the kitchen to cook together. With so many fast and easy options available, we recognize that
+          in order to get people to eat real, whole, healthy foods, we have to make cooking fun and worth their valuable time.
+          Hollie's incredible energy and passion around that cause makes her a perfect partner for Whole Foods Market.”
+        </em>
+        <br />
+        <br />
+        <p class="pull-right">- Beth Krauss, PR coordinator for Whole Foods Market Northern California</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+
+
+<!-- ==============================================
+Chef Hollie
+=============================================== -->
+<section id="more-hollie" class="color-bg light-typo padding-top-bottom cta-iphones  hidden-xs">
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-sm-4">
+
+        <div class="ipad-frame scrollimation fade-up">
+
+          <%= image_tag 'qubico/hollie-box.png', class: 'img-responsive img-center' %>
+
+          <div class="ipad-screen ipad-slider flexslider">
+
+            <ul class="slides">
+
+              <li>
+                <%= image_tag 'qubico/hollie-1.png', class: 'img-responsive' %>
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="col-sm-7 col-sm-offset-1">
+
+        <h2>More About Chef Hollie</h2>
+        <p>Chef Hollie is passionate about helping parents feel good about the food they feed their kids, and helps families celebrate the JOY of mealtime together. Chef Hollie has worked with over 2,000 parents and children across the country, and knows that kids love eating fruits and vegetables.</p>
+        <p>After attending the French Culinary Institute of New York City, Hollie worked with non-profit programs partnering with Rachael Ray's Yum-O!, Mayor Bloomberg, and Mary J. Blige.
+          She is a professional expert for the California's Healthy CA Kids Initiative and has worked as an Education Director for the Sylvia Center and Chef in Residence in NYC Schools
+          through Wellness in the Schools to improve school food. </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ==============================================
+CONTACT
+=============================================== -->
+<section id="contact" class="gray-bg padding-top-bottom">
+
+  <div class="container">
+
+    <h1 class="section-title">We'd Love to Hear from You!</h1>
+    <p class="contact-description">Do you have questions or feedback? Let us know!</p>
+    <div class="col-md-offset-5 col-sm-6 col-sm-offset-4 hidden-xs">
+      <span class="social-blue"><a href="<%= image_url 'http://www.facebook.com/joyfoodly'%>" target="_blank"><%= image_tag 'qubico/facebook.png' %></a></span>
+      <span class="social-blue"><a href="<%= image_url 'http://www.twitter.com/joyfoodly'%>" target="_blank"><%= image_tag 'qubico/twitter.png' %></a></span>
+      <span class="social-blue"><a href="<%= image_url 'https://plus.google.com/+Joyfoodly'%>" target="_blank"><%= image_tag 'qubico/google.png' %></a></span>
+      <span class="social-blue"><a href="<%= image_url 'http://www.pinterest.com/joyfoodly'%>" target="_blank"><%= image_tag 'qubico/pinterest.png' %></a></span>
+      <span class="social-blue"><a href="<%= image_url 'http://www.instagram.com/joyfoodly'%>" target="_blank"><%= image_tag 'qubico/instagram.png' %></a></span>
+      <span class="social-blue"><a href="<%= image_url 'http://www.vimeo.com/joyfoodly'%>" target="_blank"><%= image_tag 'qubico/vimeo.png' %></a></span>
+    </div>
+
+
+    <div class="row">
+
+      <div class="col-sm-4 col-sm-offset-2 text-center contact-item scrollimation fade-right hidden-xs">
+
+        <a class="icon" href="http://goo.gl/maps/0m7WQ" target="_blank"><i class="glyphicon glyphicon-pushpin"></i></a>
+        <h2>Our Location</h2>
+        <p>San Francisco, CA</p>
+
+      </div>
+
+
+
+      <div class="col-sm-4 text-center contact-item scrollimation fade-left">
+
+        <a class="icon" href="#link"><i class="glyphicon glyphicon-envelope"></i></a>
+        <h2>Email Us</h2>
+        <p>hollie@joyfoodly.com</p>
+
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <!--=== Contact Form ===-->
+
+      <%= form_tag contact_forms_path, id: 'contact-form', class: 'col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2' do %>
+          <div class="form-group">
+            <%= label_tag :name, class: 'control-label' %>
+            <div class="controls">
+              <%= text_field_tag :name, '', placeholder: 'Your name', class: 'form-control requiredField label_better',
+                                 required: true %>
+              <i class="fa fa-user"></i>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= label_tag :email, class: 'control-label' %>
+            <div class="controls">
+              <%= email_field_tag :email, '', placeholder: 'Your email', class: 'form-control requiredField label_better',
+                                  required: true  %>
+              <i class="fa fa-user"></i>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= label_tag :name, class: 'control-label' %>
+            <div class="controls">
+              <%= text_field_tag :subject, '', placeholder: 'Subject', class: 'form-control requiredField label_better',
+                                 required: true  %>
+              <i class="fa fa-user"></i>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= label_tag :name, class: 'control-label' %>
+            <div class="controls">
+              <%= text_area_tag :message, '', placeholder: 'Your Message',
+                                class: 'form-control requiredField label_better', rows: '6', required: true %>
+              <i class="fa fa-user"></i>
+            </div>
+          </div>
+
+          <p>
+            <%= button_tag "Send Message", class: "btn btn-qubico btn-block js-submit", data: {
+                    error_message: "Error!", sending_message: "Sending...", ok_message: "Message Sent" } %>
+          </p>
+      <% end %>
+      <!-- End contact-form -->
+
+    </div>
+
+  </div>
+
+</section>
+
+
 
 <!-- ==============================================
 FOOTER
