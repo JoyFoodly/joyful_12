@@ -15,6 +15,11 @@
               SIGN IN
             .forgot-password
               =link_to 'Forgot Password?', '/users/password/new'
+  .row.messagerow
+    - if flash[:message].present?            
+      %p.text-warning.col-md-offset-5.btn.btn-warning
+        = flash[:message]
+
   .row.herorow
     .col-xs-12.col-sm-6.leftherocolumn
       .leftherocolumntext
@@ -36,6 +41,7 @@
           = HomePageFeature.get_feature_switched(:rightcolumn_subtext, session)
         .center-div
           = form_tag user_registration_path, method: :post do
+            = hidden_field_tag :from_page, '/'
             = hidden_field_tag :product_id, 'season'
             %script{'src' => 'https://checkout.stripe.com/checkout.js', class: 'stripe-button',
                     'data-key' => ENV['STRIPE_PUBLIC_KEY'],
