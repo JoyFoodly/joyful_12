@@ -80,7 +80,7 @@ Chef Hollie
         %a.btn.btn-qubico.white.scrollto.hidden-xs{href: "#more-hollie"}
           .hidden#strip-data{'data-key' => ENV['STRIPE_PUBLIC_KEY'],
                              'data-currency' => 'usd',
-                             'data-image' => 'http://www.minnesotanonprofits.org/images/bg.png',
+                             'data-image' => image_path('payments/stripe-store-image.png'),
                              'data-name' => 'Joyful 12',
                              'data-panelLabel' => 'Pay {{amount}}',
                              'data-billing-address' => 'true',
@@ -251,6 +251,88 @@ Chef Hollie
 
           %li
             = image_tag 'qubico/tour-11.png', class: 'img-responsive'
+
+
+// <!-- ==============================================
+// CONTACT
+// =============================================== -->
+%section#contact.gray-bg.padding-top-bottom
+
+  .container
+
+    %h1.section-title
+      We'd Love to Hear from You!
+    %p.contact-description
+      Do you have questions or feedback? Let us know!
+    .col-md-offset-5.col-sm-6.col-sm-offset-4.hidden-xs
+      %span.social-blue
+        %a{href: image_url('http://www.facebook.com/joyfoodly'), target: "_blank"}
+          = image_tag 'qubico/facebook.png'
+      %span.social-blue
+        %a{href: image_url('http://www.pinterest.com/joyfoodly'), target: "_blank"}
+          = image_tag 'qubico/pinterest.png'
+      %span.social-blue
+        %a{href: image_url('http://www.instagram.com/joyfoodly'), target: "_blank"}
+          = image_tag 'qubico/instagram.png'
+      %span.social-blue
+        %a{href: image_url('https://plus.google.com/+Joyfoodly'), target: "_blank"}
+          = image_tag 'qubico/google.png'
+      %span.social-blue
+        %a{href: image_url('http://www.twitter.com/joyfoodly'), target: "_blank"}
+          = image_tag 'qubico/twitter.png'
+      %span.social-blue
+        %a{href: image_url('http://www.vimeo.com/joyfoodly'), target: "_blank"}
+          = image_tag 'qubico/vimeo.png'
+
+    .row
+
+      .col-sm-4.col-sm-offset-2.text-center.contact-item.scrollimation.fade-right.hidden-xs
+
+        %a.icon{href: "http://goo.gl/maps/0m7WQ", target: "_blank"}
+          %i.glyphicon.glyphicon-pushpin
+        %h2
+          Our Location
+        %p
+          San Francisco, CA
+
+      .col-sm-4.text-center.contact-item.scrollimation.fade-left
+
+        %a.icon{href: "#link"}
+          %i.glyphicon.glyphicon-envelope
+        %h2
+          Email Us
+        %p
+          hollie@joyfoodly.com
+
+    .row
+
+      = form_tag contact_forms_path, id: 'contact-form', class: 'col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2' do
+        .form-group
+          = label_tag :name, class: 'control-label'
+          .controls
+            = text_field_tag :name, '', placeholder: 'Your name', class: 'form-control requiredField label_better',                          required: true
+            %i.fa.fa-user
+
+        .form-group
+          = label_tag :email, class: 'control-label'
+          .controls
+            = email_field_tag :email, '', placeholder: 'Your email', class: 'form-control requiredField label_better',                                       required: true
+            %i.fa.fa-user
+
+        .form-group
+          = label_tag :name, class: 'control-label'
+          .controls
+            = text_field_tag :subject, '', placeholder: 'Subject', class: 'form-control requiredField label_better',              required: true
+            %i.fa.fa-user
+
+        .form-group
+          = label_tag :name, class: 'control-label'
+          .controls
+            = text_area_tag :message, '', placeholder: 'Your Message',                                class: 'form-control requiredField label_better', rows: '6', required: true 
+            %i.fa.fa-user
+                
+        %p
+          = button_tag "Send Message", class: "btn btn-qubico btn-block js-submit", data: {error_message: "Error!",          sending_message: "Sending...", ok_message: "Message Sent" }
 
 // <!-- ==============================================
 // FOOTER
