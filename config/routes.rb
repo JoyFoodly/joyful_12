@@ -36,6 +36,10 @@ Joyfoodly::Application.routes.draw do
 
 #  root to: 'foods#index'
   root to: 'home#rootpage'
+  devise_scope :user do
+    get "/about" => "registrations#new"
+  end
+  
   # catch all to enable marketing links
   get '/:tracking_slug' => 'home#marketing'
 end

@@ -10,7 +10,7 @@
         %span.icon-bar
 
       <!-- ======= LOGO ========-->
-      %a.navbar-brand.scrollto{href: "/"}
+      %a.navbar-brand{href: "/"}
         %span.logo-small
           = image_tag 'qubico/joyful12-logo-small.png'
 
@@ -45,6 +45,10 @@ Chef Hollie
 %section#chefhollie.color-bg.light-typo.padding-top-bottom.top-section.cta-iphones
   %div.container
 
+    - if params[:message].present?
+      %p.text-warning.col-md-offset-5.btn.btn-warning
+        = params[:message]
+
     %div.row
 
       %div.col-sm-4
@@ -74,19 +78,20 @@ Chef Hollie
           In the Joyful 12, Hollie will walk you through basic principles on introducing children to new foods, tips on how to get kids involved in the kitchen, and all kinds of resources to
           make you a more confident home cook. She believes in flavor and fun above all else in the kitchen, which is what you get with the Joyful 12!
         %a.btn.btn-qubico.white.scrollto.hidden-xs{href: "#more-hollie"}
-          %i.fa.fa-arrow-down
-            = form_tag user_registration_path, method: :post do
-              = hidden_field_tag :product_id, 'season'
-              %script{'src' => 'https://checkout.stripe.com/checkout.js', class: 'stripe-button',
-                      'data-key' => ENV['STRIPE_PUBLIC_KEY'],
-                      'data-image' => image_path('payments/stripe-store-image.png'),
-                      'data-label' => 'Sign Up Now!',
-                      'data-name' => 'Joyful 12',
-                      'data-panel-label' => 'Pay {{amount}}',
-                      'data-billing-address' => 'true',
-                      'data-shipping-address' => 'true',
-                      'data-description' => "Joyful 12 Season (#{number_to_currency(@price.to_f / 100)})",
-                      'data-amount' => @price}
+          .hidden#strip-data{'data-key' => ENV['STRIPE_PUBLIC_KEY'],
+                             'data-currency' => 'usd',
+                             'data-image' => 'http://www.minnesotanonprofits.org/images/bg.png',
+                             'data-name' => 'Joyful 12',
+                             'data-panelLabel' => 'Pay {{amount}}',
+                             'data-billing-address' => 'true',
+                             'data-shipping-address' => 'true',
+                             'data-description' => "Joyful 12 Season (#{number_to_currency(@price.to_f / 100)})",
+                             'data-amount' => @price}
+
+          %i.fa.fa-arrow-down#signup_button
+            Sign Up Now!  
+          = form_tag user_registration_path, method: :post, id: 'signup_form' do
+            = hidden_field_tag :dummy  
 
 // ==============================================
 // RESPONSIVE VIDEO
@@ -140,7 +145,7 @@ Chef Hollie
     
       .col-sm-3.col-sm-push-8.member-thumb.scrollimation.fade-left
 
-        = image_tag 'qubico/miguel.png', class: 'img-responsive img-center'
+        = image_tag 'miguel.jpg', class: 'img-responsive img-center'
         %h4
           Miguel
         %p.title

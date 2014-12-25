@@ -18,7 +18,12 @@ class RegistrationsController < Devise::RegistrationsController
         respond_with @user, location: confirmation_sent_path
       end
     else
-      redirect_to "#{new_user_registration_path}?message=#{URI.escape(@user.errors.full_messages.first)}#pricing"
+      if params[:from_page]
+        flash[:message]=@user.errors.full_messages.first
+        redirect_to "#{params[:from_page]}"
+      else
+        redirect_to "#{new_user_registration_path}?message=#{URI.escape(@user.errors.full_messages.first)}#pricing"
+      end
     end
   end
 

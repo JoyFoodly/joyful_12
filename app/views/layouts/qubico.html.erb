@@ -57,7 +57,8 @@
 
 <%= render 'layouts/jquery_with_cdn_fallback' %>
 <%= render 'layouts/tracking' %>
-<%= javascript_include_tag 'qubico' %>
+<script src="https://checkout.stripe.com/v2/checkout.js"></script>
+<%= javascript_include_tag 'application' %>
 
 </body>
 </html>
