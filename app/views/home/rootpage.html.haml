@@ -4,11 +4,14 @@
     .col-xs-2
       = image_tag "joyful12logo.png", class: 'logoimage'
     .col-xs-2
-    .hidden-xs
+    .hidden-sm.hidden-md.hidden-lg
+      .col-xs-2.col-xs-offset-4
+        = image_tag 'hamburger icon.jpg', id: 'hamburger_icon'
+    .hidden-xs#loginbox
       = form_tag('/users/sign_in', id: 'signin_form') do
-        .col-xs-3
+        .col-sm-3.col-xs-7
           %input.textinput#email_field{name: 'user[email]', placeholder: 'Email', style: 'width: 90%; float: right;'}  
-        .col-xs-4
+        .col-sm-4.col-xs-5
           .password-box
             %input.textinput#password_field{name: 'user[password]', type: 'password', placeholder: 'Password', style: 'display: inline'}
             #signin-box

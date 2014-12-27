@@ -22,8 +22,21 @@
 		padding-bottom: 70px;
 		font-size: 0.8em;
 
+		#loginbox {
+			@media (max-width: 500px) {
+				margin-top: 70px;
+				clear: both;
+				display:hidden;
+			}
+		}
+		#hamburger_icon {
+			height: 80px;
+			width: 120px;
+		}
+
 		.logoimage {
 			max-height: 50px;
+			margin-top: 15px;
 		}
 		.forgot-password, .forgot-password a, .forgot-password a:hover {
 			color: $font-grey;
