@@ -12,7 +12,7 @@ contents = {box11_header: 'Improve your family’s health', box11_text: 'You get
             section_title_one: 'Holy Sweet Potato... Easy <em>And</em> Delicious!',
             section_title_two: 'Give the gift of the Joyful 12!',
             section_subtext_one: 'The Joyful12 is an online kitchen learning lab that helps parents learn how to joyfully get fruits and veggies into their families\' diets.',
-            section_subtext_two: 'Show your love with a year of learning how to cook and eat 48 seasonal vegetables and fruits. Feel great knowing that every purchase provides lifetime access to a family in our Joyful 12 School Projects.',
+            section_subtext_two: 'Show your love with a year of learning how to cook and eat 48 seasonal vegetables and fruits. Feel great knowing that every purchase provides lifetime access to a family in our Joyful 12 school projects.',
             [:rightcolumn_subtext, nil] => 'Get lifetime access to the Joyful 12 for $48',
             [:rightcolumn_subtext, 'HealthyKitchens'] => 'Take advantage of your special 20% discount (reg. $48)', 
            }
