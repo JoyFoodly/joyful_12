@@ -33,3 +33,7 @@ $ ->
 		$('#loginbox')[0].style.setProperty('display', new_vis, 'important')
 		null
 	)
+
+$ -> 
+	# Gotta fix this because of how Stripe adds an inline element style. :(
+	$(".stripe-button-el span").css('display', 'inline-block')
