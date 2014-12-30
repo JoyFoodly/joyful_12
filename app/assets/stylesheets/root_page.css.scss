@@ -1,4 +1,9 @@
 @import 'variables';
+.signup_button {
+	font-style: normal;
+	font-weight: bold;
+}
+
 .rootpage {
 	font-family: 'Lato', sans-serif;
 	font-weight: 300;
@@ -14,6 +19,7 @@
 		margin-bottom: 10px;
 	}
 	font-size: 18px;
+
 
 	.navrow {
 		margin-top: 5px;

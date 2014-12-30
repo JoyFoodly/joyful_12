@@ -77,7 +77,7 @@ Chef Hollie
         %p
           In the Joyful 12, Hollie will walk you through basic principles on introducing children to new foods, tips on how to get kids involved in the kitchen, and all kinds of resources to
           make you a more confident home cook. She believes in flavor and fun above all else in the kitchen, which is what you get with the Joyful 12!
-        %a.btn.btn-qubico.white.scrollto.hidden-xs{href: "#more-hollie"}
+        %a.btn.btn-qubico.white
           .hidden#strip-data{'data-key' => ENV['STRIPE_PUBLIC_KEY'],
                              'data-currency' => 'usd',
                              'data-image' => image_path('payments/stripe-store-image.png'),
@@ -88,7 +88,7 @@ Chef Hollie
                              'data-description' => "Joyful 12 Season (#{number_to_currency(@price.to_f / 100)})",
                              'data-amount' => @price}
 
-          %i.fa.fa-arrow-down#signup_button
+          %i.fa.fa-arrow-down.signup_button
             Sign Up Now!  
           = form_tag user_registration_path, method: :post, id: 'signup_form' do
             = hidden_field_tag :dummy  
@@ -198,9 +198,21 @@ Chef Hollie
 
       .col-md-3.cta-button
         %p.text-center
-          %a.btn.btn-qubico.white.scrollto{href: "#pricing"}
-            %i.fa.fa-shopping-cart
-              Sign Up Now
+          %a.btn.btn-qubico.white
+            .hidden#strip-data{'data-key' => ENV['STRIPE_PUBLIC_KEY'],
+                               'data-currency' => 'usd',
+                               'data-image' => image_path('payments/stripe-store-image.png'),
+                               'data-name' => 'Joyful 12',
+                               'data-panelLabel' => 'Pay {{amount}}',
+                               'data-billing-address' => 'true',
+                               'data-shipping-address' => 'true',
+                               'data-description' => "Joyful 12 Season (#{number_to_currency(@price.to_f / 100)})",
+                               'data-amount' => @price}
+
+            %i.fa.fa-shopping-cart.signup_button
+              Sign Up Now!  
+            = form_tag user_registration_path, method: :post, id: 'signup_form' do
+              = hidden_field_tag :dummy  
 
 // !-- ==============================================
 // Tour

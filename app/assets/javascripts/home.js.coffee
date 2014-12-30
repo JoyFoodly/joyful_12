@@ -4,7 +4,8 @@ $ ->
 	)
 
 $ ->
-	$("#signup_button").click( ->
+	$(".signup_button").click( (evt) ->
+		target = evt.target
 		data_obj = $('#strip-data').data()
 		token = (res) ->
 			inputs = []
@@ -12,7 +13,9 @@ $ ->
 			inputs[1] = $('<input type=hidden name=stripeBillingName />').val(res.card.name)
 			inputs[2] = $('<input type=hidden name=stripeEmail />').val(res.email)
 
-			$('#signup_form').append(inputs).submit();
+			$(target).parent().find('#signup_form').append(inputs).submit()
+			#$('#signup_form').append(inputs).submit()
+			null
 		data_obj['token'] = token
 		data_obj['address'] = true
 
