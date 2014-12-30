@@ -141,7 +141,7 @@ Chef Hollie
           %p 
             Our niece and nephew were both asking for more broccoli after this fresh take of Mac 'n Cheese.
 
-    .row.team-member
+    .row.team-member.right
     
       .col-sm-3.col-sm-push-8.member-thumb.scrollimation.fade-left
 
@@ -198,17 +198,17 @@ Chef Hollie
 
       .col-md-3.cta-button
         %p.text-center
-          %a.btn.btn-qubico.white
-            .hidden#strip-data{'data-key' => ENV['STRIPE_PUBLIC_KEY'],
-                               'data-currency' => 'usd',
-                               'data-image' => image_path('payments/stripe-store-image.png'),
-                               'data-name' => 'Joyful 12',
-                               'data-panelLabel' => 'Pay {{amount}}',
-                               'data-billing-address' => 'true',
-                               'data-shipping-address' => 'true',
-                               'data-description' => "Joyful 12 Season (#{number_to_currency(@price.to_f / 100)})",
-                               'data-amount' => @price}
+          .hidden#strip-data{'data-key' => ENV['STRIPE_PUBLIC_KEY'],
+                             'data-currency' => 'usd',
+                             'data-image' => image_path('payments/stripe-store-image.png'),
+                             'data-name' => 'Joyful 12',
+                             'data-panelLabel' => 'Pay {{amount}}',
+                             'data-billing-address' => 'true',
+                             'data-shipping-address' => 'true',
+                             'data-description' => "Joyful 12 Season (#{number_to_currency(@price.to_f / 100)})",
+                             'data-amount' => @price}
 
+          %a.btn.btn-qubico.white
             %i.fa.fa-shopping-cart.signup_button
               Sign Up Now!  
             = form_tag user_registration_path, method: :post, id: 'signup_form' do
