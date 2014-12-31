@@ -85,7 +85,7 @@ Chef Hollie
                              'data-panelLabel' => 'Pay {{amount}}',
                              'data-billing-address' => 'true',
                              'data-shipping-address' => 'true',
-                             'data-description' => "Joyful 12 Lifetime (#{number_to_currency(@price.to_f / 100)})",
+                             'data-description' => "Joyful 12 Lifetime (#{number_to_currency(@price / 100)})",
                              'data-amount' => @price}
 
           %i.fa.fa-arrow-down.signup_button
@@ -205,7 +205,7 @@ Chef Hollie
                              'data-panelLabel' => 'Pay {{amount}}',
                              'data-billing-address' => 'true',
                              'data-shipping-address' => 'true',
-                             'data-description' => "Joyful 12 Lifetime (#{number_to_currency(@price.to_f / 100)})",
+                             'data-description' => "Joyful 12 Lifetime (#{number_to_currency(@price / 100)})",
                              'data-amount' => @price}
 
           %a.btn.btn-qubico.white
@@ -386,10 +386,9 @@ Chef Hollie
       = render partial: 'social_link', locals: {uri: 'http://www.instagram.com/joyfoodly', img: 'qubico/instagram-white.png'}
       = render partial: 'social_link', locals: {uri: 'http://www.vimeo.com/joyfoodly', img: 'qubico/vimeo-white.png'}
 
-  </ul>
-  <p>&copy;2014 <a href="http://www.joyfoodly.com" target="_blank">JoyFoodly</a>, LLC.</p>
-  <em>     </em>
+    %p
+      &copy;2014
+      %a{href: "http://www.joyfoodly.com", target: "_blank"}
+        JoyFoodly
+      , LLC.
 
-  </div>
-
-</footer>

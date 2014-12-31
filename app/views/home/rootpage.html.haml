@@ -54,7 +54,7 @@
                     'data-panel-label' => 'Pay {{amount}}',
                     'data-billing-address' => 'true',
                     'data-shipping-address' => 'true',
-                    'data-description' => "Lifetime Access (#{number_to_currency(@price.to_f / 100)})",
+                    'data-description' => "Lifetime Access (#{number_to_currency(@price / 100)})",
                     'data-amount' => @price}
   .row.section
     .col-xs-12
