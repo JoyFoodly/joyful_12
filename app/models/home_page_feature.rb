@@ -4,11 +4,15 @@ class HomePageFeature < ActiveRecord::Base
   def self.get_feature(k)
     return nil unless k.is_a? Symbol or k.is_a? String
 
-    if (h=HomePageFeature.find_by_key(k))
-      return h.content
-    else
-      return nil
+    # Need to use the key that's not assigned to any coupon
+    fs=HomePageFeature.where(key: k)
+    if fs
+      nil_fs=fs.where(coupon_id: nil)
+      if nil_fs.size>0
+        return nil_fs[0].content
+      end
     end
+    return nil
   end
 
   def self.get_feature_switched(k, session)
