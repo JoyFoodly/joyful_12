@@ -22,5 +22,6 @@
 //= require shopping_list
 //= require tab_deep_link
 //= require tooltips
-//= require home 
+//= require home
+//= require fix_bottom_padding
 //= require_tree ./qubico

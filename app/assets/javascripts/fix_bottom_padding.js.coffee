@@ -1,2 +1,2 @@
-$ ->
-  $('.video-embed').css('padding-bottom', '0');
+$('iframe').load ->
+  $('.video-embed').css('padding-bottom', '0')
