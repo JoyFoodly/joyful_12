@@ -3,9 +3,9 @@
 ----------------------*/
 body{
 	font-family: Lato, Arial, sans-serif;
-	font-size:18px;
+	font-size:15px;
 	color:#7a7c7f;
-	font-weight:300;
+	font-weight:400;
 	overflow-x:hidden;
 }
 
@@ -19,13 +19,6 @@ h6{
     font-weight:400;
     letter-spacing:0.02em;
     margin:0 0 20px;
-}
-
-p {
-    font-size:18px;
-    line-height:24px;
-    font-weight:300;
-    margin-bottom:20px;
 }
 
 .lead {
