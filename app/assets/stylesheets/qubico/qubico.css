@@ -88,7 +88,7 @@ a:focus,
 }
 
 .navbar {
-    margin:0;
+
     border-radius:0;
 }
 
@@ -281,17 +281,6 @@ a:focus,
 .navbar-brand:hover,
 .navbar-brand:active,
 .navbar-brand:focus {
-    position:relative;
-    padding:0 10px;
-    font-size:28px;
-    line-height:54px;
-    font-weight:600;
-    color:#777;
-    font-variant:small-caps;
-    letter-spacing:0.02em;
-    -webkit-transition:font-size .2s ease-out;
-    transition:font-size .2s ease-out;
-    overflow:hidden;
 }
 
 #main-nav{
