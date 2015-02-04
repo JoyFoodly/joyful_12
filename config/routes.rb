@@ -34,11 +34,8 @@ Joyfoodly::Application.routes.draw do
 
   resources :upgrades, only: [:index, :create, :show]
 
-#  root to: 'foods#index'
   root to: 'home#rootpage'
-  devise_scope :user do
-    get "/about" => "registrations#new"
-  end
+  get "/about" => "home#page"
   
   # catch all to enable marketing links
   get '/:tracking_slug' => 'home#marketing'

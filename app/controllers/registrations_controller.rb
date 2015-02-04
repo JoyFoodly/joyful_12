@@ -1,25 +1,12 @@
 class RegistrationsController < Devise::RegistrationsController
-  layout 'qubico'
+  layout 'qubico', except: [:new]
 
-  def new
-    if session[:partner_id] && c=Coupon.find_by_shareable_tag(session[:partner_id].downcase)
-      # if the coupon is used by just one partner, use that partner's welcome message, else
-      # use the coupon's welcome message.
-      @price = c.price.to_i
-      if c.partners.size == 1
-        @welcome_message = c.partners[0].welcome_message
-      else
-        @welcome_message = c.welcome_message
-      end
-    else
-      @welcome_message = ''
-      @price=ENV['PRICE_PER_SEASON'].to_i
-    end
-    super
-  end
-  
   def create
-    @user = UserRegistration.from_stripe_params(stripe_params)
+    if params['stripeToken']
+      @user = UserRegistration.from_stripe_params(stripe_params)
+    else      
+      @user = User.create(params[:user].permit(:first_name, :last_name, :email, :password, :password_confirmation))
+    end
 
     if @user.persisted?
       if session[:partner_id]
@@ -39,6 +26,7 @@ class RegistrationsController < Devise::RegistrationsController
         flash[:message]=@user.errors.full_messages.first
         redirect_to "#{params[:from_page]}"
       else
+        flash[:signup_error_message]=@user.errors.full_messages.first
         redirect_to "#{new_user_registration_path}?message=#{URI.escape(@user.errors.full_messages.first)}#pricing"
       end
     end

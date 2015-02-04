@@ -1,0 +1,76 @@
+<% content_for :hide_nav, true %>
+
+<!-- Modal -->
+<div class="modal fade modal-auto-open" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-body">
+        <% flash.each do |name, msg| %>
+            <% if msg.present? %>
+                <div class='alert alert-<%= name == :notice ? 'success' : 'danger' %>'>
+                  <a class='close' data-dismiss='alert'>×</a>
+                  <%= msg.html_safe %>
+                </div>
+            <% end %>
+        <% end %>
+        <div class='row'>
+          <div class='col-sm-6'>
+            <img class='img-responsive centered' src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/fce7b5feeb239e87f850cac1748a0962096f4f6a.png?1403727274" />
+          </div>
+          <div class='col-sm-6'>
+            <img class='img-responsive centered' src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/78dc16ce333ebb75cb7fe869ae47cda2c6bdcbb4.png?1403727291" />
+          </div>
+        </div>
+        <div class="top-buffer"></div>
+        <h2 class="text-center">
+	  <%= "Welcome #{session[:partner_id]} user! Please Fill In These Fields" %>
+	</h2>
+        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { role: "form" }) do |f| %>
+          <div class="form-group">
+	    <div class='row'>
+              <%= f.label :first_name, class: 'col-sm-6'%>
+              <%= f.label :last_name, class: 'col-sm-6' %>
+	    </div>
+	    <div class='row'>
+	      <div class='col-sm-6'>
+		<%= f.text_field :first_name, class: 'form-control', autofocus: true, placeholder: 'First Name' %>
+	      </div>
+	      <div class='col-sm-6'>
+		<%= f.text_field :last_name, class: 'form-control', autofocus: true, placeholder: 'Last Name' %>
+	      </div>
+            </div>
+	  </div>
+
+            <div class="form-group">
+              <%= f.label :email %>
+              <%= f.email_field :email, class: 'form-control', autofocus: true, placeholder: 'Enter email' %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :password %>
+              <%= f.password_field :password, class: 'form-control' %>
+            </div>
+
+	    <div class="form-group">
+              <%= f.label :password_confirmation %>
+              <%= f.password_field :password_confirmation, class: 'form-control' %>
+	    </div>
+
+            <%= f.submit "Sign up", class: 'btn btn-primary' %>
+
+        <% end %>
+        <div class="top-buffer"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <img src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/92c20922c149425b951205856aa20da17cdc69d9.png?1393806541" />
+  </div>
+  <div class='col-md-12 bottom-padding'>
+    <img src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/d4079534f8a4659424e86c5ef0a12556d2580ee1.png?1393734220" />
+  </div>
+</div>
