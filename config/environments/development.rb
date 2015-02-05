@@ -1,5 +1,8 @@
 Paperclip.options[:command_path] = '/usr/local/bin'
 
+require 'dotenv'
+Dotenv.load
+
 Joyfoodly::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -16,7 +19,7 @@ Joyfoodly::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -30,7 +33,17 @@ Joyfoodly::Application.configure do
   config.assets.debug = true
 
   # Default mailer host
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'localhost', port: 3000 }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      :address        => 'smtp.gmail.com',
+      :port           => '587',
+      :authentication => :plain,
+      :user_name      => ENV['GMAIL_SMTP_USERNAME'],
+      :password       => ENV['GMAIL_SMTP_PASSWORD'],
+      :domain         => 'gmail.com',
+      :enable_starttls_auto => true
+  }
 
   # Image uploads
   config.paperclip_defaults = {
