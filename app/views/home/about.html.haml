@@ -77,21 +77,26 @@ Chef Hollie
         %p
           In the Joyful 12, Hollie will walk you through basic principles on introducing children to new foods, tips on how to get kids involved in the kitchen, and all kinds of resources to
           make you a more confident home cook. She believes in flavor and fun above all else in the kitchen, which is what you get with the Joyful 12!
-        %a.btn.btn-qubico.white
-          .hidden#strip-data{'data-key' => ENV['STRIPE_PUBLIC_KEY'],
-                             'data-currency' => 'usd',
-                             'data-image' => image_path('payments/stripe-store-image.png'),
-                             'data-name' => 'Joyful 12',
-                             'data-panelLabel' => 'Pay {{amount}}',
-                             'data-billing-address' => 'true',
-                             'data-shipping-address' => 'true',
-                             'data-description' => "Joyful 12 Lifetime (#{number_to_currency(@price / 100)})",
-                             'data-amount' => @price}
+        - if @signup_url == ''  
+          %a.btn.btn-qubico.white
+            .hidden#strip-data{'data-key' => ENV['STRIPE_PUBLIC_KEY'],
+                               'data-currency' => 'usd',
+                               'data-image' => image_path('payments/stripe-store-image.png'),
+                               'data-name' => 'Joyful 12',
+                               'data-panelLabel' => 'Pay {{amount}}',
+                               'data-billing-address' => 'true',
+                               'data-shipping-address' => 'true',
+                               'data-description' => "Joyful 12 Lifetime (#{number_to_currency(@price / 100)})",
+                               'data-amount' => @price}
 
-          %i.fa.fa-arrow-down.signup_button
-            Sign Up Now!  
-          = form_tag user_registration_path, method: :post, id: 'signup_form' do
-            = hidden_field_tag :dummy  
+            %i.fa.fa-arrow-down.signup_button
+              Sign Up Now!  
+            = form_tag user_registration_path, method: :post, id: 'signup_form' do
+              = hidden_field_tag :dummy  
+        - else
+          .btn.btn-qubico.white#zero-price-button
+            %i.fa.fa-arrow-down.signup_button
+              Sign Up Now!
 
 // ==============================================
 // RESPONSIVE VIDEO
@@ -198,21 +203,26 @@ Chef Hollie
 
       .col-md-3.cta-button
         %p.text-center
-          .hidden#strip-data{'data-key' => ENV['STRIPE_PUBLIC_KEY'],
-                             'data-currency' => 'usd',
-                             'data-image' => image_path('payments/stripe-store-image.png'),
-                             'data-name' => 'Joyful 12',
-                             'data-panelLabel' => 'Pay {{amount}}',
-                             'data-billing-address' => 'true',
-                             'data-shipping-address' => 'true',
-                             'data-description' => "Joyful 12 Lifetime (#{number_to_currency(@price / 100)})",
-                             'data-amount' => @price}
+          - if @signup_url == ''
+            .hidden#stripe-data{'data-key' => ENV['STRIPE_PUBLIC_KEY'],
+                               'data-currency' => 'usd',
+                               'data-image' => image_path('payments/stripe-store-image.png'),
+                               'data-name' => 'Joyful 12',
+                               'data-panelLabel' => 'Pay {{amount}}',
+                               'data-billing-address' => 'true',
+                               'data-shipping-address' => 'true',
+                               'data-description' => "Joyful 12 Lifetime (#{number_to_currency(@price / 100)})",
+                               'data-amount' => @price}
+            %a.btn.btn-qubico.white
+              %i.fa.fa-shopping-cart.signup_button
+                Sign Up Now!  
+              = form_tag user_registration_path, method: :post, id: 'signup_form' do
+                = hidden_field_tag :dummy
+          - else
+            %a.btn.btn-qubico.white
+              %i.fa.fa-shopping-cart.signup_button
+                Sign Up Now!  
 
-          %a.btn.btn-qubico.white
-            %i.fa.fa-shopping-cart.signup_button
-              Sign Up Now!  
-            = form_tag user_registration_path, method: :post, id: 'signup_form' do
-              = hidden_field_tag :dummy  
 
 // !-- ==============================================
 // Tour

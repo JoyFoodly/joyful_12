@@ -3,23 +3,34 @@ $ ->
 		$("#signin_form").submit()
 	)
 
+$ -> 
+	$('#zero-price-button').click( (evt) ->
+		evt.preventDefault();
+		window.location.href='/users/sign_up'
+		null
+	)
+
 $ ->
 	$(".signup_button").click( (evt) ->
-		target = evt.target
-		data_obj = $('#strip-data').data()
-		token = (res) ->
-			inputs = []
-			inputs[0] = $('<input type=hidden name=stripeToken />').val(res.id)
-			inputs[1] = $('<input type=hidden name=stripeBillingName />').val(res.card.name)
-			inputs[2] = $('<input type=hidden name=stripeEmail />').val(res.email)
+		elem = $('#stripe-data')
+		if (elem.length > 0)
+			target = evt.target
+			data_obj = $('#stripe-data').data()
+			token = (res) ->
+				inputs = []
+				inputs[0] = $('<input type=hidden name=stripeToken />').val(res.id)
+				inputs[1] = $('<input type=hidden name=stripeBillingName />').val(res.card.name)
+				inputs[2] = $('<input type=hidden name=stripeEmail />').val(res.email)
 
-			$(target).parent().find('#signup_form').append(inputs).submit()
+				$(target).parent().find('#signup_form').append(inputs).submit()
 			#$('#signup_form').append(inputs).submit()
 			null
-		data_obj['token'] = token
-		data_obj['address'] = true
+			data_obj['token'] = token
+			data_obj['address'] = true
 
-		StripeCheckout.open(data_obj)
+			StripeCheckout.open(data_obj)
+		else
+			window.location.href = '/users/sign_up'
 		false;
 	)
 

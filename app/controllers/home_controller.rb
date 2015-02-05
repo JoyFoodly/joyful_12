@@ -1,6 +1,5 @@
 class HomeController < ApplicationController
   include ActionView::Helpers::NumberHelper
-
   def confirmation_sent
 
   end
@@ -12,6 +11,8 @@ class HomeController < ApplicationController
         # if the coupon is used by just one partner, use that partner's welcome message, else
         # use the coupon's welcome message.
         @price = c.price.to_i
+        set_signup_url(@price)
+        
         if c.partners.size == 1
           @welcome_message = c.partners[0].welcome_message
         else
@@ -43,6 +44,7 @@ class HomeController < ApplicationController
       @welcome_message = ''
       @price=ENV['PRICE_PER_SEASON'].to_i
     end
+    set_signup_url(@price)
 
     @price_in_dollars = number_to_currency(@price/100, precision: 0)
     render layout: 'plain'
@@ -57,5 +59,15 @@ class HomeController < ApplicationController
     end
     
     redirect_to :root
+  end
+
+  private
+
+  def set_signup_url(price)
+    if price == 0
+      @signup_url = new_user_registration_path
+    else
+      @signup_url = ''
+    end
   end
 end

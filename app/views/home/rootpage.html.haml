@@ -46,16 +46,21 @@
           = form_tag user_registration_path, method: :post do
             = hidden_field_tag :from_page, '/'
             = hidden_field_tag :product_id, 'season'
-            %script{'src' => 'https://checkout.stripe.com/checkout.js', class: 'stripe-button',
-                    'data-key' => ENV['STRIPE_PUBLIC_KEY'],
-                    'data-image' => image_path('payments/stripe-store-image.png'),
-                    'data-label' => 'START COOKING NOW!',
-                    'data-name' => 'Joyful 12',
-                    'data-panel-label' => 'Pay {{amount}}',
-                    'data-billing-address' => 'true',
-                    'data-shipping-address' => 'true',
-                    'data-description' => "Lifetime Access (#{number_to_currency(@price / 100)})",
-                    'data-amount' => @price}
+            - if @signup_url == ''
+              %script{'src' => 'https://checkout.stripe.com/checkout.js', class: 'stripe-button',
+                      'data-key' => ENV['STRIPE_PUBLIC_KEY'],
+                      'data-image' => image_path('payments/stripe-store-image.png'),
+                      'data-label' => 'START COOKING NOW!',
+                      'data-name' => 'Joyful 12',
+                      'data-panel-label' => 'Pay {{amount}}',
+                      'data-billing-address' => 'true',
+                      'data-shipping-address' => 'true',
+                      'data-description' => "Lifetime Access (#{number_to_currency(@price / 100)})",
+                      'data-amount' => @price}
+            - else
+              %button.stripe-button-el#zero-price-button
+                %span
+                  START COOKING NOW!
   .row.section
     .col-xs-12
       .center-div.limited-width.bold-text.feature-title
