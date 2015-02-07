@@ -25,7 +25,8 @@ class User < ActiveRecord::Base
   after_commit :add_to_mailing_list
 
   accepts_nested_attributes_for :family_members, allow_destroy: true
-
+  accepts_nested_attributes_for :shipping_addresses
+  
   def full_name
     "#{first_name} #{last_name}"
   end

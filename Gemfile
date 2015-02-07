@@ -87,6 +87,10 @@ group :development, :test do
 
   # Environment variables for dev and test
   gem 'dotenv-rails', '~> 0.11.0'
+  gem 'pry'
+  gem 'pry-remote'
+  gem 'pry-stack_explorer'
+  gem 'pry-byebug'
 end
 
 group :production do

@@ -1,11 +1,27 @@
 class RegistrationsController < Devise::RegistrationsController
+  # Devise controller for user scope
+
   layout 'qubico', except: [:new]
 
+  def new
+    @user = User.new
+    @user.shipping_addresses.build
+  end
+  
   def create
     if params['stripeToken']
       @user = UserRegistration.from_stripe_params(stripe_params)
-    else      
-      @user = User.create(params[:user].permit(:first_name, :last_name, :email, :password, :password_confirmation))
+    else
+      # Set the country explicitly
+
+      if params[:user][:shipping_addresses_attributes]
+        params[:user][:shipping_addresses_attributes]['0'][:country] = 'USA'
+      end
+
+      @user = User.new(params[:user].permit(:first_name, :last_name, :email, :password,
+                                            :password_confirmation,
+                                            shipping_addresses_attributes: [ :line_1, :city, :state, :zip_code, :country]))
+      @user.save
     end
 
     if @user.persisted?
@@ -27,7 +43,7 @@ class RegistrationsController < Devise::RegistrationsController
         redirect_to "#{params[:from_page]}"
       else
         flash[:signup_error_message]=@user.errors.full_messages.first
-        redirect_to "#{new_user_registration_path}?message=#{URI.escape(@user.errors.full_messages.first)}#pricing"
+        render 'users/registrations/new'
       end
     end
   end

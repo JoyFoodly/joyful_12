@@ -17,7 +17,10 @@ Helpful styles that are not app or bootstrap specific.
   @media (max-width: 768px) {
     font-size: 1.5em;
   }
+}
 
+.fineprint-text, .fineprint {
+  font-size: 0.8em;
 }
 
 // Over-riding bootstrap here

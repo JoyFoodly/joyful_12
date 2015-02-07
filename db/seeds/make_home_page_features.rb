@@ -7,6 +7,7 @@ contents = {box11_header: 'Improve your family’s health', box11_text: 'You get
             box22_header: 'Support our Joyful 12 school projects', box22_text: 'Your purchase helps us provide cooking education to every parent, teacher, and child of partner schools through a lifetime access to the Joyful 12',
             [:general_welcome_message, nil] => 'COOK VEGGIES YOUR KIDS WILL LOVE.',
             [:general_welcome_message, 'HealthyKitchens'] => 'Join me Healthy Kitchens, Healthy Lives Participants',
+            [:signup_modal_text, 'lusutton'] => 'Lu Sutton Families',
             welcome_bullets_old: '<li>Master 48 fruits and veggies</li><li>144 family-friendly recipes for all the year</li><li>Master 48 fruits and veggies</li><li>144 family-friendly recipes for all the year</li>',
             [:welcome_bullets, nil] => '<p>My Joyful 12 Online Learning Lab can help you improve your family\'s health one delicious vegetable at a time.</p><p>From spring peas to winter squash, you will learn how to buy, cook, and engage your kids to love eating a wide variety of seasonal produce with joy!</p>',
             section_title_one: 'Holy Sweet Potato... Easy <em>And</em> Delicious!',
@@ -14,7 +15,9 @@ contents = {box11_header: 'Improve your family’s health', box11_text: 'You get
             section_subtext_one: 'The Joyful12 is an online kitchen learning lab that helps parents learn how to joyfully get fruits and veggies into their families\' diets.',
             section_subtext_two: 'Show your love with a year of learning how to cook and eat 48 seasonal vegetables and fruits. Feel great knowing that every purchase provides lifetime access to a family in our Joyful 12 school projects.',
             [:rightcolumn_subtext, nil] => 'Get lifetime access to the Joyful 12 for $48',
-            [:rightcolumn_subtext, 'HealthyKitchens'] => 'Take advantage of your special 20% discount (reg. $48)', 
+            [:rightcolumn_subtext, 'HealthyKitchens'] => 'Take advantage of your special 20% discount (reg. $48)',
+            [:rightcolumn_subtext, 'lusutton'] => 'Free Access to Lu Sutton families!', 
+
            }
 
 keys.each do |k|
@@ -24,6 +27,8 @@ keys.each do |k|
     c=Coupon.find_by_shareable_tag k[1].downcase
     h=HomePageFeature.find_or_create_by(key: k[0], coupon: c)
   end
-  h.content = contents[k] if contents[k]
-  h.save
+  if !h.content && contents[k]
+    h.content = contents[k] 
+    h.save
+  end
 end

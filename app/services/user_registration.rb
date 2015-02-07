@@ -1,5 +1,5 @@
 class UserRegistration
-
+  
   def self.from_stripe_params(stripe_payment)
     user = build_user_from_stripe_payment(stripe_payment)
     user.transaction do

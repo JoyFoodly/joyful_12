@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141219232910) do
+ActiveRecord::Schema.define(version: 20150206033837) do
 
   create_table "addresses", force: true do |t|
     t.string   "line_1",     default: "", null: false
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 20141219232910) do
     t.string   "tag_signed"
     t.text     "welcome_message"
     t.float    "price"
+    t.float    "gift_price"
   end
 
   create_table "dietary_categories", force: true do |t|
@@ -357,6 +358,7 @@ ActiveRecord::Schema.define(version: 20141219232910) do
     t.boolean  "forum_onboarded",                         default: false, null: false
     t.string   "gift_giver_name"
     t.text     "gift_message",                limit: 255
+    t.text     "address_string"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

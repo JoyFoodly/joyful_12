@@ -24,9 +24,9 @@
         </div>
         <div class="top-buffer"></div>
         <h2 class="text-center">
-	  <%= "Welcome #{session[:partner_id]} user! Please Fill In These Fields" %>
+	  <%= "Welcome #{HomePageFeature.get_feature_switched(:signup_modal_text, session)} user! Please Fill In These Fields" %>
 	</h2>
-        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { role: "form" }) do |f| %>
+        <%= form_for(@user, :url => registration_path(:user), html: { role: "form" }) do |f| %>
           <div class="form-group">
 	    <div class='row'>
               <%= f.label :first_name, class: 'col-sm-6'%>
@@ -34,30 +34,67 @@
 	    </div>
 	    <div class='row'>
 	      <div class='col-sm-6'>
-		<%= f.text_field :first_name, class: 'form-control', autofocus: true, placeholder: 'First Name' %>
+		<%= f.text_field :first_name, class: 'form-control', autofocus: true, placeholder: 'Required' %>
 	      </div>
 	      <div class='col-sm-6'>
-		<%= f.text_field :last_name, class: 'form-control', autofocus: true, placeholder: 'Last Name' %>
+		<%= f.text_field :last_name, class: 'form-control', placeholder: 'Required' %>
 	      </div>
             </div>
 	  </div>
-
-            <div class="form-group">
-              <%= f.label :email %>
-              <%= f.email_field :email, class: 'form-control', autofocus: true, placeholder: 'Enter email' %>
-            </div>
+          <div class="form-group">
+            <%= f.label :email %>
+            <%= f.email_field :email, class: 'form-control', placeholder: 'Required' %>
+          </div>
 
             <div class="form-group">
               <%= f.label :password %>
-              <%= f.password_field :password, class: 'form-control' %>
+              <%= f.password_field :password, class: 'form-control', placeholder: 'Required' %>
             </div>
 
 	    <div class="form-group">
               <%= f.label :password_confirmation %>
-              <%= f.password_field :password_confirmation, class: 'form-control' %>
+              <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Required' %>
 	    </div>
 
-            <%= f.submit "Sign up", class: 'btn btn-primary' %>
+	  <%= f.fields_for(:shipping_addresses) do |addr_f| %>
+            <div class="form-group">
+	      <div class='row'>
+		<%= addr_f.label :line_1, 'Address Line 1', class: 'col-sm-12'%>
+	      </div>
+	      <div class='row'>
+		<div class='col-sm-12'>
+		  <%= addr_f.text_field :line_1, class: 'form-control'%>
+		</div>
+	      </div>
+	    </div>
+
+            <div class="form-group">
+	      <div class='row'>
+		<div class='col-sm-6'>
+		  <%= addr_f.label :city %>
+		</div>
+		<div class='col-sm-2'>
+		  <%= addr_f.label :state %>
+		</div>
+		<div class='col-sm-4'>
+		  <%= addr_f.label :zip_code, 'ZIP' %>
+		</div>
+	      </div>
+	      <div class='row'>
+		<div class='col-sm-6'>
+		  <%= addr_f.text_field :city, class: 'form-control' %>
+		</div>
+		<div class='col-sm-2'>
+		  <%= addr_f.text_field :state, class: 'form-control' %>
+		</div>
+		<div class='col-sm-4'>
+		  <%= addr_f.text_field :zip_code, class: 'form-control' %>
+		</div>
+	      </div>
+	    </div>
+	  <%- end %>	  
+
+            <%= f.submit "Next", class: 'btn btn-primary' %>
 
         <% end %>
         <div class="top-buffer"></div>

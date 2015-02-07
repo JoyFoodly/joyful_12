@@ -6,5 +6,5 @@ class Address < ActiveRecord::Base
   validates :city,     presence: true
   validates :state,    presence: true
   validates :country,  presence: true
-  validates :user,     presence: true
+
 end

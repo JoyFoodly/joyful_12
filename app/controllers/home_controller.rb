@@ -35,18 +35,28 @@ class HomeController < ApplicationController
       # if the coupon is used by just one partner, use that partner's welcome message, else
       # use the coupon's welcome message.
       @price = c.price.to_i
+
       if c.partners.size == 1
         @welcome_message = c.partners[0].welcome_message
       else
         @welcome_message = c.welcome_message
       end
+
+      if c.gift_price
+        @gift_price = c.gift_price.to_i
+      else
+        @gift_price = c.price.to_i
+      end
     else
       @welcome_message = ''
       @price=ENV['PRICE_PER_SEASON'].to_i
+      @gift_price = @price
     end
     set_signup_url(@price)
 
     @price_in_dollars = number_to_currency(@price/100, precision: 0)
+    @gift_price_in_dollars = number_to_currency(@gift_price/100, precision: 0)
+      
     render layout: 'plain'
   end
   
