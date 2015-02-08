@@ -24,7 +24,11 @@
         </div>
         <div class="top-buffer"></div>
         <h2 class="text-center">
-	  <%= "Welcome #{HomePageFeature.get_feature_switched(:signup_modal_text, session)} user! Please Fill In These Fields" %>
+	  <%- if HomePageFeature.get_feature_switched(:signup_modal_text, session).nil? %>
+	    <%= "Welcome user! Please Fill In These Fields" %>
+	  <%- else %>
+	    <%= "#{HomePageFeature.get_feature_switched(:signup_modal_text, session)}. Please Create An Account." %>
+	  <%- end %>	  
 	</h2>
         <%= form_for(@user, :url => registration_path(:user), html: { role: "form" }) do |f| %>
           <div class="form-group">

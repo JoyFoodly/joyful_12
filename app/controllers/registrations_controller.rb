@@ -12,8 +12,12 @@ class RegistrationsController < Devise::RegistrationsController
     if params['stripeToken']
       @user = UserRegistration.from_stripe_params(stripe_params)
     else
-      # Set the country explicitly
+      # Enter dummy shipping attributes, if nothing is filled in.
+      if all_empty(params[:user][:shipping_addresses_attributes]['0'])
+        fill_in_dummy(params[:user][:shipping_addresses_attributes]['0'])
+      end
 
+      # Set the country explicitly
       if params[:user][:shipping_addresses_attributes]
         params[:user][:shipping_addresses_attributes]['0'][:country] = 'USA'
       end
@@ -48,8 +52,19 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
-private
+  private
+  def all_empty(address_params)
+    [:line_1, :city, :state, :zip_code, :country].inject(true) do |cond, k|
+      cond && (address_params[k].nil? || /^\s*$/.match(address_params[k]))
+    end
+  end
 
+  def fill_in_dummy(address_params)
+    [:line_1, :city, :state, :zip_code, :country].each do |k|
+      address_params[k] = 'XXXXX'
+    end
+  end
+  
   def stripe_params
     params.permit("plan_id", "product_id", "stripeToken", "stripeEmail", *recipient_params, *billing_params, *shipping_params)
   end

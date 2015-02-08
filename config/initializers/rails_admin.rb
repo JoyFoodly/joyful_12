@@ -38,6 +38,7 @@ RailsAdmin.config do |config|
     edit do
       field :description
       field :price
+      field :gift_price
       field :shareable_tag do
         label 'Coupon Name'
         help 'Enter a coupon name you\'ll send as text. It must be alphanumeric - underscores and periods are also allowed.'
