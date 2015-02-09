@@ -9,8 +9,14 @@ class RegistrationsController < Devise::RegistrationsController
   end
   
   def create
+    if session[:partner_id]
+      coupon = Coupon.find_by_shareable_tag session[:partner_id].downcase
+    else
+      coupon = nil
+    end
+    
     if params['stripeToken']
-      @user = UserRegistration.from_stripe_params(stripe_params)
+      @user = UserRegistration.from_stripe_params(stripe_params, coupon)
     else
       # Enter dummy shipping attributes, if nothing is filled in.
       if all_empty(params[:user][:shipping_addresses_attributes]['0'])
@@ -25,13 +31,13 @@ class RegistrationsController < Devise::RegistrationsController
       @user = User.new(params[:user].permit(:first_name, :last_name, :email, :password,
                                             :password_confirmation,
                                             shipping_addresses_attributes: [ :line_1, :city, :state, :zip_code, :country]))
+
+      @user.coupon_id = coupon.shareable_tag
       @user.save
     end
 
     if @user.persisted?
-      if session[:partner_id]
-#        tag = ActiveSupport::MessageVerifier.new(Joyfoodly::Application.config.secret_key_base).verify(session[:tid])
-        coupon = Coupon.find_by_shareable_tag session[:partner_id].downcase
+      if !coupon.nil?
         @user.coupons << coupon
       end
       

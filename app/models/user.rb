@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
+
+  attr_accessor :coupon_id
+  
   has_many :shipping_addresses, dependent: :destroy
   has_many :billing_addresses,  dependent: :destroy
   has_many :subscriptions,      dependent: :destroy

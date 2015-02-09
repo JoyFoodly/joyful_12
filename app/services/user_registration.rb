@@ -1,7 +1,10 @@
 class UserRegistration
   
-  def self.from_stripe_params(stripe_payment)
+  def self.from_stripe_params(stripe_payment, coupon)
     user = build_user_from_stripe_payment(stripe_payment)
+    if !coupon.nil?
+      user.coupon_id = coupon.shareable_tag
+    end
     user.transaction do
       user.save!
       create_user_addresses_from_stripe_payment(user, stripe_payment)

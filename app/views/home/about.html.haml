@@ -281,8 +281,13 @@ Chef Hollie
 
     .row
       .col-sm-6.hidden-xs
-        = image_tag 'qubico/hollie-3.png', class: 'img-responsive'
-
+        %a{href: 'https://www.barnraiser.us/projects/the-joyful12-school-project'}
+          = image_tag 'qubico/hollie-3.png', class: 'img-responsive', style: 'margin: auto'
+          %div{style: 'margin: 10px auto; width: 70%;'}
+            = image_tag 'barnraiser_logo.jpeg', class: 'img-responsive inlined-box'
+            %span{style: 'margin-left: 10px; font-size: 1.7em;'}
+              Fund our Barnraiser!
+          
       .col-sm-6.col-xs-12
         %h2{style: 'margin-top: 0px'}
           How the Joyful 12 Project Improves the Health of School Communities
