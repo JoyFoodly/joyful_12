@@ -10,7 +10,7 @@ class ConfirmationsController < Devise::ConfirmationsController
         tag = resource.coupons[0].shareable_tag
         if tag == 'lusutton'
           resource.save
-          redirect_to classroom_path
+          redirect_to foods_path
         end
       else
         raw, enc = Devise.token_generator.generate(resource.class, :reset_password_token)

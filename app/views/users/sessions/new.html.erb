@@ -24,7 +24,11 @@
         </div>
         <div class="top-buffer"></div>
         <h2 class="text-center">
-	  <%= "Welcome #{session[:partner_id]} user! Please Sign In" %>
+	  <%- if HomePageFeature.get_feature_switched(:signup_modal_text, session).nil? %>
+	    <%= "Welcome user! Please Sign In" %>
+	  <%- else %>
+	    <%= "#{HomePageFeature.get_feature_switched(:signup_modal_text, session)} Please Sign In." %>
+	  <%- end %>	  
 	</h2>
         <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { role: "form" }) do |f| %>
 
