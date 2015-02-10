@@ -6,11 +6,19 @@ class ConfirmationsController < Devise::ConfirmationsController
 
     if resource.errors.empty?
       set_flash_message(:notice, :confirmed) if is_flashing_format?
-      raw, enc = Devise.token_generator.generate(resource.class, :reset_password_token)
-      resource.reset_password_token = enc
-      resource.reset_password_sent_at = Time.now.utc
-      resource.save(validate: false)
-      respond_with_navigational(resource){ redirect_to edit_user_password_path(reset_password_token: raw) }
+      if resource.respond_to?(:coupons) && !(resource.coupons.empty?)
+        tag = resource.coupons[0].shareable_tag
+        if tag == 'lusutton'
+          resource.save
+          redirect_to classroom_path
+        end
+      else
+        raw, enc = Devise.token_generator.generate(resource.class, :reset_password_token)
+        resource.reset_password_token = enc
+        resource.reset_password_sent_at = Time.now.utc
+        resource.save(validate: false)
+        respond_with_navigational(resource){ redirect_to edit_user_password_path(reset_password_token: raw) }
+      end
     else
       respond_with_navigational(resource.errors, :status => :unprocessable_entity){ render :new }
     end
