@@ -1,5 +1,6 @@
 # coding: utf-8
-keys = [[:rightcolumn_subtext, 'lusutton']]
+keys = [[:rightcolumn_subtext, 'lusutton'], [:signup_modal_text, 'lusutton'],
+        [:general_welcome_message, 'lusutton'], ]
 
 contents = {
             [:signup_modal_text, 'lusutton'] => 'Welcome, Lu Sutton Families!',
