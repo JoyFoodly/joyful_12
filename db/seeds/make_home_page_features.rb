@@ -8,7 +8,7 @@ contents = {box11_header: 'Improve your family’s health', box11_text: 'You get
             [:general_welcome_message, nil] => 'COOK VEGGIES YOUR KIDS WILL LOVE.',
             [:general_welcome_message, 'HealthyKitchens'] => 'Join me Healthy Kitchens, Healthy Lives Participants',
             [:general_welcome_message, 'lusutton'] => 'Welcome Lu Sutton Families',
-            [:signup_modal_text, 'lusutton'] => 'Welcome Lu Sutton Families',
+            [:signup_modal_text, 'lusutton'] => 'Welcome, Lu Sutton Families!',
             welcome_bullets_old: '<li>Master 48 fruits and veggies</li><li>144 family-friendly recipes for all the year</li><li>Master 48 fruits and veggies</li><li>144 family-friendly recipes for all the year</li>',
             [:welcome_bullets, nil] => '<p>My Joyful 12 Online Learning Lab can help you improve your family\'s health one delicious vegetable at a time.</p><p>From spring peas to winter squash, you will learn how to buy, cook, and engage your kids to love eating a wide variety of seasonal produce with joy!</p>',
             section_title_one: 'Holy Sweet Potato... Easy <em>And</em> Delicious!',

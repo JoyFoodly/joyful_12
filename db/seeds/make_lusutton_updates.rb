@@ -2,8 +2,9 @@
 keys = [[:rightcolumn_subtext, 'lusutton']]
 
 contents = {
-            [:signup_modal_text, 'lusutton'] => 'Lu Sutton Families',
+            [:signup_modal_text, 'lusutton'] => 'Welcome, Lu Sutton Families!',
             [:rightcolumn_subtext, 'lusutton'] => 'Free Access to Lu Sutton families!', 
+            [:general_welcome_message, 'lusutton'] => 'Welcome Lu Sutton Families',
            }
 
 keys.each do |k|
