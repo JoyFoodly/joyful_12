@@ -31,7 +31,7 @@ gem 'memcachier', '~> 0.0.2'
 gem 'newrelic_rpm', '~> 3.8.0'
 
 # Admin Interface
-gem 'rails_admin', '~> 0.6.0'
+gem 'rails_admin', '=0.6.3'
 
 # User authentication
 gem 'devise', '~> 3.2.2'
