@@ -49,6 +49,7 @@ class ShoppingListsController < ApplicationController
 
   def show
     @shopping_list = ShoppingList.find(params[:id])
+    current_user.track_view('shopping_list', params[:id])
   end
 
   def destroy
