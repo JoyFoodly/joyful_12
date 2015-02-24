@@ -8,8 +8,13 @@ class FoodsController < ApplicationController
   before_filter :set_forum_onboarded
 
   def index
+    current_user.track_view('classroom', params[:id])
+    
     expires_in 10.minutes, public: false
+
     first_food = @foods.to_a.min { |a, b| a.sort_order <=> b.sort_order }
+    current_user.track_view('classroom', first_food.slug)
+
     @food = Food.includes(:video_links, recipes: [:images, :dietary_categories, :child_recipes, ingredient_list_items: [:ingredient]]).find(first_food.id)
     @child_recipes = @food.recipes.map(&:child_recipes).flatten
     render :show
@@ -25,6 +30,7 @@ private
   def set_food
     food_includes = [:video_links, recipes: [:images, :dietary_categories, :child_recipes, ingredient_list_items: [:ingredient]]]
     @food = Food.includes(food_includes).find_by!(slug: params[:id])
+    current_user.track_view('classroom', @food.slug)
   end
 
   def set_season

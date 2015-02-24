@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
   has_many :family_members,     dependent: :destroy
   has_many :shopping_lists,     dependent: :destroy
   has_many :payments,           dependent: :destroy
-
+  has_many :view_records,       dependent: :destroy
+  
   has_many :coupon_uses, dependent: :destroy
   has_many :coupons, through: :coupon_uses
 
@@ -44,6 +45,13 @@ class User < ActiveRecord::Base
 
   def gift_recipient?
     gift_giver_name.present?
+  end
+
+  def track_view(page_title, page_info)
+    # Helper function to add a view record for analytics
+    v=ViewRecord.new(page_title: page_title, page_info: page_info)
+    v.user = self
+    v.save
   end
 
 private

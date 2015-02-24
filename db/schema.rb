@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150206033837) do
+ActiveRecord::Schema.define(version: 20150224023853) do
 
   create_table "addresses", force: true do |t|
     t.string   "line_1",     default: "", null: false
@@ -376,6 +376,14 @@ ActiveRecord::Schema.define(version: 20150206033837) do
     t.datetime "updated_at",               null: false
     t.integer  "sort_order",  default: 0,  null: false
     t.string   "category"
+  end
+
+  create_table "view_records", force: true do |t|
+    t.string   "page_title"
+    t.string   "page_info"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "wait_lists", force: true do |t|
