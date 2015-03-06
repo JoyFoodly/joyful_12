@@ -11,6 +11,7 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     if session[:partner_id]
       coupon = Coupon.find_by_shareable_tag session[:partner_id].downcase
+      @shareable_tag = session[:partner_id]
     else
       coupon = nil
     end
@@ -32,7 +33,7 @@ class RegistrationsController < Devise::RegistrationsController
                                             :password_confirmation,
                                             shipping_addresses_attributes: [ :line_1, :city, :state, :zip_code, :country]))
 
-      @user.coupon_id = coupon.shareable_tag
+      @user.coupon_id = coupon.shareable_tag if coupon
       @user.save
     end
 

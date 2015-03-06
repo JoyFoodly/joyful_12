@@ -1,8 +1,9 @@
 <h1 class="text-center">Almost there!</h1>
-<p class="large-text text-center">Please take a moment to <a href='https://www.surveymonkey.com/s/7S7SCH6'>fill in our survey</a></p>
-<p class="large-text text-center">Favor de tomar un momento para <a href='https://www.surveymonkey.com/s/7S5BC9Y'>llenar nuestra encuesta</a> en espa&#241;ol</p>
-<p class='fineprint-text'>Privacy Notice: The Joyful 12 School Project is not collecting personal private data about its members. Data collected is used solely for the purposes of project implementation, monitoring and evaluation; and are entirely anonymous and aggregate level data.</p>
-
+<% if @shareable_tag == 'lusutton' %>
+  <p class="large-text text-center">Please take a moment to <a href='https://www.surveymonkey.com/s/7S7SCH6'>fill in our survey</a></p>
+  <p class="large-text text-center">Favor de tomar un momento para <a href='https://www.surveymonkey.com/s/7S5BC9Y'>llenar nuestra encuesta</a> en espa&#241;ol</p>
+  <p class='fineprint-text'>Privacy Notice: The Joyful 12 School Project is not collecting personal private data about its members. Data collected is used solely for the purposes of project implementation, monitoring and evaluation; and are entirely anonymous and aggregate level data.</p>
+<% end %>
 <ul class="nav row">
   <li class="col-md-1 col-md-offset-2">
     <img alt="spinach" class="img-responsive wiggle hidden-xs" height="101" src="/assets/nav-food-images/spring-spinach-f109b6321abc4f9c80b071e19e8ce2b2.png" width="68">
