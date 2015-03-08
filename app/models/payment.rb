@@ -18,7 +18,12 @@ class Payment < ActiveRecord::Base
     if Rails.env.development?
       self.amount = 4242
     else
-      self.amount = product_id == 'season' ? ENV['PRICE_PER_SEASON'].to_i : ENV['PRICE_PER_YEAR'].to_i
+      if user.coupon_id
+        c = Coupon.find_by_shareable_tag(user.coupon_id)
+        self.amount = c.price.to_i
+      else
+        self.amount = product_id == 'season' ? ENV['PRICE_PER_SEASON'].to_i : ENV['PRICE_PER_YEAR'].to_i
+      end
     end
   end
 
