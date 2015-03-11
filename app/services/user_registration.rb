@@ -9,7 +9,6 @@ class UserRegistration
       user.save!
       create_user_addresses_from_stripe_payment(user, stripe_payment)
       create_user_payment_or_subscription_from_stripe_payment(user, stripe_payment)
-      add_purchased_seasons_to_user(user, stripe_payment)
     end
     user
   rescue ActiveRecord::RecordInvalid => invalid
@@ -68,17 +67,7 @@ private
     end
   end
 
-  def self.add_purchased_seasons_to_user(user, stripe_payment)
-    if (stripe_payment[:plan_id] || stripe_payment[:product_id]) == 'year'
-      user.seasons << Season.all
-    else
-      user.seasons << Season.current_season
-    end
-  end
-
   def self.gift_recipient?(stripe_payment)
     stripe_payment['recipient_email'].present?
   end
-
-
 end

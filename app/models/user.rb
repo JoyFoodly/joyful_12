@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :seasons
 
   before_validation :set_default_username, on: :create
+  before_create :add_seasons
 
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true
@@ -83,6 +84,10 @@ private
     if payment_gateway_customer_id.present? && User.where.not(payment_gateway_customer_id: '').count >= 42
       errors.add(:base, I18n.t('beta.user_limit_hit'))
     end
+  end
+
+  def add_seasons
+    seasons << Season.all
   end
 
   def add_to_mailing_list

@@ -38,9 +38,6 @@ class RegistrationsController < Devise::RegistrationsController
     end
 
     if @user.persisted?
-      if @user.seasons.empty?
-        @user.seasons << Season.all
-      end
       if !coupon.nil?
         @user.coupons << coupon
       end
