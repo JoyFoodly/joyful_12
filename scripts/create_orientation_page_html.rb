@@ -1,4 +1,4 @@
-season = ARGV[1]
+season = ARGV[1] || ENV['CREATE_ORIENTATION_PAGE_SEASON']
 
 foods = Food.where('slug like ?', "#{season}-%")
 recipe_info = foods.map do |food|
