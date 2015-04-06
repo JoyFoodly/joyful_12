@@ -1,4 +1,5 @@
-season = 'spring'
+season = ARGV[1]
+
 foods = Food.where('slug like ?', "#{season}-%")
 recipe_info = foods.map do |food|
   a = {slug: food.slug, alt: "#{food.name}"}.merge(food.images.size > 0 ? {url_loc: food.images[0].file.url} : {url_loc: 'http://www.google.com/'})
