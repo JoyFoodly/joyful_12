@@ -1,5 +1,5 @@
 RailsAdmin.config do |config|
-  config.included_models = ["Coupon", "Partner", "Media", "User", "Admin", "Page", "Food", "Recipe", "VideoLink", "Image", "Ingredient", "Pdf", "Season", "HomePageFeature", "ShippingAddress", "IngredientListItem"]
+  config.included_models = ["Coupon", "Partner", "Media", "User", "Admin", "Page", "Food", "Recipe", "VideoLink", "Image", "Ingredient", "Pdf", "Season", "HomePageFeature", "ShippingAddress", "IngredientListItem", "ViewRecord"]
 
   ### Popular gems integration
 
