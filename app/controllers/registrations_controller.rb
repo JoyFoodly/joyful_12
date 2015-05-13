@@ -1,11 +1,10 @@
 class RegistrationsController < Devise::RegistrationsController
-  # Devise controller for user scope
-
   layout 'qubico', except: [:new]
 
   def new
     @user = User.new
     @user.shipping_addresses.build
+    render layout: 'sign_up_flow'
   end
   
   def create
