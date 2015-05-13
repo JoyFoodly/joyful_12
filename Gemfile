@@ -71,6 +71,10 @@ group :test do
   gem 'simplecov', '~> 0.8.2', require: false
 end
 
+group :development do
+ gem 'guard-rspec', require: false
+end
+
 group :development, :test do
   # Testing framework
   gem 'rspec-rails', '~> 2.14.0'
