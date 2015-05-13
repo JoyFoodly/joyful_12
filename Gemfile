@@ -58,9 +58,6 @@ gem 'jquery-rails', '~> 3'
 gem 'gibbon', '~> 1.1.2'
 
 group :test do
-  # Testing framework
-  gem 'rspec-rails', '~> 2.14.0'
-
   # Test fixtures
   gem 'factory_girl_rails', '~> 4.4.1'
 
@@ -75,6 +72,9 @@ group :test do
 end
 
 group :development, :test do
+  # Testing framework
+  gem 'rspec-rails', '~> 2.14.0'
+
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 
