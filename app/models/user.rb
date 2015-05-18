@@ -22,9 +22,9 @@ class User < ActiveRecord::Base
   before_create :add_seasons
 
   validates :username, presence: true, uniqueness: true
-  validates :email, presence: true
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+  validates :email, presence: true, uniqueness: true
+  validates :first_name, presence: true, length: { maximum: 35 }
+  validates :last_name, presence: true, length: { maximum: 35 }
   validate :beta_user_limit, on: :create
 
   after_commit :add_to_mailing_list
