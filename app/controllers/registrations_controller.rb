@@ -3,7 +3,6 @@ class RegistrationsController < Devise::RegistrationsController
 
   def new
     @user = User.new
-    @user.shipping_addresses.build
     render layout: 'sign_up_flow'
   end
   

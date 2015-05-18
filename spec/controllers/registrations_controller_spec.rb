@@ -1,12 +1,23 @@
 require 'spec_helper'
 
 describe RegistrationsController do
-  describe "POST #create" do
+  before(:each) do
+    @request.env["devise.mapping"] = Devise.mappings[:user]
+  end
 
-    before(:each) do
-      @request.env["devise.mapping"] = Devise.mappings[:user]
+  describe 'GET #new' do
+    it 'assigns a new user to @user' do
+      get :new
+      expect(assigns(:user)).to be_a_new(User)
     end
 
+    it 'renders :new template' do
+      get :new
+      expect(response).to render_template :new
+    end
+  end
+
+  describe "POST #create" do
     let(:user_attributes) { FactoryGirl.attributes_for(:user) }
     let(:address_attributes) { FactoryGirl.attributes_for(:address) }
     let(:subscription_attributes) { FactoryGirl.attributes_for(:subscription) }
