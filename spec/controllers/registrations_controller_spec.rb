@@ -27,7 +27,7 @@ describe RegistrationsController do
 
       it 'redirects to charges#new' do
         post :create, user: attributes_for(:user)
-        expect(response).to redirect_to charges_path
+        expect(response).to redirect_to new_payment_path
       end
     end
 

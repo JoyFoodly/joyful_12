@@ -9,7 +9,7 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to charges_path
+      redirect_to new_payment_path
     else
       render :new
     end
