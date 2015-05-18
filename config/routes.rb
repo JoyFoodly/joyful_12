@@ -1,4 +1,5 @@
 Joyfoodly::Application.routes.draw do
+
   devise_for :admins
   devise_for :users, controllers: { registrations: :registrations, passwords: :passwords, confirmations: :confirmations }
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -14,6 +15,9 @@ Joyfoodly::Application.routes.draw do
   resources :users, only: [:edit, :update] do
     get 'change_password', on: :member
   end
+
+  resources :charges
+
   resources :shopping_lists, only: [:create, :edit, :update, :show, :destroy]
   resources :shopping_list_emails, only: :create
   resources :seasons, only: :update
