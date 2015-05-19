@@ -1,0 +1,59 @@
+<div class='container-fluid'>
+  <div class='row'>
+    <div class='col-md-4'>
+      <h2 class='form-signup-header'>Sign up for Joyful12</h2>
+      <%= javascript_include_tag "https://js.stripe.com/v2/" %>
+      <script>
+        Stripe.setPublishableKey("<%= Rails.application.secrets.stripe_publishable_key %>");
+      </script>
+      <%= form_tag do %>
+        <div class='billing-info'>
+          <div class="form-group">
+            <%= label_tag :credit_card_number %><br />
+            <%= text_field_tag :credit_card_number, nil, autofocus: true, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= label_tag :cvv %><br />
+            <%= text_field_tag :cvv, nil, autofocus: true, class: 'form-control' %>
+          </div>
+
+          <div class='form-inline'>
+            <div class="form-group">
+              <%= label_tag :expiration_month %><br />
+              <%= select_tag :expiration_month, options_for_select(months),
+                autofocus: true, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= label_tag :expiration_year %><br />
+              <%= select_tag :expiration_year, options_for_select(years),
+                autofocus: true, class: 'form-control' %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= label_tag :billing_address %><br />
+            <%= text_field_tag :billing_address, nil, autofocus: true, class: 'form-control' %>
+          </div>
+
+          <div class='form-inline'>
+            <div class="form-group">
+              <%= label_tag :zip %><br />
+              <%= text_field_tag :zip, nil, autofocus: true, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= label_tag :state %><br />
+              <%= text_field_tag :state, nil, autofocus: true, class: 'form-control' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class='form-signup-photo'>
+      <p>We're passionate about helping parents feel good about the food they feed their kids and
+        helping families celebrate the JOY of mealtime together.<p>
+    </div>
+  </div>
+</div>
