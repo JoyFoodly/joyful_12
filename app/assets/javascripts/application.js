@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require payments
 //= require bootstrap-sprockets
 //= require ajax_sub_resource_form
 //= require auto-size-iframe
