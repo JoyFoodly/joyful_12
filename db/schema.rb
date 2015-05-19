@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150224023853) do
+ActiveRecord::Schema.define(version: 20150519224753) do
 
   create_table "addresses", force: true do |t|
     t.string   "line_1",     default: "", null: false
@@ -359,6 +359,7 @@ ActiveRecord::Schema.define(version: 20150224023853) do
     t.string   "gift_giver_name"
     t.text     "gift_message",                limit: 255
     t.text     "address_string"
+    t.boolean  "signed_up",                               default: false, null: false
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
