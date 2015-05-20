@@ -7,9 +7,14 @@ FactoryGirl.define do
     password 'secretpass'
     confirmed_at { 1.minute.ago }
     onboarded true
+    signed_up true
 
     factory :invalid_user do
       email nil
+    end
+
+    factory :unpaid_user do
+      signed_up false
     end
   end
 end

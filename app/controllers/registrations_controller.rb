@@ -9,7 +9,8 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to new_payment_path
+      sign_in(User, @user)
+      respond_with @user, location: after_sign_up_path_for(@user)
     else
       render :new
     end
