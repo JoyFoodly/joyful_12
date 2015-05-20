@@ -98,6 +98,13 @@ describe User do
     end
   end
 
+  describe 'signed_up' do
+    it 'should be false by default' do
+      @user = User.new
+      expect(@user.signed_up?).to be false
+    end
+  end
+
   describe '#set_default_username' do
     it 'gives the user a default user name of first_name_last_name if possible' do
       expect(User.new(first_name: 'Paul', last_name: 'Van Smith').send(:set_default_username)).to eq('paul_van_smith')

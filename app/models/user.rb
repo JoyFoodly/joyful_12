@@ -105,4 +105,9 @@ private
     nil
   end
 
+protected
+
+  def confirmation_required?
+    false
+  end
 end
