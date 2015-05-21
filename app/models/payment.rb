@@ -15,7 +15,7 @@ class Payment < ActiveRecord::Base
   private
   
   def set_amount
-    if Rails.env.development?
+    if Rails.env.development? || Rails.env.test?
       self.amount = 4242
     else
       if user.coupon_id
@@ -34,11 +34,11 @@ class Payment < ActiveRecord::Base
     else
       customer = Stripe::Customer.create(
         email: user.email,
-        card: card_token,
+        source: card_token,
         metadata: { user_id: user.id },
       )
       self.customer_id = customer.id
-      user.update_attributes!(payment_gateway_customer_id: customer.id)
+      user.update_attribute(:payment_gateway_customer_id, customer.id)
     end
   rescue Stripe::StripeError => error
     errors[:base] << error.message

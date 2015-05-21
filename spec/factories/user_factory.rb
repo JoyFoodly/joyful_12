@@ -15,6 +15,7 @@ FactoryGirl.define do
 
     factory :unpaid_user do
       signed_up false
+      onboarded false
     end
   end
 end
