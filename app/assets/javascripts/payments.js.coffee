@@ -11,6 +11,7 @@ stripeResponseHandler = (status, response) ->
   else
     token = response.id
     $form.append($('<input type="hidden" name="stripeToken" />').val(token))
+    $form.get(0).submit()
 
 jQuery(($) ->
   $('#payment-form').submit((e)->

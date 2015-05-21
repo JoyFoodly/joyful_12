@@ -10,10 +10,12 @@ class ApplicationController < ActionController::Base
   end
   
   def after_sign_in_path_for(resource_or_scope)
-    if resource_or_scope.signed_up
-      foods_path
-    else
+    if !resource_or_scope.signed_up
       new_payment_path
+    elsif !resource_or_scope.onboarded
+      edit_user_path(current_user)
+    else
+      foods_path
     end
   end
   

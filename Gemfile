@@ -37,7 +37,7 @@ gem 'rails_admin', '=0.6.3'
 gem 'devise', '~> 3.2.2'
 
 # Accept Payments
-gem 'stripe', '~> 1.13.0'
+gem 'stripe', '~> 1.20.0'
 
 # Markdown parsing
 gem 'redcarpet', '~> 3.1.1'
@@ -66,6 +66,7 @@ group :test do
 
   # Disallow external requests in test env
   gem 'webmock', '~> 1.18.0'
+  gem 'stripe-ruby-mock', '~> 2.1.1', require: 'stripe_mock'
 
   # Coverage stats
   gem 'simplecov', '~> 0.8.2', require: false
