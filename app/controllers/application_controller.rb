@@ -42,4 +42,26 @@ class ApplicationController < ActionController::Base
       redirect_to upgrades_path and return
     end
   end
+
+  def set_price
+    if session[:partner_id] && c = Coupon.find_by_shareable_tag(session[:partner_id].downcase)
+      @price = c.price.to_i
+
+      if c.partners.size == 1
+        @welcome_message = c.partners[0].welcome_message
+      else
+        @welcome_message = c.welcome_message
+      end
+
+      if c.gift_price
+        @gift_price = c.gift_price.to_i
+      else
+        @gift_price = @price
+      end
+    else
+      @welcome_message = ''
+      @price = ENV['PRICE_PER_SEASON'].to_i
+      @gift_price = @price
+    end
+  end
 end

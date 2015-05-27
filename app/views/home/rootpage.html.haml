@@ -38,7 +38,7 @@
         .price_circle
           .vertical-third
           .vertical-third.bubble-third-middle
-            = @price_in_dollars
+            = number_to_currency(@price)
           .vertical-third
         .center-div
           = HomePageFeature.get_feature_switched(:rightcolumn_subtext, session)

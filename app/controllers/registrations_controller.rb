@@ -3,11 +3,13 @@ class RegistrationsController < Devise::RegistrationsController
 
   def new
     @user = User.new
+    set_price
     render layout: 'sign_up_flow'
   end
   
   def create
     @user = User.new(user_params)
+
     if @user.save
       sign_in(User, @user)
       respond_with @user, location: after_sign_up_path_for(@user)
