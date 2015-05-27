@@ -4,6 +4,7 @@ class PaymentsController < ApplicationController
   before_action :skip_signed_up_users
 
   def new
+    set_price
     render layout: 'sign_up_flow'
   end
 
