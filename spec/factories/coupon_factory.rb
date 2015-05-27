@@ -5,5 +5,9 @@ FactoryGirl.define do
     welcome_message 'Welcome to testing.'
     price 25
     gift_price 2
+
+    factory :free_coupon do
+      price 0
+    end
   end
 end

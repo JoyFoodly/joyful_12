@@ -3,6 +3,7 @@ require 'spec_helper'
 describe RegistrationsController do
   before(:each) do
     @request.env["devise.mapping"] = Devise.mappings[:user]
+    ENV['PRICE_PER_SEASON'] = "40"
   end
 
   describe 'GET #new' do
@@ -28,6 +29,15 @@ describe RegistrationsController do
       it 'redirects to charges#new' do
         post :create, user: attributes_for(:user)
         expect(response).to redirect_to new_payment_path
+      end
+
+      context 'with free coupon' do
+        let(:coupon) { create(:free_coupon) }
+
+        it 'redirects to  user to be onboarded' do
+          post :create, { user: attributes_for(:user) }, partner_id: coupon.shareable_tag
+          expect(response).to redirect_to edit_user_path(User.last.id)
+        end
       end
     end
 

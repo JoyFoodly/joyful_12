@@ -11,6 +11,8 @@ class RegistrationsController < Devise::RegistrationsController
     set_price
     @user = User.new(user_params)
 
+    @user.signed_up = true if @price == 0
+
     if @user.save
       sign_in(User, @user)
       respond_with @user, location: after_sign_up_path_for(@user)
