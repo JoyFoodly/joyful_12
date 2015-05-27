@@ -1,16 +1,18 @@
 class RegistrationsController < Devise::RegistrationsController
   layout 'qubico', except: [:new]
+  before_action :set_price
 
   def new
     @user = User.new
-    set_price
     render layout: 'sign_up_flow'
+  end
+
+  def gift
+    @user = User.new
   end
   
   def create
-    set_price
     @user = User.new(user_params)
-
     @user.signed_up = true if @price == 0
 
     if @user.save
