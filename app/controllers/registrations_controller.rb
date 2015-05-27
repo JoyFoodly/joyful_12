@@ -8,6 +8,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
   
   def create
+    set_price
     @user = User.new(user_params)
 
     if @user.save
