@@ -43,8 +43,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def found_coupon?
+    session[:partner_id] && Coupon.find_by_shareable_tag(session[:partner_id].downcase)
+  end
+
   def set_price
-    if session[:partner_id] && @coupon = Coupon.find_by_shareable_tag(session[:partner_id].downcase)
+    if @coupon = found_coupon?
       @price = @coupon.price.to_i
 
       if @coupon.partners.size == 1
