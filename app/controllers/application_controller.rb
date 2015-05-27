@@ -44,17 +44,17 @@ class ApplicationController < ActionController::Base
   end
 
   def set_price
-    if session[:partner_id] && c = Coupon.find_by_shareable_tag(session[:partner_id].downcase)
-      @price = c.price.to_i
+    if session[:partner_id] && @coupon = Coupon.find_by_shareable_tag(session[:partner_id].downcase)
+      @price = @coupon.price.to_i
 
-      if c.partners.size == 1
-        @welcome_message = c.partners[0].welcome_message
+      if @coupon.partners.size == 1
+        @welcome_message = @coupon.partners[0].welcome_message
       else
-        @welcome_message = c.welcome_message
+        @welcome_message = @coupon.welcome_message
       end
 
-      if c.gift_price
-        @gift_price = c.gift_price.to_i
+      if @coupon.gift_price
+        @gift_price = @coupon.gift_price.to_i
       else
         @gift_price = @price
       end
