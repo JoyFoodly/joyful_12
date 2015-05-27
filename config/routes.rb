@@ -43,4 +43,5 @@ Joyfoodly::Application.routes.draw do
   
   # catch all to enable marketing links
   get '/:tracking_slug' => 'home#marketing'
+  get 'coupons/show'
 end
