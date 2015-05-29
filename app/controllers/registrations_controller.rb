@@ -6,10 +6,6 @@ class RegistrationsController < Devise::RegistrationsController
     @user = User.new
     render layout: 'sign_up_flow'
   end
-
-  def gift
-    @user = User.new
-  end
   
   def create
     @user = User.new(user_params)
