@@ -18,18 +18,6 @@ describe RegistrationsController do
     end
   end
 
-  describe 'GET #gift' do
-    it 'assigns a new user to @user' do
-      get :gift
-      expect(assigns(:user)).to be_a_new(User)
-    end
-
-    it 'renders :new template' do
-      get :gift
-      expect(response).to render_template :gift
-    end
-  end
-
   describe 'POST #create' do
     context 'valid attributes' do
       it 'saves a new user in the database' do
