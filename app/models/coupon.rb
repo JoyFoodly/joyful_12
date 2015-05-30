@@ -20,6 +20,14 @@ class Coupon < ActiveRecord::Base
     'http://www.joyful12.com/?tid=' + self.tag_signed
   end
 
+  def gift?
+    self.shareable_tag.match(/\Agift/)
+  end
+
+  def expired?
+    !self.expires_on.nil? && self.expires_on < Time.now.utc
+  end
+
   def tag_is_shareable
     errors.add(:shareable_tag, 'Must be alphanumeric (_ and . allowed)') unless /^\s*[A-Za-z0-9_.]+\s*$/.match(shareable_tag)
   end

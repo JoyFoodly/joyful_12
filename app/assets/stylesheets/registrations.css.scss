@@ -1,0 +1,87 @@
+.form-signup-header {
+  margin-top: 2.2em;
+}
+
+.form-signup-photo {
+  background-image: image-url(image-path('sauted_veges.jpg'));
+  width: 50%;
+  position: absolute;
+  right: 0px;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-size: contain;
+}
+
+.form-signup-photo p {
+  margin: 2.5em 2em;
+  font-size: 3em;
+  color: white;
+  text-shadow: 3px 3px 4px rgba(150, 150, 150, 0.43);
+}
+
+.form-signup #user_first_name, .form-signup #user_zip {
+  margin-right: 10px;
+}
+
+.form-signup input {
+  margin-bottom: 15px;
+}
+
+.sign-in-logo {
+  margin: 4em auto 2em;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-signin .form-signin-heading {
+  margin-bottom: 10px;
+}
+
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+
+.form-signin .checkbox {
+  font-weight: normal;
+}
+
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.form-signin input[type="checkbox"] {
+  margin-left: 0!important;
+}
+
+.form-signin input[type="submit"] {
+  margin: 15px 0;
+}
+
+$font-family-sans-serif: Lato, Arial, sans-serif;

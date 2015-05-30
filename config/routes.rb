@@ -1,6 +1,7 @@
 Joyfoodly::Application.routes.draw do
   devise_for :admins
   devise_for :users, controllers: { registrations: :registrations, passwords: :passwords, confirmations: :confirmations }
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   resources :recipe_redirects, only: :show
@@ -14,6 +15,12 @@ Joyfoodly::Application.routes.draw do
   resources :users, only: [:edit, :update] do
     get 'change_password', on: :member
   end
+
+  resources :payments
+  get '/gift', to: 'payments#gift', as: 'new_gift'
+  post '/gift', to: 'payments#create_gift', as: 'gifts'
+
+
   resources :shopping_lists, only: [:create, :edit, :update, :show, :destroy]
   resources :shopping_list_emails, only: :create
   resources :seasons, only: :update
@@ -35,8 +42,9 @@ Joyfoodly::Application.routes.draw do
   resources :upgrades, only: [:index, :create, :show]
 
   root to: 'home#rootpage'
+
+  get '/coupons/:partner_id' => 'coupons#show'
   get "/about" => "home#page"
-  
   # catch all to enable marketing links
   get '/:tracking_slug' => 'home#marketing'
 end

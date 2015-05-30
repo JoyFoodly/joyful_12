@@ -6,7 +6,7 @@ class CreatePayments < ActiveRecord::Migration
       t.string :product_id,  null: false, default: ''
       t.string :customer_id, null: false, default: ''
       t.string :charge_id,   null: false, default: ''
-      t.belongs_to :user,    null: false, index: true
+      t.belongs_to :user,    index: true
 
       t.timestamps           null: false
     end

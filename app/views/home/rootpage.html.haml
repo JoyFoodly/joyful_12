@@ -38,30 +38,18 @@
         .price_circle
           .vertical-third
           .vertical-third.bubble-third-middle
-            = @price_in_dollars
+            = number_to_currency(@price)
           .vertical-third
         .center-div
           = HomePageFeature.get_feature_switched(:rightcolumn_subtext, session)
         .center-div
-          = form_tag user_registration_path, method: :post do
-            = hidden_field_tag :from_page, '/'
-            = hidden_field_tag :product_id, 'season'
-            - if @signup_url == ''
-              %script{'src' => 'https://checkout.stripe.com/checkout.js', class: 'stripe-button',
-                      'data-key' => ENV['STRIPE_PUBLIC_KEY'],
-                      'data-image' => image_path('payments/stripe-store-image.png'),
-                      'data-label' => 'START COOKING NOW!',
-                      'data-name' => 'Joyful 12',
-                      'data-panel-label' => 'Pay {{amount}}',
-                      'data-billing-address' => 'true',
-                      'data-shipping-address' => 'true',
-                      'data-description' => "Lifetime Access (#{number_to_currency(@price / 100)})",
-                      'data-amount' => @price,
-                      'data-zip-code' => 'true',}
-            - else
-              %button.stripe-button-el#zero-price-button
-                %span
-                  START COOKING NOW!
+          %button.stripe-button-el#zero-price-button
+            %span
+              START COOKING NOW!
+
+        .center-div
+          = link_to 'Give Gift', new_gift_path, class: 'gift'
+
   .row.section
     .col-xs-12
       .center-div.limited-width.bold-text.feature-title
