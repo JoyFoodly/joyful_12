@@ -17,6 +17,9 @@ Joyfoodly::Application.routes.draw do
   end
 
   resources :payments
+  get '/gift', to: 'payments#gift', as: 'new_gift'
+  post '/gift', to: 'payments#create_gift', as: 'gifts'
+
 
   resources :shopping_lists, only: [:create, :edit, :update, :show, :destroy]
   resources :shopping_list_emails, only: :create
