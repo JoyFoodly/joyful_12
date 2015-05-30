@@ -247,7 +247,7 @@ ActiveRecord::Schema.define(version: 20150528234710) do
     t.string   "product_id",  default: "", null: false
     t.string   "customer_id", default: "", null: false
     t.string   "charge_id",   default: "", null: false
-    t.integer  "user_id",                  null: false
+    t.integer  "user_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
