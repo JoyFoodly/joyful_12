@@ -122,51 +122,7 @@
     .center-div.holliebox.limited-width
       = link_to 'Learn more about Joyful12 and Chef Hollie!', '/about'
 
-  .row.giftrow
-    .section
-      .col-xs-12
-        .center-div.bold-text.feature-title
-          = HomePageFeature.get_feature(:section_title_two)
-
-      .row
-        .col-xs-12
-          .center-div.blueline
-
-    .row.section
-      .center-div.limited-width
-        = HomePageFeature.get_feature(:section_subtext_two)
-
-    .row.section.giftcard.center-div
-      %a{name: 'gift'}
-      .section.center-div.gift-icon-box
-        = image_tag 'joyfoodly-gift-icon.png', class: 'img-responsive', style: 'height: 75px; width: 75px;'
-      %p
-        .large-text.bold-text
-          = @gift_price_in_dollars
-      %p
-        .bold-text{style: 'padding: 5px 0px;'}
-          Make someone a lifetime member!
-      .center-div.limited-width
-        = form_tag user_registration_path, method: :post do
-          .form-group
-            = text_field_tag :recipient_first_name, '', placeholder: 'Recipient first name', class: 'form-control', required: true
-          .form-group
-            = text_field_tag :recipient_last_name, '', placeholder: 'Recipient last name', class: 'form-control', required: true
-          .form-group
-            = email_field_tag :recipient_email, '', placeholder: 'Recipient email', class: 'form-control', required: true
-
-          = hidden_field_tag :product_id, 'year'
-          .form-group
-            = text_area_tag :recipient_gift_message, '', placeholder: 'Enter a short message for recipient!', class: 'form-control', required: true, rows:'2'
-
-          %script{src: 'https://checkout.stripe.com/checkout.js', class: 'stripe-button',
-                  "data-key" =>  ENV['STRIPE_PUBLIC_KEY'],
-                  "data-image" => image_path('payments/stripe-store-image.png'),
-                  "data-label" => 'Give A Gift',
-                  "data-name" => 'Joyful 12',
-                  "data-billing-address" => 'true',
-                  "data-shipping-address" => 'true',
-                  "data-description" => "Joyful 12 Gift #{number_to_currency(@gift_price / 100)} Lifetime"}
+  = render 'shared/tour'
 
   .row.footerrow.top-padding.bottom-padding
     .center-div

@@ -223,54 +223,7 @@ Chef Hollie
               %i.fa.fa-shopping-cart.signup_button
                 Sign Up Now!  
 
-
-// !-- ==============================================
-// Tour
-// ===============================================
-%section#tour.gray-bg.padding-top
-
-  .container
-
-    %h1.section-title
-      Take a Tour
-    %p.section-description
-      Join us for a year of eating in season. Try each veggie three ways, and learn how to get your family involved. Packed with tutorials and tips for the busy parent.
-
-    .ipad-frame.scrollimation.fade-up
-
-      = image_tag 'qubico/ipad-landscape.png', class: 'img-responsive img-center'
-
-      .ipad-screen.ipad-slider
-
-        %ul.slides
-
-          %li
-            = image_tag 'qubico/tour-2.png', class: 'img-responsive'
-
-          %li
-            = image_tag 'qubico/tour-15.png', class: 'img-responsive'
-
-          %li
-            = image_tag 'qubico/tour-3.png', class: 'img-responsive'
-
-          %li
-            = image_tag 'qubico/tour-4.png', class: 'img-responsive'
-
-          %li
-            = image_tag 'qubico/tour-5.png', class: 'img-responsive'
-
-          %li
-            = image_tag 'qubico/tour-6.png', class: 'img-responsive'
-
-          %li
-            = image_tag 'qubico/tour-16.png', class: 'img-responsive'
-
-          %li
-            = image_tag 'qubico/tour-14.png', class: 'img-responsive'
-
-          %li
-            = image_tag 'qubico/tour-11.png', class: 'img-responsive'
-
+= render 'shared/tour'
 
 // -- ==============================================
 // CALL TO ACTION
