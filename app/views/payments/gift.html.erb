@@ -6,31 +6,22 @@
   <div class='row'>
     <div class='col-md-4'>
       <h2 class='form-signup-header'>Give the gift of Joyful12</h2>
-      <%= form_for(@gift, id: 'payment-form') do |f| %>
-        <span class="payment-errors">
-          <% flash.each do |name, msg| %>
-            <% if msg.present? %>
-              <div class='alert alert-<%= name == :notice ? 'success' : 'danger' %>'>
-                <a class='close' data-dismiss='alert'>×</a>
-                <%= msg.html_safe %>
-              </div>
-            <% end %>
-          <% end %>
-        </span>
+      <%= render 'shared/flash' %>
+      <%= form_for(@gift, html: { id: 'payment-form' }) do |f| %>
+        <%= render 'shared/payment_errors' %>
         <div class='billing-info'>
           <div class="form-group">
             <%= f.label :your_name%><br />
-            <%= f.text_field :your_name, autofocus: true, class: 'form-control' %>
+            <%= f.text_field :your_name, value: @gift.your_name || current_user.try(:full_name), autofocus: true, class: 'form-control' %>
           </div>
-
           <div class="form-group">
             <%= f.label :your_email %><br />
-            <%= f.text_field :your_email, autofocus: true, class: 'form-control' %>
+            <%= f.text_field :your_email, value: @gift.your_email || current_user.try(:email), autofocus: true, class: 'form-control' %>
             <p class="help-block">This is where you'll receive your receipt.</p>
           </div>
 
           <div class="form-group">
-            <%= f.label :message %><br />
+            <%= f.label :message, 'Message (Optional)' %><br />
             <%= f.text_area :message, autofocus: true, class: 'form-control' %>
           </div>
 
@@ -64,14 +55,12 @@
                 data: { stripe: 'exp-year' } %>
             </div>
           </div>
-          <h3>You will be charged <%= @price %>.</h3>
-          <%= submit_tag('Create Account') %>
+          <h3>Total Amount To Be Charged: $<span class="price"><%= @price %></span>.</h3>
+
+          <%= submit_tag('Create Account', id: 'create-account', class: 'btn btn-lg btn-primary btn-block toggler') %>
         </div>
       <% end %>
     </div>
-    <div class='form-signup-photo'>
-      <p>We're passionate about helping parents feel good about the food they feed their kids and
-        helping families celebrate the JOY of mealtime together.<p>
-    </div>
+    <%= render 'shared/registration_photo' %>
   </div>
 </div>
