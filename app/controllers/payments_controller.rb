@@ -1,7 +1,7 @@
 class PaymentsController < ApplicationController
   before_action :authenticate_user!, except: [:gift, :create_gift]
   before_action :skip_signed_up_users, except: [:gift, :create_gift]
-  before_action :set_price, except: :create
+  before_action :set_price
 
   def new
     render layout: 'sign_up_flow'
@@ -27,7 +27,7 @@ class PaymentsController < ApplicationController
       flash[:success] = "Thanks for your purchase!"
       redirect_to root_path
     else
-      errors = @payment.errors.full_messages + @gift.errors.full_messages
+      errors = @payment.errors[:stripe] + @gift.errors.full_messages
       flash[:alert] = errors.to_sentence
       render 'gift', layout: 'sign_up_flow'
     end
@@ -39,7 +39,7 @@ class PaymentsController < ApplicationController
       current_user.update(signed_up: true)
       redirect_to after_sign_in_path_for(current_user)
     else
-      flash[:alert] = @payment.errors.full_messages.to_sentence
+      flash[:alert] = @payment.errors[:stripe].to_sentence
       render 'new', layout: 'sign_up_flow'
     end
   end

@@ -13,6 +13,7 @@
 /* "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables" */
 
 @import 'registrations';
+@import 'payment';
 @import "bootstrap-sprockets";
 @import 'bootstrap_app_config';
 @import "bootstrap";

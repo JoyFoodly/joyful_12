@@ -48,7 +48,7 @@ class Payment < ActiveRecord::Base
       user.update_attribute(:payment_gateway_customer_id, customer.id) if user
     end
   rescue Stripe::StripeError => error
-    errors[:base] << error.message
+    errors[:stripe] << error.message
   end
 
   def create_stripe_charge
@@ -61,7 +61,7 @@ class Payment < ActiveRecord::Base
     )
     self.charge_id = charge.id
   rescue Stripe::StripeError => error
-    errors[:base] << error.message
+    errors[:stripe] << error.message
   end
 
   def user_id

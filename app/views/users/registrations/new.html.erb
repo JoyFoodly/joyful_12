@@ -53,7 +53,6 @@
               </div>
             </div>
           </div>
-          <div class="clearfix"></div>
 
           <h3>Membership costs: $<span class="price"><%= @price %></span>.</h3>
           <%= f.submit create_account_text, id: 'create-account', class: 'btn btn-lg btn-primary btn-block toggler' %>
@@ -61,9 +60,6 @@
         </div>
       <% end %>
     </div>
-    <div class='form-signup-photo hidden-xs hidden-sm'>
-      <p>We're passionate about helping parents feel good about the food they feed their kids and
-        helping families celebrate the JOY of mealtime together.<p>
-    </div>
+    <%= render 'shared/registration_photo' %>
   </div>
 </div>

@@ -6,7 +6,7 @@ stripeResponseHandler = (status, response) ->
   $form = $('#payment-form')
 
   if response.error
-    $form.find('.payment-errors').text(response.error.message)
+    $form.find('#payment-errors ul').html('<li>' + response.error.message + '</li>')
     $form.find('input[type="submit"]').prop('disabled', false)
   else
     token = response.id

@@ -6,17 +6,9 @@
   <div class='row'>
     <div class='col-md-4'>
       <h2 class='form-signup-header'>Sign up for Joyful12</h2>
-      <%= form_tag('/payments', id: 'payment-form') do %>
-        <span class="payment-errors">
-          <% flash.each do |name, msg| %>
-            <% if msg.present? %>
-              <div class='alert alert-<%= name == :notice ? 'success' : 'danger' %>'>
-                <a class='close' data-dismiss='alert'>×</a>
-                <%= msg.html_safe %>
-              </div>
-            <% end %>
-          <% end %>
-        </span>
+      <%= render 'shared/flash' %>
+      <%= form_tag(payments_path, id: 'payment-form') do %>
+        <%= render 'shared/payment_errors' %>
         <div class='billing-info'>
           <div class="form-group">
             <%= label_tag :credit_card_number %><br />
@@ -41,14 +33,11 @@
                 data: { stripe: 'exp-year' } %>
             </div>
           </div>
-          <h3>You will be charged <%= @price %>.</h3>
-          <%= submit_tag('Create Account') %>
+
+          <h3>Total Amount To Be Charged: $<span class="price"><%= @price %></span>.</h3>
+          <%= submit_tag('Create Account', id: 'create-account', class: 'btn btn-lg btn-primary btn-block toggler') %>
         </div>
       <% end %>
     </div>
-    <div class='form-signup-photo'>
-      <p>We're passionate about helping parents feel good about the food they feed their kids and
-        helping families celebrate the JOY of mealtime together.<p>
-    </div>
-  </div>
+    <%= render 'shared/registration_photo' %>
 </div>
