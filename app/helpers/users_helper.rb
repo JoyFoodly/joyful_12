@@ -9,4 +9,11 @@ module UsersHelper
     link_to(name, '#', { class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")}}.merge(options))
   end
 
+  def create_account_text
+    if @price && @price.to_i == 0
+      'Create Account'
+    else
+      'Add Billing Information'
+    end
+  end
 end

@@ -49,14 +49,7 @@
       <%= render 'layouts/nav' %>
     </nav>
 
-    <% flash.each do |name, msg| %>
-      <% if msg.present? %>
-        <div class='alert alert-<%= name == :notice ? 'success' : 'danger' %>'>
-          <a class='close' data-dismiss='alert'>×</a>
-          <%= msg.html_safe %>
-        </div>
-      <% end %>
-    <% end %>
+    <%= render 'shared/flash' %>
 
     <section class='main-content'>
       <%= yield %>

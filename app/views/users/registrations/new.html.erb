@@ -1,19 +1,26 @@
 <div class='container-fluid'>
   <div class='row'>
-    <div class='col-md-4'>
+    <div class='col-md-5'>
       <h2 class='form-signup-header'>Sign up for Joyful12</h2>
+      <%= render 'shared/flash' %>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form-signup' }) do |f| %>
         <%= devise_error_messages! %>
         <div class='account-info'>
-          <div class='form-inline'>
-            <div class="form-group">
-              <%= f.label :first_name%><br />
-              <%= f.text_field :first_name, autofocus: true, class: 'form-control' %>
-            </div>
+          <div class='row'>
+            <div class='form-inline'>
+              <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                  <%= f.label :first_name%><br />
+                  <%= f.text_field :first_name, autofocus: true, class: 'form-control' %>
+                </div>
+              </div>
 
-            <div class="form-group">
-              <%= f.label :last_name %><br />
-              <%= f.text_field :last_name, autofocus: true, class: 'form-control' %>
+              <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                  <%= f.label :last_name %><br />
+                  <%= f.text_field :last_name, autofocus: true, class: 'form-control' %>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -35,20 +42,26 @@
             <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
           </div>
 
-          <h3>It will cost <span class="price"><%= @price %></span> dollars.</h3>
-          <%= f.submit 'Add Billing Information', class: 'btn btn-lg btn-primary btn-block toggler' %>
+          <div id="coupon_form" class="form-group form-inline">
+            <div class="row">
+              <div class="col-xs-8">
+                <label>Promo Code (Optional)</label>
+                <input id="coupon_value" type="text" class='form-control'>
+              </div>
+              <div class="col-xs-3">
+                <button id="coupon_button" class="btn btn-primary coupon-button">Apply</button>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+
+          <h3>Membership costs: $<span class="price"><%= @price %></span>.</h3>
+          <%= f.submit create_account_text, id: 'create-account', class: 'btn btn-lg btn-primary btn-block toggler' %>
           <%= render "devise/shared/links" %>
         </div>
       <% end %>
-
-      <div id="coupon_form">
-        <label>Coupon</label>
-        <input id="coupon_value" type="text">
-        <button id="coupon_button">Apply</button>
-      </div>
-
     </div>
-    <div class='form-signup-photo'>
+    <div class='form-signup-photo hidden-xs hidden-sm'>
       <p>We're passionate about helping parents feel good about the food they feed their kids and
         helping families celebrate the JOY of mealtime together.<p>
     </div>
