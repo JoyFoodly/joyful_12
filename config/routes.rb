@@ -44,6 +44,7 @@ Joyfoodly::Application.routes.draw do
   root to: 'home#rootpage'
 
   get '/coupons/:partner_id' => 'coupons#show'
+  get '/su/:partner_id' => 'coupons#sign_up', as: 'gift_sign_up'
   get "/about" => "home#page"
   # catch all to enable marketing links
   get '/:tracking_slug' => 'home#marketing'

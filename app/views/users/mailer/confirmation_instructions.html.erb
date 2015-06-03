@@ -1,53 +1,20 @@
-<% if @user.gift_recipient? %>
+<img class="centered" src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/5c39e0dc88fe077d72ab22fe943ffd7b0d2f0b6b.png?1403815959" />
+<h2>Welcome to the Joyful 12, <%= @user.first_name %>!</h2>
 
-    <img class="centered" src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/3935db23a923989c19a238a041b6413dfac30057.png?1406009846" />
-    <h2>Welcome to the Joyful 12, <%= @user.first_name %>!</h2>
+<p>I'm so happy you'll be joining me in the Joyful12 Learning Lab. We'll be cooking our way through winter, spring, summer, and fall with a total of 48 seasonal vegetables and fruits and 144 seasonal recipes.  Every Friday, look out for my email letting you know which vegetable and fruit is in season that we'll be exploring in the Learning Lab together the following week. </p>
 
-    <p>Lucky you, <%= @user.gift_giver_name %> has given you the gift of seasonal eating. Here's a personal message:</p>
+<p> All you have to do is click the link below and you're in the classroom! (easy, right?) </p>
 
-    <p style="border: 1px solid #333333; padding: 10px; margin: 10px; max-width: 350px;"><%= @user.gift_message %></p>
+<p><strong><%= link_to "Confirm my account, I'm ready to get started!", confirmation_url(@resource, confirmation_token: @token) %></strong></p>
 
-    <p>If you want to learn more about the Joyful 12, <%= link_to 'click here', 'https://www.joyful12.com/pages/gift' %>.</p>
+<p>I'm sure you're going to love the Joyful 12 so much, you'll want to spread some of that veggie love to your family and friends. The Joyful 12 is a great gift for a loved one. Feel great knowing that with each purchase, we give a free lifetime membership to a family in our Joyful 12 School Project!
+</p>
 
-    <p>I'm so happy you'll be joining me in the Joyful 12 Learning Lab. We'll be cooking our way through summer, fall,
-      winter and spring with a total of forty-eight seasonal vegetables and fruits. I can't wait to get started on our
-      12 Summer vegetables and fruits.</p>
+<p>Just so you know: after the first time you've signed in, bookmark <a href="https://www.joyful12.com">joyful12.com</a>.</p>
 
-    <p>All you have to do is click the link below, then set up your password, and you're in the classroom! (easy, right?)</p>
+<p><em>Yours in fun and tasty kitchen adventures,</em></p>
+<p><em>Chef Hollie</em></p>
 
-    <p><strong><%= link_to "Confirm my account, I'm ready to get started!", confirmation_url(@resource, confirmation_token: @token) %></strong></p>
+<p>Contact me anytime!</p>
+<p>hollie@joyfoodly.com</p>
 
-    <p>I'm sure you're going to love the Joyful 12 so much, you'll want to spread some of that veggie love to your family and friends. The Joyful 12 is a great gift for a loved one.
-    </p>
-
-    <p>Just so you know: after the first time you've signed in, bookmark <a href="https://www.joyful12.com">joyful12.com</a>.</p>
-
-    <p><em>Yours in fun and tasty kitchen adventures,</em></p>
-    <p><em>Chef Hollie</em></p>
-
-    <p>Contact me anytime!</p>
-    <p>hollie@joyfoodly.com</p>
-
-<% else %>
-
-    <img class="centered" src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/5c39e0dc88fe077d72ab22fe943ffd7b0d2f0b6b.png?1403815959" />
-    <h2>Welcome to the Joyful 12, <%= @user.first_name %>!</h2>
-
-    <p>I'm so happy you'll be joining me in the Joyful12 Learning Lab. We'll be cooking our way through winter, spring, summer, and fall with a total of 48 seasonal vegetables and fruits and 144 seasonal recipes.  Every Friday, look out for my email letting you know which vegetable and fruit is in season that we'll be exploring in the Learning Lab together the following week. </p>
-
-    <p> All you have to do is click the link below, then set up your password, and you're in the classroom! (easy, right?) </p>
-
-    <p><strong><%= link_to "Confirm my account, I'm ready to get started!", confirmation_url(@resource, confirmation_token: @token) %></strong></p>
-
-    <p>I'm sure you're going to love the Joyful 12 so much, you'll want to spread some of that veggie love to your family and friends. The Joyful 12 is a great gift for a loved one. Feel great knowing that with each purchase, we give a free lifetime membership to a family in our Joyful 12 School Project!
-    </p>
-
-    <p>Just so you know: after the first time you've signed in, bookmark <a href="https://www.joyful12.com">joyful12.com</a>.</p>
-
-    <p><em>Yours in fun and tasty kitchen adventures,</em></p>
-    <p><em>Chef Hollie</em></p>
-
-    <p>Contact me anytime!</p>
-    <p>hollie@joyfoodly.com</p>
-
-<% end %>

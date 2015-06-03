@@ -22,4 +22,12 @@ describe Gift do
       expect(gift.coupon).not_to be_nil
     end
   end
+
+  describe 'creation' do
+    it 'should queue a mailer' do
+      expect { gift.save }.to change { ActionMailer::Base.deliveries.size }
+      gift_email = ActionMailer::Base.deliveries.last
+      expect(gift_email.to).to eq [gift.their_email]
+    end
+  end
 end

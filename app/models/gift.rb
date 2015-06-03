@@ -5,6 +5,8 @@ class Gift < ActiveRecord::Base
   belongs_to :receiver
   belongs_to :coupon, autosave: true
   after_initialize :init_coupon
+  after_create :send_email
+
 
   validates_presence_of :coupon, :your_name, :your_email, :their_email, :price
 
@@ -19,4 +21,8 @@ class Gift < ActiveRecord::Base
   def secret_code
     SecureRandom.hex.first(20)
   end
+
+ def send_email
+   GiftMailer.sign_up(self).deliver
+ end
 end
