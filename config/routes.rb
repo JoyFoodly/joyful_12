@@ -14,6 +14,8 @@ Joyfoodly::Application.routes.draw do
   end
   resources :users, only: [:edit, :update] do
     get 'change_password', on: :member
+    get 'edit_account'
+    patch 'update_account'
   end
 
   resources :payments
