@@ -173,6 +173,8 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    paranoia (2.1.2)
+      activerecord (~> 4.0)
     pg (0.17.1)
     pry (0.9.12.6)
       coderay (~> 1.0)
@@ -340,6 +342,7 @@ DEPENDENCIES
   memcachier (~> 0.0.2)
   newrelic_rpm (~> 3.8.0)
   paperclip (~> 4.1.0)
+  paranoia (~> 2.0)
   pg (~> 0.17.0)
   pry
   pry-byebug

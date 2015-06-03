@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150528234710) do
+ActiveRecord::Schema.define(version: 20150603025705) do
 
   create_table "addresses", force: true do |t|
     t.string   "line_1",     default: "", null: false
@@ -83,7 +83,10 @@ ActiveRecord::Schema.define(version: 20150528234710) do
     t.text     "welcome_message"
     t.float    "price"
     t.float    "gift_price"
+    t.datetime "deleted_at"
   end
+
+  add_index "coupons", ["deleted_at"], name: "index_coupons_on_deleted_at"
 
   create_table "dietary_categories", force: true do |t|
     t.string   "name",              default: "", null: false

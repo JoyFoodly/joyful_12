@@ -57,6 +57,8 @@ gem 'jquery-rails', '~> 3'
 # Mailing Lists
 gem 'gibbon', '~> 1.1.2'
 
+gem 'paranoia', '~> 2.0'
+
 group :test do
   # Test fixtures
   gem 'factory_girl_rails', '~> 4.4.1'

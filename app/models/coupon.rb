@@ -1,4 +1,6 @@
 class Coupon < ActiveRecord::Base
+  acts_as_paranoid
+
   has_many :coupon_allocations, dependent: :destroy
   has_many :partners, through: :coupon_allocations
   
@@ -22,10 +24,6 @@ class Coupon < ActiveRecord::Base
 
   def gift?
     self.shareable_tag.match(/\Agift/)
-  end
-
-  def expired?
-    !self.expires_on.nil? && self.expires_on < Time.now.utc
   end
 
   def tag_is_shareable
