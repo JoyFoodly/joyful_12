@@ -12,6 +12,7 @@ class RegistrationsController < Devise::RegistrationsController
     @user.signed_up = true if @price == 0
 
     if @user.save
+      coupon.destroy if coupon = found_coupon? and coupon.gift?
       sign_in(User, @user)
       respond_with @user, location: after_sign_up_path_for(@user)
     else

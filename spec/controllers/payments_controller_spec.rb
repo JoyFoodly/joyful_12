@@ -46,7 +46,6 @@ describe PaymentsController do
 
     before do
       StripeMock.start
-      StripeMock.toggle_debug(true)
       @stripeToken = stripe_helper.generate_card_token({ :number => '4242424242424242', :brand => 'Visa' })
     end
 

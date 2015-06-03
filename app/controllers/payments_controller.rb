@@ -15,7 +15,6 @@ class PaymentsController < ApplicationController
   def create_gift
     @gift = Gift.new(gift_params)
     @gift.giver_id = current_user
-    @gift.build_coupon
     @payment = Payment.new(payment_params)
     @payment.email = @gift.your_email
     @payment.coupon = found_coupon?
