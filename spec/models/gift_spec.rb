@@ -15,4 +15,11 @@ describe Gift do
       end
     end
   end
+
+  describe 'initialization' do
+    it 'should create a new coupon instance' do
+      gift = Gift.new
+      expect(gift.coupon).not_to be_nil
+    end
+  end
 end
