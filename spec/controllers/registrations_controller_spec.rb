@@ -3,7 +3,6 @@ require 'spec_helper'
 describe RegistrationsController do
   before(:each) do
     @request.env["devise.mapping"] = Devise.mappings[:user]
-    ENV['PRICE_PER_SEASON'] = "40"
   end
 
   describe 'GET #new' do

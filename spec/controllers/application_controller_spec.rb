@@ -10,8 +10,7 @@ describe ApplicationController do
   end
 
   before do
-    @test_price = 40
-    ENV['PRICE_PER_SEASON'] = @test_price.to_s
+    @test_price = ENV['PRICE_PER_SEASON'].to_i
     get :index
   end
 

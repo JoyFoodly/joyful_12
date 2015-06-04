@@ -56,3 +56,5 @@ RSpec.configure do |config|
   end
   config.include Capybara::DSL
 end
+
+ENV['PRICE_PER_SEASON'] = "40"

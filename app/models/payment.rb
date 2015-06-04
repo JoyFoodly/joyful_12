@@ -18,19 +18,15 @@ class Payment < ActiveRecord::Base
   private
 
   def set_amount
-    if Rails.env.development? || Rails.env.test?
-      self.amount = 4242
-    else
-      if coupon
-        c = Coupon.find_by_shareable_tag(user.coupon_id)
-        if gift && c.gift_price
-          self.amount = c.gift_price.to_i
-        else
-          self.amount = c.price.to_i
-        end
+    if coupon
+      c = Coupon.find_by_shareable_tag(user.coupon_id)
+      if gift && c.gift_price
+        self.amount = c.gift_price.to_i
       else
-        self.amount = product_id == 'season' ? ENV['PRICE_PER_SEASON'].to_i : ENV['PRICE_PER_YEAR'].to_i
+        self.amount = c.price.to_i
       end
+    else
+      self.amount = product_id == 'season' ? ENV['PRICE_PER_SEASON'].to_i : ENV['PRICE_PER_YEAR'].to_i
     end
   end
 
@@ -73,7 +69,7 @@ class Payment < ActiveRecord::Base
   end
 
   def coupon
-    @coupon || (user.coupon if user)
+    @coupon || (user.coupons.first if user)
   end
 
   def has_email
