@@ -13,6 +13,7 @@ class RegistrationsController < Devise::RegistrationsController
 
     if @user.save
       coupon.destroy if coupon = found_coupon? and coupon.gift?
+      flash[:notice] = 'Your account was created successfully.'
       sign_in(User, @user)
       respond_with @user, location: after_sign_up_path_for(@user)
     else

@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   def update_account
     @user = current_user
     if @user.update_attributes(user_params)
-      flash.now[:success] = 'Information updated'
+      flash.now[:notice] = 'Information updated'
     else
       flash.now[:warning] = @user.errors.full_messages.to_sentence
     end

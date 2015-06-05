@@ -24,7 +24,7 @@ class PaymentsController < ApplicationController
         @gift.save
         @payment.save(validate: false)
       end
-      flash[:success] = "Thanks for your purchase!"
+      flash[:notice] = "Thanks for your purchase!"
       redirect_to root_path
     else
       errors = @payment.errors[:stripe] + @gift.errors.full_messages

@@ -1,7 +1,6 @@
 class HomeController < ApplicationController
   include ActionView::Helpers::NumberHelper
   def confirmation_sent
-
   end
 
   def page
