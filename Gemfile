@@ -65,6 +65,9 @@ group :test do
 
   # Request spec DSL
   gem 'capybara', '~> 2.3.0'
+  gem 'capybara-screenshot'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
 
   # Disallow external requests in test env
   gem 'webmock', '~> 1.18.0'
