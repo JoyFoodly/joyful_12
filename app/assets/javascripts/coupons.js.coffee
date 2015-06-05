@@ -10,12 +10,13 @@ $(document).ready () ->
     if coupon_value
       $.ajax('/coupons/' + coupon_value).success (coupon) ->
         if coupon.shareable
-          $('.price').html(coupon.price)
+          price = pp_price(coupon.price)
+          $('.price').html(price)
           $('#create-account').val('Create Account') if coupon.price == 0
           if coupon.welcome_message
             msg = coupon.welcome_message
           else
-            msg = "Promo code found! Your new price is $#{coupon.price}."
+            msg = "Promo code found! Your new price is #{price}."
           type = 'success'
           show_ajax_message msg, type
         else
@@ -27,3 +28,9 @@ $(document).ready () ->
   show_ajax_message = (msg, type) ->
     $('#flash-messages').html "<div class='alert alert-#{type}'>#{msg}</div>"
     $("#flash-#{type}").delay(5000).slideUp 'slow'
+
+  pp_price = (price) ->
+    dollars = Math.floor(price/100)
+    cents = price % 100
+    cents = "00" if cents == 0
+    "$#{dollars}.#{cents}"

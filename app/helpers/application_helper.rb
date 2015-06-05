@@ -10,6 +10,10 @@ module ApplicationHelper
     "https://www.gravatar.com/avatar/#{email_digest}?s=200&d=#{default_avatar}"
   end
 
+  def pp_price(price, precision = 2)
+    number_to_currency(price/100, precision: precision)
+  end
+
   def comments_sso_script_for(user)
     # create a JSON packet of our data attributes
     data = 	{

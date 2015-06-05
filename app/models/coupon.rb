@@ -9,6 +9,14 @@ class Coupon < ActiveRecord::Base
   validate :tag_is_shareable
   before_save :pre_process_steps
   
+  def price
+    read_attribute(:price).try(:to_i)
+  end
+
+  def gift_price
+    read_attribute(:gift_price).try(:to_i)
+  end
+
   def pre_process_steps
     # Generate a shareable link
     self.tag_signed = ActiveSupport::MessageVerifier.new(Joyfoodly::Application.config.secret_key_base).generate(shareable_tag)

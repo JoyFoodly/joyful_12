@@ -54,7 +54,7 @@
             </div>
           </div>
 
-          <h3>Membership costs: $<span class="price"><%= @price %></span>.</h3>
+          <h3>Membership costs: <span class="price"><%= pp_price(@price) %></span>.</h3>
           <%= f.submit create_account_text, id: 'create-account', class: 'btn btn-lg btn-primary btn-block toggler' %>
           <%= render "devise/shared/links" %>
         </div>
