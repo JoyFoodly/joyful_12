@@ -2,6 +2,8 @@ require 'spec_helper'
 require 'stripe_mock'
 
 feature 'Allows users to purchase Joyful12' do
+  include CapybaraHelpers
+
   self.use_transactional_fixtures = false
   let(:user) { build(:unpaid_user) }
 
@@ -57,30 +59,5 @@ feature 'Allows users to purchase Joyful12' do
     user = User.last
     expect(user.signed_up).to be_true
     expect(current_path).to eq edit_user_path(user)
-  end
-
-  def visit_account_page
-    visit root_path
-    click_link 'START COOKING NOW!'
-  end
-
-  def fill_in_account_form(user)
-    fill_in 'user_first_name', with: user.first_name
-    fill_in 'user_last_name', with: user.last_name
-    fill_in 'user_email', with: user.email
-    fill_in 'user_password', with: user.password
-    fill_in 'user_password_confirmation', with: user.password
-    fill_in 'user_password_confirmation', with: user.password
-  end
-
-  def set_coupon(coupon)
-    find('#coupon_value').set(coupon.shareable_tag)
-    click_button('Apply')
-  end
-
-  def fill_in_billing_info
-    find("input[data-stripe='number']").set('4242424242424242')
-    find("input[data-stripe='cvc']").set('123')
-    find("select[data-stripe='exp-year']").find("option[value='2020']").select_option 
   end
 end

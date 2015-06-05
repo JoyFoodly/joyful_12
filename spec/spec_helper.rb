@@ -8,6 +8,8 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara-screenshot/rspec'
 require 'devise'
+require 'thin'
+StripeMock.spawn_server
 
 
 

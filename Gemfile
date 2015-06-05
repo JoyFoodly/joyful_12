@@ -72,6 +72,7 @@ group :test do
   # Disallow external requests in test env
   gem 'webmock', '~> 1.18.0'
   gem 'stripe-ruby-mock', '~> 2.1.1', require: 'stripe_mock'
+  gem 'thin'
 
   # Coverage stats
   gem 'simplecov', '~> 0.8.2', require: false
