@@ -7,6 +7,14 @@ feature 'Allows users to purchase Joyful12' do
   self.use_transactional_fixtures = false
   let(:user) { build(:unpaid_user) }
 
+  before do
+    @client = StripeMock.start_client
+  end
+
+  after do
+    StripeMock.stop_client
+  end
+
   scenario 'without a coupon', js: true do
     visit_account_page
     fill_in_account_form(user)

@@ -19,11 +19,19 @@ class PaymentsController < ApplicationController
     @payment.email = @gift.your_email
     @payment.coupon = found_coupon?
     @payment.gift = true
+    pp @payment
+    pp @gift
+    pp Gift.count
+    pp Payment.count
     if @gift.valid? && @payment.valid?
       ActiveRecord::Base.transaction do
         @gift.save
         @payment.save(validate: false)
       end
+      pp @payment
+      pp @gift
+      pp Gift.count
+      pp Payment.count
       flash[:notice] = "Thanks for your purchase!"
       redirect_to root_path
     else
