@@ -19,9 +19,8 @@
             .forgot-password
               =link_to 'Forgot Password?', '/users/password/new'
   .row.messagerow
-    - if flash[:message].present?            
-      %p.text-warning.col-md-offset-5.btn.btn-warning
-        = flash[:message]
+    .col-md-offset-4.col-md-4
+      = render 'shared/flash'
 
   .row.herorow
     .col-xs-12.col-sm-6.leftherocolumn
