@@ -1,3 +1,5 @@
+ENV['PRICE_PER_SEASON'] = '4800'
+
 Joyfoodly::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -21,7 +23,7 @@ Joyfoodly::Application.configure do
   config.action_controller.perform_caching = false
 
   # Raise exceptions instead of rendering exception templates.
-  config.action_dispatch.show_exceptions = false
+  config.action_dispatch.show_exceptions = true
 
   # Disable request forgery protection in test environment.
   config.action_controller.allow_forgery_protection = false
