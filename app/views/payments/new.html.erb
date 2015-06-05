@@ -5,7 +5,7 @@
 <div class='container-fluid'>
   <div class='row'>
     <div class='col-md-4'>
-      <h2 class='form-signup-header'>Sign up for Joyful12</h2>
+      <h2 class='form-signup-header'>Billing Information</h2>
       <%= render 'shared/flash' %>
       <%= form_tag(payments_path, id: 'payment-form') do %>
         <%= render 'shared/payment_errors' %>
@@ -35,7 +35,7 @@
           </div>
 
           <h3>Total Amount To Be Charged: <span class="price"><%= pp_price(@price) %></span>.</h3>
-          <%= button_tag('Create Account', id: 'create-account', class: 'btn btn-lg btn-primary btn-block toggler') %>
+          <%= button_tag('Subscribe to Joyful12!', id: 'create-account', class: 'btn btn-lg btn-primary btn-block toggler') %>
         </div>
       <% end %>
     </div>
