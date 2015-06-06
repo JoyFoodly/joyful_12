@@ -1,8 +1,6 @@
 class Payment < ActiveRecord::Base
   belongs_to :user
   
-  before_validation :set_amount
-  
   validates :amount,      presence: true, numericality: { greater_than: 0 }
   validates :card_token,  presence: true
   validates :product_id,  presence: true, inclusion: { in: %w[beta season year] }
@@ -16,19 +14,6 @@ class Payment < ActiveRecord::Base
   attr_accessor :gift
   
   private
-
-  def set_amount
-    if coupon
-      c = Coupon.find_by_shareable_tag(user.coupon_id)
-      if gift && c.gift_price
-        self.amount = c.gift_price.to_i
-      else
-        self.amount = c.price.to_i
-      end
-    else
-      self.amount = product_id == 'season' ? ENV['PRICE_PER_SEASON'].to_i : ENV['PRICE_PER_YEAR'].to_i
-    end
-  end
 
   def create_stripe_customer
     return if errors.present?

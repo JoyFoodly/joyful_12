@@ -19,6 +19,7 @@ class PaymentsController < ApplicationController
     @payment.email = @gift.your_email
     @payment.coupon = found_coupon?
     @payment.gift = true
+    @payment.amount = @gift_price
     if @gift.valid? && @payment.valid?
       ActiveRecord::Base.transaction do
         @gift.save
@@ -35,6 +36,7 @@ class PaymentsController < ApplicationController
 
   def create
     @payment = current_user.payments.build(payment_params)
+    @payment.amount = @price
     if @payment.save
       current_user.update(signed_up: true)
       redirect_to after_sign_in_path_for(current_user)
