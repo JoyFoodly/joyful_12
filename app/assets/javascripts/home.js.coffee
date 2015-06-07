@@ -1,3 +1,8 @@
+$ ->
+  $("#signin-box").click( ->
+    $("#signin_form").submit()
+  )
+
 $ -> 
 	$("#hamburger_icon").click( ->
 		# Have to do this because Bootstrap CSS interferes with the normal flow of jQuery toggle behavior :( Gah.
