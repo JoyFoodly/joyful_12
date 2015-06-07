@@ -15,22 +15,30 @@ class PaymentsController < ApplicationController
   def create_gift
     @gift = Gift.new(gift_params)
     @gift.giver_id = current_user
-    @payment = Payment.new(payment_params)
-    @payment.email = @gift.your_email
-    @payment.coupon = found_coupon?
-    @payment.gift = true
-    @payment.amount = @gift_price
-    if @gift.valid? && @payment.valid?
-      ActiveRecord::Base.transaction do
-        @gift.save
-        @payment.save(validate: false)
+    if @gift_price > 0
+      @payment = build_gift_payment
+      if @gift.valid? && @payment.valid?
+        ActiveRecord::Base.transaction do
+          @gift.save
+          @payment.save(validate: false)
+        end
+        flash[:notice] = "Thanks for your purchase!"
+        redirect_to root_path
+      else
+        errors = @payment.errors[:stripe] + @gift.errors.full_messages
+        flash.now[:alert] = errors.to_sentence
+        render 'gift', layout: 'sign_up_flow'
       end
-      flash[:notice] = "Thanks for your purchase!"
-      redirect_to root_path
     else
-      errors = @payment.errors[:stripe] + @gift.errors.full_messages
-      flash.now[:alert] = errors.to_sentence
-      render 'gift', layout: 'sign_up_flow'
+      if @gift.valid?
+        @gift.save
+        flash[:notice] = "Thanks for your purchase!"
+        redirect_to root_path
+      else
+        errors = @gift.errors.full_messages
+        flash.now[:alert] = errors.to_sentence
+        render 'gift', layout: 'sign_up_flow'
+      end
     end
   end
 
@@ -59,6 +67,15 @@ class PaymentsController < ApplicationController
       card_token: params[:stripeToken],
       product_id: 'season'
     }
+  end
+
+  def build_gift_payment
+    payment = Payment.new(payment_params)
+    payment.email = @gift.your_email
+    payment.coupon = found_coupon?
+    payment.gift = true
+    payment.amount = @gift_price
+    payment
   end
 
   def skip_signed_up_users

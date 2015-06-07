@@ -12,7 +12,10 @@ $(document).ready () ->
         if coupon.shareable
           price = pp_price(coupon.price)
           $('.price').html(price)
-          $('#create-account').val('Create Account') if coupon.price == 0
+          if coupon.price == 0
+            $('#create-account').val('Create Account')
+            $('.billing-info').remove()
+            $('#payment-form').unbind()
           if coupon.welcome_message
             msg = coupon.welcome_message
           else
