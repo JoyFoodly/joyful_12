@@ -105,6 +105,12 @@ describe User do
     end
   end
 
+  describe '#send_confirmation' do
+    it 'should send email after create' do
+      expect { @user.save }.to change { ActionMailer::Base.deliveries.count }.by(1)
+    end
+  end
+
   describe '#set_default_username' do
     it 'gives the user a default user name of first_name_last_name if possible' do
       expect(User.new(first_name: 'Paul', last_name: 'Van Smith').send(:set_default_username)).to eq('paul_van_smith')

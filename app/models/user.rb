@@ -27,6 +27,7 @@ class User < ActiveRecord::Base
   validate :beta_user_limit, on: :create
 
   after_commit :add_to_mailing_list
+  after_create :send_confirmation
 
   accepts_nested_attributes_for :family_members, allow_destroy: true
   accepts_nested_attributes_for :shipping_addresses
@@ -106,6 +107,10 @@ private
   end
 
 protected
+
+  def send_confirmation
+    self.send_confirmation_instructions
+  end
 
   def confirmation_required?
     false
