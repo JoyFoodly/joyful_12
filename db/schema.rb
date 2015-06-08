@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603025705) do
+ActiveRecord::Schema.define(version: 20150608031628) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "addresses", force: true do |t|
     t.string   "line_1",     default: "", null: false
@@ -26,7 +29,7 @@ ActiveRecord::Schema.define(version: 20150603025705) do
     t.text     "type"
   end
 
-  add_index "addresses", ["user_id"], name: "index_addresses_on_user_id"
+  add_index "addresses", ["user_id"], name: "index_addresses_on_user_id", using: :btree
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -43,8 +46,8 @@ ActiveRecord::Schema.define(version: 20150603025705) do
     t.datetime "updated_at",                          null: false
   end
 
-  add_index "admins", ["email"], name: "index_admins_on_email", unique: true
-  add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
+  add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
   create_table "allergies", force: true do |t|
     t.string   "name",       default: "", null: false
@@ -57,7 +60,7 @@ ActiveRecord::Schema.define(version: 20150603025705) do
     t.integer "family_member_id", null: false
   end
 
-  add_index "allergies_family_members", ["allergy_id", "family_member_id"], name: "index_allergies_family_members_allergy_id_and_family_member_id"
+  add_index "allergies_family_members", ["allergy_id", "family_member_id"], name: "index_allergies_family_members_allergy_id_and_family_member_id", using: :btree
 
   create_table "coupon_allocations", force: true do |t|
     t.integer "coupon_id"
@@ -86,7 +89,7 @@ ActiveRecord::Schema.define(version: 20150603025705) do
     t.datetime "deleted_at"
   end
 
-  add_index "coupons", ["deleted_at"], name: "index_coupons_on_deleted_at"
+  add_index "coupons", ["deleted_at"], name: "index_coupons_on_deleted_at", using: :btree
 
   create_table "dietary_categories", force: true do |t|
     t.string   "name",              default: "", null: false
@@ -104,7 +107,7 @@ ActiveRecord::Schema.define(version: 20150603025705) do
     t.integer "recipe_id",           null: false
   end
 
-  add_index "dietary_categories_recipes", ["dietary_category_id", "recipe_id"], name: "index_dietary_categories_recipes_on_category_and_recipe"
+  add_index "dietary_categories_recipes", ["dietary_category_id", "recipe_id"], name: "index_dietary_categories_recipes_on_category_and_recipe", using: :btree
 
   create_table "family_members", force: true do |t|
     t.string   "first_name"
@@ -116,7 +119,7 @@ ActiveRecord::Schema.define(version: 20150603025705) do
     t.datetime "updated_at",      null: false
   end
 
-  add_index "family_members", ["user_id"], name: "index_family_members_on_user_id"
+  add_index "family_members", ["user_id"], name: "index_family_members_on_user_id", using: :btree
 
   create_table "foods", force: true do |t|
     t.string   "name",       default: "", null: false
@@ -129,15 +132,15 @@ ActiveRecord::Schema.define(version: 20150603025705) do
     t.boolean  "published"
   end
 
-  add_index "foods", ["season_id"], name: "index_foods_on_season_id"
-  add_index "foods", ["slug"], name: "index_foods_on_slug", unique: true
+  add_index "foods", ["season_id"], name: "index_foods_on_season_id", using: :btree
+  add_index "foods", ["slug"], name: "index_foods_on_slug", unique: true, using: :btree
 
   create_table "foods_video_links", id: false, force: true do |t|
     t.integer "food_id",       null: false
     t.integer "video_link_id", null: false
   end
 
-  add_index "foods_video_links", ["food_id", "video_link_id"], name: "index_foods_video_links_on_food_id_and_video_link_id"
+  add_index "foods_video_links", ["food_id", "video_link_id"], name: "index_foods_video_links_on_food_id_and_video_link_id", using: :btree
 
   create_table "forms", force: true do |t|
     t.string   "user_name"
@@ -171,9 +174,9 @@ ActiveRecord::Schema.define(version: 20150603025705) do
     t.datetime "updated_at"
   end
 
-  add_index "gifts", ["coupon_id"], name: "index_gifts_on_coupon_id"
-  add_index "gifts", ["giver_id"], name: "index_gifts_on_giver_id"
-  add_index "gifts", ["receiver_id"], name: "index_gifts_on_receiver_id"
+  add_index "gifts", ["coupon_id"], name: "index_gifts_on_coupon_id", using: :btree
+  add_index "gifts", ["giver_id"], name: "index_gifts_on_giver_id", using: :btree
+  add_index "gifts", ["receiver_id"], name: "index_gifts_on_receiver_id", using: :btree
 
   create_table "home_page_features", force: true do |t|
     t.string   "key"
@@ -197,7 +200,7 @@ ActiveRecord::Schema.define(version: 20150603025705) do
     t.datetime "updated_at",                     null: false
   end
 
-  add_index "images", ["imageable_id", "imageable_type"], name: "index_images_on_imageable_id_and_imageable_type"
+  add_index "images", ["imageable_id", "imageable_type"], name: "index_images_on_imageable_id_and_imageable_type", using: :btree
 
   create_table "ingredient_list_items", force: true do |t|
     t.string   "quantity",      default: "", null: false
@@ -208,7 +211,7 @@ ActiveRecord::Schema.define(version: 20150603025705) do
     t.datetime "updated_at",                 null: false
   end
 
-  add_index "ingredient_list_items", ["ingredient_id", "recipe_id"], name: "index_ingredient_list_items_on_ingredient_id_and_recipe_id"
+  add_index "ingredient_list_items", ["ingredient_id", "recipe_id"], name: "index_ingredient_list_items_on_ingredient_id_and_recipe_id", using: :btree
 
   create_table "ingredients", force: true do |t|
     t.string   "name",       default: "", null: false
@@ -234,7 +237,7 @@ ActiveRecord::Schema.define(version: 20150603025705) do
     t.datetime "updated_at",              null: false
   end
 
-  add_index "pages", ["slug"], name: "index_pages_on_slug", unique: true
+  add_index "pages", ["slug"], name: "index_pages_on_slug", unique: true, using: :btree
 
   create_table "partners", force: true do |t|
     t.string   "name"
@@ -255,8 +258,6 @@ ActiveRecord::Schema.define(version: 20150603025705) do
     t.datetime "updated_at",               null: false
   end
 
-  add_index "payments", ["user_id"], name: "index_payments_on_user_id"
-
   create_table "pdfs", force: true do |t|
     t.string   "file_file_name",    null: false
     t.string   "file_content_type", null: false
@@ -273,12 +274,12 @@ ActiveRecord::Schema.define(version: 20150603025705) do
     t.integer  "item"
     t.string   "table"
     t.integer  "month",      limit: 2
-    t.integer  "year",       limit: 5
+    t.integer  "year",       limit: 8
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
 
-  add_index "rails_admin_histories", ["item", "table", "month", "year"], name: "index_rails_admin_histories"
+  add_index "rails_admin_histories", ["item", "table", "month", "year"], name: "index_rails_admin_histories", using: :btree
 
   create_table "recipes", force: true do |t|
     t.string   "title",        default: "",    null: false
@@ -296,14 +297,14 @@ ActiveRecord::Schema.define(version: 20150603025705) do
     t.boolean  "optional",     default: false, null: false
   end
 
-  add_index "recipes", ["food_id"], name: "index_recipes_on_food_id"
+  add_index "recipes", ["food_id"], name: "index_recipes_on_food_id", using: :btree
 
   create_table "recipes_shopping_lists", id: false, force: true do |t|
     t.integer "recipe_id",        null: false
     t.integer "shopping_list_id", null: false
   end
 
-  add_index "recipes_shopping_lists", ["recipe_id", "shopping_list_id"], name: "index_recipes_shopping_lists_on_recipe_id_and_shopping_list_id"
+  add_index "recipes_shopping_lists", ["recipe_id", "shopping_list_id"], name: "index_recipes_shopping_lists_on_recipe_id_and_shopping_list_id", using: :btree
 
   create_table "seasons", force: true do |t|
     t.string   "name",       default: "", null: false
@@ -317,7 +318,7 @@ ActiveRecord::Schema.define(version: 20150603025705) do
     t.integer "season_id", null: false
   end
 
-  add_index "seasons_users", ["user_id", "season_id"], name: "index_seasons_users_on_user_id_and_season_id"
+  add_index "seasons_users", ["user_id", "season_id"], name: "index_seasons_users_on_user_id_and_season_id", using: :btree
 
   create_table "shopping_lists", force: true do |t|
     t.string   "name"
@@ -329,7 +330,7 @@ ActiveRecord::Schema.define(version: 20150603025705) do
     t.text     "notes"
   end
 
-  add_index "shopping_lists", ["user_id"], name: "index_shopping_lists_on_user_id"
+  add_index "shopping_lists", ["user_id"], name: "index_shopping_lists_on_user_id", using: :btree
 
   create_table "sub_recipes", force: true do |t|
     t.integer  "recipe_id",       null: false
@@ -338,7 +339,7 @@ ActiveRecord::Schema.define(version: 20150603025705) do
     t.datetime "updated_at",      null: false
   end
 
-  add_index "sub_recipes", ["recipe_id", "child_recipe_id"], name: "index_sub_recipes_on_recipe_id_and_child_recipe_id"
+  add_index "sub_recipes", ["recipe_id", "child_recipe_id"], name: "index_sub_recipes_on_recipe_id_and_child_recipe_id", using: :btree
 
   create_table "subscriptions", force: true do |t|
     t.string   "card_token", default: "", null: false
@@ -348,15 +349,15 @@ ActiveRecord::Schema.define(version: 20150603025705) do
     t.datetime "updated_at",              null: false
   end
 
-  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id"
+  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email",                                   default: "",    null: false
-    t.string   "encrypted_password",                      default: "",    null: false
+    t.string   "email",                       default: "",    null: false
+    t.string   "encrypted_password",          default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                           default: 0,     null: false
+    t.integer  "sign_in_count",               default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -365,28 +366,28 @@ ActiveRecord::Schema.define(version: 20150603025705) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.string   "first_name",                              default: "",    null: false
-    t.string   "last_name",                               default: "",    null: false
+    t.string   "first_name",                  default: "",    null: false
+    t.string   "last_name",                   default: "",    null: false
     t.text     "family_description"
     t.text     "family_struggles"
-    t.datetime "created_at",                                              null: false
-    t.datetime "updated_at",                                              null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
     t.integer  "season_id"
-    t.string   "username",                                default: "",    null: false
+    t.string   "username",                    default: "",    null: false
     t.string   "payment_gateway_customer_id"
-    t.boolean  "onboarded",                               default: false, null: false
-    t.boolean  "forum_onboarded",                         default: false, null: false
+    t.boolean  "onboarded",                   default: false, null: false
+    t.boolean  "forum_onboarded",             default: false, null: false
     t.string   "gift_giver_name"
-    t.text     "gift_message",                limit: 255
+    t.text     "gift_message"
     t.text     "address_string"
-    t.boolean  "signed_up",                               default: false, null: false
+    t.boolean  "signed_up",                   default: false, null: false
   end
 
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  add_index "users", ["season_id"], name: "index_users_on_season_id"
-  add_index "users", ["username"], name: "index_users_on_username", unique: true
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["season_id"], name: "index_users_on_season_id", using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
   create_table "video_links", force: true do |t|
     t.string   "name",        default: "", null: false
