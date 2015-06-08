@@ -75,6 +75,7 @@ class PaymentsController < ApplicationController
     payment.coupon = found_coupon?
     payment.gift = true
     payment.amount = @gift_price
+    payment.user_id = current_user.try(:id) || -1
     payment
   end
 
