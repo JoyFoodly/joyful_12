@@ -8,13 +8,10 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara-screenshot/rspec'
 require 'devise'
-require 'thin'
 require 'webmock/minitest'
 
 # We will enable it selectively
-WebMock.disable!#_net_connect!(allow_localhost: true)
-
-#StripeMock.spawn_server
+WebMock.disable!
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.

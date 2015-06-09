@@ -1,19 +1,9 @@
 require 'spec_helper'
-#require 'stripe_mock'
 
 feature 'Allows users to purchase Joyful12' do
   include CapybaraHelpers
 
-  self.use_transactional_fixtures = false
   let(:user) { build(:unpaid_user) }
-
-  before do
-#    @client = StripeMock.start_client
-  end
-
-  after do
-#    StripeMock.stop_client
-  end
 
   scenario 'without a coupon', js: true do
     visit_account_page

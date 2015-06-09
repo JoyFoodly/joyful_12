@@ -71,8 +71,7 @@ group :test do
   gem 'database_cleaner'
 
   # Disallow external requests in test env
-#  gem 'stripe-ruby-mock', '~> 2.1.1', require: 'stripe_mock'
-  gem 'thin'
+  gem 'stripe-ruby-mock', '~> 2.1.1', require: 'stripe_mock'
 
   # Coverage stats
   gem 'simplecov', '~> 0.8.2', require: false
