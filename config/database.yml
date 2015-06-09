@@ -4,9 +4,8 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 development:
-  adapter: postgresql
-  encoding: unicode
-  database: joyfoodly_development
+  adapter: sqlite3
+  database: db/joyfoodly_development.sqlite3
   pool: 5
 
 # Warning: The database defined as "test" will be erased and

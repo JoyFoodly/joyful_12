@@ -10,7 +10,9 @@ class ApplicationController < ActionController::Base
   end
   
   def after_sign_in_path_for(resource_or_scope)
-    if !resource_or_scope.signed_up
+    if resource_or_scope.respond_to?(:is_admin?)
+      rails_admin_path
+    elsif !resource_or_scope.signed_up
       new_payment_path
     elsif !resource_or_scope.onboarded
       edit_user_path(current_user)

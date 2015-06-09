@@ -62,7 +62,8 @@ gem 'paranoia', '~> 2.0'
 group :test do
   # Test fixtures
   gem 'factory_girl_rails', '~> 4.4.1'
-
+  gem 'webmock'
+  
   # Request spec DSL
   gem 'capybara', '~> 2.3.0'
   gem 'capybara-screenshot'
@@ -70,7 +71,7 @@ group :test do
   gem 'database_cleaner'
 
   # Disallow external requests in test env
-  gem 'stripe-ruby-mock', '~> 2.1.1', require: 'stripe_mock'
+#  gem 'stripe-ruby-mock', '~> 2.1.1', require: 'stripe_mock'
   gem 'thin'
 
   # Coverage stats

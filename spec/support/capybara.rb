@@ -27,8 +27,9 @@ module CapybaraHelpers
   end
 
   def fill_in_billing_info
-    find("input[data-stripe='number']").set('4242424242424242')
+    find("input[data-stripe='number']").set('5555555555554444')
     find("input[data-stripe='cvc']").set('123')
+    find("select[data-stripe='exp-month']").find("option[value='12']").select_option 
     find("select[data-stripe='exp-year']").find("option[value='2020']").select_option 
   end
 

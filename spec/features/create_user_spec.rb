@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'stripe_mock'
+#require 'stripe_mock'
 
 feature 'Allows users to purchase Joyful12' do
   include CapybaraHelpers
@@ -8,11 +8,11 @@ feature 'Allows users to purchase Joyful12' do
   let(:user) { build(:unpaid_user) }
 
   before do
-    @client = StripeMock.start_client
+#    @client = StripeMock.start_client
   end
 
   after do
-    StripeMock.stop_client
+#    StripeMock.stop_client
   end
 
   scenario 'without a coupon', js: true do
@@ -25,12 +25,17 @@ feature 'Allows users to purchase Joyful12' do
     expect(user.signed_up).to be_false
 
     fill_in_billing_info
+    initial_count = Payment.count
+    find('#create-account').click
 
-    expect { find('#create-account').click }.to change { Payment.count }.by(1)
-    payment = Payment.last
-    expect(user.signed_up).to be_true
+    page.find('#navbar-right').value
     expect(current_path).to eq edit_user_path(user)
-    expect(payment.amount).to eq ENV['PRICE_PER_SEASON'].to_i
+
+    user = User.last
+    expect(user.signed_up).to be_true
+
+    expect(Payment.last.amount).to eq ENV['PRICE_PER_SEASON'].to_i
+    expect(Payment.count).to eq initial_count + 1
   end
 
   scenario 'with a coupon', js: true do
@@ -47,12 +52,17 @@ feature 'Allows users to purchase Joyful12' do
     expect(user.signed_up).to be_false
 
     fill_in_billing_info
+    initial_count = Payment.count
 
-    expect { find('#create-account').click }.to change { Payment.count }.by(1)
-    payment = Payment.last
-    expect(user.signed_up).to be_true
+    find('#create-account').click
+    page.find('#navbar-right').value
+
     expect(current_path).to eq edit_user_path(user)
-    expect(payment.amount).to eq coupon.amount
+    expect(Payment.count).to eq initial_count + 1
+
+    user = User.last
+    expect(user.signed_up).to be_true
+    expect(Payment.last.amount).to eq coupon.price
   end
 
   scenario 'with a free coupon', js: true do

@@ -43,13 +43,17 @@ class PaymentsController < ApplicationController
   end
 
   def create
+    puts "entered create controller with params #{params}\n\n"
     @payment = current_user.payments.build(payment_params)
     @payment.amount = @price
     if @payment.save
       current_user.update(signed_up: true)
+      puts "success - current_user is #{current_user.inspect}!\n\n"
       redirect_to after_sign_in_path_for(current_user)
     else
       flash.now[:alert] = @payment.errors[:stripe].to_sentence
+      puts "failure: #{@payment.errors.full_messages}\n\n"
+
       render 'new', layout: 'sign_up_flow'
     end
   end
