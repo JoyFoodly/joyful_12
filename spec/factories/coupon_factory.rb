@@ -8,6 +8,7 @@ FactoryGirl.define do
 
     factory :free_coupon do
       price 0
+      gift_price 0
     end
   end
 end

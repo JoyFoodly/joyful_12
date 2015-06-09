@@ -11,11 +11,18 @@ $(document).ready () ->
       $.ajax('/coupons/' + coupon_value).success (coupon) ->
         if coupon.shareable
           price = pp_price(coupon.price)
+          gift_price = pp_price(coupon.gift_price)
+
           $('.price').html(price)
+          $('.gift-price').html(gift_price)
+
           if coupon.price == 0
             $('#create-account').val('Create Account')
+
+          if coupon.gift_price == 0
             $('.billing-info').remove()
             $('#payment-form').unbind()
+
           if coupon.welcome_message
             msg = coupon.welcome_message
           else
