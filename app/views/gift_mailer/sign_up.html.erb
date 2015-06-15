@@ -3,7 +3,7 @@
 
 <p>Lucky you, <%= @gift.your_name %> has given you the gift of seasonal eating.</p>
 
-<% if @gift.message %>
+<% unless @gift.message.blank? %>
   <p>Here's a personal message:</p>
 
   <p style="border: 1px solid #333333; padding: 10px; margin: 10px; max-width: 350px;"><%= @gift.message %></p>
