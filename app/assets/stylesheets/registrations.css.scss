@@ -5,14 +5,16 @@
 }
 
 .form-signup-photo {
-  background-image: image-url(image-path('sauted_veges.jpg'));
+  @media (min-width: $screen-md-min) {
+    background-image: image-url(image-path('hollie_cooking.jpg'));
+  }
+
   width: 50%;
   position: absolute;
   right: 0px;
   height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
-  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .form-signup-photo p {
