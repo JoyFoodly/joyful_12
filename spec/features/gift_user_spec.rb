@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Allows users to send Joyful12 as a gift' do
+feature 'Allows users to send Joyful 12 as a gift' do
   include CapybaraHelpers
 
   let(:gift) { build(:gift) }
@@ -10,7 +10,7 @@ feature 'Allows users to send Joyful12 as a gift' do
     fill_in_gift_form(gift)
     fill_in_billing_info
     initial_count = Gift.count
-    click_button 'Gift Joyful12!'
+    click_button 'Gift Joyful 12!'
     page.find('.rootpage').value
 
     expect(Gift.count).to eq initial_count + 1
@@ -34,7 +34,7 @@ feature 'Allows users to send Joyful12 as a gift' do
     expect(page).to have_text("Total Amount To Be Charged: $25.00")
 
     initial_count = Gift.count
-    click_button 'Gift Joyful12!'
+    click_button 'Gift Joyful 12!'
     page.find('.rootpage').value
 
     expect(Gift.count).to eq initial_count + 1
@@ -60,7 +60,7 @@ feature 'Allows users to send Joyful12 as a gift' do
     payment_count = Payment.count
 
     expect(page).to have_text("Total Amount To Be Charged: $0.00")
-    click_button 'Gift Joyful12!'
+    click_button 'Gift Joyful 12!'
 
     page.find('.rootpage').value
 

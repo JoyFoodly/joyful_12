@@ -68,4 +68,25 @@ feature 'Allows users to purchase Joyful12' do
     expect(user.signed_up).to be_true
     expect(current_path).to eq edit_user_path(user)
   end
+
+  scenario 'with a gift coupon', js: true do
+    coupon = create(:gift_coupon)
+
+    visit_account_page
+    fill_in_account_form(user)
+    set_coupon(coupon)
+
+    expect { click_button 'Create Account' }.to change { User.count }.by(1)
+
+    visit '/users/sign_out'
+    visit '/clear'
+    coupon.reload
+    expect(coupon).to be_deleted
+
+    visit_account_page
+    fill_in_account_form(user)
+    set_coupon(coupon)
+
+    expect(page).to have_text 'not found'
+  end
 end

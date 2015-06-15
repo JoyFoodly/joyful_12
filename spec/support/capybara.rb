@@ -8,7 +8,7 @@ module CapybaraHelpers
 
   def visit_gift_page
     visit root_path
-    click_link 'Or give the gift of Joyful12'
+    click_link 'Or give the gift of Joyful 12'
   end
 
   def fill_in_account_form(user)

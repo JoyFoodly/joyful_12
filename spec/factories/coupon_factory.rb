@@ -9,6 +9,10 @@ FactoryGirl.define do
     factory :free_coupon do
       price 0
       gift_price 0
+
+      factory :gift_coupon do
+        shareable_tag 'gift_abcdefgh'
+      end
     end
   end
 end
