@@ -22,12 +22,12 @@ class User < ActiveRecord::Base
   before_create :add_seasons
 
   validates :username, presence: true, uniqueness: true
-  validates :email, presence: true
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+  validates :first_name, presence: true, length: { maximum: 35 }
+  validates :last_name, presence: true, length: { maximum: 35 }
   validate :beta_user_limit, on: :create
 
   after_commit :add_to_mailing_list
+  after_create :send_confirmation
 
   accepts_nested_attributes_for :family_members, allow_destroy: true
   accepts_nested_attributes_for :shipping_addresses
@@ -106,4 +106,13 @@ private
     nil
   end
 
+protected
+
+  def send_confirmation
+    self.send_confirmation_instructions
+  end
+
+  def confirmation_required?
+    false
+  end
 end

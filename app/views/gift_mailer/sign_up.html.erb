@@ -1,0 +1,31 @@
+<img class="centered" src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/3935db23a923989c19a238a041b6413dfac30057.png?1406009846" />
+<h2>Welcome to the Joyful 12!</h2>
+
+<p>Lucky you, <%= @gift.your_name %> has given you the gift of seasonal eating.</p>
+
+<% unless @gift.message.blank? %>
+  <p>Here's a personal message:</p>
+
+  <p style="border: 1px solid #333333; padding: 10px; margin: 10px; max-width: 350px;"><%= @gift.message %></p>
+<% end %>
+
+<p>If you want to learn more about the Joyful 12, <%= link_to 'click here', 'https://www.joyful12.com/pages/gift' %>.</p>
+
+<p>I'm so happy you'll be joining me in the Joyful 12 Learning Lab. We'll be cooking our way through summer, fall,
+  winter and spring with a total of forty-eight seasonal vegetables and fruits. I can't wait to get started on our
+  12 Summer vegetables and fruits.</p>
+
+<p>All you have to do is click the link below, then create your account, and you're in the classroom! (easy, right?)</p>
+
+<p><strong><%= link_to "Create my account, I'm ready to get started!",  'https://joyful12.com' + gift_sign_up_path(@coupon.shareable_tag) %></strong></p>
+
+<p>I'm sure you're going to love the Joyful 12 so much, you'll want to spread some of that veggie love to your family and friends. The Joyful 12 is a great gift for a loved one.
+</p>
+
+<p>Just so you know: after the first time you've signed in, bookmark <a href="https://www.joyful12.com">joyful12.com</a>.</p>
+
+<p><em>Yours in fun and tasty kitchen adventures,</em></p>
+<p><em>Chef Hollie</em></p>
+
+<p>Contact me anytime!</p>
+<p>hollie@joyfoodly.com</p>

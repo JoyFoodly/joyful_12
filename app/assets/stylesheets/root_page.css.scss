@@ -7,6 +7,7 @@
 #tour {
 	padding-bottom: 50px;
 }
+
 .rootpage {
 	#zero-price-button {
 		cursor: pointer;
@@ -223,7 +224,7 @@
 			border: 0;
 			box-shadow: none;
 			text-shadow: none;
-	
+      color: white;
 			border-radius: 0;
 			background: none;
 			background-image: none;
@@ -340,4 +341,19 @@
 		width: 57px;
 		background-color: transparent;
 	}
+}
+
+.gift-div {
+  position: absolute;
+  margin-top: 1%;
+  right: 20%;
+  color: white;
+}
+
+.gift {
+  color: white;
+
+  &:hover {
+    color: white;
+  }
 }

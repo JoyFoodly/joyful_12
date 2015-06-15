@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature 'View food' do
   let(:user) { FactoryGirl.create(:user) }
-  before(:each) { sign_in(user) }
+  before(:each) { login_as(user, scope: :user) }
 
   scenario 'displays information about food' do
     food = FactoryGirl.create(:food, name: 'Spinach', slug: 'spring-spinach')

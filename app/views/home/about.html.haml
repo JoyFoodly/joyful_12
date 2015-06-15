@@ -77,26 +77,9 @@ Chef Hollie
         %p
           In the Joyful 12, Hollie will walk you through basic principles on introducing children to new foods, tips on how to get kids involved in the kitchen, and all kinds of resources to
           make you a more confident home cook. She believes in flavor and fun above all else in the kitchen, which is what you get with the Joyful 12!
-        - if @signup_url == ''  
-          %a.btn.btn-qubico.white
-            .hidden#strip-data{'data-key' => ENV['STRIPE_PUBLIC_KEY'],
-                               'data-currency' => 'usd',
-                               'data-image' => image_path('payments/stripe-store-image.png'),
-                               'data-name' => 'Joyful 12',
-                               'data-panelLabel' => 'Pay {{amount}}',
-                               'data-billing-address' => 'true',
-                               'data-shipping-address' => 'true',
-                               'data-description' => "Joyful 12 Lifetime (#{number_to_currency(@price / 100)})",
-                               'data-amount' => @price}
-
+          = link_to new_user_registration_path, class: 'btn btn-qubico white' do
             %i.fa.fa-arrow-down.signup_button
               Sign Up Now!  
-            = form_tag user_registration_path, method: :post, id: 'signup_form' do
-              = hidden_field_tag :dummy  
-        - else
-          .btn.btn-qubico.white#zero-price-button
-            %i.fa.fa-arrow-down.signup_button
-              Sign Up Now!
 
 // ==============================================
 // RESPONSIVE VIDEO
@@ -203,74 +186,12 @@ Chef Hollie
 
       .col-md-3.cta-button
         %p.text-center
-          - if @signup_url == ''
-            .hidden#stripe-data{'data-key' => ENV['STRIPE_PUBLIC_KEY'],
-                               'data-currency' => 'usd',
-                               'data-image' => image_path('payments/stripe-store-image.png'),
-                               'data-name' => 'Joyful 12',
-                               'data-panelLabel' => 'Pay {{amount}}',
-                               'data-billing-address' => 'true',
-                               'data-shipping-address' => 'true',
-                               'data-description' => "Joyful 12 Lifetime (#{number_to_currency(@price / 100)})",
-                               'data-amount' => @price}
-            %a.btn.btn-qubico.white
-              %i.fa.fa-shopping-cart.signup_button
-                Sign Up Now!  
-              = form_tag user_registration_path, method: :post, id: 'signup_form' do
-                = hidden_field_tag :dummy
-          - else
-            %a.btn.btn-qubico.white
-              %i.fa.fa-shopping-cart.signup_button
-                Sign Up Now!  
+          = link_to new_user_registration_path, class: 'btn btn-qubico white' do
+            %i.fa.fa-arrow-down.signup_button
+              Sign Up Now!  
 
 
-// !-- ==============================================
-// Tour
-// ===============================================
-%section#tour.gray-bg.padding-top
-
-  .container
-
-    %h1.section-title
-      Take a Tour
-    %p.section-description
-      Join us for a year of eating in season. Try each veggie three ways, and learn how to get your family involved. Packed with tutorials and tips for the busy parent.
-
-    .ipad-frame.scrollimation.fade-up
-
-      = image_tag 'qubico/ipad-landscape.png', class: 'img-responsive img-center'
-
-      .ipad-screen.ipad-slider
-
-        %ul.slides
-
-          %li
-            = image_tag 'qubico/tour-2.png', class: 'img-responsive'
-
-          %li
-            = image_tag 'qubico/tour-15.png', class: 'img-responsive'
-
-          %li
-            = image_tag 'qubico/tour-3.png', class: 'img-responsive'
-
-          %li
-            = image_tag 'qubico/tour-4.png', class: 'img-responsive'
-
-          %li
-            = image_tag 'qubico/tour-5.png', class: 'img-responsive'
-
-          %li
-            = image_tag 'qubico/tour-6.png', class: 'img-responsive'
-
-          %li
-            = image_tag 'qubico/tour-16.png', class: 'img-responsive'
-
-          %li
-            = image_tag 'qubico/tour-14.png', class: 'img-responsive'
-
-          %li
-            = image_tag 'qubico/tour-11.png', class: 'img-responsive'
-
+= render 'shared/tour'
 
 // -- ==============================================
 // CALL TO ACTION

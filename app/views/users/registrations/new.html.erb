@@ -1,117 +1,65 @@
-<% content_for :hide_nav, true %>
-
-<!-- Modal -->
-<div class="modal fade modal-auto-open" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-
-      <div class="modal-body">
-        <% flash.each do |name, msg| %>
-            <% if msg.present? %>
-                <div class='alert alert-<%= name == :notice ? 'success' : 'danger' %>'>
-                  <a class='close' data-dismiss='alert'>×</a>
-                  <%= msg.html_safe %>
+<div class='container-fluid'>
+  <div class='row'>
+    <div class='col-md-5'>
+      <h2 class='form-signup-header'>Sign up for Joyful 12</h2>
+      <%= render 'shared/flash' %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form-signup' }) do |f| %>
+        <%= devise_error_messages! %>
+        <div class='account-info'>
+          <div class='row'>
+            <div class='form-inline'>
+              <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                  <%= f.label :first_name%><br />
+                  <%= f.text_field :first_name, autofocus: true, class: 'form-control' %>
                 </div>
-            <% end %>
-        <% end %>
-        <div class='row'>
-          <div class='col-sm-6'>
-            <img class='img-responsive centered' src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/fce7b5feeb239e87f850cac1748a0962096f4f6a.png?1403727274" />
+              </div>
+
+              <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                  <%= f.label :last_name %><br />
+                  <%= f.text_field :last_name, autofocus: true, class: 'form-control' %>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class='col-sm-6'>
-            <img class='img-responsive centered' src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/78dc16ce333ebb75cb7fe869ae47cda2c6bdcbb4.png?1403727291" />
+
+          <div class="form-group">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, class: 'form-control' %>
           </div>
+
+          <div class="form-group">
+            <%= f.label :password, 'Create Password' %>
+            <% if @validatable %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+          </div>
+
+          <div id="coupon_form" class="form-group form-inline">
+            <div class="row">
+              <div class="col-xs-8">
+                <label>Promo Code (Optional)</label>
+                <input id="coupon_value" type="text" class='form-control'>
+              </div>
+              <div class="col-xs-3">
+                <button id="coupon_button" class="btn btn-primary coupon-button">Apply</button>
+              </div>
+            </div>
+          </div>
+
+          <h3>Membership costs: <span class="price"><%= pp_price(@price) %></span>.</h3>
+          <%= f.submit create_account_text, id: 'create-account', class: 'btn btn-lg btn-primary btn-block toggler' %>
+          <%= render "devise/shared/links" %>
         </div>
-        <div class="top-buffer"></div>
-        <h2 class="text-center">
-	  <%- if HomePageFeature.get_feature_switched(:signup_modal_text, session).nil? %>
-	    <%= "Welcome user! Please Fill In These Fields" %>
-	  <%- else %>
-	    <%= "#{HomePageFeature.get_feature_switched(:signup_modal_text, session)} Please Create An Account." %>
-	  <%- end %>	  
-	</h2>
-        <%= form_for(@user, :url => registration_path(:user), html: { role: "form" }) do |f| %>
-          <div class="form-group">
-	    <div class='row'>
-              <%= f.label :first_name, class: 'col-sm-6'%>
-              <%= f.label :last_name, class: 'col-sm-6' %>
-	    </div>
-	    <div class='row'>
-	      <div class='col-sm-6'>
-		<%= f.text_field :first_name, class: 'form-control', autofocus: true, placeholder: 'Required' %>
-	      </div>
-	      <div class='col-sm-6'>
-		<%= f.text_field :last_name, class: 'form-control', placeholder: 'Required' %>
-	      </div>
-            </div>
-	  </div>
-          <div class="form-group">
-            <%= f.label :email %>
-            <%= f.email_field :email, class: 'form-control', placeholder: 'Required' %>
-          </div>
-
-            <div class="form-group">
-              <%= f.label :password, 'Create Password' %>
-              <%= f.password_field :password, class: 'form-control', placeholder: 'Required' %>
-            </div>
-
-	    <div class="form-group">
-              <%= f.label :password_confirmation, 'Confirm Password' %>
-              <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Required' %>
-	    </div>
-
-	  <%= f.fields_for(:shipping_addresses) do |addr_f| %>
-            <div class="form-group">
-	      <div class='row'>
-		<%= addr_f.label :line_1, 'Address Line 1', class: 'col-sm-12'%>
-	      </div>
-	      <div class='row'>
-		<div class='col-sm-12'>
-		  <%= addr_f.text_field :line_1, class: 'form-control'%>
-		</div>
-	      </div>
-	    </div>
-
-            <div class="form-group">
-	      <div class='row'>
-		<div class='col-sm-6'>
-		  <%= addr_f.label :city %>
-		</div>
-		<div class='col-sm-2'>
-		  <%= addr_f.label :state %>
-		</div>
-		<div class='col-sm-4'>
-		  <%= addr_f.label :zip_code, 'ZIP' %>
-		</div>
-	      </div>
-	      <div class='row'>
-		<div class='col-sm-6'>
-		  <%= addr_f.text_field :city, class: 'form-control' %>
-		</div>
-		<div class='col-sm-2'>
-		  <%= addr_f.text_field :state, class: 'form-control' %>
-		</div>
-		<div class='col-sm-4'>
-		  <%= addr_f.text_field :zip_code, class: 'form-control' %>
-		</div>
-	      </div>
-	    </div>
-	  <%- end %>	  
-
-            <%= f.submit "Next", class: 'btn btn-primary' %>
-
-        <% end %>
-        <div class="top-buffer"></div>
-      </div>
+      <% end %>
     </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-12">
-    <img src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/92c20922c149425b951205856aa20da17cdc69d9.png?1393806541" />
-  </div>
-  <div class='col-md-12 bottom-padding'>
-    <img src="http://d3uroln2zt6ogz.cloudfront.net/pages/media/original/d4079534f8a4659424e86c5ef0a12556d2580ee1.png?1393734220" />
+    <%= render 'shared/registration_photo' %>
   </div>
 </div>

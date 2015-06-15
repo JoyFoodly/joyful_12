@@ -1,5 +1,5 @@
 Paperclip.options[:command_path] = '/usr/local/bin'
-
+ENV['PRICE_PER_SEASON'] = '4800'
 require 'dotenv'
 Dotenv.load
 
