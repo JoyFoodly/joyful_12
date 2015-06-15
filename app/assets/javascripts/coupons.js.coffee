@@ -26,7 +26,7 @@ $(document).ready () ->
           if coupon.welcome_message
             msg = coupon.welcome_message
           else
-            msg = "Promo code found! Your new price is #{price}."
+            msg = code_found(price, gift_price)
           type = 'success'
           show_ajax_message msg, type
         else
@@ -34,6 +34,13 @@ $(document).ready () ->
           type = 'warning'
           show_ajax_message msg, type
 
+
+  code_found = (price, gift_price) ->
+    if window.location.href.match(/gift/)
+      price = gift_price
+    else
+      price = price
+    msg = "Promo code found! Your new price is #{price}."
 
   show_ajax_message = (msg, type) ->
     $('#flash-messages').html "<div class='alert alert-#{type}'>#{msg}</div>"
