@@ -11,10 +11,13 @@
  */
 
 /* "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables" */
+
 @import "bootstrap-sprockets";
 @import 'bootstrap_app_config';
 @import "bootstrap";
 @import 'bootstrap_extensions';
+@import 'registrations';
+@import 'payment';
 @import 'parent_resources';
 @import 'sign_up';
 @import 'style';
@@ -25,4 +28,3 @@
 @import 'qubico/flexslider';
 @import 'qubico/styled-qubico-customizations';
 @import 'root_page';
-

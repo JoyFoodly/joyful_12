@@ -1,6 +1,11 @@
 require 'spec_helper'
+require 'webmock/rspec'
 
 describe Yummly do
+  before do
+    WebMock.disable_net_connect!(:allow_localhost => true)
+  end
+
   describe '.search' do
     it 'searches the Yummly API for the given term' do
       stub_request(:get, "http://api.yummly.com/v1/api/recipes?_app_id=#{ENV['YUMMLY_APP_ID']}&_app_key=#{ENV['YUMMLY_APP_KEY']}&q=yummly%20term").
@@ -64,5 +69,9 @@ describe Yummly::SearchResult do
     it 'returns the yummly source URL' do
       expect(Yummly::SearchResult.new('source' => { 'sourceRecipeUrl' => 'yummly-recipe-url'}).source_url).to eq('yummly-recipe-url')
     end
+  end
+
+  after do
+    WebMock.disable!    
   end
 end

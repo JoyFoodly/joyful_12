@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150224023853) do
+ActiveRecord::Schema.define(version: 20150608031628) do
 
   create_table "addresses", force: true do |t|
     t.string   "line_1",     default: "", null: false
@@ -83,7 +83,10 @@ ActiveRecord::Schema.define(version: 20150224023853) do
     t.text     "welcome_message"
     t.float    "price"
     t.float    "gift_price"
+    t.datetime "deleted_at"
   end
+
+  add_index "coupons", ["deleted_at"], name: "index_coupons_on_deleted_at"
 
   create_table "dietary_categories", force: true do |t|
     t.string   "name",              default: "", null: false
@@ -154,6 +157,23 @@ ActiveRecord::Schema.define(version: 20150224023853) do
     t.boolean  "testimonial_approval"
     t.boolean  "testimonial"
   end
+
+  create_table "gifts", force: true do |t|
+    t.integer  "giver_id"
+    t.integer  "receiver_id"
+    t.integer  "coupon_id"
+    t.string   "your_name"
+    t.string   "your_email"
+    t.string   "message"
+    t.string   "their_email"
+    t.float    "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "gifts", ["coupon_id"], name: "index_gifts_on_coupon_id"
+  add_index "gifts", ["giver_id"], name: "index_gifts_on_giver_id"
+  add_index "gifts", ["receiver_id"], name: "index_gifts_on_receiver_id"
 
   create_table "home_page_features", force: true do |t|
     t.string   "key"
@@ -230,12 +250,10 @@ ActiveRecord::Schema.define(version: 20150224023853) do
     t.string   "product_id",  default: "", null: false
     t.string   "customer_id", default: "", null: false
     t.string   "charge_id",   default: "", null: false
-    t.integer  "user_id",                  null: false
+    t.integer  "user_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
-
-  add_index "payments", ["user_id"], name: "index_payments_on_user_id"
 
   create_table "pdfs", force: true do |t|
     t.string   "file_file_name",    null: false
@@ -359,6 +377,7 @@ ActiveRecord::Schema.define(version: 20150224023853) do
     t.string   "gift_giver_name"
     t.text     "gift_message",                limit: 255
     t.text     "address_string"
+    t.boolean  "signed_up",                               default: false, null: false
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

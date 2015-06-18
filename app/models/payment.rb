@@ -1,47 +1,35 @@
 class Payment < ActiveRecord::Base
   belongs_to :user
   
-  before_validation :set_amount
-  
   validates :amount,      presence: true, numericality: { greater_than: 0 }
   validates :card_token,  presence: true
   validates :product_id,  presence: true, inclusion: { in: %w[beta season year] }
-  validates :user_id,     presence: true
   validate :create_stripe_customer
   validate :create_stripe_charge
   validates :customer_id, presence: true
   validates :charge_id,   presence: true
+  validate :has_email
+
+  attr_writer :email, :coupon
+  attr_accessor :gift
   
   private
-  
-  def set_amount
-    if Rails.env.development?
-      self.amount = 4242
-    else
-      if user.coupon_id
-        c = Coupon.find_by_shareable_tag(user.coupon_id)
-        self.amount = c.price.to_i
-      else
-        self.amount = product_id == 'season' ? ENV['PRICE_PER_SEASON'].to_i : ENV['PRICE_PER_YEAR'].to_i
-      end
-    end
-  end
 
   def create_stripe_customer
     return if errors.present?
-    if user.payment_gateway_customer_id.present?
+    if user && user.payment_gateway_customer_id.present?
       self.customer_id = user.payment_gateway_customer_id
     else
       customer = Stripe::Customer.create(
-        email: user.email,
-        card: card_token,
-        metadata: { user_id: user.id },
+        email: user_email,
+        source: card_token,
+        metadata: { user_id: user_id },
       )
       self.customer_id = customer.id
-      user.update_attributes!(payment_gateway_customer_id: customer.id)
+      user.update_attribute(:payment_gateway_customer_id, customer.id) if user
     end
   rescue Stripe::StripeError => error
-    errors[:base] << error.message
+    errors[:stripe] << error.message
   end
 
   def create_stripe_charge
@@ -54,7 +42,22 @@ class Payment < ActiveRecord::Base
     )
     self.charge_id = charge.id
   rescue Stripe::StripeError => error
-    errors[:base] << error.message
+    errors[:stripe] << error.message
   end
 
+  def user_id
+    user.id if user
+  end
+
+  def user_email
+    user ? user.email : @email
+  end
+
+  def coupon
+    @coupon || (user.coupons.first if user)
+  end
+
+  def has_email
+   errors.add(:base, 'payment must have email') unless user_email
+  end
 end

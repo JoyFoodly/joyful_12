@@ -27,6 +27,8 @@ module Joyfoodly
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.assets.precompile += %w[jquery-2.1.0.js qubico.css qubico.js]
-
+    config.action_mailer.default_url_options = { :host => "joyful12.com" }
+    
+    config.active_record.raise_in_transactional_callbacks = true
   end
 end

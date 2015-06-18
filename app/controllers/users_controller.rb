@@ -9,6 +9,20 @@ class UsersController < ApplicationController
     @child_recipes = shopping_lists.map(&:recipes).flatten.map(&:child_recipes).flatten
   end
 
+  def edit_account
+    @user = current_user
+  end
+
+  def update_account
+    @user = current_user
+    if @user.update_attributes(user_params)
+      flash.now[:notice] = 'Information updated'
+    else
+      flash.now[:warning] = @user.errors.full_messages.to_sentence
+    end
+    render :edit_account
+  end
+
   def change_password
     @user = current_user
   end
@@ -28,6 +42,11 @@ class UsersController < ApplicationController
 private
 
   def user_params
+    if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
+      params[:user].delete(:password)
+      params[:user].delete(:password_confirmation)
+    end
+
     params.require(:user).permit(:username, :email, :first_name, :last_name, :password, :password_confirmation,
                                  :family_description, :family_struggles, :onboarded, family_member_params)
   end

@@ -1,0 +1,72 @@
+<div class='container-fluid'>
+  <div class='row'>
+    <div class='col-md-4'>
+      <h2 class='form-signup-header'>Give the gift of Joyful 12</h2>
+      <%= render 'shared/flash' %>
+      <%= form_for(@gift, html: { id: 'payment-form' }) do |f| %>
+        <div class='gift-form'>
+          <div class="form-group">
+            <%= f.label :your_name%><br />
+            <%= f.text_field :your_name, value: @gift.your_name || current_user.try(:full_name), autofocus: true, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :your_email %><br />
+            <%= f.text_field :your_email, value: @gift.your_email || current_user.try(:email), autofocus: true, class: 'form-control' %>
+            <p class="help-block">This is where you'll receive your receipt.</p>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :message, 'Message (Optional)' %><br />
+            <%= f.text_area :message, autofocus: true, class: 'form-control' %>
+          </div>
+
+          <h3>Gift Receiver</h3>
+          <div class="form-group">
+            <%= f.label :their_email%><br />
+            <%= f.text_field :their_email, autofocus: true, class: 'form-control' %>
+          </div>
+
+          <%= render 'shared/coupon' %>
+
+          <% if @gift_price > 0 %>
+            <%= render 'shared/payment_errors' %>
+            <div class='billing-info'>
+              <%= javascript_include_tag "https://js.stripe.com/v2/" %>
+              <script>
+                Stripe.setPublishableKey("<%= Rails.application.secrets.stripe_publishable_key %>");
+              </script>
+              <h3>Billing Info</h3>
+              <div class="form-group">
+                <%= label_tag :credit_card_number %><br />
+                <%= text_field_tag :credit_card_number, nil, autofocus: true, id: nil, name: nil, class: 'form-control', data: { stripe: 'number' } %>
+              </div>
+
+              <div class="form-group">
+                <%= label_tag :cvc, 'CVC'%><br />
+                <%= text_field_tag :cvc, nil, autofocus: true, id: nil, name: nil, class: 'form-control', data: { stripe: 'cvc' } %>
+              </div>
+
+              <div class='form-inline'>
+                <div class="form-group">
+                  <%= label_tag :expiration_month %><br />
+                  <%= select_tag :expiration_month, options_for_select(months), autofocus: true, id: nil, name: nil, class: 'form-control',
+                    data: { stripe: 'exp-month' } %>
+                </div>
+
+                <div class="form-group">
+                  <%= label_tag :expiration_year %><br />
+                  <%= select_tag :expiration_year, options_for_select(years), autofocus: true, id: nil, name: nil, class: 'form-control',
+                    data: { stripe: 'exp-year' } %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          <h3>Total Amount To Be Charged: <span class="gift-price"><%= pp_price(@gift_price) %></span>.</h3>
+
+          <%= submit_tag('Gift Joyful 12!', class: 'give-gift btn btn-lg btn-primary btn-block toggler') %>
+        </div>
+      <% end %>
+    </div>
+    <%= render 'shared/registration_photo' %>
+  </div>
+</div>

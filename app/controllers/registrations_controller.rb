@@ -1,111 +1,32 @@
 class RegistrationsController < Devise::RegistrationsController
-  # Devise controller for user scope
-
   layout 'qubico', except: [:new]
+  before_action :set_price
 
   def new
     @user = User.new
-    @user.shipping_addresses.build
+    render layout: 'sign_up_flow'
   end
   
   def create
-    if session[:partner_id]
-      coupon = Coupon.find_by_shareable_tag session[:partner_id].downcase
-      @shareable_tag = session[:partner_id]
+    @user = User.new(user_params)
+    coupon = found_coupon?
+    @user.coupon_id = coupon.try(:id)
+    @user.signed_up = true if @price == 0
+
+    if @user.save
+      coupon.destroy if coupon.try(:gift?)
+      flash[:notice] = 'Your account was created successfully.'
+      sign_in(User, @user)
+      respond_with @user, location: after_sign_up_path_for(@user)
     else
-      coupon = nil
-    end
-    
-    if params['stripeToken']
-      @user = UserRegistration.from_stripe_params(stripe_params, coupon)
-    else
-      # Enter dummy shipping attributes, if nothing is filled in.
-      if all_empty(params[:user][:shipping_addresses_attributes]['0'])
-        fill_in_dummy(params[:user][:shipping_addresses_attributes]['0'])
-      end
-
-      # Set the country explicitly
-      if params[:user][:shipping_addresses_attributes]
-        params[:user][:shipping_addresses_attributes]['0'][:country] = 'USA'
-      end
-
-      @user = User.new(params[:user].permit(:first_name, :last_name, :email, :password,
-                                            :password_confirmation,
-                                            shipping_addresses_attributes: [ :line_1, :city, :state, :zip_code, :country]))
-
-      @user.coupon_id = coupon.shareable_tag if coupon
-      @user.save
-    end
-
-    if @user.persisted?
-      if !coupon.nil?
-        @user.coupons << coupon
-      end
-      
-      if @user.gift_recipient?
-        redirect_to page_path('gift-sent')
-      else
-        expire_data_after_sign_in!
-        respond_with @user, location: confirmation_sent_path
-      end
-    else
-      if params[:from_page]
-        flash[:message]=@user.errors.full_messages.first
-        redirect_to "#{params[:from_page]}"
-      else
-        flash[:signup_error_message]=@user.errors.full_messages.first
-        render 'users/registrations/new'
-      end
+      render :new
     end
   end
 
   private
-  def all_empty(address_params)
-    [:line_1, :city, :state, :zip_code, :country].inject(true) do |cond, k|
-      cond && (address_params[k].nil? || /^\s*$/.match(address_params[k]))
-    end
-  end
 
-  def fill_in_dummy(address_params)
-    [:line_1, :city, :state, :zip_code, :country].each do |k|
-      address_params[k] = 'XXXXX'
-    end
+  def user_params
+    params[:user].permit(:first_name, :last_name, :email, :password,
+                         :password_confirmation)
   end
-  
-  def stripe_params
-    params.permit("plan_id", "product_id", "stripeToken", "stripeEmail", *recipient_params, *billing_params, *shipping_params)
-  end
-
-  def recipient_params
-    %w[
-      recipient_email
-      recipient_first_name
-      recipient_last_name
-      recipient_gift_message
-      gift_giver_name
-    ]
-  end
-
-  def billing_params
-    %w[
-      stripeBillingName
-      stripeBillingAddressLine1
-      stripeBillingAddressZip
-      stripeBillingAddressState
-      stripeBillingAddressCity
-      stripeBillingAddressCountry
-    ]
-  end
-
-  def shipping_params
-    %w[
-      stripeShippingName
-      stripeShippingAddressLine1
-      stripeShippingAddressZip
-      stripeShippingAddressState
-      stripeShippingAddressCity
-      stripeShippingAddressCountry
-    ]
-  end
-
 end

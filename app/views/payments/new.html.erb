@@ -1,0 +1,43 @@
+<%= javascript_include_tag "https://js.stripe.com/v2/" %>
+<script>
+  Stripe.setPublishableKey("<%= Rails.application.secrets.stripe_publishable_key %>");
+</script>
+<div class='container-fluid'>
+  <div class='row'>
+    <div class='col-md-4'>
+      <h2 class='form-signup-header'>Billing Information</h2>
+      <%= render 'shared/flash' %>
+      <%= form_tag(payments_path, id: 'payment-form') do %>
+        <%= render 'shared/payment_errors' %>
+        <div class='billing-info'>
+          <div class="form-group">
+            <%= label_tag :credit_card_number %><br />
+            <%= text_field_tag :credit_card_number, nil, autofocus: true, id: nil, name: nil, class: 'form-control', data: { stripe: 'number' } %>
+          </div>
+
+          <div class="form-group">
+            <%= label_tag :cvc, 'CVC' %><br />
+            <%= text_field_tag :cvc, nil, autofocus: true, id: nil, name: nil, class: 'form-control', data: { stripe: 'cvc' } %>
+          </div>
+
+          <div class='form-inline'>
+            <div class="form-group">
+              <%= label_tag :expiration_month %><br />
+              <%= select_tag :expiration_month, options_for_select(months), autofocus: true, id: nil, name: nil, class: 'form-control',
+                data: { stripe: 'exp-month' } %>
+            </div>
+
+            <div class="form-group">
+              <%= label_tag :expiration_year %><br />
+              <%= select_tag :expiration_year, options_for_select(years), autofocus: true, id: nil, name: nil, class: 'form-control',
+                data: { stripe: 'exp-year' } %>
+            </div>
+          </div>
+
+          <h3>Total Amount To Be Charged: <span class="price"><%= pp_price(@price) %></span>.</h3>
+          <%= button_tag('Subscribe to Joyful 12!', id: 'create-account', class: 'btn btn-lg btn-primary btn-block toggler') %>
+        </div>
+      <% end %>
+    </div>
+    <%= render 'shared/registration_photo' %>
+</div>

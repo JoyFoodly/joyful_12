@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.1.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.1'
+gem 'rails', '~> 4.2'
 gem 'quiet_assets'
 
 # Use SCSS for stylesheets
@@ -31,13 +31,13 @@ gem 'memcachier', '~> 0.0.2'
 gem 'newrelic_rpm', '~> 3.8.0'
 
 # Admin Interface
-gem 'rails_admin', '=0.6.3'
+gem 'rails_admin', '~>0.6'
 
 # User authentication
-gem 'devise', '~> 3.2.2'
+gem 'devise', '~> 3.5'
 
 # Accept Payments
-gem 'stripe', '~> 1.13.0'
+gem 'stripe', '~> 1.20.0'
 
 # Markdown parsing
 gem 'redcarpet', '~> 3.1.1'
@@ -57,29 +57,40 @@ gem 'jquery-rails', '~> 3'
 # Mailing Lists
 gem 'gibbon', '~> 1.1.2'
 
-group :test do
-  # Testing framework
-  gem 'rspec-rails', '~> 2.14.0'
+gem 'paranoia', '~> 2.0'
 
+group :test do
   # Test fixtures
   gem 'factory_girl_rails', '~> 4.4.1'
-
+  gem 'webmock'
+  
   # Request spec DSL
   gem 'capybara', '~> 2.3.0'
+  gem 'capybara-screenshot'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
 
   # Disallow external requests in test env
-  gem 'webmock', '~> 1.18.0'
+  gem 'stripe-ruby-mock', '~> 2.1.1', require: 'stripe_mock'
 
   # Coverage stats
   gem 'simplecov', '~> 0.8.2', require: false
 end
 
+group :development do
+ gem 'guard-rspec', require: false
+end
+
 group :development, :test do
+  # Testing framework
+  gem 'rspec-rails', '~> 3.1'
+  gem 'rspec-its'
+  
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 
   # Live reload page
-  gem 'guard-livereload', '~> 2.2.0'
+  gem 'guard-livereload'#, '~> 2.2.0'
 
   # Error REPL
   gem 'better_errors', '~> 1.1.0'

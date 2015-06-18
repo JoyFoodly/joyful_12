@@ -4,7 +4,7 @@ feature 'Add recipe to shopping lists' do
   let(:user) { create(:user) }
   let(:recipe) { create(:recipe) }
   before(:each) do
-    sign_in(user)
+    login_as(user, scope: :user)
     user.seasons << recipe.food.season
   end
 

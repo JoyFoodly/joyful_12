@@ -1,4 +1,6 @@
 class Coupon < ActiveRecord::Base
+  acts_as_paranoid
+
   has_many :coupon_allocations, dependent: :destroy
   has_many :partners, through: :coupon_allocations
   
@@ -7,6 +9,14 @@ class Coupon < ActiveRecord::Base
   validate :tag_is_shareable
   before_save :pre_process_steps
   
+  def price
+    read_attribute(:price).try(:to_i)
+  end
+
+  def gift_price
+    read_attribute(:gift_price).try(:to_i)
+  end
+
   def pre_process_steps
     # Generate a shareable link
     self.tag_signed = ActiveSupport::MessageVerifier.new(Joyfoodly::Application.config.secret_key_base).generate(shareable_tag)
@@ -18,6 +28,10 @@ class Coupon < ActiveRecord::Base
   
   def invite_link
     'http://www.joyful12.com/?tid=' + self.tag_signed
+  end
+
+  def gift?
+    self.shareable_tag.match(/\Agift/).nil? ? false : true
   end
 
   def tag_is_shareable
