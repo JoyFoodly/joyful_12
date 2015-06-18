@@ -44,7 +44,7 @@ describe RegistrationsController do
       it 'does not save a new user' do
         expect {
           post :create, user: attributes_for(:invalid_user)
-        }.to_not change(User, :count).by(1)
+        }.to change(User, :count).by(0)
       end
 
       it 're-renders :new template' do

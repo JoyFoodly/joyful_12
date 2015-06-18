@@ -18,7 +18,7 @@ en:
       unconfirmed: "You need to confirm your account before continuing."
     mailer:
       confirmation_instructions:
-        subject: "Joyful 12 Confirmation Instructions"
+        subject: "Welcome to Joyful 12!"
       reset_password_instructions:
         subject: "Joyful 12 Reset Password Instructions"
       unlock_instructions:

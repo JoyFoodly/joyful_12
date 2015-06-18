@@ -5,7 +5,8 @@ SimpleCov.start
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
-require 'rspec/autorun'
+require 'rspec/its'
+#require 'rspec/autorun'
 require 'capybara-screenshot/rspec'
 require 'devise'
 require 'webmock/minitest'
@@ -37,7 +38,8 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = false
-
+  config.infer_spec_type_from_file_location!
+  
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
   # rspec-rails.
@@ -69,6 +71,7 @@ RSpec.configure do |config|
   end
 
   config.order = "random"
+  config.include ActiveJob::TestHelper, type: :feature
   config.include Devise::TestHelpers, type: :controller
   config.extend ControllerMacros, type: :controller
   config.extend ControllerMacros, type: :request

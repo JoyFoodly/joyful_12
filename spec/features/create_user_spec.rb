@@ -12,7 +12,7 @@ feature 'Allows users to purchase Joyful12' do
     expect { click_button 'Add Billing Information' }.to change { User.count }.by(1)
     user = User.last
     expect(current_path).to eq new_payment_path
-    expect(user.signed_up).to be_false
+    expect(user.signed_up).to be false
 
     fill_in_billing_info
     initial_count = Payment.count
@@ -22,7 +22,7 @@ feature 'Allows users to purchase Joyful12' do
     expect(current_path).to eq edit_user_path(user)
 
     user = User.last
-    expect(user.signed_up).to be_true
+    expect(user.signed_up).to be true
 
     expect(Payment.last.amount).to eq ENV['PRICE_PER_SEASON'].to_i
     expect(Payment.count).to eq initial_count + 1
@@ -39,7 +39,7 @@ feature 'Allows users to purchase Joyful12' do
     expect { click_button 'Add Billing Information' }.to change { User.count }.by(1)
     user = User.last
     expect(current_path).to eq new_payment_path
-    expect(user.signed_up).to be_false
+    expect(user.signed_up).to be_falsey
 
     fill_in_billing_info
     initial_count = Payment.count
@@ -51,8 +51,25 @@ feature 'Allows users to purchase Joyful12' do
     expect(Payment.count).to eq initial_count + 1
 
     user = User.last
-    expect(user.signed_up).to be_true
+    expect(user.signed_up).to be true
     expect(Payment.last.amount).to eq coupon.price
+  end
+
+  scenario 'with a coupon that has custom mail', js: true do
+    coupon = create(:free_coupon_with_custom_mail)
+
+    visit_account_page
+    fill_in_account_form(user)
+    set_coupon(coupon)
+
+    expect(page).to have_text("Membership")
+    expect { click_button 'Create Account' }.to change { User.count }.by(1)
+
+    page.find('#navbar-right').value
+
+    user = User.last
+    expect(ActionMailer::Base.deliveries.last.to[0]).to eq(user.email)
+    expect(ActionMailer::Base.deliveries.last.body).to match(/Lu Sutton/)
   end
 
   scenario 'with a free coupon', js: true do
@@ -65,7 +82,7 @@ feature 'Allows users to purchase Joyful12' do
     expect(page).to have_text("Membership costs: $0.00")
     expect { click_button 'Create Account' }.to change { User.count }.by(1)
     user = User.last
-    expect(user.signed_up).to be_true
+    expect(user.signed_up).to be true
     expect(current_path).to eq edit_user_path(user)
   end
 

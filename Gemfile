@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.1.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.1'
+gem 'rails', '~> 4.2'
 gem 'quiet_assets'
 
 # Use SCSS for stylesheets
@@ -31,10 +31,10 @@ gem 'memcachier', '~> 0.0.2'
 gem 'newrelic_rpm', '~> 3.8.0'
 
 # Admin Interface
-gem 'rails_admin', '=0.6.3'
+gem 'rails_admin', '~>0.6'
 
 # User authentication
-gem 'devise', '~> 3.2.2'
+gem 'devise', '~> 3.5'
 
 # Accept Payments
 gem 'stripe', '~> 1.20.0'
@@ -83,13 +83,14 @@ end
 
 group :development, :test do
   # Testing framework
-  gem 'rspec-rails', '~> 2.14.0'
-
+  gem 'rspec-rails', '~> 3.1'
+  gem 'rspec-its'
+  
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 
   # Live reload page
-  gem 'guard-livereload', '~> 2.2.0'
+  gem 'guard-livereload'#, '~> 2.2.0'
 
   # Error REPL
   gem 'better_errors', '~> 1.1.0'

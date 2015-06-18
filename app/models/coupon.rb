@@ -31,7 +31,7 @@ class Coupon < ActiveRecord::Base
   end
 
   def gift?
-    self.shareable_tag.match(/\Agift/)
+    self.shareable_tag.match(/\Agift/).nil? ? false : true
   end
 
   def tag_is_shareable

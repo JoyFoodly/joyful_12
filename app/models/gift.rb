@@ -23,6 +23,6 @@ class Gift < ActiveRecord::Base
   end
 
  def send_email
-   GiftMailer.sign_up(self).deliver
+   GiftMailer.sign_up(self).deliver_now
  end
 end

@@ -13,6 +13,11 @@ FactoryGirl.define do
       factory :gift_coupon do
         shareable_tag 'gift_abcdefgh'
       end
+
+      factory :free_coupon_with_custom_mail do
+        # Test dependent on code setup - bad idea?
+        shareable_tag 'lusutton'
+      end
     end
   end
 end

@@ -2,21 +2,23 @@ require 'spec_helper'
 
 feature 'Allows users to send Joyful 12 as a gift' do
   include CapybaraHelpers
-
-  let(:gift) { build(:gift) }
+  
+  let(:my_gift) { build(:gift) }
 
   scenario 'without a coupon', js: true do
     visit_gift_page
-    fill_in_gift_form(gift)
+    fill_in_gift_form(my_gift)
     fill_in_billing_info
     initial_count = Gift.count
     click_button 'Gift Joyful 12!'
+    
     page.find('.rootpage').value
 
+    expect(ActionMailer::Base.deliveries.last.to[0]).to eq 'jane.doe@gmail.com' # Their email
     expect(Gift.count).to eq initial_count + 1
 
     created_gift = Gift.last
-    expect(created_gift.their_email).to eq gift.their_email
+    expect(created_gift.their_email).to eq my_gift.their_email
     expect(current_path).to eq root_path
 
     payment = Payment.last
@@ -28,7 +30,7 @@ feature 'Allows users to send Joyful 12 as a gift' do
     coupon = create(:coupon)
 
     visit_gift_page
-    fill_in_gift_form(gift)
+    fill_in_gift_form(my_gift)
     set_coupon(coupon)
     fill_in_billing_info
     expect(page).to have_text("Total Amount To Be Charged: $25.00")
@@ -40,7 +42,7 @@ feature 'Allows users to send Joyful 12 as a gift' do
     expect(Gift.count).to eq initial_count + 1
 
     created_gift = Gift.last
-    expect(created_gift.their_email).to eq gift.their_email
+    expect(created_gift.their_email).to eq my_gift.their_email
     expect(current_path).to eq root_path
 
     payment = Payment.last
@@ -52,7 +54,7 @@ feature 'Allows users to send Joyful 12 as a gift' do
     coupon = create(:free_coupon)
 
     visit_gift_page
-    fill_in_gift_form(gift)
+    fill_in_gift_form(my_gift)
     set_coupon(coupon)
     page.find('.alert-success').value
 
@@ -67,7 +69,7 @@ feature 'Allows users to send Joyful 12 as a gift' do
     expect(Gift.count).to eq initial_count + 1
 
     created_gift = Gift.last
-    expect(created_gift.their_email).to eq gift.their_email
+    expect(created_gift.their_email).to eq my_gift.their_email
     expect(current_path).to eq root_path
     expect(Payment.count).to eq initial_count
   end

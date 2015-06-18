@@ -5,7 +5,7 @@ describe User do
 
   describe 'factory' do
     subject { @user }
-    it { subject.should be_valid }
+    it { expect(subject.valid?).to be true }
   end
 
   describe 'user validation' do

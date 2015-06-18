@@ -15,7 +15,7 @@ describe 'Payments' do
         find('select[data-stripe="exp-month"]').set('10')
         find('select[data-stripe="exp-year"]').set('2050')
         click_button('Subscribe to Joyful 12!')
-        page.driver.request.params.should_not include('credit_card_number', 'cvc', 'expiration_month', 'expiration_year')
+        expect(page.driver.request.params).to_not include('credit_card_number', 'cvc', 'expiration_month', 'expiration_year')
       end
     end
   end

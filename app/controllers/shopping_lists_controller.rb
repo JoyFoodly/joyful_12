@@ -37,7 +37,7 @@ class ShoppingListsController < ApplicationController
       if params[:archive].present?
         redirect_to "#{edit_user_path('me')}#shopping-lists", notice: 'Shopping list saved!'
       elsif params[:email].present?
-        Emailer.shopping_list(current_user, @shopping_list).deliver
+        Emailer.shopping_list(current_user, @shopping_list).deliver_now
         redirect_to edit_shopping_list_path(@shopping_list), notice: 'Shopping list emailed!'
       else
         redirect_to edit_shopping_list_path(@shopping_list), notice: 'Shopping list updated!'
