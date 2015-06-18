@@ -11,7 +11,7 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   if Rails.env.production?
-    config.mailer_sender = 'accounts@joyfoodly.com'
+    config.mailer_sender = ENV['MAIL_SENDER_ACCOUNT']
   else
     config.mailer_sender = 'siruguri@gmail.com'
   end
