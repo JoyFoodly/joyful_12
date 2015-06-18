@@ -63,10 +63,13 @@ feature 'Allows users to purchase Joyful12' do
     set_coupon(coupon)
 
     expect(page).to have_text("Membership")
-    expect { click_button 'Create Account' }.to change { User.count }.by(1)
+
+    initial_count = User.count
+    click_button 'Create Account'
 
     page.find('#navbar-right').value
 
+    assert_equal initial_count + 1, User.count
     user = User.last
     expect(ActionMailer::Base.deliveries.last.to[0]).to eq(user.email)
     expect(ActionMailer::Base.deliveries.last.body).to match(/Lu Sutton/)
